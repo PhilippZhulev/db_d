@@ -1,0 +1,7 @@
+
+.ftppass
+
+node_modules/
+.idea
+
+secret/ 

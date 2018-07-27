@@ -1,0 +1,43 @@
+{
+  "name": "BOBR",
+  "version": "1.1.0",
+  "private": true,
+  "dependencies": {
+    "@amcharts/amcharts3-react": "^3.1.0",
+    "@material-ui/core": "^1.4.1",
+    "@material-ui/icons": "^1.1.0",
+    "@material-ui/lab": "^1.0.0-alpha.6",
+    "amcharts3": "^3.21.13",
+    "glob": "^7.1.2",
+    "grunt": "^1.0.1",
+    "grunt-contrib-stylus": "^1.2.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-git": "^1.0.9",
+    "grunt-sftp-deploy": "^0.2.5",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "react-scripts": "^1.1.4",
+    "redux": "^4.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "p": "grunt gitpush",
+    "f": "grunt gitfetch",
+    "c": "grunt gitcommit",
+    "ftp": "grunt sftp-deploy",
+    "git": "grunt gitfetch gitcommit gitpush",
+    "docs": "npx styleguidist build",
+    "docsDev": "npx styleguidist server",
+    "bobr": "npm start grunt"
+  },
+  "devDependencies": {
+    "grunt-ftp": "^2.1.0",
+    "grunt-ftp-deploy": "^0.2.0",
+    "react-style": "^0.5.5",
+    "react-styleguidist": "^7.1.1"
+  }
+}
