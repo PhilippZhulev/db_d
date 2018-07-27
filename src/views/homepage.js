@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import MultiLine from '../components/charts/MultyLineCharts';
 import dataBank from '../secret/data_bank';
-//test
+
+
 class Home extends Component {
     constructor(props) {
         super(props);

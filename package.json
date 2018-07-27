@@ -29,10 +29,9 @@
     "f": "grunt gitfetch",
     "c": "grunt gitcommit",
     "ftp": "grunt sftp-deploy",
-    "git": "grunt gitfetch gitcommit gitpush",
+    "git": "grunt gitcommit gitpush ",
     "docs": "npx styleguidist build",
-    "docsDev": "npx styleguidist server",
-    "bobr": "npm start grunt"
+    "docsDev": "npx styleguidist server"
   },
   "devDependencies": {
     "grunt-ftp": "^2.1.0",

@@ -48,19 +48,16 @@ module.exports = function(grunt) {
         gitcommit: {
             your_target: {
                 options: {
+<<<<<<< HEAD
                     branch: 'Volchanskiy',
                     force: true,
                     exclude: true
+=======
+                    branch: 'Zhulev'
+>>>>>>> prod
                 },
                 files: {
-                    src: ['src/**/*', 'public/**/*', 'api/**/*'],
-                }
-            }
-        },
-        gitfetch: {
-            your_target: {
-                options: {
-                    all: true
+                    src: ['src/**/*', 'public/**/*', 'api/**/*', '!src/secret', '!src/secret/data_bank.js']
                 }
             }
         },
@@ -68,16 +65,6 @@ module.exports = function(grunt) {
             your_target: {
                 options: {
                     branch: 'Volchanskiy'
-                }
-            }
-        },
-        gitadd: {
-            task: {
-                options: {
-                    force: true
-                },
-                files: {
-                    src: ['src/**/**']
                 }
             }
         },
@@ -114,7 +101,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['watch', 'stylus']);
     console.log("**************************");
     console.log("Команды:");
-    console.log("npm run bobr ----- Запуск среды разработки.")
     console.log("npm run git ------ Залить в реп.");
     console.log("npm run c -------- Сделать commit в реп.");
     console.log("npm run p -------- Сделать push в реп.");
