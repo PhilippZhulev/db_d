@@ -67,7 +67,7 @@ module.exports = function(grunt) {
         gitpush: {
             your_target: {
                 options: {
-                    branch: 'Zhulev' 
+                    branch: 'Zhulev'
                 }
             }
         },
