@@ -1,4 +1,4 @@
-
+*~
 .ftppass
 
 node_modules/
@@ -6,4 +6,4 @@ node_modules/
 
 secret/
 build/
-Gruntfile.js
+/Gruntfile.js
