@@ -48,7 +48,7 @@ module.exports = function(grunt) {
         gitcommit: {
             your_target: {
                 options: {
-                    branch: 'Zhulev',
+                    branch: 'Volchanskiy',
                     force: true,
                     exclude: true
                 },
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
         gitpush: {
             your_target: {
                 options: {
-                    branch: 'Zhulev'
+                    branch: 'Volchanskiy'
                 }
             }
         },
