@@ -4,6 +4,6 @@
 node_modules/
 .idea
 
-secret/ 
+secret/
 build/
 Gruntfile.js
