@@ -48,13 +48,7 @@ module.exports = function(grunt) {
         gitcommit: {
             your_target: {
                 options: {
-<<<<<<< HEAD
-                    branch: 'Volchanskiy',
-                    force: true,
-                    exclude: true
-=======
-                    branch: 'Zhulev'
->>>>>>> prod
+                    branch: 'Volchanskiy'
                 },
                 files: {
                     src: ['src/**/*', 'public/**/*', 'api/**/*', '!src/secret', '!src/secret/data_bank.js']
