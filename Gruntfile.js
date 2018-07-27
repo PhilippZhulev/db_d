@@ -51,7 +51,7 @@ module.exports = function(grunt) {
                     branch: 'Zhulev'
                 },
                 files: {
-                    src: ['*.{js,jsx,gif,png,jpg,svg,css,json,styl,md,html,ttf,eot,woff,woff2,ico,map}']
+                    src: ['src/**/*', 'public/**/*', 'api/**/*', '!src/secret', '!src/secret/data_bank.js']
                 }
             }
         },
