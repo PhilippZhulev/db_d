@@ -4,9 +4,6 @@
 node_modules/
 .idea
 
-secret/ 
-=======
 secret/
 build/
->>>>>>> prod
 Gruntfile.js
