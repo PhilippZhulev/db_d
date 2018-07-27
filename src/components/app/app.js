@@ -21,7 +21,7 @@ class App extends Component {
                 <Header />
                 <Tabs settings={{
                     items: ["KPI", "OPEX","CIB","КБ","РБ"],
-                    pages: [<Home />, <Opex />,<Cib/>,<Kb/>,<Rb/>]
+                    pages: [<Home />, <Opex />,<Cib/>,<Kb/>,<Rb/>] 
                 }} />
                 <div className="app_menu_output">
                     <Slider labelText="Числ-ть опер. функции, чел." min={1} max={5} value={3}/>
