@@ -6,6 +6,9 @@ import Slider from '../material/slider/SimpleSlider';
 import Btn from '../material/buttons/ContainedButtons';
 import Home from '../../views/homepage';
 import Opex from '../../views/opexpage';
+import Cib from '../../views/kpi-cib';
+import Kb from '../../views/kpi-kb';
+import Rb from '../../views/kpi-rb';
 
 class App extends Component {
     constructor(props) {
@@ -17,8 +20,8 @@ class App extends Component {
             <div className="app_output">
                 <Header />
                 <Tabs settings={{
-                    items: ["KPI", "OPEX"],
-                    pages: [<Home />, <Opex />]
+                    items: ["KPI", "OPEX","CIB","КБ","РБ"],
+                    pages: [<Home />, <Opex />,<Cib/>,<Kb/>,<Rb/>]
                 }} />
                 <div className="app_menu_output">
                     <Slider labelText="Числ-ть опер. функции, чел." min={1} max={5} value={3}/>

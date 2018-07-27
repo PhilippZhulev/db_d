@@ -56,7 +56,7 @@ class ScrollableTabsButtonAuto extends React.Component {
                     return <Tab key={i} className="tabs_item" label={item} />
                 })
               }
-              <Select classes={{select: "super_select", root: "root_select_1"}}/>
+              {/*<Select classes={{select: "super_select", root: "root_select_1"}}/>*/}
           </Tabs>
         </AppBar>
           {
