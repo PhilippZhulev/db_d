@@ -48,12 +48,10 @@ module.exports = function(grunt) {
         gitcommit: {
             your_target: {
                 options: {
-                    branch: 'Zhulev',
-                    force: true,
-                    exclude: true
+                    branch: 'Zhulev'
                 },
                 files: {
-                    src: ['src/**/*', 'public/**/*', 'api/**/*'],
+                    src: ['src/**/*', 'public/**/*', 'api/**/*']
                 }
             }
         },
@@ -68,16 +66,6 @@ module.exports = function(grunt) {
             your_target: {
                 options: {
                     branch: 'Zhulev'
-                }
-            }
-        },
-        gitadd: {
-            task: {
-                options: {
-                    force: true
-                },
-                files: {
-                    src: ['src/**/**']
                 }
             }
         },

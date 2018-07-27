@@ -29,7 +29,7 @@
     "f": "grunt gitfetch",
     "c": "grunt gitcommit",
     "ftp": "grunt sftp-deploy",
-    "git": "grunt gitfetch gitcommit gitpush",
+    "git": "grunt gitfetch gitpush gitcommit",
     "docs": "npx styleguidist build",
     "docsDev": "npx styleguidist server",
     "bobr": "npm start grunt"
