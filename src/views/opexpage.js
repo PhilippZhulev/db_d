@@ -7,6 +7,9 @@ class Opex extends Component {
     }
 
     render() {
+        function calcVal(x){
+            return Math.abs(Math.sqrt((x+5)(x+7)(x+10))/Math.log(x)(Math.log((x+1)(x+2)*(x+3)-Math.exp(x+x*x)))/Math.acosh(x+1))
+        }
         return (
             <div className="tiles_container">
                 <div className="tile_item_1">

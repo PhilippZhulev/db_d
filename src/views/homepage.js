@@ -26,11 +26,11 @@ class Home extends Component {
                 </div>
                 <div className="tile_item_2">
                     <div className="tile_item__inner">
-                        <div className="tile_item__value_small">
-                            {dataBank.INC.value}<span>{dataBank.INC.smallValue}</span>
-                        </div>
                         <div className="tile_item__title_small">
                             {dataBank.INC.title}
+                        </div>
+                        <div className="tile_item__value_small">
+                            {dataBank.INC.value}<span>{dataBank.INC.smallValue}</span>
                         </div>
                         <MultiLine
                             options={dataBank.INC.options}
@@ -39,11 +39,11 @@ class Home extends Component {
                 </div>
                 <div className="tile_item_3">
                     <div className="tile_item__inner">
-                        <div className="tile_item__value_small">
-                            {dataBank.OPEX.value}<span>{dataBank.OPEX.smallValue}</span>
-                        </div>
                         <div className="tile_item__title_small">
                             {dataBank.OPEX.title}
+                        </div>
+                        <div className="tile_item__value_small">
+                            {dataBank.OPEX.value}<span>{dataBank.OPEX.smallValue}</span>
                         </div>
                         <MultiLine
                             options={dataBank.OPEX.options}
@@ -52,11 +52,11 @@ class Home extends Component {
                 </div>
                 <div className="tile_item_4">
                     <div className="tile_item__inner">
-                        <div className="tile_item__value_small">
-                            {dataBank.CIR.value}<span>{dataBank.CIR.smallValue}</span>
-                        </div>
                         <div className="tile_item__title_small">
                             {dataBank.CIR.title}
+                        </div>
+                        <div className="tile_item__value_small">
+                            {dataBank.CIR.value}<span>{dataBank.CIR.smallValue}</span>
                         </div>
                         <MultiLine
                             options={dataBank.CIR.options}
