@@ -67,7 +67,11 @@ module.exports = function(grunt) {
         gitpush: {
             your_target: {
                 options: {
+<<<<<<< HEAD
                     branch: 'Kokorev'
+=======
+                    branch: 'Zhulev' 
+>>>>>>> 131422bbeaf94510cdd6698169e897126bcfe15b
                 }
             }
         },
