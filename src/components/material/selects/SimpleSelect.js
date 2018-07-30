@@ -49,12 +49,13 @@ class SimpleSelect extends React.Component {
                     className="sup_select"
                     name="age"
                 >
-                    <MenuItem value="">Персонал</MenuItem>
-                    <MenuItem value={2}>Сервисы</MenuItem>
-                    <MenuItem value={3}>IT</MenuItem>
-                    <MenuItem value={4}>Прочие</MenuItem>
-                    <MenuItem value={5}>OPEX</MenuItem>
-                    <MenuItem value={6}>Доходы / Риски</MenuItem>
+                    <MenuItem value="">ТОП-10</MenuItem>
+                    <MenuItem value={2}>Персонал</MenuItem>
+                    <MenuItem value={3}>Сервисы</MenuItem>
+                    <MenuItem value={4}>IT</MenuItem>
+                    <MenuItem value={5}>Прочие</MenuItem>
+                    <MenuItem value={6}>OPEX</MenuItem>
+                    <MenuItem value={7}>Доходы / Риски</MenuItem>
                 </Select>
             </FormControl>
 

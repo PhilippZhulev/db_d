@@ -7,6 +7,9 @@ import Btn from '../material/buttons/ContainedButtons';
 import Home from '../../views/homepage';
 import Opex from '../../views/opexpage';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Cib from '../../views/kpi-cib';
+import Kb from '../../views/kpi-kb';
+import Rb from '../../views/kpi-rb';
 
 import store from '../../reduser';
 
@@ -79,7 +82,7 @@ class App extends Component {
                     <Header templ={this.state.theme} />
                     <Tabs templ={this.state.theme} settings={{
                         items: ["KPI", "OPEX"],
-                        pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />]
+                        pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib/>, <Kb/>, <Rb/>]
                     }} />
                     <div className="app_menu_output" style={{background: this.state.theme.primary.menu}}>
                         <Slider labelText="Числ-ть опер. функции, чел." min={1} max={5} value={3}/>

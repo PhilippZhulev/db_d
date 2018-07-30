@@ -25,7 +25,11 @@ const styles = theme => ({
     width: '100%',
     backgroundColor: theme.palette.background.paper,
   },
-});
+  indicator: {
+    backgroundColor: '#FFFFFF',
+  },
+    });
+
 
 class ScrollableTabsButtonAuto extends React.Component {
   state = {
@@ -48,7 +52,7 @@ class ScrollableTabsButtonAuto extends React.Component {
             onChange={this.handleChange}
             indicatorColor="secondary"
             textColor="primary"
-            classes={{flexContainer: "flex_panel"}}
+            classes={{flexContainer: "flex_panel",indicator: classes.indicator }}
             scrollButtons="off"
           >
               {
@@ -56,7 +60,7 @@ class ScrollableTabsButtonAuto extends React.Component {
                     return <Tab key={i} className="tabs_item" style={{color: this.props.templ.primary.tilesText}} label={item} />
                 })
               }
-              <Select templ={this.props.templ} classes={{select: "super_select", root: "root_select_1"}}/>
+              {/*<Select classes={{select: "super_select", root: "root_select_1"}}/>*/}
           </Tabs>
         </AppBar>
           {

@@ -33,6 +33,9 @@ class Home extends Component {
                         <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             {dataBank.INC.title}
                         </div>
+                        <div className="tile_item__value_small">
+                            {dataBank.INC.value}<span>{dataBank.INC.smallValue}</span>
+                        </div>
                         <MultiLine
                             options={dataBank.INC.options}
                             templ={this.props.templ}
@@ -47,6 +50,9 @@ class Home extends Component {
                         <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             {dataBank.OPEX.title}
                         </div>
+                        <div className="tile_item__value_small">
+                            {dataBank.OPEX.value}<span>{dataBank.OPEX.smallValue}</span>
+                        </div>
                         <MultiLine
                             options={dataBank.OPEX.options}
                             templ={this.props.templ}
@@ -60,6 +66,9 @@ class Home extends Component {
                         </div>
                         <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             {dataBank.CIR.title}
+                        </div>
+                        <div className="tile_item__value_small">
+                            {dataBank.CIR.value}<span>{dataBank.CIR.smallValue}</span>
                         </div>
                         <MultiLine
                             options={dataBank.CIR.options}
