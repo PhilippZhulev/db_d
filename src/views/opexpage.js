@@ -10,8 +10,8 @@ class Opex extends Component {
         return (
             <div className="tiles_container">
                 <div className="tile_item_1">
-                    <div className="tile_item__inner">
-                        <div className="tile_item__title">
+                    <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>
+                        <div className="tile_item__title" style={{color: this.props.templ.primary.textValueMain}}>
                             OPEX, млрд. руб
                         </div>
                         <div className="tile_item__value">
@@ -32,15 +32,16 @@ class Opex extends Component {
                                 type: "smoothedLine",
                                 labelPosition:["top", "bottom"]
                             }}
+                            templ={this.props.templ}
                         />
                     </div>
                 </div>
                 <div className="tile_item_2">
-                    <div className="tile_item__inner">
-                        <div className="tile_item__title_small">
+                    <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>
+                        <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                            Персонал
                         </div>
-                        <div className="tile_item__value_small">
+                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
                             34,000
                         </div>
                         <MultiLine
@@ -48,22 +49,22 @@ class Opex extends Component {
                                 grId:"line",
                                 geometry: {width:"80'\%'", height:"90'\%'"},
                                 titles:["graph 1", "graph 2"],
-                                colors: ["#1ab394","#727CF5"],
                                 legend: false,
                                 categories: ["2018", "2019", "2020", "2021"],
                                 data: [[17, 4, 20, 15], [6,7,18,5]],
                                 type: "line",
                                 labelPosition:["top", "bottom"]
                             }}
+                            templ={this.props.templ}
                         />
                     </div>
                 </div>
                 <div className="tile_item_3">
-                    <div className="tile_item__inner">
-                        <div className="tile_item__title_small">
+                    <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>
+                        <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             IT
                         </div>
-                        <div className="tile_item__value_small">
+                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
                             12,600
                         </div>
                         <MultiLine
@@ -78,15 +79,16 @@ class Opex extends Component {
                                 type: "line",
                                 labelPosition:["top", "bottom"]
                             }}
+                            templ={this.props.templ}
                         />
                     </div>
                 </div>
                 <div className="tile_item_4">
-                    <div className="tile_item__inner">
-                        <div className="tile_item__title_small">
+                    <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>
+                        <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             Недвижимость
                         </div>
-                        <div className="tile_item__value_small">
+                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
                             77,100
                         </div>
                         <MultiLine
@@ -101,15 +103,16 @@ class Opex extends Component {
                                 type: "line",
                                 labelPosition:["top", "bottom"]
                             }}
+                            templ={this.props.templ}
                         />
                     </div>
                 </div>
                 <div className="tile_item_5">
-                    <div className="tile_item__inner">
-                        <div className="tile_item__title_small">
+                    <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>
+                        <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             Бизнес-расходы
                         </div>
-                        <div className="tile_item__value_small">
+                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
                             34,998
                         </div>
                         <MultiLine
@@ -124,15 +127,16 @@ class Opex extends Component {
                                 type: "line",
                                 labelPosition:["top", "bottom"]
                             }}
+                            templ={this.props.templ}
                         />
                     </div>
                 </div>
                 <div className="tile_item_6">
-                    <div className="tile_item__inner">
-                        <div className="tile_item__title_small">
+                    <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>
+                        <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             Маркетинг
                         </div>
-                        <div className="tile_item__value_small">
+                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
                             45,760
                         </div>
                         <MultiLine
@@ -147,15 +151,16 @@ class Opex extends Component {
                                 type: "line",
                                 labelPosition:["top", "bottom"]
                             }}
+                            templ={this.props.templ}
                         />
                     </div>
                 </div>
                 <div className="tile_item_7">
-                    <div className="tile_item__inner">
-                        <div className="tile_item__title_small">
+                    <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>
+                        <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             Прочие расходы
                         </div>
-                        <div className="tile_item__value_small">
+                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
                             88,000
                         </div>
                         <MultiLine
@@ -170,6 +175,7 @@ class Opex extends Component {
                                 type: "line",
                                 labelPosition:["top", "bottom"]
                             }}
+                            templ={this.props.templ}
                         />
                     </div>
                 </div>

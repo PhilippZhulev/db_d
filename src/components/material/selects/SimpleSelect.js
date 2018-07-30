@@ -9,17 +9,17 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 const styles = theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  formControl: {
-    margin: theme.spacing.unit,
-    minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing.unit * 2,
-  },
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    formControl: {
+        margin: theme.spacing.unit,
+        minWidth: 120,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing.unit * 2,
+    }
 });
 
 class SimpleSelect extends React.Component {
@@ -37,6 +37,9 @@ class SimpleSelect extends React.Component {
 
     return (
         <form className={classes.root + " morda_select"} autoComplete="off">
+            <style>
+                {"div.i_select {background: " + this.props.templ.primary.header + "!important}"}
+            </style>
             <FormControl className={classes.formControl}>
                 <Select
                     value={this.state.age}
@@ -61,7 +64,7 @@ class SimpleSelect extends React.Component {
 }
 
 SimpleSelect.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(SimpleSelect);

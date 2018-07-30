@@ -21,9 +21,10 @@ const styles = {
 
 function DenseAppBar(props) {
   const { classes } = props;
+
   return (
     <div className={classes.root}>
-      <AppBar className="header" position="static">
+      <AppBar className="header" style={{background: props.templ.primary.header}} position="static">
         <Toolbar variant="dense">
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
             <MenuIcon />
@@ -31,8 +32,8 @@ function DenseAppBar(props) {
           <Typography variant="title" className={"header_title"} color="inherit">
             Драйверы бизнес-плана
           </Typography>
-          <Select classes={{select: "super_select", root: "root_select", selectMenu: "i_select"}}/>
-          <SettingsMenu />
+          <Select templ={props.templ}  classes={{select: "super_select", root: "root_select", selectMenu: "i_select"}}/>
+          <SettingsMenu/>
         </Toolbar>
       </AppBar>
     </div>

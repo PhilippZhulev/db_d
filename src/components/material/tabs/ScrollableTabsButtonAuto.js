@@ -9,7 +9,7 @@ import Select from '../selects/SimpleSelect1';
 
 function TabContainer(props) {
   return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
+    <Typography component="div" style={{ padding: 8 * 3, background: props.bg}}>
       {props.children}
     </Typography>
   );
@@ -42,7 +42,7 @@ class ScrollableTabsButtonAuto extends React.Component {
 
     return (
       <div className={classes.root + " tabs_container"}>
-        <AppBar className="tabs_bar" position="static" color="default">
+        <AppBar className="tabs_bar" position="static" color="default" style={{background: this.props.templ.primary.tiles}} >
           <Tabs
             value={value}
             onChange={this.handleChange}
@@ -53,15 +53,15 @@ class ScrollableTabsButtonAuto extends React.Component {
           >
               {
                 this.props.settings.items.map((item, i) => {
-                    return <Tab key={i} className="tabs_item" label={item} />
+                    return <Tab key={i} className="tabs_item" style={{color: this.props.templ.primary.tilesText}} label={item} />
                 })
               }
-              <Select classes={{select: "super_select", root: "root_select_1"}}/>
+              <Select templ={this.props.templ} classes={{select: "super_select", root: "root_select_1"}}/>
           </Tabs>
         </AppBar>
           {
               this.props.settings.pages.map((item, i) => {
-                  return value === i && <TabContainer key={i} >{item}</TabContainer>
+                  return value === i && <TabContainer  bg={this.props.templ.primary.tiles}  key={i}  >{item}</TabContainer>
               })
           }
       </div>
