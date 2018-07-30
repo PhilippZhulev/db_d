@@ -22,14 +22,14 @@ class MultiLine extends Component {
                 "colors": this.props.options.colors,
                 "sequencedAnimation": false,
                 "startDuration": 0,
-                "color": "#a1abb8",
+                "color": this.props.templ.primary.textValueNormal,
                 "fontSize": 12,
                 "categoryAxis": {
                     "labelOffset": -10,
                     "fontSize": 12,
                     "gridPosition": "start",
-                    "axisColor": "#a0aab7",
-                    "color": "#A0AAB7",
+                    "axisColor": this.props.templ.primary.textValueNormal,
+                    "color": this.props.templ.primary.textValueNormal,
                     "axisThickness": 0.4,
                     "gridAlpha": 0,
                     "gridColor": "#E5E5E5",
@@ -74,7 +74,7 @@ class MultiLine extends Component {
                     "bulletSize": 3,
                     "bulletBorderThickness": 0,
                     "showBalloon": false,
-                    "color": "#AAB3B3",
+                    "color": this.props.templ.primary.textValueNormal,
                     "id": "AmGraph-"+i,
                     "fontSize": 12,
                     "labelText": (this.props.options.colors[i]!="#b4b4b4") ? "[[value]]" : "",
@@ -105,8 +105,7 @@ class MultiLine extends Component {
                                  options={amchartsSettings}
         />);
         if(this.props.options.legend){
-            out.push(<Legend key={1} options={this.props.options}
-            />);
+            out.push(<Legend key={1} templ={this.props.templ} options={this.props.options}/>);
         }
 
         return (

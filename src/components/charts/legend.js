@@ -99,11 +99,17 @@ class Legend extends Component {
 
         const {classes, children} = this.props;
         const legendItems = this.props.options.colors.map((color,index)=>
+<<<<<<< HEAD
             <div key={index} className={classes.legend_item}>
                 <span className = {classes.legend_text}>
 
                         <InlineSVG className={classes.legend_color} src={makeSvg(color)} />
                     {this.props.options.titles[index]}</span>
+=======
+            <div key={index} className="legend_item">
+                <div className = "legend_color" style={{backgroundColor: color}}></div>
+                <div className = "legend_text" style={{color: this.props.templ.primary.textValueNormal}}>{this.props.options.titles[index]}</div>
+>>>>>>> prod
             </div>
         );
         return (<div className={classes.legend_item_items}>{legendItems}</div>);

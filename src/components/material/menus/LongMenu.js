@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import SettingsIcon from '@material-ui/icons/Settings';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import store from '../../../reduser';
 
 const options = [
   'Панель драйверов слева',
@@ -17,6 +18,7 @@ const ITEM_HEIGHT = 48;
 class LongMenu extends React.Component {
   state = {
     anchorEl: null,
+    temp: true
   };
 
   handleClick = event => {
@@ -25,6 +27,25 @@ class LongMenu extends React.Component {
 
   handleClose = () => {
     this.setState({ anchorEl: null });
+  };
+
+  themeChange = (a) => {
+      if(a === 'Альтернативная цветовая схема') {
+          let temp;
+
+          if(this.state.temp === false) {
+              temp = true;
+          }else {
+              temp = false;
+          }
+
+          this.setState({ temp: temp });
+
+          store.dispatch({
+              type: 'CHANGE_TEMPLATE',
+              payload: temp
+          })
+      }
   };
 
   render() {
@@ -53,6 +74,7 @@ class LongMenu extends React.Component {
                 <FormControlLabel
                     control={
                         <Switch
+                            onChange={(e) => this.themeChange(option)}
                             value="checkedB"
                             color="secondary"
                         />

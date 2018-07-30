@@ -9,10 +9,9 @@ function reduser (state = init, action) {
     if(action.type === "CHANGE_PAGE") {
         return {...state, page: action.payload}
     }
-    if(action.type === "CHANGE_FILTER") {
+    if(action.type === "CHANGE_TEMPLATE") {
         return {...state,
-            value: action.val,
-            sapType: action.sapType
+            value: action.payload
         }
     }
     return state;

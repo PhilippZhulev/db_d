@@ -37,6 +37,12 @@ class SimpleSelect extends React.Component {
 
     return (
         <form className={classes.root + " morda_select_1"} autoComplete="off">
+            <style>
+                {
+                    "div.root_select_1 > div  {color: " + this.props.templ.primary.selectColor + "!important}" +
+                    "div.root_select_1 path  {fill: " + this.props.templ.primary.selectColor + "!important}"
+                }
+            </style>
             <FormControl className={classes.formControl}>
                 <Select
                     value={this.state.age}

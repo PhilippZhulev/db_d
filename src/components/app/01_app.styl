@@ -68,7 +68,11 @@ header.tabs_bar
     box-shadow none
     background #fff
 button.tabs_item
-    min-width 110px
+    min-width 155px
+    color #aab3b3
+    text-transform: capitalize
+    >span
+        border-right: 1px solid  #b4b4b4
 div.tabs_container > div
     height calc(100% - 96px)
 .tiles_container
@@ -117,20 +121,20 @@ header.tabs_bar.vertical
     top: 309px
 
 .tile_item__title
-    color #2E312F//#757575
+    color #757575//#757575
     font-size 18px
 .tile_item__title_small
-    color #2E312F//#757575
+    color #757575//#757575
     font-size 14px
 .tile_item__value
     font-size 40px
     font-weight: 300
-    color #2E312F//#757575
+    color #757575//#757575
     margin-top 15px
     position absolute
 .tile_item__litle-value
     font-size 16px
-    color #2E312F//#757575
+    color #757575//#757575
 .tile_item__litle-value
     font-size: 16px
     color: #1ab394
@@ -140,22 +144,23 @@ header.tabs_bar.vertical
 .tile_item__value_small
     font-size: 26px
     font-weight: 300
-    color: #2E312F//#757575
+    color: #757575//#757575
     margin-top: 5px
 .btns__panel
     bottom 66px
     width calc(100% - 30px)
     position absolute
     > button
-        width 100%
-        margin 15px auto auto auto
+        width: 45%
+        margin: auto 5px auto 5px
+        padding-left: 5px
         text-align center
         span
             text-align center
             display block
 div.flex_panel
   display flex
-  padding 0px 13px
+  //padding 0px 13px
 div.super_select
     border-bottom: 0
 div.root_select

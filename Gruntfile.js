@@ -48,7 +48,7 @@ module.exports = function(grunt) {
         gitcommit: {
             your_target: {
                 options: {
-                    branch: 'Volchanskiy'
+                    branch: 'Kokorev'
                 },
                 files: {
                     src: ['src/**/*', 'public/**/*', 'api/**/*', '!src/secret', '!src/secret/data_bank.js']
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
         gitpush: {
             your_target: {
                 options: {
-                    branch: 'Volchanskiy'
+                    branch: 'Kokorev'
                 }
             }
         },
