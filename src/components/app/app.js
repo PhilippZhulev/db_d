@@ -20,7 +20,7 @@ class App extends Component {
             <div className="app_output">
                 <Header />
                 <Tabs settings={{
-                    items: ["KPI", "OPEX","CIB","КБ","РБ"],
+                    items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ"],
                     pages: [<Home />, <Opex />,<Cib/>,<Kb/>,<Rb/>]
                 }} />
                 <div className="app_menu_output">
