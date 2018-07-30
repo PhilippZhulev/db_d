@@ -24,7 +24,10 @@ let whiteTheme = {
         header: "#293846",
         textValueMain: "#757575",
         textValueNormal: "#757575",
-        selectColor: "#2f4050"
+        selectColor: "#2f4050",
+        indicatorColor: "#fff",
+        separatorColor: "#757575",
+        selected: "#293846"
     },
     secondary: {
         light: '#6effe8',
@@ -44,7 +47,10 @@ let darkTheme = {
         header: "#1f272d",
         textValueMain: "#a1abb8",
         textValueNormal: "#6d7b87",
-        selectColor: "#fff"
+        selectColor: "#fff",
+        indicatorColor: "#29353e",
+        separatorColor: "#757575",
+        selected: "#fff"
     },
     secondary: {
         light: '#6effe8',
@@ -82,7 +88,7 @@ class App extends Component {
                     <Header templ={this.state.theme} />
                     <Tabs templ={this.state.theme} settings={{
                         items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ"],
-                        pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib/>, <Kb/>, <Rb/>]
+                        pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib templ={this.state.theme}/>, <Kb templ={this.state.theme}/>, <Rb templ={this.state.theme}/>]
                     }} />
                     <div className="app_menu_output" style={{background: this.state.theme.primary.menu}}>
                         <Slider labelText="Числ-ть опер. функции, чел." min={1} max={5} value={3}/>

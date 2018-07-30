@@ -26,9 +26,9 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   indicator: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme.palette.primary.indicatorColor,
   },
-    });
+});
 
 
 class ScrollableTabsButtonAuto extends React.Component {
@@ -46,18 +46,24 @@ class ScrollableTabsButtonAuto extends React.Component {
 
     return (
       <div className={classes.root + " tabs_container"}>
+        <style>
+            {
+                "button.tabs_item > span  {border-right: 1px solid " + this.props.templ.primary.separatorColor + "!important}" +
+                "button.tabs_item[aria-selected=true] {color: "+ this.props.templ.primary.selected +"!important; font-weight: 600}"
+            }
+        </style>
         <AppBar className="tabs_bar" position="static" color="default" style={{background: this.props.templ.primary.tiles}} >
           <Tabs
             value={value}
             onChange={this.handleChange}
             indicatorColor="secondary"
             textColor="primary"
-            classes={{flexContainer: "flex_panel",indicator: classes.indicator }}
+            classes={{flexContainer: "flex_panel",indicator: classes.indicator}}
             scrollButtons="off"
           >
               {
                 this.props.settings.items.map((item, i) => {
-                    return <Tab key={i} className="tabs_item" style={{color: this.props.templ.primary.tilesText}} label={item} />
+                    return <Tab key={i} className="tabs_item" style={{color: this.props.templ.primary.textValueNormal}} label={item} />
                 })
               }
               {/*<Select classes={{select: "super_select", root: "root_select_1"}}/>*/}
