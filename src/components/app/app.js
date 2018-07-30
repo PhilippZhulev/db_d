@@ -48,7 +48,7 @@ let darkTheme = {
         header: "#1f272d",
         textValueMain: "#a1abb8",
         textValueNormal: "#6d7b87",
-        graphText: "#b4b4b4",
+        graphText: "#6d7b87",
         selectColor: "#fff",
         indicatorColor: "#29353e",
         separatorColor: "#757575",
