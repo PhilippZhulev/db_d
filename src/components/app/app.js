@@ -81,7 +81,7 @@ class App extends Component {
                 <div className="app_output" style={{background: this.state.theme.primary.tiles}}>
                     <Header templ={this.state.theme} />
                     <Tabs templ={this.state.theme} settings={{
-                        items: ["KPI", "OPEX"],
+                        items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ"],
                         pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib/>, <Kb/>, <Rb/>]
                     }} />
                     <div className="app_menu_output" style={{background: this.state.theme.primary.menu}}>
