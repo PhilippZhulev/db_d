@@ -24,7 +24,8 @@ class App extends Component {
                     pages: [<Home />, <Opex />,<Cib/>,<Kb/>,<Rb/>]
                 }} />
                 <div className="app_menu_output">
-                    <Slider labelText="Числ-ть опер. функции, чел." min={1} max={5} value={3}/>
+                    <Slider labelText="Числ-ть опер. функции, чел." min={1} max={5} value={3}
+                            onChange={ console.log(this.value)}/>
                     <Slider labelText="OPEX/CAPEX по IT, %" min={2} max={3} value={2.5}/>
                     <Slider labelText="Доработка legacy, млрд.руб." min={1.5} max={2.5} value={2}/>
                     <Slider labelText="Инвестиции в платф., млрд.руб." min={6.5} max={6.9} value={6.7}/>
