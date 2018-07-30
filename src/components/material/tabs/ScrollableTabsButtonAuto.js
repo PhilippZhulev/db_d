@@ -48,7 +48,7 @@ class ScrollableTabsButtonAuto extends React.Component {
       <div className={classes.root + " tabs_container"}>
         <style>
             {
-                "button.tabs_item > span  {border-right: 1px solid " + this.props.templ.primary.separatorColor + "!important}" +
+                "button.tabs_item > span:first-child  {border-right: 1px solid " + this.props.templ.primary.separatorColor + "!important}" +
                 "button.tabs_item[aria-selected=true] {color: "+ this.props.templ.primary.selected +"!important; font-weight: 600}"
             }
         </style>
