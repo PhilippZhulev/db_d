@@ -59,9 +59,8 @@ class MultiLine extends Component {
                 "titles": [],
                 "dataProvider": []
 
-            }
+            };
         let data = [];
-
         let grNum = this.props.options.colors.length;
         for (var i = 0;i<grNum;i++){
             amchartsSettings.graphs.push(
@@ -77,7 +76,7 @@ class MultiLine extends Component {
                     "color": this.props.templ.primary.textValueNormal,
                     "id": "AmGraph-"+i,
                     "fontSize": 12,
-                    "labelText": (this.props.options.colors[i]!="#b4b4b4") ? "[[value]]" : "",
+                    "labelText": (this.props.options.colors[i] != "#b4b4b4") ? "[[value]]" : "",
                     "lineThickness": this.props.options.thickness,
                     "title": "graph "+i,
                     "valueField": "val"+i,

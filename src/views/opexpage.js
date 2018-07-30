@@ -51,6 +51,7 @@ class Opex extends Component {
                             options={{
                                 grId:"line",
                                 geometry: {width:"80'\%'", height:"90'\%'"},
+                                colors: ["#1ab394","#727CF5"],
                                 titles:["graph 1", "graph 2"],
                                 legend: false,
                                 categories: ["2018", "2019", "2020", "2021"],

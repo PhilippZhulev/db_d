@@ -8,15 +8,18 @@ import Switch from '@material-ui/core/Switch';
 import store from '../../../reduser';
 
 const options = [
-  'Панель драйверов слева',
-  'Вертикальная tab-panel',
-  'Альтернативная цветовая схема'
+    {title:'Панель драйверов слева',val: "checkedA"},
+    {title:'Вертикальная tab-panel',val: "checkedB"},
+    {title:'Альтернативная цветовая схема',val: "checkedC"}
 ];
 
 const ITEM_HEIGHT = 48;
 
 class LongMenu extends React.Component {
   state = {
+    checkedA: false,
+    checkedB: false,
+    checkedC: false,
     anchorEl: null,
     temp: true
   };
@@ -29,8 +32,10 @@ class LongMenu extends React.Component {
     this.setState({ anchorEl: null });
   };
 
-  themeChange = (a) => {
-      if(a === 'Альтернативная цветовая схема') {
+  themeChange = (a, e, name) => {
+      this.setState({ [name]: e.target.checked });
+
+      if(a === 'checkedC') {
           let temp;
 
           if(this.state.temp === false) {
@@ -45,6 +50,15 @@ class LongMenu extends React.Component {
               type: 'CHANGE_TEMPLATE',
               payload: temp
           })
+      }
+  };
+  triggerChange = (item) => {
+      if(item === "checkedA") {
+          return this.state.checkedA
+      }else if(item === "checkedB") {
+          return this.state.checkedB
+      }else {
+          return this.state.checkedC
       }
   };
 
@@ -70,16 +84,17 @@ class LongMenu extends React.Component {
           onClose={this.handleClose}
         >
           {options.map(option => (
-            <MenuItem key={option} selected={option === 'Pyxis'}>
+            <MenuItem key={option.title} selected={option.title === 'Pyxis'}>
                 <FormControlLabel
                     control={
                         <Switch
-                            onChange={(e) => this.themeChange(option)}
-                            value="checkedB"
+                            checked={this.triggerChange(option.val)}
+                            onChange={(e) => this.themeChange(option.val, e, option.val)}
+                            value={option.val}
                             color="secondary"
                         />
                     }
-                    label={option}
+                    label={option.title}
                 />
             </MenuItem>
           ))}
