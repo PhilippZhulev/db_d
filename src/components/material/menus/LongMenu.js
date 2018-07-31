@@ -9,7 +9,6 @@ import store from '../../../reduser';
 
 const options = [
     {title:'Панель драйверов слева',val: "checkedA"},
-    {title:'Вертикальная tab-panel',val: "checkedB"},
     {title:'Альтернативная цветовая схема',val: "checkedC"}
 ];
 
@@ -21,7 +20,8 @@ class LongMenu extends React.Component {
     checkedB: false,
     checkedC: false,
     anchorEl: null,
-    temp: true
+    temp: true,
+    sliderPos: "right"
   };
 
   handleClick = event => {
@@ -32,7 +32,7 @@ class LongMenu extends React.Component {
     this.setState({ anchorEl: null });
   };
 
-  themeChange = (a, e, name) => {
+  chngeList = (a, e, name) => {
       this.setState({ [name]: e.target.checked });
 
       if(a === 'checkedC') {
@@ -51,7 +51,25 @@ class LongMenu extends React.Component {
               payload: temp
           })
       }
+
+      if(a === 'checkedA') {
+          let pos;
+
+          if(this.state.sliderPos === "right") {
+              pos = "left";
+          }else {
+              pos = "right";
+          }
+
+          this.setState({ sliderPos: pos });
+
+          store.dispatch({
+              type: 'CHANGE_SLIDERS_POS',
+              payload: pos
+          })
+      }
   };
+
   triggerChange = (item) => {
       if(item === "checkedA") {
           return this.state.checkedA
@@ -89,7 +107,7 @@ class LongMenu extends React.Component {
                     control={
                         <Switch
                             checked={this.triggerChange(option.val)}
-                            onChange={(e) => this.themeChange(option.val, e, option.val)}
+                            onChange={(e) => this.chngeList(option.val, e, option.val)}
                             value={option.val}
                             color="secondary"
                         />

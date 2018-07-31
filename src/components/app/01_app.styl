@@ -18,7 +18,24 @@ html
     margin: 0
 
 .app_output
-    width: calc(100% - 250px)
+    width: calc(100% - 0px)
+    transition: all 300ms ease-in-out
+    &.active
+        width: calc(100% - 250px)
+    &:not(.active)
+        header.header
+             width 100%
+    &.alternative
+        right: 0;
+        position: absolute;
+        header.header
+            left: -250px
+        &.active
+            width: calc(100% - 250px)
+        &:not(.active)
+            header.header
+                width: calc(100% - 0px)
+                left: 0
 .app_menu_output
     width: 220px
     position absolute
@@ -27,6 +44,17 @@ html
     height: 100%
     background: #2f4050
     padding 50px 15px 0 15px
+    transition: all 300ms ease-in-out
+    transform: translateX(255px)
+    &.active
+        transform: translateX(0)
+    &.alternative
+        right auto
+        left -250px
+        &:not(.active)
+            transform: translateX(-255px)
+        .btns__panel
+            bottom 85px
 div.slider_after
     background #fff
     &.active_slider
@@ -107,6 +135,7 @@ header.header
     z-index 999
     position relative
     box-shadow none
+    transition: all 300ms ease-in-out
 button.settings
     position: absolute
     right: 15px
