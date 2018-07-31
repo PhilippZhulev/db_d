@@ -39,21 +39,19 @@ const styles = {
     },
     default_dot: {
         position: "absolute",
-        top: "71%",
+        top: "73%",
         zIndex: 1,
         backgroundColor: "#b4b4b4",
-        width: 9,
-        height: 9,
-        borderRadius: 5
+        width: 2,
+        height: 7,
     },
     strat_dot: {
         position: "absolute",
-        top: "71%",
+        top: "73%",
         zIndex: 1,
         backgroundColor: "#f8ac59",
-        width: 9,
-        height: 9,
-        borderRadius: 5
+        width: 2,
+        height: 7,
     }
 };
 
@@ -79,6 +77,16 @@ class SimpleSlider extends React.Component {
 
     };
 
+<<<<<<< HEAD
+=======
+    constructor(props){
+        super(props);
+        this.disabled_value = this.props.value;
+        let min = (this.props.min) ? this.props.min : 0;
+        let max = (this.props.max) ? this.props.max : 100;
+        this.dot_left = ((this.disabled_value - min)/(max-min)*100-0.3)+"%";
+        this.strat_left = (Math.random()*100-0.3)+"%";
+>>>>>>> Volchanskiy
 
 
 
