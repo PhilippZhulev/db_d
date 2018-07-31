@@ -36,6 +36,24 @@ const styles = {
                 zIndex: 2
             }
         }
+    },
+    default_dot: {
+        position: "absolute",
+        top: "71%",
+        zIndex: 1,
+        backgroundColor: "#b4b4b4",
+        width: 9,
+        height: 9,
+        borderRadius: 5
+    },
+    strat_dot: {
+        position: "absolute",
+        top: "71%",
+        zIndex: 1,
+        backgroundColor: "#f8ac59",
+        width: 9,
+        height: 9,
+        borderRadius: 5
     }
 };
 
@@ -43,6 +61,11 @@ class SimpleSlider extends React.Component {
     constructor(props){
         super(props);
         this.disabled_value = this.props.value;
+        let min = (this.props.min) ? this.props.min : 0;
+        let max = (this.props.max) ? this.props.max : 100;
+        this.dot_left = ((this.disabled_value - min)/(max-min)*100-2)+"%";
+        this.strat_left = (Math.random()*100-2)+"%";
+
     }
 
     state = {
@@ -55,6 +78,8 @@ class SimpleSlider extends React.Component {
         this.setState({ value });
 
     };
+
+
 
 
     handleClickOpen = () => {
@@ -125,17 +150,10 @@ class SimpleSlider extends React.Component {
                     max={max}
                     onChange={this.handleChange}
                 />
-            <Slider
-                    classes={{
-                        thumb: "slider_thumb_disabled",
-                        root: "slider_root",
-                    }}
-                    className={classes.disabled}
-                    value={this.disabled_value}
-                    min={min}
-                    max={max}
-                    disabled
-                />
+
+            <div className={classes.default_dot} style={{left: this.dot_left}}></div>
+            <div className={classes.strat_dot} style={{left: this.strat_left}}></div>
+
                 <div className={"slider_min"}>{min}</div>
                 <div className={"slider_max"}>{max}</div>
             </div>
