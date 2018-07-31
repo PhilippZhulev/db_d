@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/lab/Slider';
+import DisabledSlider from '@material-ui/lab/Slider';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -15,7 +16,27 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 const styles = {
     root: {
         width: "auto",
+        position: "relative"
     },
+    disabled: {
+        position: "absolute",
+        top: "42%",
+        "& div": {
+            "& div": {
+                visibility: "hidden"
+            },
+            "& button": {
+                zIndex: 1
+            }
+        }
+    },
+    enabled: {
+        "& div": {
+            "& button": {
+                zIndex: 2
+            }
+        }
+    }
 };
 
 class SimpleSlider extends React.Component {
@@ -30,6 +51,7 @@ class SimpleSlider extends React.Component {
 
     };
 
+<<<<<<< HEAD
     handleClickOpen = () => {
         this.setState({ open: true });
     };
@@ -39,11 +61,21 @@ class SimpleSlider extends React.Component {
     };
 
     render() {
+=======
+    constructor(props){
+        super(props);
+        this.disabled_value = this.props.value;
+    }
+
+    render(disabled_value) {
+>>>>>>> Volchanskiy
         const { classes } = this.props;
         const { value } = this.state;
 
         let min = (this.props.min) ? this.props.min : 0;
         let max = (this.props.max) ? this.props.max : 100;
+
+        const defaultValue = this.disabled_value;
 
         return (
             <div className={classes.root}>
@@ -90,11 +122,27 @@ class SimpleSlider extends React.Component {
                         root: "slider_root",
                         activated: "active_slider"
                     }}
+                    className={classes.enabled}
                     value={value}
                     aria-labelledby="label"
                     min={min}
                     max={max}
                     onChange={this.handleChange}
+                />
+            <Slider
+                    classes={{
+                        trackBefore: "slider_beffore",
+                        trackAfter: "slider_after",
+                        thumb: "slider_thumb_disabled",
+                        root: "slider_root",
+                        activated: "active_slider"
+                    }}
+                    className={classes.disabled}
+                    value={defaultValue}
+                    aria-labelledby="label"
+                    min={min}
+                    max={max}
+                    disabled
                 />
                 <div className={"slider_min"}>{min}</div>
                 <div className={"slider_max"}>{max}</div>
