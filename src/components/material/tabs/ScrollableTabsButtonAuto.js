@@ -59,7 +59,7 @@ class ScrollableTabsButtonAuto extends React.Component {
             indicatorColor="secondary"
             textColor="primary"
             classes={{flexContainer: "flex_panel",indicator: classes.indicator}}
-            scrollButtons="off"
+            scrollButtons="off" 
           >
               {
                 this.props.settings.items.map((item, i) => {
