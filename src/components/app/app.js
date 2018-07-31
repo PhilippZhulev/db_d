@@ -93,11 +93,11 @@ class App extends Component {
                         pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib templ={this.state.theme}/>, <Kb templ={this.state.theme}/>, <Rb templ={this.state.theme}/>]
                     }} />
                     <div className="app_menu_output" style={{background: this.state.theme.primary.menu}}>
-                        <Slider labelText="Числ-ть опер. функции, чел." min={1} max={5} value={3}/>
-                        <Slider labelText="OPEX/CAPEX по IT, %" min={2} max={3} value={2.5}/>
-                        <Slider labelText="Доработка legacy, млрд.руб." min={1.5} max={2.5} value={2}/>
-                        <Slider labelText="Инвестиции в платф., млрд.руб." min={6.5} max={6.9} value={6.7}/>
-                        <Slider labelText="Доля вендоров, %" min={-5} max={-3} value={-4}/>
+                        <Slider labelText="Числ-ть опер. функции, чел." min={1} max={5} value={2}/>
+                        <Slider labelText="OPEX/CAPEX по IT, %" min={2} max={3} value={2.7}/>
+                        <Slider labelText="Доработка legacy, млрд.руб." min={1.5} max={2.5} value={1.6}/>
+                        <Slider labelText="Инвестиции в платф., млрд.руб." min={6.5} max={6.9} value={6.5}/>
+                        <Slider labelText="Доля вендоров, %" min={-5} max={-3} value={-3}/>
                         <div className="btns__panel">
                             <Btn
                                 customClass="btn_save"
