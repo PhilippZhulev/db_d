@@ -56,14 +56,13 @@ const styles = {
 };
 
 class SimpleSlider extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.disabled_value = this.props.value;
         let min = (this.props.min) ? this.props.min : 0;
         let max = (this.props.max) ? this.props.max : 100;
-        this.dot_left = ((this.disabled_value - min)/(max-min)*100-2)+"%";
-        this.strat_left = (Math.random()*100-2)+"%";
-
+        this.dot_left = ((this.disabled_value - min) / (max - min) * 100 - 0.3) + "%";
+        this.strat_left = (Math.random() * 100 - 0.3) + "%";
     }
 
     state = {
@@ -76,19 +75,6 @@ class SimpleSlider extends React.Component {
         this.setState({ value });
 
     };
-
-<<<<<<< HEAD
-=======
-    constructor(props){
-        super(props);
-        this.disabled_value = this.props.value;
-        let min = (this.props.min) ? this.props.min : 0;
-        let max = (this.props.max) ? this.props.max : 100;
-        this.dot_left = ((this.disabled_value - min)/(max-min)*100-0.3)+"%";
-        this.strat_left = (Math.random()*100-0.3)+"%";
->>>>>>> Volchanskiy
-
-
 
     handleClickOpen = () => {
         this.setState({ open: true });
@@ -116,9 +102,7 @@ class SimpleSlider extends React.Component {
                 >
                     <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
                     <DialogContent>
-                        <DialogContentText>
-                            Введите значение драйвера от {min} до {max}.
-                        </DialogContentText>
+                        <DialogContentText>Введите значение драйвера от {min} до {max}.</DialogContentText>
                         <TextField
                             autoFocus
                             margin="dense"
@@ -159,8 +143,8 @@ class SimpleSlider extends React.Component {
                     onChange={this.handleChange}
                 />
 
-            <div className={classes.default_dot} style={{left: this.dot_left}}></div>
-            <div className={classes.strat_dot} style={{left: this.strat_left}}></div>
+            <div className={classes.default_dot} style={{left: this.dot_left}} />
+            <div className={classes.strat_dot} style={{left: this.strat_left}} />
 
                 <div className={"slider_min"}>{min}</div>
                 <div className={"slider_max"}>{max}</div>
