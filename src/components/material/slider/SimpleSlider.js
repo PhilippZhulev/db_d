@@ -61,8 +61,13 @@ class SimpleSlider extends React.Component {
         this.disabled_value = this.props.value;
         let min = (this.props.min) ? this.props.min : 0;
         let max = (this.props.max) ? this.props.max : 100;
+<<<<<<< HEAD
         this.dot_left = ((this.disabled_value - min) / (max - min) * 100 - 0.3) + "%";
         this.strat_left = (Math.random() * 100 - 0.3) + "%";
+=======
+        this.dot_left = ((this.disabled_value - min)/(max-min)*100-0.3)+"%";
+        this.strat_left = (Math.random()*100-0.3)+"%";
+>>>>>>> Zhulev
     }
 
     state = {
@@ -143,8 +148,13 @@ class SimpleSlider extends React.Component {
                     onChange={this.handleChange}
                 />
 
+<<<<<<< HEAD
             <div className={classes.default_dot} style={{left: this.dot_left}} />
             <div className={classes.strat_dot} style={{left: this.strat_left}} />
+=======
+            <div className={classes.default_dot} style={{left: this.dot_left}}/>
+            <div className={classes.strat_dot} style={{left: this.strat_left}}/>
+>>>>>>> Zhulev
 
                 <div className={"slider_min"}>{min}</div>
                 <div className={"slider_max"}>{max}</div>
