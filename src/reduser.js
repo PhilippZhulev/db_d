@@ -1,20 +1,30 @@
 import { createStore } from 'redux';
 import { connect, Provider } from 'react-redux';
 
-const init = {
-    page: 'home'
-};
-
-function reduser (state = init, action) {
-    if(action.type === "CHANGE_PAGE") {
-        return {...state, page: action.payload}
+function reduser (state = null, action) {
+    switch (action.type) {
+        case "CHANGE_PAGE":
+            return {...state,
+                page: action.payload
+            };
+        case "CHANGE_TEMPLATE":
+            return {...state,
+                value: action.payload,
+                change: "template"
+            };
+        case "CHANGE_SLIDERS_POS":
+            return {...state,
+                value: action.payload,
+                change: "slidersPos"
+            };
+        case "CHANGE_MENU":
+            return {...state,
+                value: action.payload,
+                change: "menu"
+            };
+        default:
+            return state
     }
-    if(action.type === "CHANGE_TEMPLATE") {
-        return {...state,
-            value: action.payload
-        }
-    }
-    return state;
 }
 
 const store = createStore(reduser);

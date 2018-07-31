@@ -66,17 +66,40 @@ class App extends Component {
         super(props);
 
         this.state = {
-            theme : whiteTheme
+            theme : whiteTheme,
+            menu: " active",
+            pos: ""
         }
     }
 
     render() {
 
         store.subscribe(() => {
-            if(store.getState().value === true) {
-                this.setState({theme: whiteTheme});
-            }else {
-                this.setState({theme: darkTheme});
+            const change = store.getState().change,
+                  getState = store.getState();
+
+            if(change === "template") {
+                if(getState.value === true) {
+                    this.setState({theme: whiteTheme});
+                }else {
+                    this.setState({theme: darkTheme});
+                }
+            }
+
+            if(change === "menu") {
+                if(getState.value === true) {
+                    this.setState({menu: " active"});
+                }else {
+                    this.setState({menu: ""});
+                }
+            }
+            console.log(getState.value);
+            if(change === "slidersPos") {
+                if(getState.value === "left") {
+                    this.setState({pos: " alternative"});
+                }else {
+                    this.setState({pos: ""});
+                }
             }
         });
 
@@ -86,13 +109,13 @@ class App extends Component {
 
         return (
             <MuiThemeProvider theme={myTheme}>
-                <div className="app_output" style={{background: this.state.theme.primary.tiles}}>
+                <div className={"app_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.tiles}}>
                     <Header templ={this.state.theme} />
                     <Tabs templ={this.state.theme} settings={{
                         items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ"],
                         pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib templ={this.state.theme}/>, <Kb templ={this.state.theme}/>, <Rb templ={this.state.theme}/>]
                     }} />
-                    <div className="app_menu_output" style={{background: this.state.theme.primary.menu}}>
+                    <div className={"app_menu_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.menu}}>
                         <Slider labelText="Числ-ть опер. функции, чел." min={1} max={5} value={2}/>
                         <Slider labelText="OPEX/CAPEX по IT, %" min={2} max={3} value={2.7}/>
                         <Slider labelText="Доработка legacy, млрд.руб." min={1.5} max={2.5} value={1.6}/>

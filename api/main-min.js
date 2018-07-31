@@ -1,7 +1,7 @@
 //чистим link c sab css
 var link = document.querySelectorAll('link[data-sap-ui-ready="true"]');
 
-for(var i = 0; i < link.length;i++) {
+for(let i = 0; i < link.length;i++) {
     link[i].parentNode.removeChild(link[i]);
 }
 
