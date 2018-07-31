@@ -99,7 +99,7 @@ class SimpleSlider extends React.Component {
                     open={this.state.open}
                     onClose={this.handleClose}
                     aria-labelledby="form-dialog-title"
-                />
+                >
                     <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
                     <DialogContent>
                         <DialogContentText>
@@ -145,8 +145,8 @@ class SimpleSlider extends React.Component {
                     onChange={this.handleChange}
                 />
 
-            <div className={classes.default_dot} style={{left: this.dot_left}}></div>
-            <div className={classes.strat_dot} style={{left: this.strat_left}}></div>
+            <div className={classes.default_dot} style={{left: this.dot_left}}/>
+            <div className={classes.strat_dot} style={{left: this.strat_left}}/>
 
                 <div className={"slider_min"}>{min}</div>
                 <div className={"slider_max"}>{max}</div>
