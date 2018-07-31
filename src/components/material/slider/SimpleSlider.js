@@ -61,9 +61,8 @@ class SimpleSlider extends React.Component {
         this.disabled_value = this.props.value;
         let min = (this.props.min) ? this.props.min : 0;
         let max = (this.props.max) ? this.props.max : 100;
-        this.dot_left = ((this.disabled_value - min)/(max-min)*100-2)+"%";
-        this.strat_left = (Math.random()*100-2)+"%";
-
+        this.dot_left = ((this.disabled_value - min)/(max-min)*100-0.3)+"%";
+        this.strat_left = (Math.random()*100-0.3)+"%";
     }
 
     state = {
@@ -76,19 +75,6 @@ class SimpleSlider extends React.Component {
         this.setState({ value });
 
     };
-
-<<<<<<< HEAD
-=======
-    constructor(props){
-        super(props);
-        this.disabled_value = this.props.value;
-        let min = (this.props.min) ? this.props.min : 0;
-        let max = (this.props.max) ? this.props.max : 100;
-        this.dot_left = ((this.disabled_value - min)/(max-min)*100-0.3)+"%";
-        this.strat_left = (Math.random()*100-0.3)+"%";
->>>>>>> Volchanskiy
-
-
 
     handleClickOpen = () => {
         this.setState({ open: true });
