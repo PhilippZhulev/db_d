@@ -40,6 +40,11 @@ const styles = {
 };
 
 class SimpleSlider extends React.Component {
+    constructor(props){
+        super(props);
+        this.disabled_value = this.props.value;
+    }
+
     state = {
         value: this.props.value,
         open: false,//от диалога
@@ -51,7 +56,7 @@ class SimpleSlider extends React.Component {
 
     };
 
-<<<<<<< HEAD
+
     handleClickOpen = () => {
         this.setState({ open: true });
     };
@@ -61,21 +66,12 @@ class SimpleSlider extends React.Component {
     };
 
     render() {
-=======
-    constructor(props){
-        super(props);
-        this.disabled_value = this.props.value;
-    }
 
-    render(disabled_value) {
->>>>>>> Volchanskiy
         const { classes } = this.props;
         const { value } = this.state;
 
         let min = (this.props.min) ? this.props.min : 0;
         let max = (this.props.max) ? this.props.max : 100;
-
-        const defaultValue = this.disabled_value;
 
         return (
             <div className={classes.root}>
@@ -131,15 +127,11 @@ class SimpleSlider extends React.Component {
                 />
             <Slider
                     classes={{
-                        trackBefore: "slider_beffore",
-                        trackAfter: "slider_after",
                         thumb: "slider_thumb_disabled",
                         root: "slider_root",
-                        activated: "active_slider"
                     }}
                     className={classes.disabled}
-                    value={defaultValue}
-                    aria-labelledby="label"
+                    value={this.disabled_value}
                     min={min}
                     max={max}
                     disabled

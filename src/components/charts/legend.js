@@ -91,7 +91,7 @@ class Legend extends Component {
          id="path4545"
          cx="105.60244"
          cy="96.532639"
-         r="26.937704" />
+         r="20.0" />
     </g>
   </g>
 </svg>
