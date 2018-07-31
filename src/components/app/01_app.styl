@@ -16,18 +16,19 @@ html
     font-family "OpenSans", serif
     letter-spacing: 0.015em
     margin: 0
-
+    overflow hidden
 .app_output
     width: calc(100% - 0px)
     transition: all 300ms ease-in-out
+    position absolute
+    height 100%
     &.active
         width: calc(100% - 250px)
     &:not(.active)
         header.header
              width 100%
     &.alternative
-        right: 0;
-        position: absolute;
+        right: 0
         header.header
             left: -250px
         &.active
@@ -46,6 +47,7 @@ html
     padding 50px 15px 0 15px
     transition: all 300ms ease-in-out
     transform: translateX(255px)
+    right -250px
     &.active
         transform: translateX(0)
     &.alternative
@@ -53,8 +55,6 @@ html
         left -250px
         &:not(.active)
             transform: translateX(-255px)
-        .btns__panel
-            bottom 85px
 div.slider_after
     background #fff
     &.active_slider
@@ -105,10 +105,10 @@ button.tabs_item
     > span:first-child
         border-right: 1px solid  #b4b4b4
 div.tabs_container > div
-    height calc(100% - 96px)
+    height calc(100% - 120px)
 .tiles_container
     display flex
-    height 630px
+    height 100%
     position relative
     flex-wrap wrap
     margin -5px -5px -5px -5px
@@ -129,6 +129,14 @@ div.tabs_container > div
             width 100%
             height 98%
 
+@media all and (max-width: 800px)
+    .tiles_container
+        > div
+            width 50%
+            height 22%
+        > .tile_item_1
+            width 100%
+            height 34%
 header.header
     width calc(100% + 250px)
     background-color #293846
@@ -230,3 +238,5 @@ h2.header_title
     line-height: 1.16667em
     margin-top: -2px
     color: #fff
+div.tabs_container
+    height: 100%
