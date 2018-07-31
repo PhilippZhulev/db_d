@@ -19,6 +19,10 @@ const styles = {
   },
 };
 
+function changeMenu() {
+
+}
+
 function DenseAppBar(props) {
   const { classes } = props;
 
@@ -26,7 +30,7 @@ function DenseAppBar(props) {
     <div className={classes.root}>
       <AppBar className="header" style={{background: props.templ.primary.header}} position="static">
         <Toolbar variant="dense">
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+          <IconButton onClick={changeMenu} className={classes.menuButton} color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>
           <Typography variant="title" className={"header_title"} color="inherit">
