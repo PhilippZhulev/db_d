@@ -17,7 +17,8 @@ class Home extends Component {
                             {dataBank.PI.title}
                         </div>
                         <div className="tile_item__value" style={{color: this.props.templ.primary.textValueMain}}>
-                            {dataBank.PI.value}<span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.PI.smallValue}</span>
+                            {dataBank.PI.value}
+                            <span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.PI.smallValue}</span>
                         </div>
                         <MultiLine
                             options={dataBank.PI.options}
