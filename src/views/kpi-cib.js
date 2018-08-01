@@ -16,6 +16,7 @@ class Cib extends Component {
                         <div className="tile_item__title" style={{color: this.props.templ.primary.textValueMain}}>
                             {dataBank.PI.title}
                         </div>
+<<<<<<< HEAD
                         <div className="values_wrapper main_tile">
                             <div className="tile_item__value" style={{color: this.props.templ.primary.textValueMain}}>
                                 {dataBank.PI.valueCIB}
@@ -31,6 +32,15 @@ class Cib extends Component {
                                     <span style={{color: this.props.templ.primary.textValueNormal}}>total</span>
                                     <span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.PI.smallValue}</span>
                                 </div>
+=======
+                        <div className="tile_item__value value_flex" style={{color: this.props.templ.primary.textValueMain}}>
+                            <div>
+                                {dataBank.PI.value}
+                            </div>
+                            <div>
+                                <span style={{color: this.props.templ.primary.textValueNormal}}>CIB</span>
+                                <span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.PI.smallValue}</span>
+>>>>>>> a53c64bba86fe468e8f380431221d3317a431fbb
                             </div>
                         </div>
                         <MultiLine

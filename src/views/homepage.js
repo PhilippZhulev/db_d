@@ -16,10 +16,16 @@ class Home extends Component {
                         <div className="tile_item__title" style={{color: this.props.templ.primary.textValueMain}}>
                             {dataBank.PI.title}
                         </div>
+<<<<<<< HEAD
                         <div className="values_wrapper">
                             <div className="tile_item__value" style={{color: this.props.templ.primary.textValueMain}}>
                                 {dataBank.PI.value}<div><span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.PI.smallValue}</span></div>
                             </div>
+=======
+                        <div className="tile_item__value" style={{color: this.props.templ.primary.textValueMain}}>
+                            {dataBank.PI.value}
+                            <span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.PI.smallValue}</span>
+>>>>>>> a53c64bba86fe468e8f380431221d3317a431fbb
                         </div>
                         <MultiLine
                             options={dataBank.PI.options}
