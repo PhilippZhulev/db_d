@@ -71,7 +71,7 @@ button.slider_thumb
         font-size: 12px
         color: #fff
         opacity: 0.7
-button.slider_thumb_disabled   
+button.slider_thumb_disabled
     background  #f8ac59!important
 p.label_1
     color: #fff
@@ -171,7 +171,7 @@ header.tabs_bar.vertical
     font-weight: 300
     color #757575//#757575
     margin-top 15px
-    position absolute
+
     &.value_flex
         display flex
         height: 35px
@@ -182,13 +182,16 @@ header.tabs_bar.vertical
     font-size: 16px
     color: #1ab394
     position: absolute
-    top: 65px
+    top: 70px
     font-weight: 400
 .tile_item__value_small
     font-size: 26px
     font-weight: 300
     color: #757575//#757575
     margin-top: 5px
+    &.value_flex
+        display flex
+        height: 35px
 .btns__panel
     bottom 66px
     width calc(100% - 30px)
@@ -241,6 +244,21 @@ div.root_select_1
 .tile_item__value > div:last-child
     margin-top -10px
     float left
+.tile_item__value_small > div > span
+    font-size 14px
+    padding-left 5px
+    display block
+.tile_item__value_small > div:last-child
+    margin-top -17px
+    float left
+.subscribe_big
+    font-size: 12px !important;
+    margin-top: -1px;
+    margin-bottom: -3px;
+.subscribe
+    font-size: 10px !important;
+    margin-bottom: -8px;
+    margin-top: 8px;
 h2.header_title
     font-size: 18px
     font-weight: 400
@@ -250,3 +268,30 @@ h2.header_title
     color: #fff
 div.tabs_container
     height: 100%
+.values_wrapper
+    display: flex;
+    margin-top: 5px;
+    margin-bottom -14.5px
+    position absolute
+.vLine
+    width 1px
+    height: 20px
+    background-color: #757575
+    margin: 5px 10px 0px 10px
+.vLineBig
+    width 1px
+    height: 25px
+    background-color: #757575
+    margin: 13px 10px 0px 10.2px
+.main_tile
+    margin-bottom: -44px
+.hspace_big
+    width 156px
+.subscription_big
+    display: flex;
+    position: absolute;
+    font-size: 12px;
+    top: 35px;
+    left: 80px;
+.hspace
+    width 156px

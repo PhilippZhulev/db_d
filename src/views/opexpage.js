@@ -17,8 +17,10 @@ class Opex extends Component {
                         <div className="tile_item__title" style={{color: this.props.templ.primary.textValueMain}}>
                             OPEX, млрд. руб
                         </div>
-                        <div className="tile_item__value">
-                            160,999
+                        <div className="values_wrapper main_tile">
+                            <div className="tile_item__value">
+                                160,999
+                            </div>
                         </div>
                         <div className="tile_item__litle-value">
                             89%
@@ -33,7 +35,8 @@ class Opex extends Component {
                                 categories: ["2018", "2019", "2020", "2021"],
                                 data: [[840,1160, 1010], [760, 900, 1060, 1091], [820,840,1320,1056]],
                                 type: "smoothedLine",
-                                labelPosition:["top", "bottom"]
+                                labelPosition:["top", "bottom"],
+                                isBig: true
                             }}
                             templ={this.props.templ}
                         />
@@ -44,8 +47,10 @@ class Opex extends Component {
                         <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                            Персонал
                         </div>
-                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
-                            34,000
+                        <div className="values_wrapper main_tile">
+                            <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
+                                34,000
+                            </div>
                         </div>
                         <MultiLine
                             options={{
@@ -68,8 +73,10 @@ class Opex extends Component {
                         <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             IT
                         </div>
-                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
-                            12,600
+                        <div className="values_wrapper main_tile">
+                            <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
+                                12,600
+                            </div>
                         </div>
                         <MultiLine
                             options={{
@@ -92,8 +99,10 @@ class Opex extends Component {
                         <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             Недвижимость
                         </div>
-                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
-                            77,100
+                        <div className="values_wrapper main_tile">
+                            <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
+                                77,100
+                            </div>
                         </div>
                         <MultiLine
                             options={{
@@ -116,8 +125,10 @@ class Opex extends Component {
                         <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             Бизнес-расходы
                         </div>
-                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
-                            34,998
+                        <div className="values_wrapper main_tile">
+                            <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
+                                34,998
+                            </div>
                         </div>
                         <MultiLine
                             options={{
@@ -140,8 +151,10 @@ class Opex extends Component {
                         <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             Маркетинг
                         </div>
-                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
-                            45,760
+                        <div className="values_wrapper main_tile">
+                            <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
+                                45,760
+                            </div>
                         </div>
                         <MultiLine
                             options={{
@@ -164,8 +177,10 @@ class Opex extends Component {
                         <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             Прочие расходы
                         </div>
-                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
-                            88,000
+                        <div className="values_wrapper main_tile">
+                            <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
+                                88,000
+                            </div>
                         </div>
                         <MultiLine
                             options={{
