@@ -107,10 +107,11 @@ class MultiLine extends Component {
         if(this.props.options.legend){
             out.push(<Legend key={1} templ={this.props.templ} options={this.props.options}/>);
         }
+        const bigClass = (this.props.options.isBig) ? "_big" : "";
 
         return (
             <div
-                className="multiline_wrapper__item"
+                className={"multiline_wrapper__item"+bigClass}
                 style={(typeof this.props.options.wrapperStyles !== "undefined") ? this.props.options.wrapperStyles : {}}>
                 {out}
             </div>

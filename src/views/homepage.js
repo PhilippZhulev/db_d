@@ -16,8 +16,10 @@ class Home extends Component {
                         <div className="tile_item__title" style={{color: this.props.templ.primary.textValueMain}}>
                             {dataBank.PI.title}
                         </div>
-                        <div className="tile_item__value" style={{color: this.props.templ.primary.textValueMain}}>
-                            {dataBank.PI.value}<span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.PI.smallValue}</span>
+                        <div className="values_wrapper">
+                            <div className="tile_item__value" style={{color: this.props.templ.primary.textValueMain}}>
+                                {dataBank.PI.value}<div><span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.PI.smallValue}</span></div>
+                            </div>
                         </div>
                         <MultiLine
                             options={dataBank.PI.options}
@@ -30,8 +32,10 @@ class Home extends Component {
                         <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             {dataBank.INC.title}
                         </div>
-                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
-                            {dataBank.INC.value}<span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.INC.smallValue}</span>
+                        <div className="values_wrapper">
+                            <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
+                                {dataBank.INC.value}<span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.INC.smallValue}</span>
+                            </div>
                         </div>
                         <MultiLine
                             options={dataBank.INC.options}
@@ -44,8 +48,10 @@ class Home extends Component {
                         <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             {dataBank.OPEX.title}
                         </div>
-                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
-                            {dataBank.OPEX.value}<span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.OPEX.smallValue}</span>
+                        <div className="values_wrapper">
+                            <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
+                                {dataBank.OPEX.value}<span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.OPEX.smallValue}</span>
+                            </div>
                         </div>
                         <MultiLine
                             options={dataBank.OPEX.options}
@@ -58,8 +64,10 @@ class Home extends Component {
                         <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             {dataBank.CIR.title}
                         </div>
-                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
-                            {dataBank.CIR.value}<span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.CIR.smallValue}</span>
+                        <div className="values_wrapper">
+                            <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
+                                {dataBank.CIR.value}<span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.CIR.smallValue}</span>
+                            </div>
                         </div>
                         <MultiLine
                             options={dataBank.CIR.options}
@@ -72,8 +80,10 @@ class Home extends Component {
                         <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             {dataBank.KOM.title}
                         </div>
-                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
-                            {dataBank.KOM.value}<span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.KOM.smallValue}</span>
+                        <div className="values_wrapper">
+                            <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
+                                {dataBank.KOM.value}<span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.KOM.smallValue}</span>
+                            </div>
                         </div>
                         <MultiLine
                             options={dataBank.KOM.options}
@@ -86,8 +96,10 @@ class Home extends Component {
                         <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             {dataBank.COR.title}
                         </div>
-                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
-                            {dataBank.COR.value}<span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.COR.smallValue}</span>
+                        <div className="values_wrapper">
+                            <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
+                                {dataBank.COR.value}<span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.COR.smallValue}</span>
+                            </div>
                         </div>
                         <MultiLine
                             options={dataBank.COR.options}
@@ -100,8 +112,10 @@ class Home extends Component {
                         <div className="tile_item__title_small" style={{color: this.props.templ.primary.textValueMain}}>
                             {dataBank.CHIS.title}
                         </div>
-                        <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
-                            {dataBank.CHIS.value}<span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.CHIS.smallValue}</span>
+                        <div className="values_wrapper">
+                            <div className="tile_item__value_small" style={{color: this.props.templ.primary.textValueMain}}>
+                                {dataBank.CHIS.value}<span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank.CHIS.smallValue}</span>
+                            </div>
                         </div>
                         <MultiLine
                             options={dataBank.CHIS.options}
