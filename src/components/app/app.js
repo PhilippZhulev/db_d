@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import store from '../../model';
 import Header from '../material/app-bar/DenseAppBar';
 import Tabs from '../material/tabs/ScrollableTabsButtonAuto';
 import Slider from '../material/slider/SimpleSlider';
@@ -68,12 +67,21 @@ class App extends Component {
         this.state = {
             theme : whiteTheme,
             menu: " active",
-            pos: ""
+            pos: "",
+            data: obj.dummyData.out
         }
+
+        //Записываем в state.data данные из глобального объекта
+        store.subscribe(() => {
+            if(typeof store.getState().sapType !== "undefined") {
+                updateState([store.getState().sapType, store.getState().value], () => {
+                    this.setState({data: obj.dummyData.out});
+                })
+            }
+        });
     }
 
     render() {
-
         store.subscribe(() => {
             const change = store.getState().change,
                   getState = store.getState();
