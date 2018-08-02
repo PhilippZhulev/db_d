@@ -9,6 +9,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Cib from '../../views/kpi-cib';
 import Kb from '../../views/kpi-kb';
 import Rb from '../../views/kpi-rb';
+import { obj, updateState} from '../../api/include';
 
 import store from '../../reduser';
 
@@ -68,17 +69,20 @@ class App extends Component {
             theme : whiteTheme,
             menu: " active",
             pos: "",
-            data: obj.dummyData.out
-        }
+            data: null,
+        };
+
+        this.state.data = this.props.data.dummyData.out;
 
         //Записываем в state.data данные из глобального объекта
         store.subscribe(() => {
             if(typeof store.getState().sapType !== "undefined") {
                 updateState([store.getState().sapType, store.getState().value], () => {
-                    this.setState({data: obj.dummyData.out});
+                    this.setState({data: this.props.data});
                 })
             }
         });
+        console.log(this.state.data.test);
     }
 
     render() {
@@ -101,7 +105,7 @@ class App extends Component {
                     this.setState({menu: ""});
                 }
             }
-            console.log(getState.value);
+
             if(change === "slidersPos") {
                 if(getState.value === "left") {
                     this.setState({pos: " alternative"});
