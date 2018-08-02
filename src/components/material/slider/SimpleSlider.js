@@ -110,6 +110,7 @@ class SimpleSlider extends React.Component {
                             label=""
                             type="number"
                             fullWidth
+                            inputProps={{ min: min, max: max, step: "0.1"}}
                         />
                     </DialogContent>
                     <DialogActions>
