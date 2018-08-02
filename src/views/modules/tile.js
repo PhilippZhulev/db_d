@@ -40,11 +40,12 @@ class Tile extends Component {
                 </div>
             </div>
         );
+        const comma = (dataBank[func].mera=="") ? "" : ", ";
         return(
             <div className={"tile_item_"+this.props.tileNum}>
                 <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>
                     <div className={"tile_item__title"+postfix} style={{color: this.props.templ.primary.textValueMain}}>
-                        {dataBank[func].title}
+                        {dataBank[func].title}<span style={{color: "#aab3b3"}}>{comma+dataBank[func].mera}</span>
                     </div>
                     <div className="values_wrapper main_tile">
                         {values}
