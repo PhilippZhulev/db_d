@@ -13,6 +13,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+import store from '../../../reduser';
+
 const styles = {
     root: {
         width: "auto",
@@ -73,7 +75,11 @@ class SimpleSlider extends React.Component {
 
     handleChange = (event, value) => {
         this.setState({ value });
-
+        store.dispatch({
+            type: 'CHANGE_DRIVER',
+            payload: value
+        })
+        console.log("current value is "+value);
     };
 
     handleClickOpen = () => {

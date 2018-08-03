@@ -13,7 +13,7 @@ class Tile extends Component {
         let color = "rgba(0,0,0,0)";
         const func = this.props.func;
         let values = [];
-        if(!(this.props.page=="home")){
+        if(!(this.props.page=="home"||this.props.page=="opex")){
             color = this.props.templ.primary.textValueNormal;
             subscribtion = "total";
             values.push(
@@ -29,10 +29,11 @@ class Tile extends Component {
             );
             values.push(<div key={2} className={"vLine"+postfix}></div>);
         }
+        const val = (this.props.page=="opex") ? this.props.opexVal : dataBank[func].value;
         values.push(
             <div key={0} className={"tile_item__value"+postfix+" value_flex"} style={{color: this.props.templ.primary.textValueMain}}>
                 <div>
-                    {dataBank[func].value}
+                    {val}
                 </div>
                 <div>
                     <span className="subscribe" style={{color: color}}>{subscribtion}</span>
