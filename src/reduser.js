@@ -26,8 +26,9 @@ function reduser (state = null, action) {
             console.log("CHANGE_DRIVER");
             return {...state,
             value: action.payload,
-            change: "driver"
-        }
+            change: "driver",
+            sapType: "SLIDERS"
+        };
         default:
             return state
     }

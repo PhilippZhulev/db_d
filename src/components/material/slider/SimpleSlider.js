@@ -91,10 +91,8 @@ class SimpleSlider extends React.Component {
 
         store.dispatch({
             type: 'CHANGE_DRIVER',
-            payload: obj_1
+            payload: JSON.stringify(obj_1)
         });
-
-        console.log("current value is " + obj_1);
     };
 
     render() {

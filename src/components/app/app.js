@@ -74,23 +74,15 @@ class App extends Component {
             data: null,
         };
 
-        this.state.data = this.props.data.dummyData.out;
+        this.state.data = this.props.data.dummyData;
 
-        //Записываем в state.data данные из глобального объекта
-        store.subscribe(() => {
-            if(typeof store.getState().sapType !== "undefined") {
-                updateState([store.getState().sapType, store.getState().value], () => {
-                    this.setState({data: this.props.data});
-                })
-            }
+        this.myTheme = createMuiTheme({
+            palette: this.state.theme
         });
-        console.log(this.state.data.test);
-    }
 
-    render() {
         store.subscribe(() => {
             const change = store.getState().change,
-                  getState = store.getState();
+                getState = store.getState();
 
             if(change === "template") {
                 if(getState.value === true) {
@@ -117,19 +109,21 @@ class App extends Component {
             }
 
             if(change === "driver") {
-                obj.glob[sliderParam] = getState.value;
-                obj.glob.that_c.firePropertiesChangedAndEvent(["SettingsTP"], "tech1");
+                if(typeof store.getState().sapType !== "undefined") {
+                    updateState([store.getState().sapType, store.getState().value], () => {
+                        this.setState({data: this.props.data.dummyData});
+                    })
+                }
             }
         });
+    }
 
-        const myTheme = createMuiTheme({
-            palette: this.state.theme
-        });
-
+    render() {
         return (
-            <MuiThemeProvider theme={myTheme}>
+            <MuiThemeProvider theme={this.myTheme}>
                 <div className={"app_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.tiles}}>
                     <Header templ={this.state.theme} />
+                    <span>{this.state.data}</span>
                     <Tabs templ={this.state.theme} settings={{
                         items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ"],
                         pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib templ={this.state.theme}/>, <Kb templ={this.state.theme}/>, <Rb templ={this.state.theme}/>]
