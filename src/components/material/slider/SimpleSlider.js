@@ -78,7 +78,7 @@ class SimpleSlider extends React.Component {
         store.dispatch({
             type: 'CHANGE_DRIVER',
             payload: value
-        })
+        });
         console.log("current value is "+value);
     };
 

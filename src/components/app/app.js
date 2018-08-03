@@ -9,11 +9,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Cib from '../../views/kpi-cib';
 import Kb from '../../views/kpi-kb';
 import Rb from '../../views/kpi-rb';
-<<<<<<< HEAD
-import { obj, updateState} from '../../api/include';
-=======
-//import { Provider } from "react-redux";
->>>>>>> Volchanskiy
+
 
 import store from '../../reduser';
 

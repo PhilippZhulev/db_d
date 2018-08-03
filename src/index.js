@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app';
-import { obj, updateState, reactRun, reactUpdate} from './api/include';
-import json from './json/data';
 
 
 //Запускаем рендер React
