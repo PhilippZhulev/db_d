@@ -95,6 +95,9 @@ class MultiLine extends Component {
             dataCurr["category"]=this.props.options.categories[i];
             for (var j = 0; j<grNum; j++){
                 dataCurr["val"+j]=this.props.options.data[j][i];
+                if(i==catNum-1){
+                    dataCurr["val"+(grNum-1)]=this.props.val2021*10;
+                }
             }
             data.push(dataCurr);
         }
