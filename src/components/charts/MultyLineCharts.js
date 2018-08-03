@@ -7,11 +7,28 @@ import 'amcharts3/amcharts/plugins/export/export.css';
 import AmCharts from '@amcharts/amcharts3-react';
 import Legend from './legend';
 
+import store from '../../reduser';
+
 class MultiLine extends Component {
     constructor(props){
         super(props);
+        this.state = {all_values:{CHISL_OPER_FUNC: 1}};
     }
     render() {
+        let flag = false;
+        store.subscribe(() => {
+            const change = store.getState().change,
+                getState = store.getState();
+
+            if (change === "all_drivers") {
+                this.setState({all_values:getState.value});
+                flag = true;
+                //console.log("multiline change!");
+            }
+        });
+        //console.log(this.state);
+        console.log("!");
+        //console.log(this.state.all_values.CHISL_OPER_FUNC);
         let amchartsSettings =
             {
 
@@ -35,8 +52,7 @@ class MultiLine extends Component {
                     "gridColor": "#E5E5E5",
                     "gridCount": 0,
                     "gridThickness": 0,
-                    "titleColor": "#FFFFFF",
-                    "fontSize": 12
+                    "titleColor": "#FFFFFF"
                 },
                 "trendLines": [],
                 "graphs": [],
@@ -62,7 +78,7 @@ class MultiLine extends Component {
             };
         let data = [];
         let grNum = this.props.options.colors.length;
-        for (var i = 0;i<grNum;i++){
+        for (let i = 0;i<grNum;i++){
             amchartsSettings.graphs.push(
                 {
                     "balloonText": "[[category]]: [[value]]%",
@@ -77,7 +93,7 @@ class MultiLine extends Component {
                     "id": "AmGraph-"+i,
                     "fontSize": 12,
                     "showAllValueLabels": true,
-                    "labelText": (this.props.options.colors[i] != "#b4b4b4") ? "[[value]]" : "",
+                    "labelText": (this.props.options.colors[i] !== "#b4b4b4") ? "[[value]]" : "",
                     "lineThickness": this.props.options.thickness,
                     "title": "graph "+i,
                     "valueField": "val"+i,
@@ -95,6 +111,13 @@ class MultiLine extends Component {
             dataCurr["category"]=this.props.options.categories[i];
             for (var j = 0; j<grNum; j++){
                 dataCurr["val"+j]=this.props.options.data[j][i];
+                if (this.props.grId===0 && this.props.page==="opex" && flag && j===grNum-1) {
+                    dataCurr["val"+j]=this.props.options.data[j-1][i]*this.state.all_values["CHISL_OPER_FUNC"];
+                    console.log("applied, value is ");
+                    console.log(this.state.all_values);
+                    flag = false;
+                }
+                //console.log(this.props.grId+" "+flag+" "+this.props.page+" "+j)
                 
             }
             data.push(dataCurr);

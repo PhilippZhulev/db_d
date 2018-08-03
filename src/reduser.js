@@ -23,11 +23,16 @@ function reduser (state = null, action) {
                 change: "menu"
             };
         case "CHANGE_DRIVER":
-            console.log("CHANGE_DRIVER");
+            //console.log("CHANGE_DRIVER");
             return {...state,
             value: action.payload,
             change: "driver"
         }
+        case "CHANGE_ALL_DRIVERS":
+            return {...state,
+                value: action.payload,
+                change: "all_drivers"
+            }
         default:
             return state
     }

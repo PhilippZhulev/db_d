@@ -96,7 +96,7 @@ class App extends Component {
                     this.setState({menu: ""});
                 }
             }
-            console.log(getState.value);
+            //console.log(getState.value);
             if(change === "slidersPos") {
                 if(getState.value === "left") {
                     this.setState({pos: " alternative"});

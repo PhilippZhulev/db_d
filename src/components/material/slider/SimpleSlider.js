@@ -86,14 +86,13 @@ class SimpleSlider extends React.Component {
     };
 
     handleDragEnd = () =>{
-        const value = this.state;
         const obj_1 = {}
         obj_1[this.props.driverId]= this.state.value;
         store.dispatch({
             type: 'CHANGE_DRIVER',
             payload: obj_1
         })
-        console.log("current value is "+obj_1);
+        //console.log("current value is "+obj_1);
     };
 
     render() {
