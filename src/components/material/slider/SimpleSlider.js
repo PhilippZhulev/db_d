@@ -75,11 +75,14 @@ class SimpleSlider extends React.Component {
 
     handleChange = (event, value) => {
         this.setState({ value });
+<<<<<<< HEAD
         store.dispatch({
             type: 'CHANGE_DRIVER',
             payload: value
         });
         console.log("current value is "+value);
+=======
+>>>>>>> Volchanskiy
     };
 
     handleClickOpen = () => {
@@ -88,6 +91,17 @@ class SimpleSlider extends React.Component {
 
     handleClose = (value) => {
         this.setState({ open: false });
+    };
+
+    handleDragEnd = () =>{
+        const value = this.state;
+        const obj_1 = {}
+        obj_1[this.props.driverId]= this.state.value;
+        store.dispatch({
+            type: 'CHANGE_DRIVER',
+            payload: obj_1
+        })
+        console.log("current value is "+obj_1);
     };
 
     render() {
@@ -148,6 +162,8 @@ class SimpleSlider extends React.Component {
                     min={min}
                     max={max}
                     onChange={this.handleChange}
+                    onDragEnd={this.handleDragEnd}
+                    step={this.props.step}
                 />
 
                 <div className={classes.default_dot} style={{left: this.dot_left}}/>
