@@ -115,6 +115,11 @@ class App extends Component {
                     this.setState({pos: ""});
                 }
             }
+
+            if(change === "driver") {
+                obj.glob[sliderParam] = getState.value;
+                obj.glob.that_c.firePropertiesChangedAndEvent(["SettingsTP"], "tech1");
+            }
         });
 
         const myTheme = createMuiTheme({
