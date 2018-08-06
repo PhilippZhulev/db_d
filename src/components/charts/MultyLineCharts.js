@@ -27,7 +27,7 @@ class MultiLine extends Component {
         const bigClass = (this.props.options.isBig) ? "_big" : "";
         console.log("from render!");
         console.log(this.state);
-        
+
         let amchartsSettings =
             {
 
