@@ -13,66 +13,68 @@ class MultiLine extends Component {
     constructor(props){
         console.log("!");
         super(props);
-        this.state = {amchartsSettings:{}, all_values:{}};
-        let all_values ={};
+        this.state={all_values:{CHISL_OPER_FUNC:1}};
         store.subscribe(() => {
             const change = store.getState().change,
                 getState = store.getState();
 
             if (change === "all_drivers") {
-                //all_values = getState.value;
                 this.setState({all_values:getState.value});
-                //console.log("multiline change!");
             }
         });
-
+    }
+    render() {
+        const bigClass = (this.props.options.isBig) ? "_big" : "";
+        console.log("from render!");
+        console.log(this.state);
+        
         let amchartsSettings =
             {
 
-            "type": "serial",
-            "fontFamily": "'Open Sans', sans-serif",
-            "categoryField": "category",
-            "zoomOutButtonRollOverAlpha": 0,
-            "colors": this.props.options.colors,
-            "sequencedAnimation": false,
-            "startDuration": 0,
-            "color": this.props.templ.primary.graphText,
-            "fontSize": 12,
-            "categoryAxis": {
-                "labelOffset": -10,
-                "fontSize": 12,
-                "gridPosition": "start",
-                "axisColor": this.props.templ.primary.graphText,
+                "type": "serial",
+                "fontFamily": "'Open Sans', sans-serif",
+                "categoryField": "category",
+                "zoomOutButtonRollOverAlpha": 0,
+                "colors": this.props.options.colors,
+                "sequencedAnimation": false,
+                "startDuration": 0,
                 "color": this.props.templ.primary.graphText,
-                "axisThickness": 0.4,
-                "gridAlpha": 0,
-                "gridColor": "#E5E5E5",
-                "gridCount": 0,
-                "gridThickness": 0,
-                "titleColor": "#FFFFFF"
-            },
-            "trendLines": [],
-            "graphs": [],
-            "guides": [],
-            "valueAxes": [
-                {
-                    "id": "ValueAxis-1",
-                    "precision": 0,
-                    "axisAlpha": 0.0,
-                    "axisColor": "#E5E5E5",
+                "fontSize": 12,
+                "categoryAxis": {
+                    "labelOffset": -10,
+                    "fontSize": 12,
+                    "gridPosition": "start",
+                    "axisColor": this.props.templ.primary.graphText,
+                    "color": this.props.templ.primary.graphText,
+                    "axisThickness": 0.4,
                     "gridAlpha": 0,
-                    "gridThickness": 0,
                     "gridColor": "#E5E5E5",
-                    "labelsEnabled": false,
-                    "title": "",
-                    "titleColor": "#E5E5E5"
-                }
-            ],
-            "allLabels": [],
-            "titles": [],
-            "dataProvider": []
+                    "gridCount": 0,
+                    "gridThickness": 0,
+                    "titleColor": "#FFFFFF"
+                },
+                "trendLines": [],
+                "graphs": [],
+                "guides": [],
+                "valueAxes": [
+                    {
+                        "id": "ValueAxis-1",
+                        "precision": 0,
+                        "axisAlpha": 0.0,
+                        "axisColor": "#E5E5E5",
+                        "gridAlpha": 0,
+                        "gridThickness": 0,
+                        "gridColor": "#E5E5E5",
+                        "labelsEnabled": false,
+                        "title": "",
+                        "titleColor": "#E5E5E5"
+                    }
+                ],
+                "allLabels": [],
+                "titles": [],
+                "dataProvider": []
 
-        };
+            };
         let data = [];
         let grNum = this.props.options.colors.length;
         for (let i = 0;i<grNum;i++){
@@ -109,7 +111,7 @@ class MultiLine extends Component {
             for (let j = 0; j<grNum; j++){
                 dataCurr["val"+j]=this.props.options.data[j][i];
                 if (this.props.grId===0 && this.props.page==="opex" && i>0 && j===grNum-1) {
-                    dataCurr["val"+j]=(this.props.options.data[j-1][i]*all_values["CHISL_OPER_FUNC"]).toFixed(2);
+                    dataCurr["val"+j]=(this.props.options.data[j-1][i]*this.state.all_values["CHISL_OPER_FUNC"]).toFixed(2);
                     /*console.log("value was: "+this.props.options.data[j-1][i]);
                     console.log("multiplied by: "+this.state.all_values["CHISL_OPER_FUNC"]);
                     console.log("result: "+dataCurr["val"+j]);
@@ -121,18 +123,16 @@ class MultiLine extends Component {
             data.push(dataCurr);
         }
         amchartsSettings.dataProvider = data;
-        //console.log(amchartsSettings);
-        //this.setState({out:{arr:out}});
-        this.setState({amchartsSettings:{1:"a"}});
+
+        console.log("another try");
+        this.state = {amchartsSettings:amchartsSettings};
         console.log(this.state);
-    }
-    render() {
-        const bigClass = (this.props.options.isBig) ? "_big" : "";
-        console.log(this.state);
+        console.log("Outside subscribe");
+        console.log(this);
 
         let out =[];
         out.push(<AmCharts.React key={0} className="chart" style={{width:this.props.options.geometry.width,height: this.props.options.geometry.height}}
-                                 options={this.state.amchartsSettings}
+                                 options={amchartsSettings}
         />);
         if(this.props.options.legend){
             out.push(<Legend key={1} templ={this.props.templ} options={this.props.options}/>);
