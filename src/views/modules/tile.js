@@ -13,7 +13,7 @@ class Tile extends Component {
         let color = "rgba(0,0,0,0)";
         const func = this.props.func;
         let values = [];
-        if(!(this.props.page=="home"||this.props.page=="opex")){
+        if(!(this.props.page==="home"||this.props.page==="opex")){
             color = this.props.templ.primary.textValueNormal;
             subscribtion = "total";
             values.push(
@@ -40,7 +40,7 @@ class Tile extends Component {
                 </div>
             </div>
         );
-        const comma = (dataBank[func].mera=="") ? "" : ", ";
+        const comma = (dataBank[func].mera==="") ? "" : ", ";
         return(
             <div className={"tile_item_"+this.props.tileNum}>
                 <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>

@@ -111,6 +111,8 @@ class MultiLine extends Component {
             for (let j = 0; j<grNum; j++){
                 dataCurr["val"+j]=this.props.options.data[j][i];
                 if (this.props.grId===0 && this.props.page==="opex" && i>0 && j===grNum-1) {
+                    console.log("OPEX!");
+                    console.log(this.state);
                     dataCurr["val"+j]=(this.props.options.data[j-1][i]*this.state.all_values["CHISL_OPER_FUNC"]).toFixed(2);
                     /*console.log("value was: "+this.props.options.data[j-1][i]);
                     console.log("multiplied by: "+this.state.all_values["CHISL_OPER_FUNC"]);
@@ -124,11 +126,11 @@ class MultiLine extends Component {
         }
         amchartsSettings.dataProvider = data;
 
-        console.log("another try");
-        this.state = {amchartsSettings:amchartsSettings};
+        //console.log("another try");
+        //this.state = {amchartsSettings:amchartsSettings};
         console.log(this.state);
         console.log("Outside subscribe");
-        console.log(this);
+        //console.log(this);
 
         let out =[];
         out.push(<AmCharts.React key={0} className="chart" style={{width:this.props.options.geometry.width,height: this.props.options.geometry.height}}
