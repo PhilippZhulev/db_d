@@ -71,10 +71,10 @@ class App extends Component {
             theme : whiteTheme,
             menu: " active",
             pos: "",
-            data: null,
+            data: this.props.data.data
         };
 
-        this.state.data = this.props.data.dummyData;
+        console.log(this.state);
 
         this.myTheme = createMuiTheme({
             palette: this.state.theme
@@ -110,9 +110,12 @@ class App extends Component {
 
             if(change === "driver") {
                 if(typeof store.getState().sapType !== "undefined") {
-                    updateState([store.getState().sapType, store.getState().value], () => {
-                        this.setState({data: this.props.data.dummyData});
-                    })
+
+                    const objState = [JSON.stringify(store.getState().value.id), JSON.stringify(store.getState().value.val)];
+
+                    updateState([store.getState().sapType, objState], () => {
+                        this.setState({data: this.props.data.data});
+                    });
                 }
             }
         });
@@ -123,7 +126,6 @@ class App extends Component {
             <MuiThemeProvider theme={this.myTheme}>
                 <div className={"app_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.tiles}}>
                     <Header templ={this.state.theme} />
-                    <span>{this.state.data}</span>
                     <Tabs templ={this.state.theme} settings={{
                         items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ"],
                         pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib templ={this.state.theme}/>, <Kb templ={this.state.theme}/>, <Rb templ={this.state.theme}/>]

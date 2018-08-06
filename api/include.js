@@ -6,8 +6,12 @@ function Reactor() {
 
         //Получаем и парсим JSON
         obj.changeData = JSON.parse(obj.glob.Settings.initial_data);
-        console.log(obj.glob.Settings.data);
-        console.log(obj.glob.Settings.chp);
+        obj.data = {};
+        console.log(obj.data);
+
+        // obj.data.forEach(function(items, i) {
+        //     console.log(items);
+        // });
 
         //После парсинга JSON запускаем событие reactRun (Только если payload = START тоесть только при первой загрузке)
         if(obj.changeData.payload === "START") {
