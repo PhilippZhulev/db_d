@@ -41,7 +41,7 @@ class Tile extends Component {
                 </div>
             </div>
         );
-        const comma = (dataBank[func].mera=="") ? "" : ", ";
+        const comma = (dataBank[func].mera === "") ? "" : ", ";
         return(
             <div className={"tile_item_"+this.props.tileNum}>
                 <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>

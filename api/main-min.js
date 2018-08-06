@@ -47,8 +47,10 @@ function updateState(action, func) {
 }
 console.log(reactUpdate);
 
-//
-// var script = document.createElement("script");
-// script.setAttribute("src", "http://localhost:3000/static/js/bundle.js");
-// document.querySelector("body").appendChild(script);
+//Первичный запрос данных
+function req(change) {
+    obj.glob.Settings.reactReq = change;
+    return obj.glob.that_c.firePropertiesChangedAndEvent(["SettingsTP"], "tech1");
+}
+
 
