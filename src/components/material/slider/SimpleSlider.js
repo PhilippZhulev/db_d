@@ -127,13 +127,14 @@ class SimpleSlider extends React.Component {
             this.setState({inputError: false,inputValue:value});
         } else if (value===""){
             this.setState({inputError: false,inputValue:value});
-        }else if (+(value) < this.props.min || +(value) > this.props.max){
+        }else if (+(value) < this.props.min || +(value) > this.props.max || (Math.abs(+(value) % this.props.step - this.props.step) > 0.000000001)){
             console.log("bad value");
             this.setState({ inputValue:value,inputError: true });
             //console.log(this.state);
         } else{
             this.setState({inputError: false,inputValue:value});
         }
+        console.log((Math.abs(+(value) % this.props.step - this.props.step)));
         //console.log(value);
     };
 
