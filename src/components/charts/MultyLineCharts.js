@@ -11,7 +11,7 @@ import store from '../../reduser';
 
 class MultiLine extends Component {
     constructor(props){
-        console.log("!");
+        //console.log("!");
         super(props);
         this.state={all_values:{CHISL_OPER_FUNC:1}};
         store.subscribe(() => {
@@ -25,8 +25,8 @@ class MultiLine extends Component {
     }
     render() {
         const bigClass = (this.props.options.isBig) ? "_big" : "";
-        console.log("from render!");
-        console.log(this.state);
+        //console.log("from render!");
+        //console.log(this.state);
 
         let amchartsSettings =
             {
@@ -111,8 +111,8 @@ class MultiLine extends Component {
             for (let j = 0; j<grNum; j++){
                 dataCurr["val"+j]=this.props.options.data[j][i];
                 if (this.props.grId===0 && this.props.page==="opex" && i>0 && j===grNum-1) {
-                    console.log("OPEX!");
-                    console.log(this.state);
+                    //console.log("OPEX!");
+                    //console.log(this.state);
                     dataCurr["val"+j]=(this.props.options.data[j-1][i]*this.state.all_values["CHISL_OPER_FUNC"]).toFixed(2);
                     /*console.log("value was: "+this.props.options.data[j-1][i]);
                     console.log("multiplied by: "+this.state.all_values["CHISL_OPER_FUNC"]);
@@ -128,8 +128,8 @@ class MultiLine extends Component {
 
         //console.log("another try");
         //this.state = {amchartsSettings:amchartsSettings};
-        console.log(this.state);
-        console.log("Outside subscribe");
+        //console.log(this.state);
+        //console.log("Outside subscribe");
         //console.log(this);
 
         let out =[];

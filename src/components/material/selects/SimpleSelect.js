@@ -49,6 +49,7 @@ class SimpleSelect extends React.Component {
                     classes={this.props.classes}
                     className="sup_select"
                     name="age"
+
                 >
                     <MenuItem value="">ТОП-10</MenuItem>
                     <MenuItem value={2}>Персонал</MenuItem>

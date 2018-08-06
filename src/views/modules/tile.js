@@ -6,6 +6,16 @@ import dataBank from '../../secret/data_bank';
 class Tile extends Component {
     constructor(props) {
         super(props);
+        const func = this.props.func;
+        const graphQuant = dataBank[func].options.data.length;
+        const lastCat = dataBank[func].options.categories.length;
+        // console.log(dataBank[func].options.data[graphQuant-1][lastCat-1]);
+        // console.log(dataBank[func].options.data[graphQuant-2][lastCat-1]);
+        // console.log(+(dataBank[func].options.data[graphQuant-1][lastCat-1])-(+(dataBank[func].options.data[graphQuant-2][lastCat-1])));
+        const smallVal = ((+(dataBank[func].options.data[graphQuant-1][lastCat-1])-(+(dataBank[func].options.data[graphQuant-2][lastCat-1])))/dataBank[func].options.data[graphQuant-2][lastCat-1]*100).toFixed(2);
+        // console.log(this.props.func+": ("+smallVal+"%)");
+        const smallValStr="("+smallVal+"%)";
+        this.state={smallValue:smallValStr};
     }
     render(){
         const postfix = (this.props.isSmall) ? "_small" : "";
@@ -36,7 +46,7 @@ class Tile extends Component {
                 </div>
                 <div>
                     <span className="subscribe" style={{color: color}}>{subscribtion}</span>
-                    <span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank[func].smallValue}</span>
+                    <span style={{color: this.props.templ.primary.textValueNormal}}>{this.state.smallValue}</span>
                 </div>
             </div>
         );
