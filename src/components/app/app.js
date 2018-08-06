@@ -71,10 +71,10 @@ class App extends Component {
             theme : whiteTheme,
             menu: " active",
             pos: "",
-            data: this.props.data.data
+            data: null
         };
 
-        console.log(this.state);
+        this.state.data = this.props.data.data;
 
         this.myTheme = createMuiTheme({
             palette: this.state.theme

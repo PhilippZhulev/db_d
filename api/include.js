@@ -6,9 +6,8 @@ function Reactor() {
 
         //Получаем и парсим JSON
         obj.changeData = JSON.parse(obj.glob.Settings.initial_data);
-        obj.data = {};
+        obj.data = obj.glob.Settings.data;
         console.log(obj.data);
-
         // obj.data.forEach(function(items, i) {
         //     console.log(items);
         // });
