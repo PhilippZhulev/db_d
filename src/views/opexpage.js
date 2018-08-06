@@ -21,6 +21,7 @@ class Opex extends Component {
                         isSmall = {isSmall}
                         func={value}
                         templ = {templ}
+                        grInd = {index}
                     />
             )
             }

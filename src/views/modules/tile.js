@@ -54,6 +54,8 @@ class Tile extends Component {
                     <MultiLine
                         options={dataBank[func].options}
                         templ={this.props.templ}
+                        page={this.props.page}
+                        grInd={this.props.grInd}
                     />
                 </div>
             </div>

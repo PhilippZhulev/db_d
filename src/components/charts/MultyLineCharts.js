@@ -10,6 +10,7 @@ import Legend from './legend';
 class MultiLine extends Component {
     constructor(props){
         super(props);
+        
     }
     render() {
         let amchartsSettings =
@@ -95,6 +96,9 @@ class MultiLine extends Component {
             dataCurr["category"]=this.props.options.categories[i];
             for (var j = 0; j<grNum; j++){
                 dataCurr["val"+j]=this.props.options.data[j][i];
+                if(this.props.grInd === 0){
+
+                }
                 
             }
             data.push(dataCurr);
