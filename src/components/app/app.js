@@ -74,7 +74,7 @@ class App extends Component {
             data: null
         };
 
-        this.state.data = this.props.data.data;
+        this.state.data = this.props.data.data; //<--- Here
 
         this.myTheme = createMuiTheme({
             palette: this.state.theme
@@ -115,7 +115,13 @@ class App extends Component {
 
                     updateState([store.getState().sapType, objState], () => {
                         this.setState({data: this.props.data.data});
+                        store.dispatch({
+                            type: 'GET_DATA_TEST',
+                            payload: this.state.data
+                        })
                     });
+
+
                 }
             }
         });

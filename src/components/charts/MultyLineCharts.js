@@ -6,13 +6,37 @@ import 'amcharts3/amcharts/plugins/export/export.min.js';
 import 'amcharts3/amcharts/plugins/export/export.css';
 import AmCharts from '@amcharts/amcharts3-react';
 import Legend from './legend';
+import store from "../../reduser";
 
 class MultiLine extends Component {
     constructor(props){
         super(props);
-        
+        this.state = {data: obj.data.data};
+        store.subscribe(() => {
+            const change = store.getState().change,
+                getState = store.getState();
+
+            /*if(change === "driver") {
+                if(typeof store.getState().sapType !== "undefined") {
+
+                    const objState = [JSON.stringify(store.getState().value.id), JSON.stringify(store.getState().value.val)];
+
+                    updateState([store.getState().sapType, objState], () => {
+                        this.setState({data: obj.data.data});
+                    });
+                }
+            } else */if(change === "data"){
+                this.setState({data: getState});
+                console.log("State now is: ");
+                console.log(this.state);
+            }
+        });
     }
     render() {
+        console.log("In render func:");
+        console.log(this.state);
+        console.log("gr id:");
+        console.log(this.props.grInd);
         let amchartsSettings =
             {
 
@@ -36,8 +60,7 @@ class MultiLine extends Component {
                     "gridColor": "#E5E5E5",
                     "gridCount": 0,
                     "gridThickness": 0,
-                    "titleColor": "#FFFFFF",
-                    "fontSize": 12
+                    "titleColor": "#FFFFFF"
                 },
                 "trendLines": [],
                 "graphs": [],
@@ -96,8 +119,14 @@ class MultiLine extends Component {
             dataCurr["category"]=this.props.options.categories[i];
             for (var j = 0; j<grNum; j++){
                 dataCurr["val"+j]=this.props.options.data[j][i];
-                if(this.props.grInd === 0){
-
+                if(this.props.grInd === 0 && this.state.data !== undefined){
+                    console.log("FTP data");
+                    let dataFtp = JSON.parse("["+this.state.data.value+"]");
+                    let vals = ["strategy", "base", "model"];
+                    dataCurr["category"]=dataFtp[i]["category"];
+                    dataCurr["val"+j]=dataFtp[i][vals[j]];
+                    console.log("dataCurr: ");
+                    console.log(dataCurr);
                 }
                 
             }

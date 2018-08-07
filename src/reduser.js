@@ -29,6 +29,12 @@ function reduser (state = null, action) {
             change: "driver",
             sapType: "SLIDERS"
         };
+        case "GET_DATA_TEST":
+            console.log("GET_DATA_TEST");
+            return {...state,
+                value: action.payload,
+                change: "data"
+            };
         default:
             return state
     }
