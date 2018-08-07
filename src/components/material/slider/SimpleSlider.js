@@ -74,6 +74,23 @@ class SimpleSlider extends React.Component {
     };
 
     handleChange = (event, value) => {
+        let split_step = (""+this.props.step).split(".");
+        let split_value = (""+value).split(".");
+        let val = value;
+        if (split_value.length > 1){
+            console.log("value has decimal part");
+            if (split_step.length > 1) {
+                //console.log("and step has one, has digits: "+split_step[1].length);
+                split_value[1] = split_value[1].substring(0,split_step[1].length);
+                val = +(split_value.join("."));
+                //console.log(split_value.join("."));
+            } else {
+                val = +(split_value[0]);
+                //console.log("but step has not");
+            }
+        }
+        value = val;
+        //console.log(value);
         this.setState({ value });
     };
 
