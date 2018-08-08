@@ -32,12 +32,26 @@ function reduser (state = null, action) {
                 value: action.payload,
                 change: "all_drivers"
             };
+        case "CHANGE_DRIVER_ROUTER":
+            return {...state,
+                states: action.payload,
+                change: "drivers_router"
+            };
         default:
             return state
     }
 }
 
+
+
 const store = createStore(reduser);
 
+let getState,
+    change;
 
-export default store;
+store.subscribe(() => {
+    getState = store.getState();
+    change = getState.change;
+});
+
+export {store as default, getState, change};

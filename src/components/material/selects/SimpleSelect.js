@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-//import store from '../../../reduser';
+import store from "../../../reduser";
+
 
 const styles = theme => ({
     root: {
@@ -31,6 +29,14 @@ class SimpleSelect extends React.Component {
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+
+    store.dispatch({
+      type: 'CHANGE_DRIVER_ROUTER',
+      payload: {
+          name: event.target.name,
+          value: event.target.value
+      }
+    });
   };
 
   render() {
@@ -48,7 +54,7 @@ class SimpleSelect extends React.Component {
                     displayEmpty
                     classes={this.props.classes}
                     className="sup_select"
-                    name="age"
+                    name="driver_router"
 
                 >
                     <MenuItem value="">ТОП-10</MenuItem>
@@ -56,8 +62,7 @@ class SimpleSelect extends React.Component {
                     <MenuItem value={3}>Сервисы</MenuItem>
                     <MenuItem value={4}>IT</MenuItem>
                     <MenuItem value={5}>Прочие</MenuItem>
-                    <MenuItem value={6}>OPEX</MenuItem>
-                    <MenuItem value={7}>Доходы / Риски</MenuItem>
+                    <MenuItem value={6}>Доходы / Риски</MenuItem>
                 </Select>
             </FormControl>
 

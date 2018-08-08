@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../material/app-bar/DenseAppBar';
 import Tabs from '../material/tabs/ScrollableTabsButtonAuto';
-import Slider from '../material/slider/SimpleSlider';
 import Btn from '../material/buttons/ContainedButtons';
 import Home from '../../views/homepage';
 import Opex from '../../views/opexpage';
@@ -11,7 +10,7 @@ import Kb from '../../views/kpi-kb';
 import Rb from '../../views/kpi-rb';
 
 import Drivers from "../../views/modules/drivers";
-import store from '../../reduser';
+import store, {getState, change} from "../../reduser";
 
 let whiteTheme = {
     primary: {
@@ -70,6 +69,7 @@ class App extends Component {
             menu: " active",
             pos: "",
             data: null,
+            category: 0
         };
 
        // this.state.data = this.props.data.dummyData;
@@ -79,9 +79,6 @@ class App extends Component {
         });
 
         store.subscribe(() => {
-            const change = store.getState().change,
-                getState = store.getState();
-
             if(change === "template") {
                 if(getState.value === true) {
                     this.setState({theme: whiteTheme});
@@ -106,12 +103,8 @@ class App extends Component {
                 }
             }
 
-            if(change === "driver") {
-                if(typeof store.getState().sapType !== "undefined") {
-                    // updateState([store.getState().sapType, store.getState().value], () => {
-                    //     this.setState({data: this.props.data.dummyData});
-                    // })
-                }
+            if(change === "drivers_router") {
+                this.setState({category: getState.states.value});
             }
         });
     }
@@ -127,7 +120,7 @@ class App extends Component {
                         pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib templ={this.state.theme}/>, <Kb templ={this.state.theme}/>, <Rb templ={this.state.theme}/>]
                     }} />
                     <div className={"app_menu_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.menu}}>
-                        <Drivers />
+                        <Drivers routerValue={this.state.category} />
                         <div className="btns__panel">
                             <Btn
                                 customClass="btn_save"
