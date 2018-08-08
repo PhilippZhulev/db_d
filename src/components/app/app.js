@@ -10,11 +10,6 @@ import Cib from '../../views/kpi-cib';
 import Kb from '../../views/kpi-kb';
 import Rb from '../../views/kpi-rb';
 
-<<<<<<< HEAD
-=======
-
-import Drivers from "../../views/modules/drivers";
->>>>>>> Zhulev
 
 import store from '../../reduser';
 
@@ -40,7 +35,7 @@ let whiteTheme = {
         main: '#1ab394',
         dark: '#00b686',
     }
-}
+};
 
 let darkTheme = {
     primary: {
@@ -98,7 +93,7 @@ class App extends Component {
             if(change === "menu") {
                 if(getState.value === true) {
                     this.setState({menu: " active"});
-                }else {
+                }else { 
                     this.setState({menu: ""});
                 }
             }
