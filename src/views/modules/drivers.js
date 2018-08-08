@@ -18,12 +18,14 @@ class Drivers extends Component {
             if (change === "driver") {
 
                 for (let key in getState.value){
-                    values[key] = getState.value[key];
+                    if(getState.value.hasOwnProperty(key)) {
+                        values[key] = getState.value[key];
+                    }
                 }
 
                 store.dispatch({
                     type: 'CHANGE_ALL_DRIVERS',
-                    payload: values
+                    payload: getState.value
                 })
             }
         });
@@ -35,12 +37,13 @@ class Drivers extends Component {
             values[value] = driverBank[value].value;
 
             return (
-                <Slider key={index} driverId={value}
-                        labelText={driverBank[value].labelText}
-                        min={driverBank[value].min}
-                        max={driverBank[value].max}
-                        value={driverBank[value].value}
-                        step={0.1}
+                <Slider
+                    key={index} driverId={value}
+                    labelText={driverBank[value].labelText}
+                    min={driverBank[value].min}
+                    max={driverBank[value].max}
+                    value={driverBank[value].value}
+                    step={0.1}
                 />
             )
         })
