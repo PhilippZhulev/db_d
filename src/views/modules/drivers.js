@@ -10,9 +10,7 @@ class Drivers extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            routerValue: this.props.routerValue,
-        };
+        this.state = {routerValue: this.props.routerValue};
 
         store.subscribe(() => {
             if (change === "driver") {
@@ -65,7 +63,7 @@ class Drivers extends Component {
     render() {
         return (
             <div className={"slider_wrapper"}>
-                {this.addDrivers(this.route(this.props.routerValue))}
+                {this.addDrivers(this.route(this.props.routerValue))} 
             </div>
         );
     }
