@@ -70,10 +70,29 @@ class SimpleSlider extends React.Component {
     state = {
         value: this.props.value,
         open: false,//от диалога
-        random: "slider_thumb" + String(Math.random()).split(".")[1]
+        random: "slider_thumb" + String(Math.random()).split(".")[1],
+        inputError: false,
+        inputValue: ""
     };
 
     handleChange = (event, value) => {
+        /*let split_step = (""+this.props.step).split(".");
+        let split_value = (""+value).split(".");
+        let val = value;
+        if (split_value.length > 1){
+            console.log("value has decimal part");
+            if (split_step.length > 1) {
+                console.log("and step has one, has digits: "+split_step[1].length);
+                split_value[1] = split_value[1].substring(0,split_step[1].length);
+                val = +(split_value.join("."));
+                console.log(split_value.join("."));
+            } else {
+                val = +(split_value[0]);
+                console.log("but step has not");
+            }
+        }
+        value = val;*/
+        //console.log(value);
         this.setState({ value });
     };
 
@@ -82,17 +101,60 @@ class SimpleSlider extends React.Component {
     };
 
     handleClose = (value) => {
-        this.setState({ open: false });
+        this.setState({ open: false, inputValue: "", inputError: false });
     };
 
     handleDragEnd = () =>{
         const obj_1 = {};
+<<<<<<< HEAD
         obj_1[this.props.driverId] = this.state.value;
 
         store.dispatch({
             type: 'CHANGE_DRIVER',
             payload: JSON.stringify(obj_1)
         });
+=======
+        obj_1[this.props.driverId]= this.state.value;
+        store.dispatch({
+            type: 'CHANGE_DRIVER',
+            payload: obj_1
+        })
+        //console.log("current value is "+obj_1);
+    };
+
+    handleFieldChange = (event) =>{
+        let value = event.target.value;
+        // switch (value) {
+        //     case (value < this.props.min || value > this.props.max):
+        //         this.setState({ inputValue:value,inputError: true });
+        //         break;
+        //     default:
+        //         this.setState({inputError: false,inputValue:value});
+        // }
+        if (value==="-"){
+            this.setState({inputError: false,inputValue:value});
+        } else if (value===""){
+            this.setState({inputError: false,inputValue:value});
+        }else if (+(value) < this.props.min || +(value) > this.props.max || (Math.abs(+(value) % this.props.step - this.props.step) > 0.000000001)){
+            console.log("bad value");
+            this.setState({ inputValue:value,inputError: true });
+            //console.log(this.state);
+        } else{
+            this.setState({inputError: false,inputValue:value});
+        }
+        console.log((Math.abs(+(value) % this.props.step - this.props.step)));
+        //console.log(value);
+    };
+
+    handleApply = (value) =>{
+        if (!this.state.inputError) {
+            let val = this.state.inputValue;
+            this.setState({value: +(val)});
+        }
+        console.log(this.state);
+        this.handleClose(value);
+
+>>>>>>> Volchanskiy
     };
 
     render() {
@@ -102,6 +164,9 @@ class SimpleSlider extends React.Component {
 
         let min = (this.props.min) ? this.props.min : 0;
         let max = (this.props.max) ? this.props.max : 100;
+        let error = false;
+
+        //console.log("errorflag is: "+this.state.inputError);
 
         return (
             <div className={classes.root}>
@@ -122,13 +187,15 @@ class SimpleSlider extends React.Component {
                             type="number"
                             fullWidth
                             inputProps={{ min: min, max: max, step: "0.1"}}
+                            onChange={this.handleFieldChange}
+                            error={this.state.inputError}
                         />
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleClose} color="primary">
                             Отмена
                         </Button>
-                        <Button onClick={this.handleClose} color="primary">
+                        <Button onClick={this.handleApply} color="primary">
                             Применить
                         </Button>
                     </DialogActions>
