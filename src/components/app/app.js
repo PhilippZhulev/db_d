@@ -10,7 +10,7 @@ import Cib from '../../views/kpi-cib';
 import Kb from '../../views/kpi-kb';
 import Rb from '../../views/kpi-rb';
 
-
+import Drivers from "../../views/modules/drivers";
 import store from '../../reduser';
 
 let whiteTheme = {
