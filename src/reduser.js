@@ -23,14 +23,8 @@ function reduser (state = null, action) {
                 change: "menu"
             };
         case "CHANGE_DRIVER":
-            //console.log("CHANGE_DRIVER");
             return {...state,
             value: action.payload,
-<<<<<<< HEAD
-            change: "driver",
-            sapType: "SLIDERS"
-        };
-=======
             change: "driver"
         };
         case "CHANGE_ALL_DRIVERS":
@@ -38,7 +32,6 @@ function reduser (state = null, action) {
                 value: action.payload,
                 change: "all_drivers"
             };
->>>>>>> Volchanskiy
         default:
             return state
     }

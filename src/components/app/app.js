@@ -99,11 +99,7 @@ class App extends Component {
                     this.setState({menu: ""});
                 }
             }
-<<<<<<< HEAD
 
-=======
-            //console.log(getState.value);
->>>>>>> Volchanskiy
             if(change === "slidersPos") {
                 if(getState.value === "left") {
                     this.setState({pos: " alternative"});
