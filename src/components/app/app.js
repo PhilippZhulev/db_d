@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import store from '../../model';
 import Header from '../material/app-bar/DenseAppBar';
 import Tabs from '../material/tabs/ScrollableTabsButtonAuto';
 import Slider from '../material/slider/SimpleSlider';
@@ -10,10 +9,8 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Cib from '../../views/kpi-cib';
 import Kb from '../../views/kpi-kb';
 import Rb from '../../views/kpi-rb';
-//import { Provider } from "react-redux";
 
 import Drivers from "../../views/modules/drivers";
-
 import store from '../../reduser';
 
 let whiteTheme = {
@@ -38,7 +35,7 @@ let whiteTheme = {
         main: '#1ab394',
         dark: '#00b686',
     }
-}
+};
 
 let darkTheme = {
     primary: {
@@ -71,15 +68,19 @@ class App extends Component {
         this.state = {
             theme : whiteTheme,
             menu: " active",
-            pos: ""
-        }
-    }
+            pos: "",
+            data: null,
+        };
 
-    render() {
+       // this.state.data = this.props.data.dummyData;
+
+        this.myTheme = createMuiTheme({
+            palette: this.state.theme
+        });
 
         store.subscribe(() => {
             const change = store.getState().change,
-                  getState = store.getState();
+                getState = store.getState();
 
             if(change === "template") {
                 if(getState.value === true) {
@@ -92,11 +93,11 @@ class App extends Component {
             if(change === "menu") {
                 if(getState.value === true) {
                     this.setState({menu: " active"});
-                }else {
+                }else { 
                     this.setState({menu: ""});
                 }
             }
-            //console.log(getState.value);
+
             if(change === "slidersPos") {
                 if(getState.value === "left") {
                     this.setState({pos: " alternative"});
@@ -104,16 +105,23 @@ class App extends Component {
                     this.setState({pos: ""});
                 }
             }
-        });
 
-        const myTheme = createMuiTheme({
-            palette: this.state.theme
+            if(change === "driver") {
+                if(typeof store.getState().sapType !== "undefined") {
+                    // updateState([store.getState().sapType, store.getState().value], () => {
+                    //     this.setState({data: this.props.data.dummyData});
+                    // })
+                }
+            }
         });
+    }
 
+    render() {
         return (
-            <MuiThemeProvider theme={myTheme}>
+            <MuiThemeProvider theme={this.myTheme}>
                 <div className={"app_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.tiles}}>
                     <Header templ={this.state.theme} />
+                    <span>{this.state.data}</span>
                     <Tabs templ={this.state.theme} settings={{
                         items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ"],
                         pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib templ={this.state.theme}/>, <Kb templ={this.state.theme}/>, <Rb templ={this.state.theme}/>]

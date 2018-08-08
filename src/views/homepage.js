@@ -12,7 +12,7 @@ class Home extends Component {
         const templ = this.props.templ;
         let tiles = funcs.map(
             (value,index)=>{
-                const isSmall = (index==0) ? false : true;
+                const isSmall = (index === 0) ? false : true;
                 return(
                     <Tile
                         key={index}

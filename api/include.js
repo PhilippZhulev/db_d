@@ -5,10 +5,11 @@ function Reactor() {
         obj.glob = this.globalSettings;
 
         //Получаем и парсим JSON
-        obj.dummyData = JSON.parse(obj.glob.Settings.initial_data);
+        obj.changeData = JSON.parse(obj.glob.Settings.initial_data);
+        obj.dummyData = JSON.parse(obj.glob.Settings.data);
 
         //После парсинга JSON запускаем событие reactRun (Только если payload = START тоесть только при первой загрузке)
-        if(obj.dummyData.payload === "START") {
+        if(obj.changeData.payload === "START") {
             document.dispatchEvent(reactRun);
         }
 

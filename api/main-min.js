@@ -47,6 +47,11 @@ function updateState(action, func) {
 }
 console.log(reactUpdate);
 
+//Функция замещения undefined
+function q() {
+
+}
+
 //
 // var script = document.createElement("script");
 // script.setAttribute("src", "http://localhost:3000/static/js/bundle.js");
