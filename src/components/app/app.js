@@ -109,11 +109,15 @@ class App extends Component {
             }
 
             if(change === "driver") {
+                console.log("=======>driver_changed<======");
+                console.log(this.props.data);
                 if(typeof store.getState().sapType !== "undefined") {
 
                     const objState = [JSON.stringify(store.getState().value.id), JSON.stringify(store.getState().value.val)];
 
                     updateState([store.getState().sapType, objState], () => {
+                        console.log("_________>>>>>>>>>>>>sent data from Lumira<<<<<<____________");
+                        console.log(this.props.data);
                         this.setState({data: this.props.data.data});
                         store.dispatch({
                             type: 'GET_DATA_TEST',

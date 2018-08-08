@@ -35,6 +35,11 @@ function reduser (state = null, action) {
                 value: action.payload,
                 change: "data"
             };
+        case "CHANGE_ALL_DRIVERS":
+            return {...state,
+                value: action.payload,
+                change: "all_drivers"
+            };
         default:
             return state
     }

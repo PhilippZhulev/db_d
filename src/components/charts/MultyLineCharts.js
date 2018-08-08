@@ -11,7 +11,7 @@ import store from "../../reduser";
 class MultiLine extends Component {
     constructor(props){
         super(props);
-        this.state = {data: obj.data.data};
+        this.state = {data: obj.data.data, all_values: {}};
         store.subscribe(() => {
             const change = store.getState().change,
                 getState = store.getState();
@@ -29,6 +29,10 @@ class MultiLine extends Component {
                 this.setState({data: getState});
                 console.log("State now is: ");
                 console.log(this.state);
+            }
+            if (change === "all_drivers") {
+                console.log("ALL_DRIVERS_HERE!");
+                this.setState({all_values:getState.value});
             }
         });
     }
@@ -113,20 +117,38 @@ class MultiLine extends Component {
 
             );
         }
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Multiline Render<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        console.log(this.props.page);
         let catNum = this.props.options.categories.length;
         for (var i = 0;i<catNum;i++){
             var dataCurr = {};
             dataCurr["category"]=this.props.options.categories[i];
             for (var j = 0; j<grNum; j++){
                 dataCurr["val"+j]=this.props.options.data[j][i];
-                if(this.props.grInd === 0 && this.state.data !== undefined){
+                if(this.props.grInd === 0 && this.state.data !== undefined && this.props.page!=="opex"){
                     console.log("FTP data");
+                    console.log(this.state.data.value);
                     let dataFtp = JSON.parse("["+this.state.data.value+"]");
                     let vals = ["strategy", "base", "model"];
                     dataCurr["category"]=dataFtp[i]["category"];
                     dataCurr["val"+j]=dataFtp[i][vals[j]];
                     console.log("dataCurr: ");
                     console.log(dataCurr);
+                }
+                console.log("First if passed");
+                console.log("grId = "+this.props.grInd);
+                console.log("page = "+this.props.page);
+                console.log("i = "+i);
+                console.log("j = "+j);
+                if (this.props.grInd===0 && this.props.page==="opex" && i>0 && j===grNum-1) {
+                    console.log("OPEX!");
+                    console.log(">>>>>>>>>>>>>>>>>>front calc<<<<<<<<<<<<<<<<");
+                    //console.log(this.state);
+                    dataCurr["val"+j]=(this.props.options.data[j-1][i]*this.state.all_values["CHISL_OPER_FUNC"]).toFixed(2);
+                    /*console.log("value was: "+this.props.options.data[j-1][i]);
+                    console.log("multiplied by: "+this.state.all_values["CHISL_OPER_FUNC"]);
+                    console.log("result: "+dataCurr["val"+j]);
+                    console.log((1091.0*1.6));*/
                 }
                 
             }

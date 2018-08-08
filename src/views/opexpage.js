@@ -17,7 +17,7 @@ class Opex extends Component {
                     <Tile
                         key={index}
                         tileNum = {index + 1}
-                        page = "home"
+                        page = "opex"
                         isSmall = {isSmall}
                         func={value}
                         templ = {templ}
