@@ -15,7 +15,7 @@ class Tile extends Component {
         let values = [];
         if(!(this.props.page=="home"||this.props.page=="opex")){
             color = this.props.templ.primary.textValueNormal;
-            subscribtion = "total";
+            subscribtion = "Группа";
             values.push(
                 <div key={1} className={"tile_item__value"+postfix+" value_flex"} style={{color: this.props.templ.primary.textValueMain}}>
                     <div>

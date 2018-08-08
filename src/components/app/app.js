@@ -109,8 +109,8 @@ class App extends Component {
             }
 
             if(change === "driver") {
-                console.log("=======>driver_changed<======");
-                console.log(this.props.data);
+                // console.log("=======>driver_changed<======");
+                // console.log(this.props.data);
                 if(typeof store.getState().sapType !== "undefined") {
 
                     const objState = [JSON.stringify(store.getState().value.id), JSON.stringify(store.getState().value.val)];

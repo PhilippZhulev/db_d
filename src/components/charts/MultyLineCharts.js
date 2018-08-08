@@ -27,20 +27,20 @@ class MultiLine extends Component {
                 }
             } else */if(change === "data"){
                 this.setState({data: getState});
-                console.log("State now is: ");
-                console.log(this.state);
+                // console.log("State now is: ");
+                // console.log(this.state);
             }
             if (change === "all_drivers") {
-                console.log("ALL_DRIVERS_HERE!");
+                // console.log("ALL_DRIVERS_HERE!");
                 this.setState({all_values:getState.value});
             }
         });
     }
     render() {
-        console.log("In render func:");
-        console.log(this.state);
-        console.log("gr id:");
-        console.log(this.props.grInd);
+        // console.log("In render func:");
+        //         // console.log(this.state);
+        //         // console.log("gr id:");
+        //         // console.log(this.props.grInd);
         let amchartsSettings =
             {
 
@@ -117,8 +117,8 @@ class MultiLine extends Component {
 
             );
         }
-        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Multiline Render<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-        console.log(this.props.page);
+        // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Multiline Render<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        // console.log(this.props.page);
         let catNum = this.props.options.categories.length;
         for (var i = 0;i<catNum;i++){
             var dataCurr = {};
@@ -126,23 +126,23 @@ class MultiLine extends Component {
             for (var j = 0; j<grNum; j++){
                 dataCurr["val"+j]=this.props.options.data[j][i];
                 if(this.props.grInd === 0 && this.state.data !== undefined && this.props.page!=="opex"){
-                    console.log("FTP data");
-                    console.log(this.state.data.value);
+                    // console.log("FTP data");
+                    // console.log(this.state.data.value);
                     let dataFtp = JSON.parse("["+this.state.data.value+"]");
-                    let vals = ["strategy", "base", "model"];
+                    let vals = ["base", "model", "strategy"];
                     dataCurr["category"]=dataFtp[i]["category"];
-                    dataCurr["val"+j]=dataFtp[i][vals[j]];
-                    console.log("dataCurr: ");
-                    console.log(dataCurr);
+                    dataCurr["val"+j]=(dataFtp[i][vals[j]]==="0") ? "Н/Д" : dataFtp[i][vals[j]];
+                    // console.log("dataCurr: ");
+                    // console.log(dataCurr);
                 }
-                console.log("First if passed");
-                console.log("grId = "+this.props.grInd);
-                console.log("page = "+this.props.page);
-                console.log("i = "+i);
-                console.log("j = "+j);
+                // console.log("First if passed");
+                // console.log("grId = "+this.props.grInd);
+                // console.log("page = "+this.props.page);
+                // console.log("i = "+i);
+                // console.log("j = "+j);
                 if (this.props.grInd===0 && this.props.page==="opex" && i>0 && j===grNum-1) {
-                    console.log("OPEX!");
-                    console.log(">>>>>>>>>>>>>>>>>>front calc<<<<<<<<<<<<<<<<");
+                    // console.log("OPEX!");
+                    // console.log(">>>>>>>>>>>>>>>>>>front calc<<<<<<<<<<<<<<<<");
                     //console.log(this.state);
                     dataCurr["val"+j]=(this.props.options.data[j-1][i]*this.state.all_values["CHISL_OPER_FUNC"]).toFixed(2);
                     /*console.log("value was: "+this.props.options.data[j-1][i]);

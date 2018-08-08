@@ -10,16 +10,16 @@ class Drivers extends Component {
         store.subscribe(() => {
             const change = store.getState().change,
                 getState = store.getState();
-            console.log("Drivers_store_subscribe");
+            // console.log("Drivers_store_subscribe");
 
             if (change === "driver") {
-                console.log("ALL_DRIVERS_DATA_START");
-                console.log(getState);
+                // console.log("ALL_DRIVERS_DATA_START");
+                // console.log(getState);
                 /*for (let key in getState.value){
                     values[key] = getState.value[key];
                 }*/
                 values[getState.value.id]=getState.value.val;
-                console.log("ALL_DRIVERS_DATA_LOADED");
+                // console.log("ALL_DRIVERS_DATA_LOADED");
                 store.dispatch({
                     type: 'CHANGE_ALL_DRIVERS',
                     payload: values
