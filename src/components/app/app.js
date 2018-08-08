@@ -10,6 +10,11 @@ import Cib from '../../views/kpi-cib';
 import Kb from '../../views/kpi-kb';
 import Rb from '../../views/kpi-rb';
 
+<<<<<<< HEAD
+=======
+
+import Drivers from "../../views/modules/drivers";
+>>>>>>> Zhulev
 
 import store from '../../reduser';
 
@@ -72,23 +77,15 @@ class App extends Component {
             data: null,
         };
 
-        this.state.data = this.props.data.dummyData.out;
+        this.state.data = this.props.data.dummyData;
 
-        //Записываем в state.data данные из глобального объекта
-        store.subscribe(() => {
-            if(typeof store.getState().sapType !== "undefined") {
-                updateState([store.getState().sapType, store.getState().value], () => {
-                    this.setState({data: this.props.data});
-                })
-            }
+        this.myTheme = createMuiTheme({
+            palette: this.state.theme
         });
-        console.log(this.state.data.test);
-    }
 
-    render() {
         store.subscribe(() => {
             const change = store.getState().change,
-                  getState = store.getState();
+                getState = store.getState();
 
             if(change === "template") {
                 if(getState.value === true) {
@@ -113,26 +110,29 @@ class App extends Component {
                     this.setState({pos: ""});
                 }
             }
-        });
 
-        const myTheme = createMuiTheme({
-            palette: this.state.theme
+            if(change === "driver") {
+                if(typeof store.getState().sapType !== "undefined") {
+                    updateState([store.getState().sapType, store.getState().value], () => {
+                        this.setState({data: this.props.data.dummyData});
+                    })
+                }
+            }
         });
+    }
 
+    render() {
         return (
-            <MuiThemeProvider theme={myTheme}>
+            <MuiThemeProvider theme={this.myTheme}>
                 <div className={"app_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.tiles}}>
                     <Header templ={this.state.theme} />
+                    <span>{this.state.data}</span>
                     <Tabs templ={this.state.theme} settings={{
                         items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ"],
                         pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib templ={this.state.theme}/>, <Kb templ={this.state.theme}/>, <Rb templ={this.state.theme}/>]
                     }} />
                     <div className={"app_menu_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.menu}}>
-                        <Slider labelText="Числ-ть опер. функции, чел." min={1} max={5} value={2}/>
-                        <Slider labelText="OPEX/CAPEX по IT, %" min={2} max={3} value={2.7}/>
-                        <Slider labelText="Доработка legacy, млрд.руб." min={1.5} max={2.5} value={1.6}/>
-                        <Slider labelText="Инвестиции в платф., млрд.руб." min={6.5} max={6.9} value={6.5}/>
-                        <Slider labelText="Доля вендоров, %" min={-5} max={-3} value={-3}/>
+                        <Drivers />
                         <div className="btns__panel">
                             <Btn
                                 customClass="btn_save"

@@ -1,0 +1,75 @@
+import React, { Component } from 'react';
+import MultiLine from '../../components/charts/MultyLineCharts';
+import dataBank from '../../secret/data_bank';
+
+
+class Tile extends Component {
+    constructor(props) {
+        super(props);
+        const func = this.props.func;
+        const graphQuant = dataBank[func].options.data.length;
+        const lastCat = dataBank[func].options.categories.length;
+        // console.log(dataBank[func].options.data[graphQuant-1][lastCat-1]);
+        // console.log(dataBank[func].options.data[graphQuant-2][lastCat-1]);
+        // console.log(+(dataBank[func].options.data[graphQuant-1][lastCat-1])-(+(dataBank[func].options.data[graphQuant-2][lastCat-1])));
+        const smallVal = ((+(dataBank[func].options.data[graphQuant-1][lastCat-1])-(+(dataBank[func].options.data[graphQuant-2][lastCat-1])))/dataBank[func].options.data[graphQuant-2][lastCat-1]*100).toFixed(2);
+        // console.log(this.props.func+": ("+smallVal+"%)");
+        const smallValStr="("+smallVal+"%)";
+        this.state={smallValue:smallValStr};
+    }
+    render(){
+        const postfix = (this.props.isSmall) ? "_small" : "";
+        let subscribtion = "1";
+        let color = "rgba(0,0,0,0)";
+        const func = this.props.func;
+        let values = [];
+        if(!(this.props.page==="home"||this.props.page==="opex")){
+            color = this.props.templ.primary.textValueNormal;
+            subscribtion = "total";
+            values.push(
+                <div key={1} className={"tile_item__value"+postfix+" value_flex"} style={{color: this.props.templ.primary.textValueMain}}>
+                    <div>
+                        {dataBank[func]["value"+this.props.page]}
+                    </div>
+                    <div>
+                        <span className="subscribe" style={{color: this.props.templ.primary.textValueNormal}}>{this.props.addSubscr}</span>
+                        <span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank[func]["smallValue"+this.props.page]}</span>
+                    </div>
+                </div>
+            );
+            values.push(<div key={2} className={"vLine"+postfix}></div>);
+        }
+        values.push(
+            <div key={0} className={"tile_item__value"+postfix+" value_flex"} style={{color: this.props.templ.primary.textValueMain}}>
+                <div>
+                    {dataBank[func].value}
+                </div>
+                <div>
+                    <span className="subscribe" style={{color: color}}>{subscribtion}</span>
+                    <span style={{color: this.props.templ.primary.textValueNormal}}>{this.state.smallValue}</span>
+                </div>
+            </div>
+        );
+        const comma = (dataBank[func].mera==="") ? "" : ", ";
+        return(
+            <div className={"tile_item_"+this.props.tileNum}>
+                <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>
+                    <div className={"tile_item__title"+postfix} style={{color: this.props.templ.primary.textValueMain}}>
+                        {dataBank[func].title}<span style={{color: "#aab3b3"}}>{comma+dataBank[func].mera}</span>
+                    </div>
+                    <div className="values_wrapper main_tile">
+                        {values}
+                    </div>
+                    <MultiLine
+                        options={dataBank[func].options}
+                        templ={this.props.templ}
+                        page={this.props.page}
+                        grId={this.props.grId}
+                    />
+                </div>
+            </div>
+        )
+    }
+}
+
+export default Tile;

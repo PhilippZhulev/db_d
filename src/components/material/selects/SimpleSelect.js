@@ -7,6 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+//import store from '../../../reduser';
 
 const styles = theme => ({
     root: {
@@ -48,6 +49,7 @@ class SimpleSelect extends React.Component {
                     classes={this.props.classes}
                     className="sup_select"
                     name="age"
+
                 >
                     <MenuItem value="">ТОП-10</MenuItem>
                     <MenuItem value={2}>Персонал</MenuItem>

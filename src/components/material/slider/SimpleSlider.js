@@ -13,6 +13,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+import store from '../../../reduser';
+
 const styles = {
     root: {
         width: "auto",
@@ -68,12 +70,13 @@ class SimpleSlider extends React.Component {
     state = {
         value: this.props.value,
         open: false,//от диалога
-        random: "slider_thumb" + String(Math.random()).split(".")[1]
+        random: "slider_thumb" + String(Math.random()).split(".")[1],
+        inputError: false,
+        inputValue: ""
     };
 
     handleChange = (event, value) => {
         this.setState({ value });
-
     };
 
     handleClickOpen = () => {
@@ -81,7 +84,42 @@ class SimpleSlider extends React.Component {
     };
 
     handleClose = (value) => {
-        this.setState({ open: false });
+        this.setState({ open: false, inputValue: "", inputError: false });
+    };
+
+    handleDragEnd = () =>{
+        const obj_1 = {};
+
+        obj_1[this.props.driverId]= this.state.value;
+        store.dispatch({
+            type: 'CHANGE_DRIVER',
+            payload: obj_1
+        })
+    };
+
+    handleFieldChange = (event) =>{
+        let value = event.target.value;
+
+        if (value==="-"){
+            this.setState({inputError: false,inputValue:value});
+        } else if (value===""){
+            this.setState({inputError: false,inputValue:value});
+        }else if (+(value) < this.props.min || +(value) > this.props.max || (Math.abs(+(value) % this.props.step - this.props.step) > 0.000000001)){
+            console.log("bad value");
+            this.setState({ inputValue:value,inputError: true });
+        } else{
+            this.setState({inputError: false,inputValue:value});
+        }
+        console.log((Math.abs(+(value) % this.props.step - this.props.step)));
+    };
+
+    handleApply = (value) =>{
+        if (!this.state.inputError) {
+            let val = this.state.inputValue;
+            this.setState({value: +(val)});
+        }
+        console.log(this.state);
+        this.handleClose(value);
     };
 
     render() {
@@ -110,13 +148,16 @@ class SimpleSlider extends React.Component {
                             label=""
                             type="number"
                             fullWidth
+                            inputProps={{ min: min, max: max, step: "0.1"}}
+                            onChange={this.handleFieldChange}
+                            error={this.state.inputError}
                         />
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleClose} color="primary">
                             Отмена
                         </Button>
-                        <Button onClick={this.handleClose} color="primary">
+                        <Button onClick={this.handleApply} color="primary">
                             Применить
                         </Button>
                     </DialogActions>
@@ -141,6 +182,8 @@ class SimpleSlider extends React.Component {
                     min={min}
                     max={max}
                     onChange={this.handleChange}
+                    onDragEnd={this.handleDragEnd}
+                    step={this.props.step}
                 />
 
                 <div className={classes.default_dot} style={{left: this.dot_left}}/>
