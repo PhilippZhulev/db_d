@@ -72,7 +72,7 @@ class App extends Component {
             data: null,
         };
 
-        this.state.data = this.props.data.dummyData;
+       // this.state.data = this.props.data.dummyData;
 
         this.myTheme = createMuiTheme({
             palette: this.state.theme
@@ -108,9 +108,9 @@ class App extends Component {
 
             if(change === "driver") {
                 if(typeof store.getState().sapType !== "undefined") {
-                    updateState([store.getState().sapType, store.getState().value], () => {
-                        this.setState({data: this.props.data.dummyData});
-                    })
+                    // updateState([store.getState().sapType, store.getState().value], () => {
+                    //     this.setState({data: this.props.data.dummyData});
+                    // })
                 }
             }
         });
