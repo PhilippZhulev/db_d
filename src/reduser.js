@@ -1,11 +1,12 @@
 import { createStore } from 'redux';
-import { connect, Provider } from 'react-redux';
+
 
 function reduser (state = null, action) {
     switch (action.type) {
-        case "CHANGE_PAGE":
+        case "CHANGE_START":
             return {...state,
-                page: action.payload
+                data: action.payload,
+                change: "first_include"
             };
         case "CHANGE_TEMPLATE":
             return {...state,
@@ -23,29 +24,35 @@ function reduser (state = null, action) {
                 change: "menu"
             };
         case "CHANGE_DRIVER":
-            console.log("CHANGE_DRIVER");
             return {...state,
             value: action.payload,
-            change: "driver",
-            sapType: "SLIDERS"
+            change: "driver"
         };
-        case "GET_DATA_TEST":
-            console.log("GET_DATA_TEST");
-            return {...state,
-                value: action.payload,
-                change: "data"
-            };
         case "CHANGE_ALL_DRIVERS":
             return {...state,
                 value: action.payload,
                 change: "all_drivers"
+            };
+        case "CHANGE_DRIVER_ROUTER":
+            return {...state,
+                states: action.payload,
+                change: "drivers_router"
             };
         default:
             return state
     }
 }
 
+
+
 const store = createStore(reduser);
 
+let getState,
+    change;
 
-export default store;
+store.subscribe(() => {
+    getState = store.getState();
+    change = getState.change;
+});
+
+export {store as default, getState, change};

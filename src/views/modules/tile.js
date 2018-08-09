@@ -6,6 +6,16 @@ import dataBank from '../../secret/data_bank';
 class Tile extends Component {
     constructor(props) {
         super(props);
+        const func = this.props.func;
+        const graphQuant = dataBank[func].options.data.length;
+        const lastCat = dataBank[func].options.categories.length;
+        // console.log(dataBank[func].options.data[graphQuant-1][lastCat-1]);
+        // console.log(dataBank[func].options.data[graphQuant-2][lastCat-1]);
+        // console.log(+(dataBank[func].options.data[graphQuant-1][lastCat-1])-(+(dataBank[func].options.data[graphQuant-2][lastCat-1])));
+        const smallVal = ((+(dataBank[func].options.data[graphQuant-1][lastCat-1])-(+(dataBank[func].options.data[graphQuant-2][lastCat-1])))/dataBank[func].options.data[graphQuant-2][lastCat-1]*100).toFixed(2);
+        // console.log(this.props.func+": ("+smallVal+"%)");
+        const smallValStr="("+smallVal+"%)";
+        this.state={smallValue:smallValStr};
     }
     render(){
         const postfix = (this.props.isSmall) ? "_small" : "";
@@ -13,9 +23,9 @@ class Tile extends Component {
         let color = "rgba(0,0,0,0)";
         const func = this.props.func;
         let values = [];
-        if(!(this.props.page=="home"||this.props.page=="opex")){
+        if(!(this.props.page==="home"||this.props.page==="opex")){
             color = this.props.templ.primary.textValueNormal;
-            subscribtion = "Группа";
+            subscribtion = "группа";
             values.push(
                 <div key={1} className={"tile_item__value"+postfix+" value_flex"} style={{color: this.props.templ.primary.textValueMain}}>
                     <div>
@@ -36,11 +46,11 @@ class Tile extends Component {
                 </div>
                 <div>
                     <span className="subscribe" style={{color: color}}>{subscribtion}</span>
-                    <span style={{color: this.props.templ.primary.textValueNormal}}>{dataBank[func].smallValue}</span>
+                    <span style={{color: this.props.templ.primary.textValueNormal}}>{this.state.smallValue}</span>
                 </div>
             </div>
         );
-        const comma = (dataBank[func].mera === "") ? "" : ", ";
+        const comma = (dataBank[func].mera==="") ? "" : ", ";
         return(
             <div className={"tile_item_"+this.props.tileNum}>
                 <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>
@@ -54,7 +64,7 @@ class Tile extends Component {
                         options={dataBank[func].options}
                         templ={this.props.templ}
                         page={this.props.page}
-                        grInd={this.props.grInd}
+                        grId={this.props.grId}
                     />
                 </div>
             </div>

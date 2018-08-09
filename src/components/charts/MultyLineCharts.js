@@ -6,41 +6,28 @@ import 'amcharts3/amcharts/plugins/export/export.min.js';
 import 'amcharts3/amcharts/plugins/export/export.css';
 import AmCharts from '@amcharts/amcharts3-react';
 import Legend from './legend';
-import store from "../../reduser";
+
+import store from '../../reduser';
 
 class MultiLine extends Component {
     constructor(props){
+        //console.log("!");
         super(props);
-        this.state = {data: obj.data.data, all_values: {}};
+        this.state={all_values:{CHISL_OPER_FUNC:1}};
         store.subscribe(() => {
             const change = store.getState().change,
                 getState = store.getState();
 
-            /*if(change === "driver") {
-                if(typeof store.getState().sapType !== "undefined") {
-
-                    const objState = [JSON.stringify(store.getState().value.id), JSON.stringify(store.getState().value.val)];
-
-                    updateState([store.getState().sapType, objState], () => {
-                        this.setState({data: obj.data.data});
-                    });
-                }
-            } else */if(change === "data"){
-                this.setState({data: getState});
-                // console.log("State now is: ");
-                // console.log(this.state);
-            }
             if (change === "all_drivers") {
-                // console.log("ALL_DRIVERS_HERE!");
                 this.setState({all_values:getState.value});
             }
         });
     }
     render() {
-        // console.log("In render func:");
-        //         // console.log(this.state);
-        //         // console.log("gr id:");
-        //         // console.log(this.props.grInd);
+        const bigClass = (this.props.options.isBig) ? "_big" : "";
+        //console.log("from render!");
+        //console.log(this.state);
+
         let amchartsSettings =
             {
 
@@ -90,7 +77,7 @@ class MultiLine extends Component {
             };
         let data = [];
         let grNum = this.props.options.colors.length;
-        for (var i = 0;i<grNum;i++){
+        for (let i = 0;i<grNum;i++){
             amchartsSettings.graphs.push(
                 {
                     "balloonText": "[[category]]: [[value]]%",
@@ -105,7 +92,7 @@ class MultiLine extends Component {
                     "id": "AmGraph-"+i,
                     "fontSize": 12,
                     "showAllValueLabels": true,
-                    "labelText": (this.props.options.colors[i] != "#b4b4b4") ? "[[value]]" : "",
+                    "labelText": (this.props.options.colors[i] !== "#b4b4b4") ? "[[value]]" : "",
                     "lineThickness": this.props.options.thickness,
                     "title": "graph "+i,
                     "valueField": "val"+i,
@@ -117,32 +104,14 @@ class MultiLine extends Component {
 
             );
         }
-        // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Multiline Render<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-        // console.log(this.props.page);
         let catNum = this.props.options.categories.length;
-        for (var i = 0;i<catNum;i++){
-            var dataCurr = {};
+        for (let i = 0; i<catNum; i++){
+            let dataCurr = {};
             dataCurr["category"]=this.props.options.categories[i];
-            for (var j = 0; j<grNum; j++){
+            for (let j = 0; j<grNum; j++){
                 dataCurr["val"+j]=this.props.options.data[j][i];
-                if(this.props.grInd === 0 && this.state.data !== undefined && this.props.page!=="opex"){
-                    // console.log("FTP data");
-                    // console.log(this.state.data.value);
-                    let dataFtp = JSON.parse("["+this.state.data.value+"]");
-                    let vals = ["base", "model", "strategy"];
-                    dataCurr["category"]=dataFtp[i]["category"];
-                    dataCurr["val"+j]=(dataFtp[i][vals[j]]==="0") ? "Н/Д" : dataFtp[i][vals[j]];
-                    // console.log("dataCurr: ");
-                    // console.log(dataCurr);
-                }
-                // console.log("First if passed");
-                // console.log("grId = "+this.props.grInd);
-                // console.log("page = "+this.props.page);
-                // console.log("i = "+i);
-                // console.log("j = "+j);
-                if (this.props.grInd===0 && this.props.page==="opex" && i>0 && j===grNum-1) {
-                    // console.log("OPEX!");
-                    // console.log(">>>>>>>>>>>>>>>>>>front calc<<<<<<<<<<<<<<<<");
+                if (this.props.grId===0 && this.props.page==="opex" && i>0 && j===grNum-1) {
+                    //console.log("OPEX!");
                     //console.log(this.state);
                     dataCurr["val"+j]=(this.props.options.data[j-1][i]*this.state.all_values["CHISL_OPER_FUNC"]).toFixed(2);
                     /*console.log("value was: "+this.props.options.data[j-1][i]);
@@ -150,20 +119,26 @@ class MultiLine extends Component {
                     console.log("result: "+dataCurr["val"+j]);
                     console.log((1091.0*1.6));*/
                 }
-                
+                //console.log(this.props.grId+" "+flag+" "+this.props.page+" "+j)
+
             }
             data.push(dataCurr);
         }
         amchartsSettings.dataProvider = data;
-        //console.log(amchartsSettings);
-        let out = [];
+
+        //console.log("another try");
+        //this.state = {amchartsSettings:amchartsSettings};
+        //console.log(this.state);
+        //console.log("Outside subscribe");
+        //console.log(this);
+
+        let out =[];
         out.push(<AmCharts.React key={0} className="chart" style={{width:this.props.options.geometry.width,height: this.props.options.geometry.height}}
                                  options={amchartsSettings}
         />);
         if(this.props.options.legend){
             out.push(<Legend key={1} templ={this.props.templ} options={this.props.options}/>);
         }
-        const bigClass = (this.props.options.isBig) ? "_big" : "";
 
         return (
             <div

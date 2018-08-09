@@ -90,7 +90,7 @@ class App extends Component {
             if(change === "menu") {
                 if(getState.value === true) {
                     this.setState({menu: " active"});
-                }else {
+                }else { 
                     this.setState({menu: ""});
                 }
             }

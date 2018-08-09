@@ -43,15 +43,7 @@ function updateState(action, func) {
     obj.glob.Settings.actionContent = action[1];
 
     obj.glob.that_c.firePropertiesChangedAndEvent(["SettingsTP"], "tech1");
-    console.log("React.update");
     document.addEventListener("React.update", func);
-}
-console.log(reactUpdate);
-
-//Первичный запрос данных
-function req(change) {
-    obj.glob.Settings.reactReq = change;
-    return obj.glob.that_c.firePropertiesChangedAndEvent(["SettingsTP"], "tech1");
 }
 
 
