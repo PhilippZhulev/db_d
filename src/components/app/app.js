@@ -68,11 +68,11 @@ class App extends Component {
             theme : whiteTheme,
             menu: " active",
             pos: "",
-            data: null,
+            dummyData: null,
             category: 0
         };
 
-       // this.state.data = this.props.data.dummyData;
+        this.state.dummyData = this.props.data.dummyData;
 
         this.myTheme = createMuiTheme({
             palette: this.state.theme
@@ -106,6 +106,15 @@ class App extends Component {
             if(change === "drivers_router") {
                 this.setState({category: getState.states.value});
             }
+
+            if(change === "first_include") {
+                console.log(getState.data);
+            }
+        });
+
+        store.dispatch({
+            type: 'CHANGE_START',
+            payload: this.props.data.dummyData
         });
     }
 

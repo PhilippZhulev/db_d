@@ -1,11 +1,12 @@
 import { createStore } from 'redux';
-import { connect, Provider } from 'react-redux';
+
 
 function reduser (state = null, action) {
     switch (action.type) {
-        case "CHANGE_PAGE":
+        case "CHANGE_START":
             return {...state,
-                page: action.payload
+                data: action.payload,
+                change: "first_include"
             };
         case "CHANGE_TEMPLATE":
             return {...state,
