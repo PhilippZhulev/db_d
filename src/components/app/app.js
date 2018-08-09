@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../material/app-bar/DenseAppBar';
 import Tabs from '../material/tabs/ScrollableTabsButtonAuto';
-import Slider from '../material/slider/SimpleSlider';
 import Btn from '../material/buttons/ContainedButtons';
 import Home from '../../views/homepage';
 import Opex from '../../views/opexpage';
@@ -10,10 +9,8 @@ import Cib from '../../views/kpi-cib';
 import Kb from '../../views/kpi-kb';
 import Rb from '../../views/kpi-rb';
 
-
 import Drivers from "../../views/modules/drivers";
-
-import store from '../../reduser';
+import store, {getState, change} from "../../reduser";
 
 let whiteTheme = {
     primary: {
@@ -37,7 +34,7 @@ let whiteTheme = {
         main: '#1ab394',
         dark: '#00b686',
     }
-}
+};
 
 let darkTheme = {
     primary: {
@@ -71,19 +68,17 @@ class App extends Component {
             theme : whiteTheme,
             menu: " active",
             pos: "",
-            data: null
+            dummyData: null,
+            category: 0
         };
 
-        this.state.data = this.props.data.data; //<--- Here
+        this.state.dummyData = this.props.data.dummyData;
 
         this.myTheme = createMuiTheme({
             palette: this.state.theme
         });
 
         store.subscribe(() => {
-            const change = store.getState().change,
-                getState = store.getState();
-
             if(change === "template") {
                 if(getState.value === true) {
                     this.setState({theme: whiteTheme});
@@ -108,26 +103,18 @@ class App extends Component {
                 }
             }
 
-            if(change === "driver") {
-                // console.log("=======>driver_changed<======");
-                // console.log(this.props.data);
-                if(typeof store.getState().sapType !== "undefined") {
-
-                    const objState = [JSON.stringify(store.getState().value.id), JSON.stringify(store.getState().value.val)];
-
-                    updateState([store.getState().sapType, objState], () => {
-                        console.log("_________>>>>>>>>>>>>sent data from Lumira<<<<<<____________");
-                        console.log(this.props.data);
-                        this.setState({data: this.props.data.data});
-                        store.dispatch({
-                            type: 'GET_DATA_TEST',
-                            payload: this.state.data
-                        })
-                    });
-
-
-                }
+            if(change === "drivers_router") {
+                this.setState({category: getState.states.value});
             }
+
+            if(change === "first_include") {
+                console.log(getState.data);
+            }
+        });
+
+        store.dispatch({
+            type: 'CHANGE_START',
+            payload: this.props.data.dummyData
         });
     }
 
@@ -136,12 +123,13 @@ class App extends Component {
             <MuiThemeProvider theme={this.myTheme}>
                 <div className={"app_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.tiles}}>
                     <Header templ={this.state.theme} />
+                    <span>{this.state.data}</span>
                     <Tabs templ={this.state.theme} settings={{
                         items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ"],
                         pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib templ={this.state.theme}/>, <Kb templ={this.state.theme}/>, <Rb templ={this.state.theme}/>]
                     }} />
                     <div className={"app_menu_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.menu}}>
-                        <Drivers />
+                        <Drivers routerValue={this.state.category} />
                         <div className="btns__panel">
                             <Btn
                                 customClass="btn_save"
