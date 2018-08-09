@@ -7,3 +7,4 @@ node_modules/
 secret/
 build/
 Gruntfile.js
+data.json
