@@ -16,7 +16,13 @@ function Reactor() {
 
         //Получаем и парсим JSON
         obj.changeData = JSON.parse(obj.super);
-        obj.dummyData = JSON.parse(obj.super).data;
+
+        let jsonData = JSON.parse(obj.super);
+
+        obj.dummyData = {
+            data: jsonData.data,
+            drivers: jsonData.drivers
+        };
 
         //После парсинга JSON запускаем событие reactRun (Только если payload = START тоесть только при первой загрузке)
         if(obj.changeData.payload === "START") {

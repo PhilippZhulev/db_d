@@ -21,14 +21,25 @@ const styles = theme => ({
     }
 });
 
+const items = [
+    "ТОП-10",
+    "Персонал",
+    "Сервисы",
+    "IT",
+    "Прочие",
+    "Доходы / Риски"
+];
+
 class SimpleSelect extends React.Component {
   state = {
     age: '',
     name: 'hai',
+    selected: "ТОП-10"
   };
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+    this.setState({ selected: items[event.target.value] });
 
     store.dispatch({
       type: 'CHANGE_DRIVER_ROUTER',
@@ -57,12 +68,14 @@ class SimpleSelect extends React.Component {
                     name="driver_router"
 
                 >
-                    <MenuItem value="">ТОП-10</MenuItem>
-                    <MenuItem value={2}>Персонал</MenuItem>
-                    <MenuItem value={3}>Сервисы</MenuItem>
-                    <MenuItem value={4}>IT</MenuItem>
-                    <MenuItem value={5}>Прочие</MenuItem>
-                    <MenuItem value={6}>Доходы / Риски</MenuItem>
+                    <MenuItem disabled value="">{this.state.selected}</MenuItem>
+                    {
+                        items.map((item,i) => {
+                            if(this.state.selected !== item) {
+                                return <MenuItem key={i} value={i}>{item}</MenuItem>
+                            }
+                        })
+                    }
                 </Select>
             </FormControl>
 
