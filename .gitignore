@@ -8,3 +8,4 @@ secret/
 build/
 Gruntfile.js
 data.json
+build/local_api/data.json
