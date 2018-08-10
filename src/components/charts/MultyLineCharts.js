@@ -92,7 +92,7 @@ class MultiLine extends Component {
                     "id": "AmGraph-"+i,
                     "fontSize": 12,
                     "showAllValueLabels": true,
-                    "labelText": (this.props.options.colors[i] !== "#b4b4b4") ? "[[value]]" : "",
+                    "labelText": (this.props.options.colors[i] !== "#727CF5") ? "[[value]]" : "",
                     "lineThickness": this.props.options.thickness,
                     "title": "graph "+i,
                     "valueField": "val"+i,

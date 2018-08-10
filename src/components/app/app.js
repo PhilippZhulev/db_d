@@ -105,12 +105,48 @@ class App extends Component {
 
             if(change === "drivers_router") {
                 this.setState({category: getState.states.value});
+
             }
 
             if(change === "first_include") {
+
+                console.log("In first include object is: ");
                 console.log(getState.data);
+
+                console.log("All groups:");
+                let groups = {};
+                for (let ind=0;ind<getState.data.drivers.length;ind++){
+                    //res.push(driver);
+                    let group = getState.data.drivers[ind].group;
+                    let driver = getState.data.drivers[ind];
+                    if(!(group in groups)){
+                        groups[group]=[];
+                    }
+                    let obj = {};
+                    for (let key in driver){
+                        if (key !== "group"){
+                            obj[key] = driver[key];
+                        }
+                    }
+                    groups[group].push(obj);
+
+                }
+
+                console.log(groups);
+
+                console.log("Here will be store dispatch:");
+
+                store.dispatch({
+                     type: 'ASSIGN_DRIVERS_AND_GROUPS',
+                     payload: {drivers:{groups}, data:{}}
+                 });
+
             }
         });
+
+        console.log("Here is dummyData var:");
+
+        console.log(this.props.data.dummyData);
 
         store.dispatch({
             type: 'CHANGE_START',

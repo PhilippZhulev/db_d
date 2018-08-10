@@ -10,9 +10,14 @@ class Drivers extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {routerValue: this.props.routerValue};
-
+        this.state = {routerValue: this.props.routerValue, all_drivers:{}};
+       
         store.subscribe(() => {
+            if (change === "assign_drivers_and_groups"){
+                this.state.all_drivers = getState.value.drivers;
+                console.log(">>>>>>>>>state is right here<<<<<<<<<<<");
+                console.log(this.state);
+            }
             if (change === "driver") {
 
                 for (let key in getState.value){
@@ -20,6 +25,10 @@ class Drivers extends Component {
                         values[key] = getState.value[key];
                     }
                 }
+
+                console.log("One driver changed:");
+
+                console.log(values);
 
                 store.dispatch({
                     type: 'CHANGE_ALL_DRIVERS',
