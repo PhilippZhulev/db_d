@@ -9,10 +9,12 @@ let drivers = {};
 
 let groups = [];
 
+let curr_group = "";
+
 store.subscribe(() => {
 
     if(change === "first_include") {
-        drivers = getState.data;
+        drivers = getState.data.drivers;
 
 
         for (let key in drivers){
@@ -22,11 +24,18 @@ store.subscribe(() => {
 
     if (change === "driver") {
 
-        for (let key in getState.value){
-            if(getState.value.hasOwnProperty(key)) {
-                values[key] = getState.value[key];
-            }
-        }
+        // for (let key in getState.value){
+        //     if(getState.value.hasOwnProperty(key)) {
+        //         values[key] = getState.value[key];
+        //     }
+        // }
+        console.log("Before:");
+        console.log(drivers);
+
+        drivers[curr_group][getState.value.ind].value = ""+getState.value.val;
+
+        console.log("After:");
+        console.log(drivers);
 
         store.dispatch({
             type: 'CHANGE_ALL_DRIVERS',
@@ -58,6 +67,7 @@ class Drivers extends Component {
                     max={+(value.max)}
                     value={+(value.value)}
                     step={+(value.step)}
+                    baseValue={+(value.baseValue)}
                 />
             )
         })
@@ -76,6 +86,7 @@ class Drivers extends Component {
         // }
         console.log("func route returned:");
         console.log(groups[val]);
+        curr_group = groups[val];
         return groups[val];
     };
 

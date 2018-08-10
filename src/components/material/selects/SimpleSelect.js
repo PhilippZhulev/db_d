@@ -26,7 +26,7 @@ let groups = [];
 store.subscribe(() => {
 
     if (change === "first_include") {
-        let drivers = getState.data;
+        let drivers = getState.data.drivers;
 
 
         for (let key in drivers) {
