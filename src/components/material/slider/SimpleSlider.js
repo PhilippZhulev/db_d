@@ -89,7 +89,7 @@ class SimpleSlider extends React.Component {
     };
 
     handleChange = (event, value) => {
-        console.log("Handle change value:")
+        console.log("Handle change value:");
         console.log(value);
         this.setState({ value });
     };
