@@ -10,7 +10,7 @@ export default (
                 text = text.split(engToRus ? eng[x] : rus[x]).join(engToRus ? rus[x] : eng[x]);
                 text = text.split(engToRus ? eng[x].toUpperCase() : rus[x].toUpperCase()).join(engToRus ? rus[x].toUpperCase() : eng[x].toUpperCase());
             }
-            return text.replace(/\s+/g, '').replace(/\//g, "_");
+            return text.replace(/\s+/g, '').replace(/\//g, "_"); 
         }
     }
 )();
