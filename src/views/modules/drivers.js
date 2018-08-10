@@ -86,12 +86,10 @@ class Drivers extends Component {
         //         return ["CHISL_OPER_FUNC", "OPEX_CAPEX_FUNC", "DORAB_LEGACY", "INVEST_V_PLATF", "DOLYA_VEND"];
         // }
         console.log("func route returned:");
-<<<<<<< HEAD
 
-=======
         console.log(groups[val]);
         curr_group = groups[val];
->>>>>>> new_Vol_Back
+
         return groups[val];
     };
 
