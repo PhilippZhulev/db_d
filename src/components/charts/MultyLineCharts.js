@@ -92,7 +92,7 @@ class MultiLine extends Component {
                     "id": "AmGraph-"+i,
                     "fontSize": 12,
                     "showAllValueLabels": true,
-                    "labelText": (this.props.options.colors[i] !== "#b4b4b4") ? "[[value]]" : "",
+                    "labelText": (this.props.options.colors[i] !== "#727CF5") ? "[[value]]" : "",
                     "lineThickness": this.props.options.thickness,
                     "title": "graph "+i,
                     "valueField": "val"+i,
@@ -125,12 +125,6 @@ class MultiLine extends Component {
             data.push(dataCurr);
         }
         amchartsSettings.dataProvider = data;
-
-        //console.log("another try");
-        //this.state = {amchartsSettings:amchartsSettings};
-        //console.log(this.state);
-        //console.log("Outside subscribe");
-        //console.log(this);
 
         let out =[];
         out.push(<AmCharts.React key={0} className="chart" style={{width:this.props.options.geometry.width,height: this.props.options.geometry.height}}
