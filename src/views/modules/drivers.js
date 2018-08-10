@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
 import Slider from "../../components/material/slider/SimpleSlider";
-import driverBank from "../../secret/driver_bank.js";
 import store, {getState, change} from "../../reduser";
 
 const values = {};
 
+let drivers = {};
+
+let groups = [];
+
 store.subscribe(() => {
-    console.log(1);
+
     if(change === "first_include") {
-        console.log(getState.data);
+        drivers = getState.data;
+
+
+        for (let key in drivers){
+            if(drivers.hasOwnProperty(key)) {
+                groups.push(key);
+            }
+        }
     }
 
     if (change === "driver") {
@@ -30,41 +40,49 @@ class Drivers extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {routerValue: this.props.routerValue, all_drivers:{}};
+
+        this.state = {routerValue: this.props.routerValue, all_drivers:drivers};
     }
 
     addDrivers = (target) => {
-        return target.map((value, index) => {
+        console.log("Target value is:");
+        console.log(target);
+        return this.state.all_drivers[target].map((value, index) => {
 
-            values[value] = driverBank[value].value;
+            //values[value] = driverBank[value].value;
 
             return (
                 <Slider
-                    key={index} driverId={value}
-                    labelText={driverBank[value].labelText}
-                    min={driverBank[value].min}
-                    max={driverBank[value].max}
-                    value={driverBank[value].value}
-                    step={0.1}
+                    key={index} driverId={index}
+                    labelText={value.name}
+                    min={+(value.min)}
+                    max={+(value.max)}
+                    value={+(value.value)}
+                    step={+(value.step)}
                 />
             )
         })
     };
 
     route = (val) => {
-        switch (val) {
-            case 1 :
-                return ["CHISL_OPER_FUNC", "OPEX_CAPEX_FUNC"];
-            case 2 :
-                return ["CHISL_OPER_FUNC", "OPEX_CAPEX_FUNC", "DORAB_LEGACY"];
-            case 3 :
-                return ["CHISL_OPER_FUNC"];
-            default :
-                return ["CHISL_OPER_FUNC", "OPEX_CAPEX_FUNC", "DORAB_LEGACY", "INVEST_V_PLATF", "DOLYA_VEND"];
-        }
+        // switch (val) {
+        //     case 1 :
+        //         return ["CHISL_OPER_FUNC", "OPEX_CAPEX_FUNC"];
+        //     case 2 :
+        //         return ["CHISL_OPER_FUNC", "OPEX_CAPEX_FUNC", "DORAB_LEGACY"];
+        //     case 3 :
+        //         return ["CHISL_OPER_FUNC"];
+        //     default :
+        //         return ["CHISL_OPER_FUNC", "OPEX_CAPEX_FUNC", "DORAB_LEGACY", "INVEST_V_PLATF", "DOLYA_VEND"];
+        // }
+        console.log("func route returned:");
+
+        return groups[val];
     };
 
     render() {
+        console.log("router value:");
+        console.log(this.props.routerValue);
         return (
             <div className={"slider_wrapper"}>
                 {this.addDrivers(this.route(this.props.routerValue))} 

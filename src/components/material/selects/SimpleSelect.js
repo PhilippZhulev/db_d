@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import store from "../../../reduser";
+import store, {getState, change} from "../../../reduser";
 
 
 const styles = theme => ({
@@ -21,20 +21,27 @@ const styles = theme => ({
     }
 });
 
-const items = [
-    "ТОП-10",
-    "Персонал",
-    "Сервисы",
-    "IT",
-    "Прочие",
-    "Доходы / Риски"
-];
+let groups = [];
+
+store.subscribe(() => {
+
+    if (change === "first_include") {
+        let drivers = getState.data;
+
+
+        for (let key in drivers) {
+            groups.push(key);
+        }
+    }
+});
+
+const items = groups;
 
 class SimpleSelect extends React.Component {
   state = {
     age: '',
     name: 'hai',
-    selected: "ТОП-10"
+    selected: groups[0]
   };
 
   handleChange = event => {
