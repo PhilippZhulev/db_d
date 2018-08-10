@@ -11,6 +11,7 @@ import Rb from '../../views/kpi-rb';
 
 import Drivers from "../../views/modules/drivers";
 import store, {getState, change} from "../../reduser";
+import transliter from '../transliter';
 
 let whiteTheme = {
     primary: {
@@ -116,10 +117,11 @@ class App extends Component {
 
             let group = drivers[ind].group,
                 driver = drivers[ind],
-                newData = {};
+                newData = {},
+                transGroup = transliter(group);
 
             if(!(group in groups)){
-                groups[group]=[];
+                groups[transGroup]=[];
             }
 
             for (let key in driver){
@@ -130,17 +132,11 @@ class App extends Component {
                 }
             }
 
-            groups[group].push(newData);
+            groups[transGroup].push(newData);
         }
-
         store.dispatch({
             type: 'CHANGE_START',
             payload: groups
-        });
-
-        store.dispatch({
-            type: 'CHANGE_START',
-            payload: this.props.data.dummyData
         });
     }
 
