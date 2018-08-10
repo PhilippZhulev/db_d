@@ -133,6 +133,8 @@ class App extends Component {
 
             groups[group].push(newData);
         }
+        console.log("groups var is:");
+        console.log(groups);
 
         store.dispatch({
             type: 'CHANGE_START',
