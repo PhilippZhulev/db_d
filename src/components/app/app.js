@@ -107,10 +107,6 @@ class App extends Component {
                 this.setState({category: getState.states.value});
 
             }
-
-            if(change === "first_include") {
-                console.log(getState.data);
-            }
         });
 
         let groups = {},

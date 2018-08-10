@@ -5,37 +5,33 @@ import store, {getState, change} from "../../reduser";
 
 const values = {};
 
+store.subscribe(() => {
+    console.log(1);
+    if(change === "first_include") {
+        console.log(getState.data);
+    }
+
+    if (change === "driver") {
+
+        for (let key in getState.value){
+            if(getState.value.hasOwnProperty(key)) {
+                values[key] = getState.value[key];
+            }
+        }
+
+        store.dispatch({
+            type: 'CHANGE_ALL_DRIVERS',
+            payload: getState.value
+        })
+    }
+});
+
 class Drivers extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {routerValue: this.props.routerValue, all_drivers:{}};
-       
-        store.subscribe(() => {
-            if (change === "assign_drivers_and_groups"){
-                this.state.all_drivers = getState.value.drivers;
-                console.log(">>>>>>>>>state is right here<<<<<<<<<<<");
-                console.log(this.state);
-            }
-            if (change === "driver") {
-
-                for (let key in getState.value){
-                    if(getState.value.hasOwnProperty(key)) {
-                        values[key] = getState.value[key];
-                    }
-                }
-
-                console.log("One driver changed:");
-
-                console.log(values);
-
-                store.dispatch({
-                    type: 'CHANGE_ALL_DRIVERS',
-                    payload: getState.value
-                })
-            }
-        });
     }
 
     addDrivers = (target) => {
