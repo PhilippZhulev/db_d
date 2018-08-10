@@ -61,7 +61,7 @@ class Drivers extends Component {
 
             return (
                 <Slider
-                    key={index} driverId={index}
+                    key={index} driverId={value.id}
                     labelText={value.name}
                     min={+(value.min)}
                     max={+(value.max)}
