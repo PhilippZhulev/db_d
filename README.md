@@ -64,13 +64,32 @@ document.addEventListener("React.run", function() {
 ```
 
 ### Строение
-```html
-|--api
-|----include.js
-|----main-min.js
-|--build
+```jade
+|--api                  //api для синхронизации с BO
+|----include.js         //Reactor - class для обработкой BO
+|----main-min.js        //Функции
+|--build                //Готовая сборка
 |----dist
-|------bungle-min.js
-|--public
-|--src
+|------bungle-min.js    //js сборки
+|--public               //Стили, шрифты, index
+|----font
+|----img
+|----local_api          //Локальное api для отладки
+|------data.json        //Модель сруктуры данных
+|------include.js      
+|------main-min.js
+|----index.html         //index для режима разработчика
+|----main.css           //сборка css
+|--src                  //папка разработки
+|----component          //react компоненты
+|----router             //роутинг
+|------router.js
+|----views              //шаблоны
+|------modules          //модули для шаблонов
+|--------moduleName.js
+|------viewName.js
+|----index.js           //файл входа react
+|----reduser.js         //редакс редюсеры
+|--GruntFile.js         //настройки grunt
+|--package.json         //настройки npm и перечень модулей
 ```
