@@ -112,7 +112,7 @@ class SimpleSlider extends React.Component {
             type: 'CHANGE_DRIVER',
             payload: obj_1
         });
-        updateState(["return_driver_to_lumira", this.props.driverId+","+this.state.value], () => {
+        window.updateState(["return_driver_to_lumira", obj_1], () => {
             return 0;
         });
 

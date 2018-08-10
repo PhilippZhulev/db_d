@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactIScroll from "react-iscroll";
+import iScroll from "iscroll/build/iscroll-probe";
 import Header from '../material/app-bar/DenseAppBar';
 import Tabs from '../material/tabs/ScrollableTabsButtonAuto';
 import Btn from '../material/buttons/ContainedButtons';
@@ -9,8 +11,20 @@ import Cib from '../../views/kpi-cib';
 import Kb from '../../views/kpi-kb';
 import Rb from '../../views/kpi-rb';
 
+
 import Drivers from "../../views/modules/drivers";
 import store, {getState, change} from "../../reduser";
+//import transliter from '../transliter';
+
+const options = {
+    mouseWheel: false,
+    scrollbars: false,
+    freeScroll: true,
+    scrollX: false,
+    scrollY: true,
+    invertWheelDirection: true,
+    momentum: true
+};
 
 let whiteTheme = {
     primary: {
@@ -105,7 +119,6 @@ class App extends Component {
 
             if(change === "drivers_router") {
                 this.setState({category: getState.states.value});
-
             }
         });
 
@@ -118,10 +131,11 @@ class App extends Component {
 
             let group = drivers[ind].group,
                 driver = drivers[ind],
-                newData = {};
+                newData = {},
+                transGroup = group;
 
             if(!(group in groups)){
-                groups[group]=[];
+                groups[transGroup]=[];
             }
 
             for (let key in driver){
@@ -132,10 +146,8 @@ class App extends Component {
                 }
             }
 
-            groups[group].push(newData);
+            groups[transGroup].push(newData);
         }
-        console.log("groups var is:");
-        console.log(groups);
 
         store.dispatch({
             type: 'CHANGE_START',
@@ -154,7 +166,16 @@ class App extends Component {
                         pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib templ={this.state.theme}/>, <Kb templ={this.state.theme}/>, <Rb templ={this.state.theme}/>]
                     }} />
                     <div className={"app_menu_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.menu}}>
-                        <Drivers routerValue={this.state.category} />
+                        <div style={{height: "82%", margin:"0 -15px", overflowY: "hidden", overflowX: "visible"}}>
+                            <ReactIScroll
+                                iScroll={iScroll}
+                                options={options}
+                            >
+                                <Drivers routerValue={this.state.category} />
+
+
+                            </ReactIScroll>
+                        </div>
                         <div className="btns__panel">
                             <Btn
                                 customClass="btn_save"

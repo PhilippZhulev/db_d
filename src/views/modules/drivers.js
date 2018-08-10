@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Slider from "../../components/material/slider/SimpleSlider";
-import driverBank from "../../secret/driver_bank.js";
 import store, {getState, change} from "../../reduser";
 
 const values = {};
@@ -18,7 +17,9 @@ store.subscribe(() => {
 
 
         for (let key in drivers){
-            groups.push(key);
+            if(drivers.hasOwnProperty(key)) {
+                groups.push(key);
+            }
         }
     }
 
@@ -85,8 +86,10 @@ class Drivers extends Component {
         //         return ["CHISL_OPER_FUNC", "OPEX_CAPEX_FUNC", "DORAB_LEGACY", "INVEST_V_PLATF", "DOLYA_VEND"];
         // }
         console.log("func route returned:");
+
         console.log(groups[val]);
         curr_group = groups[val];
+
         return groups[val];
     };
 

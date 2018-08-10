@@ -126,12 +126,6 @@ class MultiLine extends Component {
         }
         amchartsSettings.dataProvider = data;
 
-        //console.log("another try");
-        //this.state = {amchartsSettings:amchartsSettings};
-        //console.log(this.state);
-        //console.log("Outside subscribe");
-        //console.log(this);
-
         let out =[];
         out.push(<AmCharts.React key={0} className="chart" style={{width:this.props.options.geometry.width,height: this.props.options.geometry.height}}
                                  options={amchartsSettings}
