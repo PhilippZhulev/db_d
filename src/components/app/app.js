@@ -14,7 +14,7 @@ import Rb from '../../views/kpi-rb';
 
 import Drivers from "../../views/modules/drivers";
 import store, {getState, change} from "../../reduser";
-import transliter from '../transliter';
+//import transliter from '../transliter';
 
 const options = {
     mouseWheel: false,
@@ -132,7 +132,7 @@ class App extends Component {
             let group = drivers[ind].group,
                 driver = drivers[ind],
                 newData = {},
-                transGroup = transliter(group);
+                transGroup = group;
 
             if(!(group in groups)){
                 groups[transGroup]=[];
