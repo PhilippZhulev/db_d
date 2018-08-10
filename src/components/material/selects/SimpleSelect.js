@@ -66,7 +66,6 @@ class SimpleSelect extends React.Component {
                     classes={this.props.classes}
                     className="sup_select"
                     name="driver_router"
-
                 >
                     <MenuItem disabled value="">{this.state.selected}</MenuItem>
                     {
