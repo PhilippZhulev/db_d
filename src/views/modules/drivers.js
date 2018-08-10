@@ -8,10 +8,12 @@ let drivers = {};
 
 let groups = [];
 
+let curr_group = "";
+
 store.subscribe(() => {
 
     if(change === "first_include") {
-        drivers = getState.data;
+        drivers = getState.data.drivers;
 
 
         for (let key in drivers){
@@ -23,11 +25,18 @@ store.subscribe(() => {
 
     if (change === "driver") {
 
-        for (let key in getState.value){
-            if(getState.value.hasOwnProperty(key)) {
-                values[key] = getState.value[key];
-            }
-        }
+        // for (let key in getState.value){
+        //     if(getState.value.hasOwnProperty(key)) {
+        //         values[key] = getState.value[key];
+        //     }
+        // }
+        console.log("Before:");
+        console.log(drivers);
+
+        drivers[curr_group][getState.value.ind].value = ""+getState.value.val;
+
+        console.log("After:");
+        console.log(drivers);
 
         store.dispatch({
             type: 'CHANGE_ALL_DRIVERS',
@@ -53,12 +62,13 @@ class Drivers extends Component {
 
             return (
                 <Slider
-                    key={index} driverId={index}
+                    key={index} driverId={value.id}
                     labelText={value.name}
                     min={+(value.min)}
                     max={+(value.max)}
                     value={+(value.value)}
                     step={+(value.step)}
+                    baseValue={+(value.baseValue)}
                 />
             )
         })
@@ -76,7 +86,12 @@ class Drivers extends Component {
         //         return ["CHISL_OPER_FUNC", "OPEX_CAPEX_FUNC", "DORAB_LEGACY", "INVEST_V_PLATF", "DOLYA_VEND"];
         // }
         console.log("func route returned:");
+<<<<<<< HEAD
 
+=======
+        console.log(groups[val]);
+        curr_group = groups[val];
+>>>>>>> new_Vol_Back
         return groups[val];
     };
 

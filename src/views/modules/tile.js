@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import MultiLine from '../../components/charts/MultyLineCharts';
 import dataBank from '../../secret/data_bank';
+import store, {getState, change} from "../../reduser";
+
+let data = {};
+
+store.subscribe(() => {
+
+    if (change === "first_include") {
+        console.log("from tile:");
+        console.log(getState.data);
+        data = getState.data.data;
+    }
+});
 
 
 class Tile extends Component {

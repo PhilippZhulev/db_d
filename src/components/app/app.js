@@ -123,7 +123,8 @@ class App extends Component {
         });
 
         let groups = {},
-            drivers = this.props.data.dummyData.drivers;
+            drivers = this.props.data.dummyData.drivers,
+            data = this.props.data.dummyData.data;
 
 
         for (let ind = 0; ind < drivers.length; ind++){
@@ -150,7 +151,7 @@ class App extends Component {
 
         store.dispatch({
             type: 'CHANGE_START',
-            payload: groups
+            payload: {data:data, drivers:groups}
         });
     }
 

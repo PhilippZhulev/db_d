@@ -63,9 +63,21 @@ class SimpleSlider extends React.Component {
         let min = (this.props.min) ? this.props.min : 0;
         let max = (this.props.max) ? this.props.max : 100;
         this.disabled_value = this.props.value;
-        
+        if (this.disabled_value < min){
+            this.disabled_value = min;
+        }
+        if (this.disabled_value > max){
+            this.disabled_value = max;
+        }
         this.dot_left = ((this.disabled_value - min)/(max-min)*100-0.3)+"%";
-        this.strat_left = (Math.random()*100-0.3)+"%";
+        let baseValue = this.props.baseValue;
+        if (baseValue < min){
+            baseValue = min;
+        }
+        if (baseValue > max){
+            baseValue = max;
+        }
+        this.strat_left = ((baseValue - min)/(max-min)*100-0.3)+"%";
     }
 
     state = {
@@ -77,6 +89,8 @@ class SimpleSlider extends React.Component {
     };
 
     handleChange = (event, value) => {
+        console.log("Handle change value:")
+        console.log(value);
         this.setState({ value });
     };
 
@@ -90,12 +104,18 @@ class SimpleSlider extends React.Component {
 
     handleDragEnd = () =>{
         const obj_1 = {};
-
-        obj_1[this.props.driverId]= this.state.value;
+        obj_1.ind = this.props.driverId;
+        obj_1.val = this.state.value;
+        console.log("value from slider:");
+        console.log(obj_1);
         store.dispatch({
             type: 'CHANGE_DRIVER',
             payload: obj_1
-        })
+        });
+        updateState(["return_driver_to_lumira", obj_1], () => {
+            return 0;
+        });
+
     };
 
     handleFieldChange = (event) =>{
