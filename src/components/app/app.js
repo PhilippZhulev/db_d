@@ -109,48 +109,38 @@ class App extends Component {
             }
 
             if(change === "first_include") {
-
-                console.log("In first include object is: ");
                 console.log(getState.data);
-
-                console.log("All groups:");
-                let groups = {};
-                for (let ind=0;ind<getState.data.drivers.length;ind++){
-                    //res.push(driver);
-                    let group = getState.data.drivers[ind].group;
-                    let driver = getState.data.drivers[ind];
-                    if(!(group in groups)){
-                        groups[group]=[];
-                    }
-                    let obj = {};
-                    for (let key in driver){
-                        if (key !== "group"){
-                            obj[key] = driver[key];
-                        }
-                    }
-                    groups[group].push(obj);
-
-                }
-
-                console.log(groups);
-
-                console.log("Here will be store dispatch:");
-
-                store.dispatch({
-                     type: 'ASSIGN_DRIVERS_AND_GROUPS',
-                     payload: {drivers:{groups}, data:{}}
-                 });
-
             }
         });
 
-        console.log("Here is dummyData var:");
+        let groups = {},
+            drivers = this.props.data.dummyData.drivers;
 
-        console.log(this.props.data.dummyData);
+
+        for (let ind = 0; ind < drivers.length; ind++){
+
+            let group = drivers[ind].group,
+                driver = drivers[ind],
+                newData = {};
+
+            if(!(group in groups)){
+                groups[group]=[];
+            }
+
+            for (let key in driver){
+                if (key !== "group"){
+                    if(driver.hasOwnProperty(key)) {
+                        newData[key] = driver[key];
+                    }
+                }
+            }
+
+            groups[group].push(newData);
+        }
 
         store.dispatch({
             type: 'CHANGE_START',
-            payload: this.props.data.dummyData
+            payload: groups
         });
     }
 

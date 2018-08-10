@@ -38,11 +38,6 @@ function reduser (state = null, action) {
                 states: action.payload,
                 change: "drivers_router"
             };
-        case "ASSIGN_DRIVERS_AND_GROUPS":
-            return {...state,
-                states: action.payload,
-                change: "assign_drivers_and_groups"
-            };
         default:
             return state
     }
