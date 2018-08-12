@@ -23,8 +23,32 @@ store.subscribe(() => {
 class MultiLine extends Component {
     constructor(props){
         super(props);
-        this.state={koeff: 1};
+        let data = this.props.data;
+        this.state={koeff: 1, data:data};
         this.setState({koeff:koeff});
+        const graphs = ["strategy","base", "model"];
+        const grNum = 3;
+        for (let i=0;i<data.length;i++){
+            for (let key in data[i]){
+                if(data[i].hasOwnProperty(key)) {
+                    if (data[i][key] === "0") {
+                        data[i][key] = "No data";
+                    }
+                }
+            }
+        }
+        if(this.props.page === "OPEX" && this.props.options.isBig){
+            console.log("this is opex big");
+            console.log(this.state.koeff);
+            for (let i = 0; i < data.length; i++){
+                data[i][graphs[grNum-1]]=data[i][graphs[grNum-2]]*this.state.koeff;
+            }
+        }
+        //this.state={koeff: 1, data:data};
+        //this.setState({data:data});
+        console.log("koeff is:");
+        console.log(koeff);
+        this.state={koeff:koeff,data:data};
     }
     render() {
         const data = this.props.data;
@@ -114,23 +138,23 @@ class MultiLine extends Component {
 
             );
         }
-        dataProvider = data;
-        for (let i=0;i<dataProvider.length;i++){
-            for (let key in dataProvider[i]){
-                if(dataProvider[i].hasOwnProperty(key)) {
-                    if (dataProvider[i][key] === "0") {
-                        dataProvider[i][key] = "No data";
-                    }
-                }
-            }
-        }
-        if(this.props.page === "OPEX" && this.props.options.isBig){
-            console.log("this is opex big");
-            console.log(this.state.koeff);
-            for (let i = 0; i < data.length; i++){
-                dataProvider[i][graphs[grNum-1]]=dataProvider[i][graphs[grNum-2]]*this.state.koeff;
-            }
-        }
+        // dataProvider = data;
+        // for (let i=0;i<dataProvider.length;i++){
+        //     for (let key in dataProvider[i]){
+        //         if(dataProvider[i].hasOwnProperty(key)) {
+        //             if (dataProvider[i][key] === "0") {
+        //                 dataProvider[i][key] = "No data";
+        //             }
+        //         }
+        //     }
+        // }
+        // if(this.props.page === "OPEX" && this.props.options.isBig){
+        //     console.log("this is opex big");
+        //     console.log(this.state.koeff);
+        //     for (let i = 0; i < data.length; i++){
+        //         dataProvider[i][graphs[grNum-1]]=dataProvider[i][graphs[grNum-2]]*this.state.koeff;
+        //     }
+        // }
         // let catNum = this.props.options.categories.length;
         // for (let i = 0; i<catNum; i++){
         //     let dataCurr = {};
@@ -151,7 +175,7 @@ class MultiLine extends Component {
         //     }
         //     data.push(dataCurr);
         // }
-        amchartsSettings.dataProvider = dataProvider;
+        amchartsSettings.dataProvider = this.state.data;//dataProvider;
 
         let out =[];
         out.push(<AmCharts.React key={0} className="chart" style={{width:this.props.options.geometry.width,height: this.props.options.geometry.height}}
