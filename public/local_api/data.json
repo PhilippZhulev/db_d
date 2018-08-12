@@ -1,86 +1,1427 @@
 {
-    "payload": "START",
-    "data" : [
-        {"group": "Персонал","name": "Индексация, %","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "10"},
-        {"group": "Персонал","name": "Годовая премия, % о","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "22"},
-        {"group": "Персонал","name": "Перемещение ПЦП Мос","min": "4","max": "15","step": "0.5","baseValue": "7.5","value": "10"},
-        {"group": "Персонал","name": "Перевод из ЦА в рег","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "13.5"},
-        {"group": "Персонал","name": "Количество ТБ, ед.","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "3"},
-        {"group": "Персонал","name": "Заявки без участия","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "13"},
-        {"group": "Персонал","name": "Расходы на обучение","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Сервисы","name": "Офисные площади на","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Сервисы","name": "Площадь офисных пом","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Сервисы","name": "Доля арендов. помещ","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Сервисы","name": "Бригады инкасс. из","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Сервисы","name": "Доля RATM в УС, %","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Сервисы","name": "Доля наличных плате","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "IT","name": "Числ-ть опер. функц","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "IT","name": "OPEX/CAPEX по IT, %","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "IT","name": "Доработка legacy, м","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "IT","name": "Инвестиции в платф.","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "IT","name": "Доля вендоров, %","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Прочие OPEX","name": "Числ-ть функц. блок","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Прочие OPEX","name": "Устройства самообсл","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Прочие OPEX","name": "Доля push-уведомлен","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Прочие OPEX","name": "\"Спасибо\", ставка н","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Прочие OPEX","name": "Маркетинг, % от при","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Прочие OPEX","name": "Благотворительн., %","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Прочие OPEX","name": "Выход из сервисных","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Прочие OPEX","name": "Продажа СБЕ, да/нет","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Доходы / Риски","name": "Чистая процентная м","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Доходы / Риски","name": "Темп прироста ЧКД,","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"},
-        {"group": "Доходы / Риски","name": "Выплата дивидендов,","min": "0","max": "15","step": "0.5","baseValue": "7.5","value": "7.5"}
-    ],
-    "drivers": [
-        {"group": "Персонал","name": "Индексация, %","min": "5","max": "15","step": "1","baseValue": "10","value": "10"},
-        {"group": "Персонал","name": "Годовая премия, % от прибыли","min": "1","max": "10","step": "0.5","baseValue": "5.5","value": "5.5"},
-        {"group": "Персонал","name": "Перемещение ПЦП Москвы в регионы, %","min": "20","max": "40","step": "0.5","baseValue": "30","value": "12.5"},
-        {"group": "Персонал","name": "Перевод из ЦА в регионы, %","min": "50","max": "90","step": "5","baseValue": "70","value": "1.5"},
-        {"group": "Персонал","name": "Количество ТБ, ед.","min": "60","max": "90","step": "0.5","baseValue": "75","value": "15"},
-        {"group": "Персонал","name": "Заявки без участия андеррайтеров, %","min": "0","max": "3","step": "0.5","baseValue": "1.5","value": "7.5"},
-        {"group": "Персонал","name": "Расходы на обучение на 1 сотр., тыс.руб","min": "0","max": "0.3","step": "0","baseValue": "0.2","value": "7.5"},
-        {"group": "Сервисы","name": "Офисные площади на 1 сотруд., кв.м","min": "4","max": "5","step": "0.5","baseValue": "4.5","value": "7.5"},
-        {"group": "Сервисы","name": "Площадь офисных помещений, тыс. м2","min": "-5","max": "-3","step": "1","baseValue": "-4","value": "7.5"},
-        {"group": "Сервисы","name": "Доля арендов. помещ., %","min": "50","max": "70","step": "1","baseValue": "60","value": "7.5"},
-        {"group": "Сервисы","name": "Бригады инкасс. из 2 человек, %","min": "10","max": "20","step": "1","baseValue": "15","value": "7.5"},
-        {"group": "Сервисы","name": "Доля RATM в УС, %","min": "2","max": "3","step": "0.5","baseValue": "2.5","value": "7.5"},
-        {"group": "Сервисы","name": "Доля наличных платежей в Банке, %","min": "0","max": "99","step": "1","baseValue": "49.5","value": "7.5"},
-        {"group": "IT","name": "Числ-ть опер. функции, чел.","min": "1","max": "5","step": "0.5","baseValue": "3","value": "7.5"},
-        {"group": "IT","name": "OPEX/CAPEX по IT, %","min": "2","max": "3","step": "0.5","baseValue": "2.5","value": "7.5"},
-        {"group": "IT","name": "Доработка legacy, млрд.руб.","min": "1.5","max": "2.5","step": "0.5","baseValue": "2","value": "7.5"},
-        {"group": "IT","name": "Инвестиции в платф., млрд.руб.","min": "6.5","max": "6.9","step": "0.1","baseValue": "6.7","value": "7.5"},
-        {"group": "IT","name": "Доля вендоров, %","min": "-5","max": "-3","step": "0.5","baseValue": "-4","value": "7.5"},
-        {"group": "Прочие OPEX","name": "Числ-ть функц. блоков, чел.","min": "50","max": "99","step": "1","baseValue": "74.5","value": "7.5"},
-        {"group": "Прочие OPEX","name": "Устройства самообсл., ед.","min": "35","max": "45","step": "1","baseValue": "40","value": "7.5"},
-        {"group": "Прочие OPEX","name": "Доля push-уведомлений, %","min": "2","max": "3","step": "0.5","baseValue": "2.5","value": "7.5"},
-        {"group": "Прочие OPEX","name": "\"Спасибо\", ставка начисл.","min": "2","max": "3","step": "0.5","baseValue": "2.5","value": "7.5"},
-        {"group": "Прочие OPEX","name": "Маркетинг, % от прибыли","min": "1.5","max": "2.5","step": "0.5","baseValue": "2","value": "7.5"},
-        {"group": "Прочие OPEX","name": "Благотворительн., % от прибыли","min": "70","max": "90","step": "1","baseValue": "80","value": "7.5"},
-        {"group": "Прочие OPEX","name": "Выход из сервисных компаний, да/нет","min": "0","max": "1","step": "0.5","baseValue": "1","value": "7.5"},
-        {"group": "Прочие OPEX","name": "Продажа СБЕ, да/нет","min": "0","max": "1","step": "0.5","baseValue": "1","value": "7.5"},
-        {"group": "Доходы / Риски","name": "Чистая процентная маржа, %","min": "4.5","max": "5.3","step": "0.3","baseValue": "4.9","value": "7.5"},
-        {"group": "Доходы / Риски","name": "Темп прироста ЧКД, %","min": "7","max": "15","step": "1","baseValue": "11","value": "7.5"},
-        {"group": "Доходы / Риски","name": "Выплата дивидендов, % от прибыли","min": "50","max": "99","step": "1","baseValue": "74.5","value": "7.5"},
-        {"group": "Прочие OPEX","name": "УП МП, штук (вал) в год","min": "0","max": "100","step": "1","baseValue": "50","value": "0"},
-        {"group": "Прочие OPEX","name": "Сделки ипотечного кредитования, штук (вал) в год","min": "0","max": "100","step": "1","baseValue": "50","value": "0"},
-        {"group": "Прочие OPEX","name": "Клиентопоток ФЛ по продажам к МП в онлайн, клиентов/год","min": "0","max": "100","step": "1","baseValue": "50","value": "0"},
-        {"group": "Прочие OPEX","name": "Клиентопоток ФЛ по продажам к МП в онлайн, клиентов/год","min": "0","max": "100","step": "1","baseValue": "50","value": "0"},
-        {"group": "Прочие OPEX","name": "Доля рынка эквайринга, %","min": "0","max": "100","step": "1","baseValue": "50","value": "0"},
-        {"group": "Прочие OPEX","name": "Сокращение количества ВСП, ед.","min": "150","max": "343","step": "1","baseValue": "20","value": "0"},
-        {"group": "Прочие OPEX","name": "Доля push-уведомлений, %","min": "0","max": "100","step": "1","baseValue": "50","value": "0"},
-        {"group": "Прочие OPEX","name": "Угол наклона луны к марсу","min": "0","max": "100","step": "1","baseValue": "50","value": "0"},
-        {"group": "Прочие OPEX","name": "Диаметр разброса кофейной гущи","min": "0","max": "100","step": "1","baseValue": "50","value": "0"},
-        {"group": "Прочие OPEX","name": "Числ-ть адм. функции CIB, чел.","min": "20","max": "40","step": "1","baseValue": "30","value": "0"},
-        {"group": "Прочие OPEX","name": "Числ-ть 5 крупн. десков, чел.","min": "1","max": "5","step": "1","baseValue": "3","value": "0"},
-        {"group": "Прочие OPEX","name": "Рассмотр. кред. заявки CIB, дни","min": "2","max": "3","step": "0.5","baseValue": "2.5","value": "0"},
-        {"group": "Прочие OPEX","name": "Стоимость риска (CIB), %","min": "1.5","max": "2.5","step": "0.5","baseValue": "2","value": "0"},
-        {"group": "Прочие OPEX","name": "К.Эффект КМ, %","min": "100","max": "105","step": "0.5","baseValue": "102.5","value": "0"},
-        {"group": "Прочие OPEX","name": "Рост клиентов в год, %","min": "2","max": "20","step": "1","baseValue": "11","value": "0"},
-        {"group": "Прочие OPEX","name": "К.ЧОД, %","min": "95","max": "100","step": "0.1","baseValue": "97.5","value": "0"},
-        {"group": "Прочие OPEX","name": "Самозанятые (да/нет)","min": "0","max": "1","step": "1","baseValue": "0.5","value": "0"},
-        {"group": "Прочие OPEX","name": "Techsales и экосистемы (да/нет)","min": "0","max": "1","step": "1","baseValue": "0.5","value": "0"},
-        {"group": "Прочие OPEX","name": "Влияние на глубину ^, %","min": "5","max": "15","step": "1","baseValue": "10","value": "0"},
-        {"group": "Прочие OPEX","name": "Доля ММБ на 2021г, %","min": "0","max": "1","step": "1","baseValue": "0.5","value": "0"},
-        {"group": "Прочие OPEX","name": "Доля самозанятых на 2021г, %","min": "0","max": "1","step": "1","baseValue": "0.5","value": "0"}
-    ]
+  "payload": "START",
+  "data": {
+    "ALL": {
+      "PI": [
+        {
+          "category": "2019",
+          "strategy": "2553",
+          "base": "2726",
+          "model": "2553"
+        },
+        {
+          "category": "2020",
+          "strategy": "2750",
+          "base": "2996",
+          "model": "2750"
+        },
+        {
+          "category": "2021",
+          "strategy": "2981",
+          "base": "3129",
+          "model": "2982"
+        },
+        {
+          "category": "2022",
+          "strategy": "3360",
+          "base": "0",
+          "model": "3361"
+        }
+      ],
+      "INC": [
+        {
+          "category": "2019",
+          "strategy": "6165",
+          "base": "6476",
+          "model": "6165"
+        },
+        {
+          "category": "2020",
+          "strategy": "6469",
+          "base": "6925",
+          "model": "6469"
+        },
+        {
+          "category": "2021",
+          "strategy": "6799",
+          "base": "7235",
+          "model": "6799"
+        },
+        {
+          "category": "2022",
+          "strategy": "7349",
+          "base": "0",
+          "model": "7349"
+        }
+      ],
+      "OPEX": [
+        {
+          "category": "2019",
+          "strategy": "-1876",
+          "base": "-2032",
+          "model": "-1876"
+        },
+        {
+          "category": "2020",
+          "strategy": "-2031",
+          "base": "-2019",
+          "model": "-2031"
+        },
+        {
+          "category": "2021",
+          "strategy": "-2038",
+          "base": "-2017",
+          "model": "-2038"
+        },
+        {
+          "category": "2022",
+          "strategy": "-2120",
+          "base": "0",
+          "model": "-2119"
+        }
+      ],
+      "CIR": [
+        {
+          "category": "2019",
+          "strategy": "1054.1",
+          "base": "417.8",
+          "model": "1054.1"
+        },
+        {
+          "category": "2020",
+          "strategy": "447.1",
+          "base": "386",
+          "model": "447.1"
+        },
+        {
+          "category": "2021",
+          "strategy": "450.1",
+          "base": "373.3",
+          "model": "449.9"
+        },
+        {
+          "category": "2022",
+          "strategy": "378.8",
+          "base": "0",
+          "model": "378.8"
+        }
+      ],
+      "KOM": [
+        {
+          "category": "2019",
+          "strategy": "779.1",
+          "base": "802.5",
+          "model": "779.1"
+        },
+        {
+          "category": "2020",
+          "strategy": "813.8",
+          "base": "917.5",
+          "model": "813.8"
+        },
+        {
+          "category": "2021",
+          "strategy": "884.7",
+          "base": "1044.5",
+          "model": "884.7"
+        },
+        {
+          "category": "2022",
+          "strategy": "930.3",
+          "base": "0",
+          "model": "930.5"
+        }
+      ],
+      "COR": [
+        {
+          "category": "2019",
+          "strategy": "5",
+          "base": "3.8",
+          "model": "5"
+        },
+        {
+          "category": "2020",
+          "strategy": "-4.4",
+          "base": "-2.4",
+          "model": "-4.4"
+        },
+        {
+          "category": "2021",
+          "strategy": "-3.4",
+          "base": "2.6",
+          "model": "-3.4"
+        },
+        {
+          "category": "2022",
+          "strategy": "6",
+          "base": "0",
+          "model": "6"
+        }
+      ],
+      "CHIS": [
+        {
+          "category": "2019",
+          "strategy": "372",
+          "base": "0",
+          "model": "372"
+        },
+        {
+          "category": "2020",
+          "strategy": "365",
+          "base": "0",
+          "model": "365"
+        },
+        {
+          "category": "2021",
+          "strategy": "352",
+          "base": "0",
+          "model": "352"
+        },
+        {
+          "category": "2022",
+          "strategy": "347",
+          "base": "0",
+          "model": "347"
+        }
+      ]
+    },
+    "CIB": {
+      "PI": [
+        {
+          "category": "2019",
+          "strategy": "2553",
+          "base": "2726",
+          "model": "2553"
+        },
+        {
+          "category": "2020",
+          "strategy": "2750",
+          "base": "2996",
+          "model": "2750"
+        },
+        {
+          "category": "2021",
+          "strategy": "2981",
+          "base": "3129",
+          "model": "2982"
+        },
+        {
+          "category": "2022",
+          "strategy": "3360",
+          "base": "0",
+          "model": "3361"
+        }
+      ],
+      "INC": [
+        {
+          "category": "2019",
+          "strategy": "6165",
+          "base": "6476",
+          "model": "6165"
+        },
+        {
+          "category": "2020",
+          "strategy": "6469",
+          "base": "6925",
+          "model": "6469"
+        },
+        {
+          "category": "2021",
+          "strategy": "6799",
+          "base": "7235",
+          "model": "6799"
+        },
+        {
+          "category": "2022",
+          "strategy": "7349",
+          "base": "0",
+          "model": "7349"
+        }
+      ],
+      "OPEX": [
+        {
+          "category": "2019",
+          "strategy": "-1876",
+          "base": "-2032",
+          "model": "-1876"
+        },
+        {
+          "category": "2020",
+          "strategy": "-2031",
+          "base": "-2019",
+          "model": "-2031"
+        },
+        {
+          "category": "2021",
+          "strategy": "-2038",
+          "base": "-2017",
+          "model": "-2038"
+        },
+        {
+          "category": "2022",
+          "strategy": "-2120",
+          "base": "0",
+          "model": "-2119"
+        }
+      ],
+      "CIR": [
+        {
+          "category": "2019",
+          "strategy": "1054.1",
+          "base": "417.8",
+          "model": "1054.1"
+        },
+        {
+          "category": "2020",
+          "strategy": "447.1",
+          "base": "386",
+          "model": "447.1"
+        },
+        {
+          "category": "2021",
+          "strategy": "450.1",
+          "base": "373.3",
+          "model": "449.9"
+        },
+        {
+          "category": "2022",
+          "strategy": "378.8",
+          "base": "0",
+          "model": "378.8"
+        }
+      ],
+      "KOM": [
+        {
+          "category": "2019",
+          "strategy": "779.1",
+          "base": "802.5",
+          "model": "779.1"
+        },
+        {
+          "category": "2020",
+          "strategy": "813.8",
+          "base": "917.5",
+          "model": "813.8"
+        },
+        {
+          "category": "2021",
+          "strategy": "884.7",
+          "base": "1044.5",
+          "model": "884.7"
+        },
+        {
+          "category": "2022",
+          "strategy": "930.3",
+          "base": "0",
+          "model": "930.5"
+        }
+      ],
+      "COR": [
+        {
+          "category": "2019",
+          "strategy": "5",
+          "base": "3.8",
+          "model": "5"
+        },
+        {
+          "category": "2020",
+          "strategy": "-4.4",
+          "base": "-2.4",
+          "model": "-4.4"
+        },
+        {
+          "category": "2021",
+          "strategy": "-3.4",
+          "base": "2.6",
+          "model": "-3.4"
+        },
+        {
+          "category": "2022",
+          "strategy": "6",
+          "base": "0",
+          "model": "6"
+        }
+      ],
+      "CHIS": [
+        {
+          "category": "2019",
+          "strategy": "372",
+          "base": "0",
+          "model": "372"
+        },
+        {
+          "category": "2020",
+          "strategy": "365",
+          "base": "0",
+          "model": "365"
+        },
+        {
+          "category": "2021",
+          "strategy": "352",
+          "base": "0",
+          "model": "352"
+        },
+        {
+          "category": "2022",
+          "strategy": "347",
+          "base": "0",
+          "model": "347"
+        }
+      ]
+    },
+    "CB": {
+      "PI": [
+        {
+          "category": "2019",
+          "strategy": "2553",
+          "base": "2726",
+          "model": "2553"
+        },
+        {
+          "category": "2020",
+          "strategy": "2750",
+          "base": "2996",
+          "model": "2750"
+        },
+        {
+          "category": "2021",
+          "strategy": "2981",
+          "base": "3129",
+          "model": "2982"
+        },
+        {
+          "category": "2022",
+          "strategy": "3360",
+          "base": "0",
+          "model": "3361"
+        }
+      ],
+      "INC": [
+        {
+          "category": "2019",
+          "strategy": "6165",
+          "base": "6476",
+          "model": "6165"
+        },
+        {
+          "category": "2020",
+          "strategy": "6469",
+          "base": "6925",
+          "model": "6469"
+        },
+        {
+          "category": "2021",
+          "strategy": "6799",
+          "base": "7235",
+          "model": "6799"
+        },
+        {
+          "category": "2022",
+          "strategy": "7349",
+          "base": "0",
+          "model": "7349"
+        }
+      ],
+      "OPEX": [
+        {
+          "category": "2019",
+          "strategy": "-1876",
+          "base": "-2032",
+          "model": "-1876"
+        },
+        {
+          "category": "2020",
+          "strategy": "-2031",
+          "base": "-2019",
+          "model": "-2031"
+        },
+        {
+          "category": "2021",
+          "strategy": "-2038",
+          "base": "-2017",
+          "model": "-2038"
+        },
+        {
+          "category": "2022",
+          "strategy": "-2120",
+          "base": "0",
+          "model": "-2119"
+        }
+      ],
+      "CIR": [
+        {
+          "category": "2019",
+          "strategy": "1054.1",
+          "base": "417.8",
+          "model": "1054.1"
+        },
+        {
+          "category": "2020",
+          "strategy": "447.1",
+          "base": "386",
+          "model": "447.1"
+        },
+        {
+          "category": "2021",
+          "strategy": "450.1",
+          "base": "373.3",
+          "model": "449.9"
+        },
+        {
+          "category": "2022",
+          "strategy": "378.8",
+          "base": "0",
+          "model": "378.8"
+        }
+      ],
+      "KOM": [
+        {
+          "category": "2019",
+          "strategy": "779.1",
+          "base": "802.5",
+          "model": "779.1"
+        },
+        {
+          "category": "2020",
+          "strategy": "813.8",
+          "base": "917.5",
+          "model": "813.8"
+        },
+        {
+          "category": "2021",
+          "strategy": "884.7",
+          "base": "1044.5",
+          "model": "884.7"
+        },
+        {
+          "category": "2022",
+          "strategy": "930.3",
+          "base": "0",
+          "model": "930.5"
+        }
+      ],
+      "COR": [
+        {
+          "category": "2019",
+          "strategy": "5",
+          "base": "3.8",
+          "model": "5"
+        },
+        {
+          "category": "2020",
+          "strategy": "-4.4",
+          "base": "-2.4",
+          "model": "-4.4"
+        },
+        {
+          "category": "2021",
+          "strategy": "-3.4",
+          "base": "2.6",
+          "model": "-3.4"
+        },
+        {
+          "category": "2022",
+          "strategy": "6",
+          "base": "0",
+          "model": "6"
+        }
+      ],
+      "CHIS": [
+        {
+          "category": "2019",
+          "strategy": "372",
+          "base": "0",
+          "model": "372"
+        },
+        {
+          "category": "2020",
+          "strategy": "365",
+          "base": "0",
+          "model": "365"
+        },
+        {
+          "category": "2021",
+          "strategy": "352",
+          "base": "0",
+          "model": "352"
+        },
+        {
+          "category": "2022",
+          "strategy": "347",
+          "base": "0",
+          "model": "347"
+        }
+      ]
+    },
+    "RB": {
+      "PI": [
+        {
+          "category": "2019",
+          "strategy": "2553",
+          "base": "2726",
+          "model": "2553"
+        },
+        {
+          "category": "2020",
+          "strategy": "2750",
+          "base": "2996",
+          "model": "2750"
+        },
+        {
+          "category": "2021",
+          "strategy": "2981",
+          "base": "3129",
+          "model": "2982"
+        },
+        {
+          "category": "2022",
+          "strategy": "3360",
+          "base": "0",
+          "model": "3361"
+        }
+      ],
+      "INC": [
+        {
+          "category": "2019",
+          "strategy": "6165",
+          "base": "6476",
+          "model": "6165"
+        },
+        {
+          "category": "2020",
+          "strategy": "6469",
+          "base": "6925",
+          "model": "6469"
+        },
+        {
+          "category": "2021",
+          "strategy": "6799",
+          "base": "7235",
+          "model": "6799"
+        },
+        {
+          "category": "2022",
+          "strategy": "7349",
+          "base": "0",
+          "model": "7349"
+        }
+      ],
+      "OPEX": [
+        {
+          "category": "2019",
+          "strategy": "-1876",
+          "base": "-2032",
+          "model": "-1876"
+        },
+        {
+          "category": "2020",
+          "strategy": "-2031",
+          "base": "-2019",
+          "model": "-2031"
+        },
+        {
+          "category": "2021",
+          "strategy": "-2038",
+          "base": "-2017",
+          "model": "-2038"
+        },
+        {
+          "category": "2022",
+          "strategy": "-2120",
+          "base": "0",
+          "model": "-2119"
+        }
+      ],
+      "CIR": [
+        {
+          "category": "2019",
+          "strategy": "1054.1",
+          "base": "417.8",
+          "model": "1054.1"
+        },
+        {
+          "category": "2020",
+          "strategy": "447.1",
+          "base": "386",
+          "model": "447.1"
+        },
+        {
+          "category": "2021",
+          "strategy": "450.1",
+          "base": "373.3",
+          "model": "449.9"
+        },
+        {
+          "category": "2022",
+          "strategy": "378.8",
+          "base": "0",
+          "model": "378.8"
+        }
+      ],
+      "KOM": [
+        {
+          "category": "2019",
+          "strategy": "779.1",
+          "base": "802.5",
+          "model": "779.1"
+        },
+        {
+          "category": "2020",
+          "strategy": "813.8",
+          "base": "917.5",
+          "model": "813.8"
+        },
+        {
+          "category": "2021",
+          "strategy": "884.7",
+          "base": "1044.5",
+          "model": "884.7"
+        },
+        {
+          "category": "2022",
+          "strategy": "930.3",
+          "base": "0",
+          "model": "930.5"
+        }
+      ],
+      "COR": [
+        {
+          "category": "2019",
+          "strategy": "5",
+          "base": "3.8",
+          "model": "5"
+        },
+        {
+          "category": "2020",
+          "strategy": "-4.4",
+          "base": "-2.4",
+          "model": "-4.4"
+        },
+        {
+          "category": "2021",
+          "strategy": "-3.4",
+          "base": "2.6",
+          "model": "-3.4"
+        },
+        {
+          "category": "2022",
+          "strategy": "6",
+          "base": "0",
+          "model": "6"
+        }
+      ],
+      "CHIS": [
+        {
+          "category": "2019",
+          "strategy": "372",
+          "base": "0",
+          "model": "372"
+        },
+        {
+          "category": "2020",
+          "strategy": "365",
+          "base": "0",
+          "model": "365"
+        },
+        {
+          "category": "2021",
+          "strategy": "352",
+          "base": "0",
+          "model": "352"
+        },
+        {
+          "category": "2022",
+          "strategy": "347",
+          "base": "0",
+          "model": "347"
+        }
+      ]
+    },
+    "OPEX": {
+      "OPEX_op": [
+        {
+          "category": "2019",
+          "strategy": "935780",
+          "base": "701091",
+          "model": "935780"
+        },
+        {
+          "category": "2020",
+          "strategy": "815376",
+          "base": "696466",
+          "model": "815701"
+        },
+        {
+          "category": "2021",
+          "strategy": "809204",
+          "base": "694973",
+          "model": "809529"
+        },
+        {
+          "category": "2022",
+          "strategy": "809204",
+          "base": "0",
+          "model": "809529"
+        }
+      ],
+      "PERS_op": [
+        {
+          "category": "2019",
+          "strategy": "492761",
+          "base": "0",
+          "model": "519863"
+        },
+        {
+          "category": "2020",
+          "strategy": "502890",
+          "base": "0",
+          "model": "530549"
+        },
+        {
+          "category": "2021",
+          "strategy": "490334",
+          "base": "0",
+          "model": "517302"
+        },
+        {
+          "category": "2022",
+          "strategy": "490334",
+          "base": "0",
+          "model": "517302"
+        }
+      ],
+      "IT_op": [
+        {
+          "category": "2019",
+          "strategy": "86929",
+          "base": "0",
+          "model": "113007"
+        },
+        {
+          "category": "2020",
+          "strategy": "93788",
+          "base": "0",
+          "model": "121924"
+        },
+        {
+          "category": "2021",
+          "strategy": "107385",
+          "base": "0",
+          "model": "139601"
+        },
+        {
+          "category": "2022",
+          "strategy": "107385",
+          "base": "0",
+          "model": "139601"
+        }
+      ],
+      "NEDV_op": [
+        {
+          "category": "2019",
+          "strategy": "110265.8",
+          "base": "0",
+          "model": "187452"
+        },
+        {
+          "category": "2020",
+          "strategy": "114546.16",
+          "base": "0",
+          "model": "194728"
+        },
+        {
+          "category": "2021",
+          "strategy": "115702.86",
+          "base": "0",
+          "model": "196695"
+        },
+        {
+          "category": "2022",
+          "strategy": "115702.86",
+          "base": "0",
+          "model": "196695"
+        }
+      ],
+      "BIS_op": [
+        {
+          "category": "2019",
+          "strategy": "40480.57",
+          "base": "0",
+          "model": "70841"
+        },
+        {
+          "category": "2020",
+          "strategy": "44004.94",
+          "base": "0",
+          "model": "77009"
+        },
+        {
+          "category": "2021",
+          "strategy": "41521.9",
+          "base": "0",
+          "model": "72663"
+        },
+        {
+          "category": "2022",
+          "strategy": "41521.9",
+          "base": "0",
+          "model": "72663"
+        }
+      ],
+      "MAR_op": [
+        {
+          "category": "2019",
+          "strategy": "11103.31",
+          "base": "0",
+          "model": "11270"
+        },
+        {
+          "category": "2020",
+          "strategy": "13111.18",
+          "base": "0",
+          "model": "13308"
+        },
+        {
+          "category": "2021",
+          "strategy": "13791.48",
+          "base": "0",
+          "model": "13998"
+        },
+        {
+          "category": "2022",
+          "strategy": "13791.48",
+          "base": "0",
+          "model": "13998"
+        }
+      ],
+      "PROC_op": [
+        {
+          "category": "2019",
+          "strategy": "194240.17",
+          "base": "0",
+          "model": "11270"
+        },
+        {
+          "category": "2020",
+          "strategy": "47036.5",
+          "base": "0",
+          "model": "13308"
+        },
+        {
+          "category": "2021",
+          "strategy": "40468.49",
+          "base": "0",
+          "model": "13998"
+        },
+        {
+          "category": "2022",
+          "strategy": "40468.48",
+          "base": "0",
+          "model": "13998"
+        }
+      ]
+    }
+  },
+  "drivers": [
+    {
+      "group": "Персонал",
+      "name": "Индексация, %",
+      "min": "5",
+      "max": "15",
+      "step": "1",
+      "baseValue": "10",
+      "value": "10",
+      "id": "0"
+    },
+    {
+      "group": "Персонал",
+      "name": "Годовая премия, % от прибыли",
+      "min": "1",
+      "max": "10",
+      "step": "0.5",
+      "baseValue": "5.5",
+      "value": "5.5",
+      "id": "1"
+    },
+    {
+      "group": "Персонал",
+      "name": "Перемещение ПЦП Москвы в регионы, %",
+      "min": "20",
+      "max": "40",
+      "step": "0.5",
+      "baseValue": "30",
+      "value": "30",
+      "id": "2"
+    },
+    {
+      "group": "Персонал",
+      "name": "Перевод из ЦА в регионы, %",
+      "min": "50",
+      "max": "90",
+      "step": "5",
+      "baseValue": "70",
+      "value": "70",
+      "id": "3"
+    },
+    {
+      "group": "Персонал",
+      "name": "Количество ТБ, ед.",
+      "min": "60",
+      "max": "90",
+      "step": "0.5",
+      "baseValue": "75",
+      "value": "75",
+      "id": "4"
+    },
+    {
+      "group": "Персонал",
+      "name": "Заявки без участия андеррайтеров, %",
+      "min": "0",
+      "max": "3",
+      "step": "0.5",
+      "baseValue": "1.5",
+      "value": "1.5",
+      "id": "5"
+    },
+    {
+      "group": "Персонал",
+      "name": "Расходы на обучение на 1 сотр., тыс.руб",
+      "min": "0",
+      "max": "0.3",
+      "step": "0",
+      "baseValue": "0.2",
+      "value": "0.2",
+      "id": "6"
+    },
+    {
+      "group": "Сервисы",
+      "name": "Офисные площади на 1 сотруд., кв.м",
+      "min": "4",
+      "max": "5",
+      "step": "0.5",
+      "baseValue": "4.5",
+      "value": "4.5",
+      "id": "7"
+    },
+    {
+      "group": "Сервисы",
+      "name": "Площадь офисных помещений, тыс. м2",
+      "min": "-5",
+      "max": "-3",
+      "step": "1",
+      "baseValue": "-4",
+      "value": "-4",
+      "id": "8"
+    },
+    {
+      "group": "Сервисы",
+      "name": "Доля арендов. помещ., %",
+      "min": "50",
+      "max": "70",
+      "step": "1",
+      "baseValue": "60",
+      "value": "60",
+      "id": "9"
+    },
+    {
+      "group": "Сервисы",
+      "name": "Бригады инкасс. из 2 человек, %",
+      "min": "10",
+      "max": "20",
+      "step": "1",
+      "baseValue": "15",
+      "value": "15",
+      "id": "10"
+    },
+    {
+      "group": "Сервисы",
+      "name": "Доля RATM в УС, %",
+      "min": "2",
+      "max": "3",
+      "step": "0.5",
+      "baseValue": "2.5",
+      "value": "2.5",
+      "id": "11"
+    },
+    {
+      "group": "Сервисы",
+      "name": "Доля наличных платежей в Банке, %",
+      "min": "0",
+      "max": "99",
+      "step": "1",
+      "baseValue": "49.5",
+      "value": "49.5",
+      "id": "12"
+    },
+    {
+      "group": "IT",
+      "name": "Числ-ть опер. функции, чел.",
+      "min": "1",
+      "max": "5",
+      "step": "0.5",
+      "baseValue": "3",
+      "value": "3",
+      "id": "13"
+    },
+    {
+      "group": "IT",
+      "name": "OPEX/CAPEX по IT, %",
+      "min": "2",
+      "max": "3",
+      "step": "0.5",
+      "baseValue": "2.5",
+      "value": "2.5",
+      "id": "14"
+    },
+    {
+      "group": "IT",
+      "name": "Доработка legacy, млрд.руб.",
+      "min": "1.5",
+      "max": "2.5",
+      "step": "0.5",
+      "baseValue": "2",
+      "value": "2",
+      "id": "15"
+    },
+    {
+      "group": "IT",
+      "name": "Инвестиции в платф., млрд.руб.",
+      "min": "6.5",
+      "max": "6.9",
+      "step": "0.1",
+      "baseValue": "6.7",
+      "value": "6.7",
+      "id": "16"
+    },
+    {
+      "group": "IT",
+      "name": "Доля вендоров, %",
+      "min": "-5",
+      "max": "-3",
+      "step": "0.5",
+      "baseValue": "-4",
+      "value": "-4",
+      "id": "17"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Числ-ть функц. блоков, чел.",
+      "min": "50",
+      "max": "99",
+      "step": "1",
+      "baseValue": "74.5",
+      "value": "74.5",
+      "id": "18"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Устройства самообсл., ед.",
+      "min": "35",
+      "max": "45",
+      "step": "1",
+      "baseValue": "40",
+      "value": "40",
+      "id": "19"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Доля push-уведомлений, %",
+      "min": "2",
+      "max": "3",
+      "step": "0.5",
+      "baseValue": "2.5",
+      "value": "2.5",
+      "id": "20"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "\"Спасибо\", ставка начисл.",
+      "min": "2",
+      "max": "3",
+      "step": "0.5",
+      "baseValue": "2.5",
+      "value": "2.5",
+      "id": "21"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Маркетинг, % от прибыли",
+      "min": "1.5",
+      "max": "2.5",
+      "step": "0.5",
+      "baseValue": "2",
+      "value": "2",
+      "id": "22"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Благотворительн., % от прибыли",
+      "min": "70",
+      "max": "90",
+      "step": "1",
+      "baseValue": "80",
+      "value": "80",
+      "id": "23"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Выход из сервисных компаний, да/нет",
+      "min": "0",
+      "max": "1",
+      "step": "0.5",
+      "baseValue": "1",
+      "value": "1",
+      "id": "24"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Продажа СБЕ, да/нет",
+      "min": "0",
+      "max": "1",
+      "step": "0.5",
+      "baseValue": "1",
+      "value": "1",
+      "id": "25"
+    },
+    {
+      "group": "Доходы / Риски",
+      "name": "Чистая процентная маржа, %",
+      "min": "4.5",
+      "max": "5.3",
+      "step": "0.3",
+      "baseValue": "4.9",
+      "value": "4.9",
+      "id": "26"
+    },
+    {
+      "group": "Доходы / Риски",
+      "name": "Темп прироста ЧКД, %",
+      "min": "7",
+      "max": "15",
+      "step": "1",
+      "baseValue": "11",
+      "value": "11",
+      "id": "27"
+    },
+    {
+      "group": "Доходы / Риски",
+      "name": "Выплата дивидендов, % от прибыли",
+      "min": "50",
+      "max": "99",
+      "step": "1",
+      "baseValue": "74.5",
+      "value": "74.5",
+      "id": "28"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "УП МП, штук (вал) в год",
+      "min": "0",
+      "max": "100",
+      "step": "1",
+      "baseValue": "50",
+      "value": "50",
+      "id": "29"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Сделки ипотечного кредитования, штук (вал) в год",
+      "min": "0",
+      "max": "100",
+      "step": "1",
+      "baseValue": "50",
+      "value": "50",
+      "id": "30"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Клиентопоток ФЛ по продажам к МП в онлайн, клиентов/год",
+      "min": "0",
+      "max": "100",
+      "step": "1",
+      "baseValue": "50",
+      "value": "50",
+      "id": "31"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Клиентопоток ФЛ по продажам к МП в онлайн, клиентов/год",
+      "min": "0",
+      "max": "100",
+      "step": "1",
+      "baseValue": "50",
+      "value": "50",
+      "id": "32"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Доля рынка эквайринга, %",
+      "min": "0",
+      "max": "100",
+      "step": "1",
+      "baseValue": "50",
+      "value": "50",
+      "id": "33"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Сокращение количества ВСП, ед.",
+      "min": "150",
+      "max": "343",
+      "step": "1",
+      "baseValue": "20",
+      "value": "20",
+      "id": "34"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Доля push-уведомлений, %",
+      "min": "0",
+      "max": "100",
+      "step": "1",
+      "baseValue": "50",
+      "value": "50",
+      "id": "35"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Угол наклона луны к марсу",
+      "min": "0",
+      "max": "100",
+      "step": "1",
+      "baseValue": "50",
+      "value": "50",
+      "id": "36"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Диаметр разброса кофейной гущи",
+      "min": "0",
+      "max": "100",
+      "step": "1",
+      "baseValue": "50",
+      "value": "50",
+      "id": "37"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Числ-ть адм. функции CIB, чел.",
+      "min": "20",
+      "max": "40",
+      "step": "1",
+      "baseValue": "30",
+      "value": "30",
+      "id": "38"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Числ-ть 5 крупн. десков, чел.",
+      "min": "1",
+      "max": "5",
+      "step": "1",
+      "baseValue": "3",
+      "value": "3",
+      "id": "39"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Рассмотр. кред. заявки CIB, дни",
+      "min": "2",
+      "max": "3",
+      "step": "0.5",
+      "baseValue": "2.5",
+      "value": "2.5",
+      "id": "40"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Стоимость риска (CIB), %",
+      "min": "1.5",
+      "max": "2.5",
+      "step": "0.5",
+      "baseValue": "2",
+      "value": "2",
+      "id": "41"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "К.Эффект КМ, %",
+      "min": "100",
+      "max": "105",
+      "step": "0.5",
+      "baseValue": "102.5",
+      "value": "102.5",
+      "id": "42"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Рост клиентов в год, %",
+      "min": "2",
+      "max": "20",
+      "step": "1",
+      "baseValue": "11",
+      "value": "11",
+      "id": "43"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "К.ЧОД, %",
+      "min": "95",
+      "max": "100",
+      "step": "0.1",
+      "baseValue": "97.5",
+      "value": "97.5",
+      "id": "44"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Самозанятые (да/нет)",
+      "min": "0",
+      "max": "1",
+      "step": "1",
+      "baseValue": "0.5",
+      "value": "0.5",
+      "id": "45"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Techsales и экосистемы (да/нет)",
+      "min": "0",
+      "max": "1",
+      "step": "1",
+      "baseValue": "0.5",
+      "value": "0.5",
+      "id": "46"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Влияние на глубину ^, %",
+      "min": "5",
+      "max": "15",
+      "step": "1",
+      "baseValue": "10",
+      "value": "10",
+      "id": "47"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Доля ММБ на 2021г, %",
+      "min": "0",
+      "max": "1",
+      "step": "1",
+      "baseValue": "0.5",
+      "value": "0.5",
+      "id": "48"
+    },
+    {
+      "group": "Прочие OPEX",
+      "name": "Доля самозанятых на 2021г, %",
+      "min": "0",
+      "max": "1",
+      "step": "1",
+      "baseValue": "0.5",
+      "value": "0.5",
+      "id": "49"
+    }
+  ]
 }

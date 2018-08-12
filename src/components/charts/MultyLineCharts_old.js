@@ -7,28 +7,26 @@ import 'amcharts3/amcharts/plugins/export/export.css';
 import AmCharts from '@amcharts/amcharts3-react';
 import Legend from './legend';
 
-import store, {getState, change} from '../../reduser';
-
-let koeff = 1;
-
-store.subscribe(() => {
-
-    if (change === "driver") {
-        koeff = getState.value.val;
-        console.log("driver written to koeff");
-        console.log(koeff);
-    }
-});
+import store from '../../reduser';
 
 class MultiLine extends Component {
     constructor(props){
+        //console.log("!");
         super(props);
-        this.state={koeff: 1};
-        this.setState({koeff:koeff});
+        this.state={all_values:{CHISL_OPER_FUNC:1}};
+        store.subscribe(() => {
+            const change = store.getState().change,
+                getState = store.getState();
+
+            if (change === "all_drivers") {
+                this.setState({all_values:getState.value});
+            }
+        });
     }
     render() {
-        const data = this.props.data;
         const bigClass = (this.props.options.isBig) ? "_big" : "";
+        //console.log("from render!");
+        //console.log(this.state);
 
         let amchartsSettings =
             {
@@ -77,16 +75,8 @@ class MultiLine extends Component {
                 "dataProvider": []
 
             };
-        let graphs = [];
-        for (let key in data[0]){
-            if(data[0].hasOwnProperty(key)) {
-                if (key !== "category") {
-                    graphs.push(key);
-                }
-            }
-        }
-        let dataProvider = [];
-        let grNum = graphs.length;
+        let data = [];
+        let grNum = this.props.options.colors.length;
         for (let i = 0;i<grNum;i++){
             amchartsSettings.graphs.push(
                 {
@@ -105,7 +95,7 @@ class MultiLine extends Component {
                     "labelText": (this.props.options.colors[i] !== "#727CF5") ? "[[value]]" : "",
                     "lineThickness": this.props.options.thickness,
                     "title": "graph "+i,
-                    "valueField": graphs[i],//"val"+i,
+                    "valueField": "val"+i,
                     "type": this.props.options.type,
                     "labelPosition": this.props.options.labelPosition[i],
                     "visibleInLegend": false
@@ -114,35 +104,27 @@ class MultiLine extends Component {
 
             );
         }
-        dataProvider = data;
-        if(this.props.page === "OPEX" && this.props.options.isBig){
-            console.log("this is opex big");
-            console.log(this.state.koeff);
-            for (let i = 0; i < data.length; i++){
-                dataProvider[i][graphs[grNum-1]]=dataProvider[i][graphs[grNum-2]]*this.state.koeff;
+        let catNum = this.props.options.categories.length;
+        for (let i = 0; i<catNum; i++){
+            let dataCurr = {};
+            dataCurr["category"]=this.props.options.categories[i];
+            for (let j = 0; j<grNum; j++){
+                dataCurr["val"+j]=this.props.options.data[j][i];
+                if (this.props.grId===0 && this.props.page==="opex" && i>0 && j===grNum-1) {
+                    //console.log("OPEX!");
+                    //console.log(this.state);
+                    dataCurr["val"+j]=(this.props.options.data[j-1][i]*this.state.all_values["CHISL_OPER_FUNC"]).toFixed(2);
+                    /*console.log("value was: "+this.props.options.data[j-1][i]);
+                    console.log("multiplied by: "+this.state.all_values["CHISL_OPER_FUNC"]);
+                    console.log("result: "+dataCurr["val"+j]);
+                    console.log((1091.0*1.6));*/
+                }
+                //console.log(this.props.grId+" "+flag+" "+this.props.page+" "+j)
+
             }
+            data.push(dataCurr);
         }
-        // let catNum = this.props.options.categories.length;
-        // for (let i = 0; i<catNum; i++){
-        //     let dataCurr = {};
-        //     dataCurr["category"]=this.props.options.categories[i];
-        //     for (let j = 0; j<grNum; j++){
-        //         dataCurr["val"+j]=this.props.options.data[j][i];
-        //         if (this.props.grId===0 && this.props.page==="opex" && i>0 && j===grNum-1) {
-        //             //console.log("OPEX!");
-        //             //console.log(this.state);
-        //             dataCurr["val"+j]=(this.props.options.data[j-1][i]*this.state.all_values["CHISL_OPER_FUNC"]).toFixed(2);
-        //             /*console.log("value was: "+this.props.options.data[j-1][i]);
-        //             console.log("multiplied by: "+this.state.all_values["CHISL_OPER_FUNC"]);
-        //             console.log("result: "+dataCurr["val"+j]);
-        //             console.log((1091.0*1.6));*/
-        //         }
-        //         //console.log(this.props.grId+" "+flag+" "+this.props.page+" "+j)
-        //
-        //     }
-        //     data.push(dataCurr);
-        // }
-        amchartsSettings.dataProvider = dataProvider;
+        amchartsSettings.dataProvider = data;
 
         let out =[];
         out.push(<AmCharts.React key={0} className="chart" style={{width:this.props.options.geometry.width,height: this.props.options.geometry.height}}
@@ -151,9 +133,6 @@ class MultiLine extends Component {
         if(this.props.options.legend){
             out.push(<Legend key={1} templ={this.props.templ} options={this.props.options}/>);
         }
-
-        console.log("Data provider for page "+this.props.page);
-        console.log(dataProvider);
 
         return (
             <div

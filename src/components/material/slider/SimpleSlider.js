@@ -104,7 +104,8 @@ class SimpleSlider extends React.Component {
 
     handleDragEnd = () =>{
         const obj_1 = {};
-        obj_1.ind = this.props.driverId;
+        obj_1.ind = this.props.driverInd;
+        obj_1.id = this.props.driverId;
         obj_1.val = this.state.value;
         console.log("value from slider:");
         console.log(obj_1);
@@ -112,9 +113,9 @@ class SimpleSlider extends React.Component {
             type: 'CHANGE_DRIVER',
             payload: obj_1
         });
-        window.updateState(["return_driver_to_lumira", obj_1], () => {
-            return 0;
-        });
+        // window.updateState(["return_driver_to_lumira", ""+this.props.driverId+","+this.state.value], () => {
+        //     return 0;
+        // });
 
     };
 

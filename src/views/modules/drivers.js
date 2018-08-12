@@ -16,6 +16,7 @@ store.subscribe(() => {
         drivers = getState.data.drivers;
 
 
+
         for (let key in drivers){
             if(drivers.hasOwnProperty(key)) {
                 groups.push(key);
@@ -32,6 +33,18 @@ store.subscribe(() => {
         // }
         console.log("Before:");
         console.log(drivers);
+
+        console.log("curr_group:");
+        console.log(curr_group);
+
+        console.log("getState.value.id:");
+        console.log(getState.value.id);
+
+        console.log("getState.value.val:");
+        console.log(getState.value.val);
+
+        console.log("drivers[curr_group][getState.value.ind]:");
+        console.log(drivers[curr_group][getState.value.ind]);
 
         drivers[curr_group][getState.value.ind].value = ""+getState.value.val;
 
@@ -62,7 +75,9 @@ class Drivers extends Component {
 
             return (
                 <Slider
-                    key={index} driverId={value.id}
+                    key={index}
+                    driverId={value.id}
+                    driverInd={index}
                     labelText={value.name}
                     min={+(value.min)}
                     max={+(value.max)}
