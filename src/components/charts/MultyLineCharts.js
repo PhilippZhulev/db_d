@@ -115,6 +115,15 @@ class MultiLine extends Component {
             );
         }
         dataProvider = data;
+        for (let i=0;i<dataProvider.length;i++){
+            for (let key in dataProvider[i]){
+                if(dataProvider[i].hasOwnProperty(key)) {
+                    if (dataProvider[i][key] === "0") {
+                        dataProvider[i][key] = "No data";
+                    }
+                }
+            }
+        }
         if(this.props.page === "OPEX" && this.props.options.isBig){
             console.log("this is opex big");
             console.log(this.state.koeff);
