@@ -87,12 +87,12 @@ class Tile extends Component {
         const lastCat = data[page][func].length;
         const mainVal = data[page][func][lastCat-1]["model"];
         console.log("last category value for model is: "+data[page][func][lastCat-1]["base"]);
-        const smallVal = "("+((+(data[page][func][lastCat-1]["model"])-(+(data[page][func][lastCat-1]["base"])))/(+(data[page][func][lastCat-1]["base"]))*100)+"%)";
+        const smallVal = "("+((+(data[page][func][lastCat-1]["model"])-(+(data[page][func][lastCat-1]["base"])))/(+(data[page][func][lastCat-1]["base"]))*100).toFixed(2)+"%)";
         let mainValAll = "";
         let smallValAll = "";
         if ((page !== "OPEX") && (page !== "ALL")){
             mainValAll = data["ALL"][func][lastCat-1]["model"];
-            smallValAll = "("+((+(data["ALL"][func][lastCat-1]["model"])-(+(data["ALL"][func][lastCat-1]["base"])))/(+(data["ALL"][func][lastCat-1]["base"]))*100)+"%)";
+            smallValAll = "("+((+(data["ALL"][func][lastCat-1]["model"])-(+(data["ALL"][func][lastCat-1]["base"])))/(+(data["ALL"][func][lastCat-1]["base"]))*100).toFixed(2)+"%)";
         }
         this.state={smallVal:smallVal, mainVal:mainVal, mainValAll:mainValAll, smallValAll:smallValAll, data:data};
     }
@@ -136,7 +136,7 @@ class Tile extends Component {
             grId:"line",
                 titles:["Стратегия 2020", "Базовая версия", "Моделирование"],
                 geometry: {width:"80'\%'", height:"90'\%'"},
-            colors: (this.props.isSmall) ? ["#727CF5","#1ab394"] :["#f8ac59","#727CF5","#1ab394"],
+            colors: ["#f8ac59","#727CF5","#1ab394"],//(this.props.isSmall) ? ["#727CF5","#1ab394"] :["#f8ac59","#727CF5","#1ab394"],
                 legend: (!this.props.isSmall),
                 //categories: ["2018", "2019", "2020", "2021"],
                 //data: [[825, 881, 1000], [840, 882, 1021, 1056], [840, 889, 1034, 1078]],
