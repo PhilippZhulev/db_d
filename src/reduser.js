@@ -28,6 +28,11 @@ function reduser (state = null, action) {
             value: action.payload,
             change: "driver"
         };
+        case "CHANGE_DRIVER_RESULT":
+            return {...state,
+                value: action.payload,
+                change: "driver_result"
+            };
         case "CHANGE_ALL_DRIVERS":
             return {...state,
                 value: action.payload,

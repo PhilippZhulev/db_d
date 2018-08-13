@@ -2,43 +2,44 @@ import React, { Component } from 'react';
 import Tile from './modules/tile';
 import store, {getState, change} from '../reduser';
 
-let data={};
-
-store.subscribe(() => {
-
-    if (change === "first_include") {
-        data = getState.data.data;
-    }
-});
-
 class Home extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            data: this.props.dataStates.data,
+            funcs: ["PI","INC","OPEX","CIR","KOM","COR","CHIS"],
+            templ: this.props.templ
+        };
+
+        store.subscribe(() => {
+            if (change === "driver_result") {
+                this.setState({data: getState.data.data});
+            }
+        });
     }
 
-    render() {
-        const funcs = ["PI","INC","OPEX","CIR","KOM","COR","CHIS"];
-        const templ = this.props.templ;
-        let tiles = funcs.map(
-            (value,index)=>{
-                const isSmall = (index !== 0);
-                return(
-                    <Tile
-                        key={index}
-                        tileNum = {index + 1}
-                        page = "ALL"
-                        isSmall = {isSmall}
-                        func={value}
-                        templ = {templ}
-                        data = {data}
-                    />
+    tiles = (states) => {
+        return this.state.funcs.map((value,index)=>{
+            const isSmall = (index !== 0);
+            return (
+                <Tile
+                    key = {index}
+                    tileNum = {index + 1}
+                    page = "ALL"
+                    isSmall = {isSmall}
+                    func={value}
+                    templ = {states.templ}
+                    data = {states.data}
+                />
             )
-            }
-        );
+        });
+    };
 
+    render() {
         return (
             <div className="tiles_container">
-                {tiles}
+                {this.tiles(this.state)}
             </div>
         )
     }

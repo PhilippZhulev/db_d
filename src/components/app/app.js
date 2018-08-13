@@ -83,10 +83,39 @@ class App extends Component {
             menu: " active",
             pos: "",
             dummyData: null,
-            category: 0
+            category: 0,
+            firstData: null
         };
 
         this.state.dummyData = this.props.data.dummyData;
+
+        let groups = {},
+            drivers = this.state.dummyData.drivers,
+            data = this.state.dummyData.data;
+
+        for (let ind = 0; ind < drivers.length; ind++){
+
+            let group = drivers[ind].group,
+                driver = drivers[ind],
+                newData = {},
+                transGroup = group;
+
+            if(!(group in groups)){
+                groups[transGroup]=[];
+            }
+
+            for (let key in driver){
+                if (key !== "group"){
+                    if(driver.hasOwnProperty(key)) {
+                        newData[key] = driver[key];
+                    }
+                }
+            }
+
+            groups[transGroup].push(newData);
+        }
+
+        this.state.firstData = {data : data, drivers : groups};
 
         this.myTheme = createMuiTheme({
             palette: this.state.theme
@@ -122,45 +151,13 @@ class App extends Component {
             }
         });
 
-        console.log(JSON.stringify(this.props.data.dummyData));
-
-        this.setState({dummyData: obj.dummyData});
-
-        let groups = {},
-            drivers = this.state.dummyData.drivers,
-            data = this.state.dummyData.data;
-
-        console.log("data redraw:");
-        console.log(data);
-
-
-        for (let ind = 0; ind < drivers.length; ind++){
-
-            let group = drivers[ind].group,
-                driver = drivers[ind],
-                newData = {},
-                transGroup = group;
-
-            if(!(group in groups)){
-                groups[transGroup]=[];
-            }
-
-            for (let key in driver){
-                if (key !== "group"){
-                    if(driver.hasOwnProperty(key)) {
-                        newData[key] = driver[key];
-                    }
-                }
-            }
-
-            groups[transGroup].push(newData);
-        }
+        this.setState({dummyData: this.props.data.dummyData});
 
         store.dispatch({
             type: 'CHANGE_START',
             payload: {data:data, drivers:groups}
         });
-    }
+    };
 
     render() {
         return (
@@ -170,7 +167,7 @@ class App extends Component {
                     <span>{this.state.data}</span>
                     <Tabs templ={this.state.theme} settings={{
                         items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ"],
-                        pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib templ={this.state.theme}/>, <Kb templ={this.state.theme}/>, <Rb templ={this.state.theme}/>]
+                        pages: [<Home dataStates={this.state.firstData} templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib templ={this.state.theme}/>, <Kb templ={this.state.theme}/>, <Rb templ={this.state.theme}/>]
                     }} />
                     <div className={"app_menu_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.menu}}>
                         <div style={{height: "82%", margin:"0 -15px", overflowY: "hidden", overflowX: "visible"}}>
