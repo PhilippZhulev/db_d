@@ -16,8 +16,7 @@ class Home extends Component {
 
         this.state = {
             data: data,
-            funcs: ["PI","INC","OPEX","CIR","KOM","COR","CHIS"],
-            templ: this.props.templ
+            funcs: ["PI","INC","OPEX","CIR","KOM","COR","CHIS"]
         };
 
         store.subscribe(() => {
@@ -32,6 +31,7 @@ class Home extends Component {
     tiles = (states) => {
         return this.state.funcs.map((value,index)=>{
             const isSmall = (index !== 0);
+
             return (
                 <Tile
                     key = {index}
@@ -39,7 +39,7 @@ class Home extends Component {
                     page = "ALL"
                     isSmall = {isSmall}
                     func={value}
-                    templ = {states.templ}
+                    templ = {this.props.templ}
                     data = {states.data}
                 />
             )
