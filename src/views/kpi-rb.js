@@ -17,7 +17,7 @@ class Rb extends Component {
                     <Tile
                         key={index}
                         tileNum = {index + 1}
-                        page = "home"
+                        page = "RB"
                         addSubscr = "РБ"
                         isSmall = {isSmall}
                         func={value}

@@ -122,6 +122,8 @@ class App extends Component {
             }
         });
 
+        console.log(JSON.stringify(this.props.data.dummyData));
+
         let groups = {},
             drivers = this.props.data.dummyData.drivers,
             data = this.props.data.dummyData.data;

@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import Tile from './modules/tile';
+import store, {getState, change} from '../reduser';
 
+let data={};
+
+store.subscribe(() => {
+
+    if (change === "first_include") {
+        data = getState.data.data;
+    }
+});
 
 class Home extends Component {
     constructor(props) {
@@ -12,15 +21,16 @@ class Home extends Component {
         const templ = this.props.templ;
         let tiles = funcs.map(
             (value,index)=>{
-                const isSmall = (index === 0) ? false : true;
+                const isSmall = (index !== 0);
                 return(
                     <Tile
                         key={index}
                         tileNum = {index + 1}
-                        page = "home"
+                        page = "ALL"
                         isSmall = {isSmall}
                         func={value}
                         templ = {templ}
+                        data = {data}
                     />
             )
             }
