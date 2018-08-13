@@ -15,6 +15,11 @@ store.subscribe(() => {
     if(change === "first_include") {
         drivers = getState.data.drivers;
 
+        console.log("------------------------------------------------------------");
+        console.log("Now data is:");
+        console.log(getState.data.data);
+        console.log("------------------------------------------------------------");
+
 
 
         for (let key in drivers){

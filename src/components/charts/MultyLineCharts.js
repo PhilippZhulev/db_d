@@ -41,14 +41,15 @@ class MultiLine extends Component {
             console.log("this is opex big");
             console.log(this.state.koeff);
             for (let i = 0; i < data.length; i++){
-                data[i][graphs[grNum-1]]=data[i][graphs[grNum-2]]*this.state.koeff;
+                data[i][graphs[grNum-1]]=""+(+(data[i][graphs[grNum-2]])*this.state.koeff);
             }
         }
         //this.state={koeff: 1, data:data};
         //this.setState({data:data});
         console.log("koeff is:");
         console.log(koeff);
-        this.state={koeff:koeff,data:data};
+        console.log(data);
+        this.setState({koeff:koeff, data:data});
     }
     render() {
         const data = this.props.data;

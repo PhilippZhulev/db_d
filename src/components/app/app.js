@@ -124,9 +124,14 @@ class App extends Component {
 
         console.log(JSON.stringify(this.props.data.dummyData));
 
+        this.setState({dummyData: obj.dummyData});
+
         let groups = {},
-            drivers = this.props.data.dummyData.drivers,
-            data = this.props.data.dummyData.data;
+            drivers = this.state.dummyData.drivers,
+            data = this.state.dummyData.data;
+
+        console.log("data redraw:");
+        console.log(data);
 
 
         for (let ind = 0; ind < drivers.length; ind++){
