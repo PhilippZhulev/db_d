@@ -15,8 +15,6 @@ store.subscribe(() => {
 
     if (change === "driver") {
         koeff = getState.value.val;
-        console.log("driver written to koeff");
-        console.log(koeff);
     }
 });
 
@@ -28,6 +26,7 @@ class MultiLine extends Component {
         this.setState({koeff:koeff});
         const graphs = ["strategy","base", "model"];
         const grNum = 3;
+
         for (let i=0;i<data.length;i++){
             for (let key in data[i]){
                 if(data[i].hasOwnProperty(key)) {
@@ -37,6 +36,7 @@ class MultiLine extends Component {
                 }
             }
         }
+
         if(this.props.page === "OPEX" && this.props.options.isBig){
             console.log("this is opex big");
             console.log(this.state.koeff);
@@ -44,11 +44,7 @@ class MultiLine extends Component {
                 data[i][graphs[grNum-1]]=""+(+(data[i][graphs[grNum-2]])*this.state.koeff);
             }
         }
-        //this.state={koeff: 1, data:data};
-        //this.setState({data:data});
-        console.log("koeff is:");
-        console.log(koeff);
-        console.log(data);
+
         this.setState({koeff:koeff, data:data});
     }
     render() {
@@ -139,55 +135,21 @@ class MultiLine extends Component {
 
             );
         }
-        // dataProvider = data;
-        // for (let i=0;i<dataProvider.length;i++){
-        //     for (let key in dataProvider[i]){
-        //         if(dataProvider[i].hasOwnProperty(key)) {
-        //             if (dataProvider[i][key] === "0") {
-        //                 dataProvider[i][key] = "No data";
-        //             }
-        //         }
-        //     }
-        // }
-        // if(this.props.page === "OPEX" && this.props.options.isBig){
-        //     console.log("this is opex big");
-        //     console.log(this.state.koeff);
-        //     for (let i = 0; i < data.length; i++){
-        //         dataProvider[i][graphs[grNum-1]]=dataProvider[i][graphs[grNum-2]]*this.state.koeff;
-        //     }
-        // }
-        // let catNum = this.props.options.categories.length;
-        // for (let i = 0; i<catNum; i++){
-        //     let dataCurr = {};
-        //     dataCurr["category"]=this.props.options.categories[i];
-        //     for (let j = 0; j<grNum; j++){
-        //         dataCurr["val"+j]=this.props.options.data[j][i];
-        //         if (this.props.grId===0 && this.props.page==="opex" && i>0 && j===grNum-1) {
-        //             //console.log("OPEX!");
-        //             //console.log(this.state);
-        //             dataCurr["val"+j]=(this.props.options.data[j-1][i]*this.state.all_values["CHISL_OPER_FUNC"]).toFixed(2);
-        //             /*console.log("value was: "+this.props.options.data[j-1][i]);
-        //             console.log("multiplied by: "+this.state.all_values["CHISL_OPER_FUNC"]);
-        //             console.log("result: "+dataCurr["val"+j]);
-        //             console.log((1091.0*1.6));*/
-        //         }
-        //         //console.log(this.props.grId+" "+flag+" "+this.props.page+" "+j)
-        //
-        //     }
-        //     data.push(dataCurr);
-        // }
-        amchartsSettings.dataProvider = this.state.data;//dataProvider;
+
+        amchartsSettings.dataProvider = this.state.data;
 
         let out =[];
-        out.push(<AmCharts.React key={0} className="chart" style={{width:this.props.options.geometry.width,height: this.props.options.geometry.height}}
-                                 options={amchartsSettings}
-        />);
+        out.push(
+            <AmCharts.React
+                key={0}
+                className="chart"
+                style={{width:this.props.options.geometry.width,height: this.props.options.geometry.height}}
+                options={amchartsSettings}
+            />
+        );
         if(this.props.options.legend){
             out.push(<Legend key={1} templ={this.props.templ} options={this.props.options}/>);
         }
-
-        console.log("Data provider for page "+this.props.page);
-        console.log(dataProvider);
 
         return (
             <div

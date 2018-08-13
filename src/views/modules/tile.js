@@ -66,14 +66,17 @@ class Tile extends Component {
         super(props);
 
         let data = this.props.data;
+        console.log(data);
 
         const func = this.props.func;
         const page = this.props.page;
         const lastCat = data[page][func].length;
         const mainVal = data[page][func][lastCat-1]["model"];
-        const smallVal = "("+((+(data[page][func][lastCat-1]["model"])-(+(data[page][func][lastCat-1]["base"])))/(+(data[page][func][lastCat-1]["base"]))*100).toFixed(2)+"%)";
+        const smallVal = "("+((+(data[page][func][lastCat-1]["model"])-(+(data[page][func][lastCat-1]["base"]))) / (+(data[page][func][lastCat-1]["base"]))*100).toFixed(2)+"%)";
+
         let mainValAll = "";
         let smallValAll = "";
+
         if ((page !== "OPEX") && (page !== "ALL")){
             mainValAll = data["ALL"][func][lastCat-1]["model"];
             smallValAll = "("+((+(data["ALL"][func][lastCat-1]["model"])-(+(data["ALL"][func][lastCat-1]["base"])))/(+(data["ALL"][func][lastCat-1]["base"]))*100).toFixed(2)+"%)";
@@ -91,10 +94,10 @@ class Tile extends Component {
         };
 
         this.setState({
-                data: this.props.data,
-                page: this.props.page,
-                postfix: (this.props.isSmall) ? "_small" : "",
-                func: this.props.func
+            data: this.props.data,
+            page: this.props.page,
+            postfix: (this.props.isSmall) ? "_small" : "",
+            func: this.props.func
         });
     }
 
@@ -139,16 +142,15 @@ class Tile extends Component {
     render(){
 
         const options = {
-            grId:
-                "line",
-                titles:["Стратегия 2020", "Базовая версия", "Моделирование"],
-                geometry: {width:"80'\%'", height:"90'\%'"},
-                colors: ["#f8ac59","#727CF5","#1ab394"],
-                legend: (!this.props.isSmall),
-                type: "smoothedLine",
-                labelPosition:["bottom", "top"],
-                thickness: 2,
-                isBig: (!this.props.isSmall)
+            grId: "line",
+            titles:["Стратегия 2020", "Базовая версия", "Моделирование"],
+            geometry: {width:"80'\%'", height:"90'\%'"},
+            colors: ["#f8ac59","#727CF5","#1ab394"],
+            legend: (!this.props.isSmall),
+            type: "smoothedLine",
+            labelPosition:["bottom", "top"],
+            thickness: 2,
+            isBig: (!this.props.isSmall)
         };
 
         return(

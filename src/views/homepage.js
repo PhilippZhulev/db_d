@@ -14,7 +14,9 @@ class Home extends Component {
 
         store.subscribe(() => {
             if (change === "driver_result") {
-                this.setState({data: getState.data.data});
+                window.updateState(["return_driver_to_lumira", ""+getState.driverId+","+getState.value], () => {
+                    return this.setState({data:  window.obj.dummyData.data});
+                });
             }
         });
     }
@@ -37,6 +39,8 @@ class Home extends Component {
     };
 
     render() {
+        console.log("tile_data");
+        console.log(this.state.data);
         return (
             <div className="tiles_container">
                 {this.tiles(this.state)}
