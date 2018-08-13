@@ -14,6 +14,13 @@ store.subscribe(() => {
 class Home extends Component {
     constructor(props) {
         super(props);
+
+        store.subscribe(() => {
+
+            if (change === "first_include") {
+                data = getState.data.data;
+            }
+        });
     }
 
     render() {
