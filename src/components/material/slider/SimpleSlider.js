@@ -118,7 +118,7 @@ class SimpleSlider extends React.Component {
             //    type: 'CHANGE_START',
             //    payload: obj.dummyData
             // });
-            return console.log(obj)
+            return console.log(window.obj)
         });
 
     };
