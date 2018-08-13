@@ -30,6 +30,71 @@ window.updateState(["change_name", data], () => {
 
 **func** - каллбек
 
+### Инициализация в BO GLOBAL.init();
+**GLOBAL.init("ACTION_NEW")**;
+```javascript
+var payload = "";
+var data = "";
+
+if(change === "ACTION_START") {
+	payload = "START";	
+	data = "Привет мир!";
+}
+
+if(change === "ACTION_NEW") {
+	payload = "CHANGE";
+	data = "Привет обновленный мир!";
+}
+
+var initial_data ='{' +
+	'	"payload": "'+ payload +'"' +
+	'}';
+
+		
+START_REACTOR.ioAttr(actionType.SET, "event$$_$$include$$_$$initial_data$$_$$data","run$$_$$Reactor$$_$$" + initial_data + "$$_$$" + data);
+```
+
+#### change ACTION_START
+
+Старт приложения (инициализация) - Обязательно при запуске приложения.
+
+#### change ACTION_NEW
+
+Любое обновление данных.
+
+### Инициализация в BO при updateState
+
+```javascript
+gv_action = this.ioAttr(actionType.GET, "actionType");
+
+if(gv_action === "SLIDERS") {
+	gv_calc = this.ioAttr(actionType.GET, "actionContent");
+}
+
+GLOBAL.init("ACTION_NEW");
+```
+
+#### createNewEvent()
+```javascript
+createNewEvent("React.run");
+```
+Создать событие.
+
+**createNewEvent(eventName)**
+
+**eventName** - имя события.
+
+#### initIENewEvent()
+```javascript
+initIENewEvent(reactRun, "React.run");
+```
+Инициализация события.
+
+**initIENewEvent(event, "eventName")**
+
+**event** - событие, переменная с событием;
+
+**eventName** - имя событияю.
 
 ### События
 
