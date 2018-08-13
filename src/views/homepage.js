@@ -18,6 +18,7 @@ class Home extends Component {
         store.subscribe(() => {
             if (change === "driver_result") {
                 window.updateState(["return_driver_to_lumira", ""+getState.driverId+","+getState.value], () => {
+                    console.log(123123);
                     return this.setState({data:  window.obj.dummyData.data});
                 });
             }

@@ -124,7 +124,7 @@ class App extends Component {
 
         console.log(JSON.stringify(this.props.data.dummyData));
 
-        this.setState({dummyData: obj.dummyData});
+        this.setState({dummyData: this.props.data.dummyData});
 
         let groups = {},
             drivers = this.state.dummyData.drivers,
