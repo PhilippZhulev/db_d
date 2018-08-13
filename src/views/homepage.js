@@ -7,7 +7,7 @@ class Home extends Component {
         super(props);
 
         this.state = {
-            data: this.props.dataStates.data,
+            data: data,
             funcs: ["PI","INC","OPEX","CIR","KOM","COR","CHIS"],
             templ: this.props.templ
         };
@@ -39,8 +39,6 @@ class Home extends Component {
     };
 
     render() {
-        console.log("tile_data");
-        console.log(this.state.data);
         return (
             <div className="tiles_container">
                 {this.tiles(this.state)}
