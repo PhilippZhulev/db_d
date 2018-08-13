@@ -16,9 +16,10 @@ class Home extends Component {
         super(props);
 
         store.subscribe(() => {
-
-            if (change === "first_include") {
-                data = getState.data.data;
+            if (change === "driver_result") {
+                window.updateState(["return_driver_to_lumira", ""+getState.driverId+","+getState.value], () => {
+                    return this.setState({data:  window.obj.dummyData.data});
+                });
             }
         });
     }
