@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import Tile from './modules/tile';
 import store, {getState, change} from '../reduser';
 
+let data={};
+
+store.subscribe(() => {
+    if (change === "first_include") {
+        data = getState.data.data;
+    }
+});
+
 class Home extends Component {
     constructor(props) {
         super(props);
