@@ -39,8 +39,6 @@ class Home extends Component {
     };
 
     render() {
-        console.log("tile_data");
-        console.log(this.state.data);
         return (
             <div className="tiles_container">
                 {this.tiles(this.state)}
