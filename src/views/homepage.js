@@ -14,6 +14,18 @@ store.subscribe(() => {
 class Home extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            data: data
+        };
+
+        store.subscribe(() => {
+            if (change === "driver_result") {
+                window.updateState(["return_driver_to_lumira", ""+getState.driverId+","+getState.value], () => {
+                    return this.setState({data:  window.obj.dummyData.data});
+                });
+            }
+        });
     }
 
     render() {
@@ -30,9 +42,9 @@ class Home extends Component {
                         isSmall = {isSmall}
                         func={value}
                         templ = {templ}
-                        data = {data}
+                        data = {this.state.data}
                     />
-            )
+                )
             }
         );
 

@@ -104,7 +104,7 @@ class App extends Component {
             if(change === "menu") {
                 if(getState.value === true) {
                     this.setState({menu: " active"});
-                }else { 
+                }else {
                     this.setState({menu: ""});
                 }
             }
@@ -124,7 +124,7 @@ class App extends Component {
 
         console.log(JSON.stringify(this.props.data.dummyData));
 
-        this.setState({dummyData: window.obj.dummyData});
+        this.setState({dummyData: this.props.data.dummyData});
 
         let groups = {},
             drivers = this.state.dummyData.drivers,
