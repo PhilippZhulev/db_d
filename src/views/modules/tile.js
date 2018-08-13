@@ -70,7 +70,6 @@ store.subscribe(() => {
         console.log("from tile:");
         console.log(getState.data);
         data = getState.data.data;
-        
 
     }
 });
