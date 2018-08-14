@@ -15,14 +15,13 @@ class Tile extends Component {
 
         if(!(this.props.page==="ALL"||this.props.page==="OPEX")){
             color = this.props.templ.primary.textValueNormal;
-            subscribtion = "Группа";
             values.push(
                 <div key={1} className={"tile_item__value"+postfix+" value_flex"} style={{color: this.props.templ.primary.textValueMain}}>
                     <div>
                         {tileCalc.mainValAll}
                     </div>
                     <div>
-                        <span className="subscribe" style={{color: this.props.templ.primary.textValueNormal}}>{this.props.addSubscr}</span>
+                        <span className="subscribe" style={{color: this.props.templ.primary.textValueNormal}}>{"Группа"}</span>
                         <span style={{color: this.props.templ.primary.textValueNormal}}>{tileCalc.smallValAll}</span>
                     </div>
                 </div>
@@ -35,7 +34,7 @@ class Tile extends Component {
                     {tileCalc.mainVal}
                 </div>
                 <div>
-                    <span className="subscribe" style={{color: color}}>{subscribtion}</span>
+                    <span className="subscribe" style={{color: color}}>{this.props.addSubscr}</span>
                     <span style={{color: this.props.templ.primary.textValueNormal}}>
                         {tileCalc.smallVal}
                     </span>

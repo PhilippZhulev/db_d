@@ -18,6 +18,7 @@ class Kb extends Component {
             const isSmall = (index !== 0);
             return (
                 <Tile
+                    addSubscr = "КБ"
                     key = {index}
                     tileNum = {index + 1}
                     page = "CB"
