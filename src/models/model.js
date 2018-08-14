@@ -4,7 +4,6 @@ function Model() {
         let groups = {},
             drivers = obj;
 
-        console.log(drivers);
         for (let ind = 0; ind < drivers.length; ind++){
 
             let group = drivers[ind].group,
@@ -30,6 +29,28 @@ function Model() {
         return groups;
     };
 
+    this.tileCalc = (f, p, data) => {
+        const func = f;
+        const page = p;
+        const lastCat = data[page][func].length;
+        const mainVal = data[page][func][lastCat-1]["model"];
+        const smallVal = "("+((+(data[page][func][lastCat-1]["model"])-(+(data[page][func][lastCat-1]["base"])))/(+(data[page][func][lastCat-1]["base"]))*100).toFixed(2)+"%)";
+        let mainValAll = "";
+        let smallValAll = "";
+        if ((page !== "OPEX") && (page !== "ALL")){
+            mainValAll = data["ALL"][func][lastCat-1]["model"];
+            smallValAll = "("+((+(data["ALL"][func][lastCat-1]["model"])-(+(data["ALL"][func][lastCat-1]["base"])))/(+(data["ALL"][func][lastCat-1]["base"]))*100).toFixed(2)+"%)";
+        }
+
+        return {
+            smallVal:smallVal,
+            mainVal:mainVal,
+            mainValAll:mainValAll,
+            smallValAll:smallValAll,
+            data:data
+        };
+    };
+
     this.chartReInitZero = function (propsData) {
         let data = propsData;
 
@@ -44,6 +65,67 @@ function Model() {
         }
 
         return data;
+    };
+
+    this.tilesBind = ()=> {
+        return {
+            PI: {
+                title: "Чистая прибыль",
+                mera: "млрд. руб.",
+            },
+            INC:{
+                title: "Чистые опер. доходы",
+                mera: "млрд. руб.",
+            },
+            OPEX:{
+                title: "OPEX",
+                mera: "млрд. руб.",
+            },
+            CIR:{
+                title: "CIR",
+                mera: "%",
+            },
+            KOM:{
+                title: "Комиссии / OPEX",
+                mera: "%",
+            },
+            COR:{
+                title: "COR",
+                mera: "%",
+            },
+            CHIS:{
+                title: "Численность ПАО",
+                mera: "тыс.чел.",
+            },
+            OPEX_op:{
+                title: "OPEX",
+                mera: "млрд. руб.",
+            },
+            PERS_op:{
+                title: "Персонал",
+                mera: "",
+            },
+            IT_op:{
+                title: "IT",
+                mera: "",
+            },
+            NEDV_op:{
+                title: "Недвижимость",
+                mera: "",
+            },
+            BIS_op:{
+                title: "Бизнес-расходы",
+                mera: "",
+            },
+            MAR_op:{
+                title: "Маркетинг",
+                mera: "",
+            },
+            PROC_op:{
+                title: "Прочие расходы",
+                mera: "",
+            }
+        };
     };
 
     this.chartsGraphs = function (graphs, data) {
