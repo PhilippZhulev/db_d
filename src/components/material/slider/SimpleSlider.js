@@ -60,32 +60,33 @@ const styles = {
 class SimpleSlider extends React.Component {
     constructor(props) {
         super(props);
-        let min = (this.props.min) ? this.props.min : 0;
-        let max = (this.props.max) ? this.props.max : 100;
-        this.disabled_value = this.props.value;
-        if (this.disabled_value < min){
-            this.disabled_value = min;
-        }
-        if (this.disabled_value > max){
-            this.disabled_value = max;
-        }
-        this.dot_left = ((this.disabled_value - min)/(max-min)*100-0.3)+"%";
-        let baseValue = this.props.baseValue;
-        if (baseValue < min){
-            baseValue = min;
-        }
-        if (baseValue > max){
-            baseValue = max;
-        }
-        this.strat_left = ((baseValue - min)/(max-min)*100-0.3)+"%";
+
+        this.state = {
+            value: this.props.value,
+            open: false,//от диалога
+            random: "slider_thumb" + String(Math.random()).split(".")[1],
+            inputError: false,
+            inputValue: ""
+        };
     }
 
-    state = {
-        value: this.props.value,
-        open: false,//от диалога
-        random: "slider_thumb" + String(Math.random()).split(".")[1],
-        inputError: false,
-        inputValue: ""
+    reposition=(val)=>{
+        const min = (this.props.min) ? this.props.min : 0;
+        const max = (this.props.max) ? this.props.max : 100;
+
+        const magic_margin = 0.3; // подобранный коэффициент для центрирования "риски"
+
+        let correctVal = val;
+
+        if (val < min){
+            correctVal = min;
+        }
+
+        if (val > max){
+            correctVal = max;
+        }
+
+        return String(((correctVal - min)/(max - min)*100 - magic_margin)+"%")
     };
 
     handleChange = (event, value) => {
@@ -122,14 +123,11 @@ class SimpleSlider extends React.Component {
     handleFieldChange = (event) =>{
         let value = event.target.value;
 
-        if (value==="-"){
-            this.setState({inputError: false,inputValue:value});
-        } else if (value===""){
-            this.setState({inputError: false,inputValue:value});
-        }else if (+(value) < this.props.min || +(value) > this.props.max || (Math.abs(+(value) % this.props.step - this.props.step) > 0.000000001)){
-            this.setState({ inputValue:value,inputError: true });
+
+        if ((String(value)!=="") && ((+(value) < this.props.min) || (+(value) > this.props.max) || (!(Math.abs(+(value) % this.props.step) < 0.000000001)))){
+            this.setState({ inputValue:value, inputError: true });
         } else{
-            this.setState({inputError: false,inputValue:value});
+            this.setState({inputError: false, inputValue: value});
         }
     };
 
@@ -146,9 +144,6 @@ class SimpleSlider extends React.Component {
         const { classes } = this.props;
         const { value } = this.state;
 
-        let min = (this.props.min) ? this.props.min : 0;
-        let max = (this.props.max) ? this.props.max : 100;
-
         return (
             <div className={classes.root}>
 
@@ -162,7 +157,7 @@ class SimpleSlider extends React.Component {
                 >
                     <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
                     <DialogContent>
-                        <DialogContentText>Введите значение драйвера от {min} до {max}.</DialogContentText>
+                        <DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>
                         <TextField
                             autoFocus
                             margin="dense"
@@ -170,7 +165,7 @@ class SimpleSlider extends React.Component {
                             label=""
                             type="number"
                             fullWidth
-                            inputProps={{ min: min, max: max, step: "0.1"}}
+                            inputProps={{ min: this.props.min, max: this.props.max, step: this.props.step}}
                             onChange={this.handleFieldChange}
                             error={this.state.inputError}
                         />
@@ -201,19 +196,19 @@ class SimpleSlider extends React.Component {
                     className={classes.enabled}
                     value={value}
                     aria-labelledby="label"
-                    min={min}
-                    max={max}
+                    min={this.props.min}
+                    max={this.props.max}
                     onChange={this.handleChange}
                     onDragEnd={this.handleDragEnd}
                     step={this.props.step}
                 />
 
-                <div className={classes.default_dot} style={{left: this.dot_left}}/>
-                <div className={classes.strat_dot} style={{left: this.strat_left}}/>
+                <div className={classes.default_dot} style={{left: this.reposition(this.props.value)}}/>
+                <div className={classes.strat_dot} style={{left: this.reposition(this.props.baseValue)}}/>
 
 
-                <div className={"slider_min"}>{min}</div>
-                <div className={"slider_max"}>{max}</div>
+                <div className={"slider_min"}>{this.props.min}</div>
+                <div className={"slider_max"}>{this.props.max}</div>
             </div>
         );
     }

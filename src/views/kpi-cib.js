@@ -18,6 +18,7 @@ class Cib extends Component {
             const isSmall = (index !== 0);
             return (
                 <Tile
+                    addSubscr = "CIB"
                     key = {index}
                     tileNum = {index + 1}
                     page = "CIB"
