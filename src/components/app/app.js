@@ -15,6 +15,7 @@ import {whiteTheme, darkTheme} from '../../template.js';
 
 import Drivers from "../../views/modules/drivers";
 import store, {getState, change} from "../../reduser";
+import Preloader from "../preloader";
 
 const options = {
     mouseWheel: false,
@@ -35,12 +36,14 @@ class App extends Component {
             menu: " active",
             pos: "",
             category: 0,
-            data: window.obj.dummyData
+            data: window.obj.dummyData,
+            preloader: false
         };
 
         this.myTheme = createMuiTheme({
             palette: this.state.theme
         });
+
 
         store.subscribe(() => {
             switch (change) {
@@ -51,6 +54,7 @@ class App extends Component {
                         this.setState({theme: darkTheme});
                     }
                 break;
+
                 case "menu" :
                     if(getState.value === true) {
                         this.setState({menu: " active"});
@@ -58,6 +62,7 @@ class App extends Component {
                         this.setState({menu: ""});
                     }
                 break;
+
                 case "slidersPos" :
                     if(getState.value === "left") {
                         this.setState({pos: " alternative"});
@@ -65,11 +70,14 @@ class App extends Component {
                         this.setState({pos: ""});
                     }
                 break;
+
                 case "driver_result" :
+                    this.setState({preloader:  true});
                     window.updateState(["return_driver_to_lumira", String(getState.value.id+","+getState.value.val)], () => {
-                        this.setState({data:  window.obj.dummyData});
+                        this.setState({data:  window.obj.dummyData, preloader:  false});
                     });
                 break;
+
                 case "drivers_router" :
                     this.setState({category: getState.states.value});
                 break;
@@ -97,14 +105,15 @@ class App extends Component {
                           settings={{
                               items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ"],
                               pages: [
-                                  <Home fluxData={this.state.data} data={this.state.data} templ={this.state.theme} />,
-                                  <Opex templ={this.state.theme} />,
-                                  <Cib templ={this.state.theme}/>,
-                                  <Kb templ={this.state.theme}/>,
-                                  <Rb templ={this.state.theme}/>
+                                  <Home fluxData={this.state.data} templ={this.state.theme} />,
+                                  <Opex fluxData={this.state.data} templ={this.state.theme} />,
+                                  <Cib fluxData={this.state.data} templ={this.state.theme}/>,
+                                  <Kb fluxData={this.state.data} templ={this.state.theme}/>,
+                                  <Rb fluxData={this.state.data} templ={this.state.theme}/>
                               ]
                           }}
                     />
+                    <Preloader bool={this.state.preloader} />
                     <div className={"app_menu_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.menu}}>
                         <div style={{height: "82%", margin:"0 -15px", overflowY: "hidden", overflowX: "visible"}}>
                             <ReactIScroll iScroll={iScroll} options={options}>

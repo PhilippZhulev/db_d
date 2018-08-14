@@ -9,11 +9,6 @@ import Legend from './legend';
 import Model from '../../models/model.js';
 
 class MultiLine extends Component {
-
-    constructor(props){
-        super(props);
-    }
-
     chartSettings = (out) => {
         let amchartsSettings =
             {
