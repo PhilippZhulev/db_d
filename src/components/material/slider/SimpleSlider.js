@@ -123,14 +123,11 @@ class SimpleSlider extends React.Component {
     handleFieldChange = (event) =>{
         let value = event.target.value;
 
-        if (value==="-"){
-            this.setState({inputError: false,inputValue:value});
-        } else if (value===""){
-            this.setState({inputError: false,inputValue:value});
-        }else if (+(value) < this.props.min || +(value) > this.props.max || (Math.abs(+(value) % this.props.step - this.props.step) > 0.000000001)){
-            this.setState({ inputValue:value,inputError: true });
+
+        if ((String(value)!=="") && ((+(value) < this.props.min) || (+(value) > this.props.max) || (!(Math.abs(+(value) % this.props.step) < 0.000000001)))){
+            this.setState({ inputValue:value, inputError: true });
         } else{
-            this.setState({inputError: false,inputValue:value});
+            this.setState({inputError: false, inputValue: value});
         }
     };
 
