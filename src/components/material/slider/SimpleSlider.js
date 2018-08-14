@@ -60,6 +60,14 @@ const styles = {
 class SimpleSlider extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            value: this.props.value,
+            open: false,//от диалога
+            random: "slider_thumb" + String(Math.random()).split(".")[1],
+            inputError: false,
+            inputValue: ""
+        };
     }
 
     reposition=(val)=>{
@@ -79,14 +87,6 @@ class SimpleSlider extends React.Component {
         }
 
         return String(((correctVal - min)/(max - min)*100 - magic_margin)+"%")
-    };
-
-    state = {
-        value: this.props.value,
-        open: false,//от диалога
-        random: "slider_thumb" + String(Math.random()).split(".")[1],
-        inputError: false,
-        inputValue: ""
     };
 
     handleChange = (event, value) => {
