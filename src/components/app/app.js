@@ -73,6 +73,7 @@ class App extends Component {
                 case "drivers_router" :
                     this.setState({category: getState.states.value});
                 break;
+
                 default :
                     return null;
             }
@@ -96,7 +97,7 @@ class App extends Component {
                           settings={{
                               items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ"],
                               pages: [
-                                  <Home data={this.state.data} templ={this.state.theme} />,
+                                  <Home fluxData={this.state.data} data={this.state.data} templ={this.state.theme} />,
                                   <Opex templ={this.state.theme} />,
                                   <Cib templ={this.state.theme}/>,
                                   <Kb templ={this.state.theme}/>,

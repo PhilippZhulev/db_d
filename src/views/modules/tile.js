@@ -157,7 +157,8 @@ class Tile extends Component {
             <div className={"tile_item_"+this.props.tileNum}>
                 <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>
                     <div className={"tile_item__title"+this.state.postfix} style={{color: this.props.templ.primary.textValueMain}}>
-                        {tilesBind[this.state.func].title}<span style={{color: "#aab3b3"}}>{((tilesBind[this.state.func].mera==="") ? "" : ", ") + tilesBind[this.state.func].mera}</span>
+                        {tilesBind[this.state.func].title}
+                        <span style={{color: "#aab3b3"}}>{((tilesBind[this.state.func].mera==="") ? "" : ", ") + tilesBind[this.state.func].mera}</span>
                     </div>
 
                     <div className="values_wrapper main_tile">
