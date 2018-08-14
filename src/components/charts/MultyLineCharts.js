@@ -6,51 +6,15 @@ import 'amcharts3/amcharts/plugins/export/export.min.js';
 import 'amcharts3/amcharts/plugins/export/export.css';
 import AmCharts from '@amcharts/amcharts3-react';
 import Legend from './legend';
-
-import store, {getState, change} from '../../reduser';
-
-let koeff = 1;
-
-store.subscribe(() => {
-
-    if (change === "driver") {
-        koeff = getState.value.val;
-    }
-});
+import Model from '../../models/model.js';
 
 class MultiLine extends Component {
+
     constructor(props){
         super(props);
-        let data = this.props.data;
-        this.state={koeff: 1, data:data};
-        this.setState({koeff:koeff});
-        const graphs = ["strategy","base", "model"];
-        const grNum = 3;
-
-        for (let i=0;i<data.length;i++){
-            for (let key in data[i]){
-                if(data[i].hasOwnProperty(key)) {
-                    if (data[i][key] === "0") {
-                        data[i][key] = "No data";
-                    }
-                }
-            }
-        }
-
-        if(this.props.page === "OPEX" && this.props.options.isBig){
-            console.log("this is opex big");
-            console.log(this.state.koeff);
-            for (let i = 0; i < data.length; i++){
-                data[i][graphs[grNum-1]]=""+(+(data[i][graphs[grNum-2]])*this.state.koeff);
-            }
-        }
-
-        this.setState({koeff:koeff, data:data});
     }
-    render() {
-        const data = this.props.data;
-        const bigClass = (this.props.options.isBig) ? "_big" : "";
 
+    chartSettings = (out) => {
         let amchartsSettings =
             {
 
@@ -98,17 +62,8 @@ class MultiLine extends Component {
                 "dataProvider": []
 
             };
-        let graphs = [];
-        for (let key in data[0]){
-            if(data[0].hasOwnProperty(key)) {
-                if (key !== "category") {
-                    graphs.push(key);
-                }
-            }
-        }
-        let dataProvider = [];
-        let grNum = graphs.length;
-        for (let i = 0;i<grNum;i++){
+
+        for (let i = 0; i < Model.chartsGraphs([], this.props.data).length; i++){
             amchartsSettings.graphs.push(
                 {
                     "balloonText": "[[category]]: [[value]]%",
@@ -126,7 +81,7 @@ class MultiLine extends Component {
                     "labelText": (this.props.options.colors[i] !== "#727CF5") ? "[[value]]" : "",
                     "lineThickness": this.props.options.thickness,
                     "title": "graph "+i,
-                    "valueField": graphs[i],//"val"+i,
+                    "valueField": Model.chartsGraphs([], this.props.data)[i],
                     "type": this.props.options.type,
                     "labelPosition": this.props.options.labelPosition[i],
                     "visibleInLegend": false
@@ -136,26 +91,30 @@ class MultiLine extends Component {
             );
         }
 
-        amchartsSettings.dataProvider = this.state.data;
+        amchartsSettings.dataProvider = Model.chartReInitZero(this.props.data);
 
-        let out =[];
         out.push(
             <AmCharts.React
                 key={0}
                 className="chart"
-                style={{width:this.props.options.geometry.width,height: this.props.options.geometry.height}}
+                style={{width:this.props.options.geometry.width, height: this.props.options.geometry.height}}
                 options={amchartsSettings}
             />
         );
+
         if(this.props.options.legend){
             out.push(<Legend key={1} templ={this.props.templ} options={this.props.options}/>);
         }
 
+        return out
+    };
+
+    render() {
         return (
             <div
-                className={"multiline_wrapper__item"+bigClass}
+                className={"multiline_wrapper__item"+ ((this.props.options.isBig) ? "_big" : "")}
                 style={(typeof this.props.options.wrapperStyles !== "undefined") ? this.props.options.wrapperStyles : {}}>
-                {out}
+                {this.chartSettings([])}
             </div>
         );
     }

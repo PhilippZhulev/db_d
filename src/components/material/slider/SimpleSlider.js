@@ -89,8 +89,6 @@ class SimpleSlider extends React.Component {
     };
 
     handleChange = (event, value) => {
-        console.log("Handle change value:");
-        console.log(value);
         this.setState({ value });
     };
 
@@ -107,8 +105,7 @@ class SimpleSlider extends React.Component {
         obj_1.ind = this.props.driverInd;
         obj_1.id = this.props.driverId;
         obj_1.val = this.state.value;
-        console.log("value from slider:");
-        console.log(obj_1);
+
         store.dispatch({
             type: 'CHANGE_DRIVER',
             payload: obj_1
@@ -116,8 +113,8 @@ class SimpleSlider extends React.Component {
         store.dispatch({
             type: 'CHANGE_DRIVER_RESULT',
             payload: {
-                driverId: this.props.driverId,
-                value: this.state.value
+                id: obj_1.id,
+                val: obj_1.val
             }
         });
     };
@@ -130,12 +127,10 @@ class SimpleSlider extends React.Component {
         } else if (value===""){
             this.setState({inputError: false,inputValue:value});
         }else if (+(value) < this.props.min || +(value) > this.props.max || (Math.abs(+(value) % this.props.step - this.props.step) > 0.000000001)){
-            console.log("bad value");
             this.setState({ inputValue:value,inputError: true });
         } else{
             this.setState({inputError: false,inputValue:value});
         }
-        console.log((Math.abs(+(value) % this.props.step - this.props.step)));
     };
 
     handleApply = (value) =>{
@@ -143,7 +138,6 @@ class SimpleSlider extends React.Component {
             let val = this.state.inputValue;
             this.setState({value: +(val)});
         }
-        console.log(this.state);
         this.handleClose(value);
     };
 

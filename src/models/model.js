@@ -28,6 +28,34 @@ function Model() {
         }
 
         return groups;
+    };
+
+    this.chartReInitZero = function (propsData) {
+        let data = propsData;
+
+        for (let i=0;i<data.length;i++){
+            for (let key in data[i]){
+                if(data[i].hasOwnProperty(key)) {
+                    if (data[i][key] === "0") {
+                        data[i][key] = "No data";
+                    }
+                }
+            }
+        }
+
+        return data;
+    };
+
+    this.chartsGraphs = function (graphs, data) {
+        for (let key in this.chartReInitZero(data)[0]){
+            if(this.chartReInitZero(data)[0].hasOwnProperty(key)) {
+                if (key !== "category") {
+                    graphs.push(key);
+                }
+            }
+        }
+
+        return graphs;
     }
 }
 

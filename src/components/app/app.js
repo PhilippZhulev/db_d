@@ -66,8 +66,8 @@ class App extends Component {
                     }
                 break;
                 case "driver_result" :
-                    window.updateState(["return_driver_to_lumira", ""+getState.driverId+","+getState.value], () => {
-                        this.setState({data:  window.obj.dummyData.data});
+                    window.updateState(["return_driver_to_lumira", String(getState.value.id+","+getState.value.val)], () => {
+                        this.setState({data:  window.obj.dummyData});
                     });
                 break;
                 case "drivers_router" :

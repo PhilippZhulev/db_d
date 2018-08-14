@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Tile from './modules/tile';
-import store, {getState, change} from '../reduser';
 
 class Home extends Component {
 
@@ -12,17 +11,9 @@ class Home extends Component {
             funcs: ["PI","INC","OPEX","CIR","KOM","COR","CHIS"],
             templ: this.props.templ
         };
-
-        store.subscribe(() => {
-            if (change === "driver_result") {
-                window.updateState(["return_driver_to_lumira", ""+getState.driverId+","+getState.value], () => {
-                    return this.setState({data:  this.props.fluxData});
-                });
-            }
-        });
     }
 
-    tiles = (states) => {
+    tiles = () => {
         return this.state.funcs.map((value,index)=>{
             const isSmall = (index !== 0);
             return (
@@ -32,8 +23,8 @@ class Home extends Component {
                     page = "ALL"
                     isSmall = {isSmall}
                     func={value}
-                    templ = {states.templ}
-                    data = {states.data}
+                    templ = {this.props.templ}
+                    data = {this.props.fluxData.data}
                 />
             )
         });

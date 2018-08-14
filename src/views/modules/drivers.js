@@ -15,13 +15,6 @@ store.subscribe(() => {
     if(change === "first_include") {
         drivers = getState.data.drivers;
 
-        console.log("------------------------------------------------------------");
-        console.log("Now data is:");
-        console.log(getState.data.data);
-        console.log("------------------------------------------------------------");
-
-
-
         for (let key in drivers){
             if(drivers.hasOwnProperty(key)) {
                 groups.push(key);
@@ -37,25 +30,7 @@ store.subscribe(() => {
         //     }
         // }
 
-        console.log("Before:");
-        console.log(drivers);
-
-        console.log("curr_group:");
-        console.log(curr_group);
-
-        console.log("getState.value.id:");
-        console.log(getState.value.id);
-
-        console.log("getState.value.val:");
-        console.log(getState.value.val);
-
-        console.log("drivers[curr_group][getState.value.ind]:");
-        console.log(drivers[curr_group][getState.value.ind]);
-
         drivers[curr_group][getState.value.ind].value = ""+getState.value.val;
-
-        console.log("After:");
-        console.log(drivers);
 
         store.dispatch({
             type: 'CHANGE_ALL_DRIVERS',
@@ -73,8 +48,7 @@ class Drivers extends Component {
     }
 
     addDrivers = (target) => {
-        console.log("Target value is:");
-        console.log(target);
+
         return this.state.all_drivers[target].map((value, index) => {
 
             //values[value] = driverBank[value].value;
@@ -106,17 +80,13 @@ class Drivers extends Component {
         //     default :
         //         return ["CHISL_OPER_FUNC", "OPEX_CAPEX_FUNC", "DORAB_LEGACY", "INVEST_V_PLATF", "DOLYA_VEND"];
         // }
-        console.log("func route returned:");
 
-        console.log(groups[val]);
         curr_group = groups[val];
 
         return groups[val];
     };
 
     render() {
-        console.log("router value:");
-        console.log(this.props.routerValue);
         return (
             <div className={"slider_wrapper"}>
                 {this.addDrivers(this.route(this.props.routerValue))} 
