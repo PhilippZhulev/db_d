@@ -10,11 +10,11 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Cib from '../../views/kpi-cib';
 import Kb from '../../views/kpi-kb';
 import Rb from '../../views/kpi-rb';
-
+import Model from '../../models/model.js';
+import {whiteTheme, darkTheme} from '../../template.js';
 
 import Drivers from "../../views/modules/drivers";
 import store, {getState, change} from "../../reduser";
-//import transliter from '../transliter';
 
 const options = {
     mouseWheel: false,
@@ -26,54 +26,6 @@ const options = {
     momentum: true
 };
 
-let whiteTheme = {
-    primary: {
-        light: '#62727b',
-        main: '#2f4050',
-        dark: '#293846',
-        tiles: "#fff",
-        tilesText: "#2f4050",
-        menu: "#2f4050",
-        header: "#293846",
-        textValueMain: "#757575",
-        textValueNormal: "#757575",
-        graphText: "#b4b4b4",
-        selectColor: "#2f4050",
-        indicatorColor: "#fff",
-        separatorColor: "#757575",
-        selected: "#293846"
-    },
-    secondary: {
-        light: '#6effe8',
-        main: '#1ab394',
-        dark: '#00b686',
-    }
-};
-
-let darkTheme = {
-    primary: {
-        light: '#62727b',
-        main: '#2f4050',
-        dark: '#293846',
-        tiles: "#29353e",
-        tilesText: "#fff",
-        menu: "#1f272d",
-        header: "#1f272d",
-        textValueMain: "#a1abb8",
-        textValueNormal: "#6d7b87",
-        graphText: "#6d7b87",
-        selectColor: "#fff",
-        indicatorColor: "#29353e",
-        separatorColor: "#757575",
-        selected: "#fff"
-    },
-    secondary: {
-        light: '#6effe8',
-        main: '#1ab394',
-        dark: '#00b686',
-    }
-};
-
 class App extends Component {
     constructor(props) {
         super(props);
@@ -82,83 +34,55 @@ class App extends Component {
             theme : whiteTheme,
             menu: " active",
             pos: "",
-            dummyData: null,
-            category: 0
+            category: 0,
+            data: window.obj.dummyData
         };
-
-        this.state.dummyData = this.props.data.dummyData;
 
         this.myTheme = createMuiTheme({
             palette: this.state.theme
         });
 
         store.subscribe(() => {
-            if(change === "template") {
-                if(getState.value === true) {
-                    this.setState({theme: whiteTheme});
-                }else {
-                    this.setState({theme: darkTheme});
-                }
-            }
-
-            if(change === "menu") {
-                if(getState.value === true) {
-                    this.setState({menu: " active"});
-                }else {
-                    this.setState({menu: ""});
-                }
-            }
-
-            if(change === "slidersPos") {
-                if(getState.value === "left") {
-                    this.setState({pos: " alternative"});
-                }else {
-                    this.setState({pos: ""});
-                }
-            }
-
-            if(change === "drivers_router") {
-                this.setState({category: getState.states.value});
+            switch (change) {
+                case "template" :
+                    if(getState.value === true) {
+                        this.setState({theme: whiteTheme});
+                    }else {
+                        this.setState({theme: darkTheme});
+                    }
+                break;
+                case "menu" :
+                    if(getState.value === true) {
+                        this.setState({menu: " active"});
+                    }else {
+                        this.setState({menu: ""});
+                    }
+                break;
+                case "slidersPos" :
+                    if(getState.value === "left") {
+                        this.setState({pos: " alternative"});
+                    }else {
+                        this.setState({pos: ""});
+                    }
+                break;
+                case "driver_result" :
+                    window.updateState(["return_driver_to_lumira", ""+getState.driverId+","+getState.value], () => {
+                        this.setState({data:  window.obj.dummyData.data});
+                    });
+                break;
+                case "drivers_router" :
+                    this.setState({category: getState.states.value});
+                break;
+                default :
+                    return null;
             }
         });
 
-        console.log(JSON.stringify(this.props.data.dummyData));
-
-        this.setState({dummyData: this.props.data.dummyData});
-
-        let groups = {},
-            drivers = this.state.dummyData.drivers,
-            data = this.state.dummyData.data;
-
-        console.log("data redraw:");
-        console.log(data);
-
-
-        for (let ind = 0; ind < drivers.length; ind++){
-
-            let group = drivers[ind].group,
-                driver = drivers[ind],
-                newData = {},
-                transGroup = group;
-
-            if(!(group in groups)){
-                groups[transGroup]=[];
-            }
-
-            for (let key in driver){
-                if (key !== "group"){
-                    if(driver.hasOwnProperty(key)) {
-                        newData[key] = driver[key];
-                    }
-                }
-            }
-
-            groups[transGroup].push(newData);
-        }
+        let groups = Model.main(this.state.data.drivers);
 
         store.dispatch({
             type: 'CHANGE_START',
-            payload: {data:data, drivers:groups}
+            payload: {data : this.state.data, drivers : groups}
         });
     }
 
@@ -167,20 +91,14 @@ class App extends Component {
             <MuiThemeProvider theme={this.myTheme}>
                 <div className={"app_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.tiles}}>
                     <Header templ={this.state.theme} />
-                    <span>{this.state.data}</span>
                     <Tabs templ={this.state.theme} settings={{
                         items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ"],
-                        pages: [<Home templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib templ={this.state.theme}/>, <Kb templ={this.state.theme}/>, <Rb templ={this.state.theme}/>]
+                        pages: [<Home data={this.state.data} templ={this.state.theme} />, <Opex templ={this.state.theme} />, <Cib templ={this.state.theme}/>, <Kb templ={this.state.theme}/>, <Rb templ={this.state.theme}/>]
                     }} />
                     <div className={"app_menu_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.menu}}>
                         <div style={{height: "82%", margin:"0 -15px", overflowY: "hidden", overflowX: "visible"}}>
-                            <ReactIScroll
-                                iScroll={iScroll}
-                                options={options}
-                            >
+                            <ReactIScroll iScroll={iScroll} options={options}>
                                 <Drivers routerValue={this.state.category} />
-
-
                             </ReactIScroll>
                         </div>
                         <div className="btns__panel">
