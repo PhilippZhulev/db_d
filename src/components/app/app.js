@@ -38,6 +38,7 @@ class App extends Component {
             menu: " active",
             pos: "",
             category: 0,
+            keyBindings: true,
             data: window.obj.dummyData,
             preloader: false
         };
