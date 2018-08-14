@@ -24,7 +24,9 @@ const options = {
     scrollX: false,
     scrollY: true,
     invertWheelDirection: true,
-    momentum: true
+    momentum: true,
+    click: true,
+    preventDefault: true
 };
 
 class App extends Component {
