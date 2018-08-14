@@ -11,6 +11,7 @@ store.subscribe(() => {
 });
 
 class Home extends Component {
+
     constructor(props) {
         super(props);
 
@@ -40,7 +41,7 @@ class Home extends Component {
                     isSmall = {isSmall}
                     func={value}
                     templ = {states.templ}
-                    data = {states.data}
+                    data = {states.data} 
                 />
             )
         });
