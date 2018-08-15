@@ -40,7 +40,7 @@ const styles = {
         position: "absolute",
         top: "73%",
         zIndex: 1,
-        backgroundColor: "#727CF5",
+        backgroundColor: "#1ab394",
         width: 2,
         height: 7,
     },
