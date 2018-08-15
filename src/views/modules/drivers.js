@@ -9,7 +9,7 @@ let drivers = {},
 class Drivers extends Component {
 
     constructor(props) {
-        super(props); 
+        super(props);
     }
 
     addDrivers = (target) => {
