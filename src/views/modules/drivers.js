@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import Slider from "../../components/material/slider/SimpleSlider";
 import store, {getState, change} from "../../reduser";
 
-const values = {};
-
-let drivers = {};
-
-let groups = [];
-
-let curr_group = "";
+let drivers = {},
+    groups = [],
+    curr_group = "";
 
 store.subscribe(() => {
 
@@ -24,19 +20,14 @@ store.subscribe(() => {
 
     if (change === "driver") {
 
-        // for (let key in getState.value){
-        //     if(getState.value.hasOwnProperty(key)) {
-        //         values[key] = getState.value[key];
-        //     }
-        // }
-
-        drivers[curr_group][getState.value.ind].value = ""+getState.value.val;
+        drivers[curr_group][getState.value.ind].value = "" + getState.value.val;
 
         store.dispatch({
             type: 'CHANGE_ALL_DRIVERS',
             payload: getState.value
         })
     }
+
 });
 
 class Drivers extends Component {
@@ -50,12 +41,9 @@ class Drivers extends Component {
     addDrivers = (target) => {
 
         return this.state.all_drivers[target].map((value, index) => {
-
-            //values[value] = driverBank[value].value;
-
             return (
                 <Slider
-                    key={index}
+                    key={value.id}
                     driverId={value.id}
                     driverInd={index}
                     labelText={value.name}
@@ -70,16 +58,6 @@ class Drivers extends Component {
     };
 
     route = (val) => {
-        // switch (val) {
-        //     case 1 :
-        //         return ["CHISL_OPER_FUNC", "OPEX_CAPEX_FUNC"];
-        //     case 2 :
-        //         return ["CHISL_OPER_FUNC", "OPEX_CAPEX_FUNC", "DORAB_LEGACY"];
-        //     case 3 :
-        //         return ["CHISL_OPER_FUNC"];
-        //     default :
-        //         return ["CHISL_OPER_FUNC", "OPEX_CAPEX_FUNC", "DORAB_LEGACY", "INVEST_V_PLATF", "DOLYA_VEND"];
-        // }
 
         curr_group = groups[val];
 
