@@ -40,7 +40,8 @@ class App extends Component {
             category: 0,
             keyBindings: true,
             data: window.obj.dummyData,
-            preloader: false
+            preloader: false,
+            groups: Model.getGroups(window.obj.dummyData.drivers)
         };
 
         this.myTheme = createMuiTheme({
@@ -76,8 +77,9 @@ class App extends Component {
 
                 case "driver_result" :
                     this.setState({preloader:  true});
+                    console.log("data will be loaded");
                     window.updateState(["return_driver_to_lumira", String(getState.value.id+","+getState.value.val)], () => {
-                        this.setState({data:  window.obj.dummyData, preloader:  false});
+                        this.setState({data:  window.obj.dummyData, preloader:  false, groups: Model.getGroups(window.obj.dummyData.drivers)});
                     });
                 break;
 
@@ -112,7 +114,7 @@ class App extends Component {
         return (
             <MuiThemeProvider theme={this.myTheme}>
                 <div className={"app_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.tiles}}>
-                    <Header templ={this.state.theme} />
+                    <Header templ={this.state.theme} data={this.state.data} groups={this.state.groups}/>
                     <Tabs
                           templ={this.state.theme}
                           settings={{
@@ -130,7 +132,7 @@ class App extends Component {
                     <div className={"app_menu_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.menu}}>
                         <div style={{height: "82%", margin:"0 -15px", overflowY: "hidden", overflowX: "visible"}}>
                             <ReactIScroll iScroll={iScroll} options={options}>
-                                <Drivers data={this.state.data} routerValue={this.state.category} />
+                                <Drivers data={this.state.data} routerValue={this.state.category} groups={this.state.groups} />
                             </ReactIScroll>
                         </div>
                         <div className="btns__panel">

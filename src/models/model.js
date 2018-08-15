@@ -138,6 +138,19 @@ function Model() {
         }
 
         return graphs;
+    };
+
+    this.getGroups = function(arr) {
+        let groups = [];
+        for ( let i = 0; i < arr.length; i++){
+            if(!groups.includes(arr[i].group)){
+                groups.push(arr[i].group);
+            }
+        }
+        console.log("Groups arr is:");
+        console.log(groups);
+
+        return groups
     }
 }
 
