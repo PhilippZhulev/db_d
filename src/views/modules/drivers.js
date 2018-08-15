@@ -11,9 +11,6 @@ class Drivers extends Component {
     constructor(props) {
         super(props);
 
-        console.log("Drivers are >>>>>>>>>");
-        console.log(this.props.data.drivers);
-
         // store.subscribe(() => {
         //     if (change === "driver") {
         //         drivers[curr_group][getState.value.ind].value = "" + getState.value.val;
@@ -33,7 +30,6 @@ class Drivers extends Component {
 
         return this.props.data.drivers.map((value, index) => {
             if(value.group === target) {
-                console.log(value.id);
                 return (
                     <Slider
                         key={value.id}
