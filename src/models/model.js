@@ -103,27 +103,27 @@ function Model() {
             },
             PERS_op:{
                 title: "Персонал",
-                mera: "",
+                mera: "млрд. руб.",
             },
             IT_op:{
                 title: "IT",
-                mera: "",
+                mera: "млрд. руб.",
             },
             NEDV_op:{
                 title: "Недвижимость",
-                mera: "",
+                mera: "млрд. руб.",
             },
             BIS_op:{
                 title: "Бизнес-расходы",
-                mera: "",
+                mera: "млрд. руб.",
             },
             MAR_op:{
                 title: "Маркетинг",
-                mera: "",
+                mera: "млрд. руб.",
             },
             PROC_op:{
                 title: "Прочие расходы",
-                mera: "",
+                mera: "млрд. руб.",
             }
         };
     };
