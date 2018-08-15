@@ -19,6 +19,9 @@ const whiteTheme = {
         light: '#6effe8',
         main: '#1ab394',
         dark: '#00b686',
+    },
+    transparent: {
+        main: 'transparent',
     }
 };
 

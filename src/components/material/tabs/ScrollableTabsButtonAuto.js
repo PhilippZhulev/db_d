@@ -26,7 +26,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   indicator: {
-    backgroundColor: theme.palette.primary.indicatorColor,
+    backgroundColor: "transparent",
   },
 });
 
@@ -56,10 +56,11 @@ class ScrollableTabsButtonAuto extends React.Component {
           <Tabs
             value={value}
             onChange={this.handleChange}
-            indicatorColor="secondary"
+            indicatorColor="transparent"
             textColor="primary"
             classes={{flexContainer: "flex_panel",indicator: classes.indicator}}
-            scrollButtons="off" 
+            scrollButtons="off"
+            indicator="indicator"
           >
               {
                 this.props.settings.items.map((item, i) => {
