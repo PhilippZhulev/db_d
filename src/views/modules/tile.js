@@ -68,7 +68,7 @@ class Tile extends Component {
                             legend: (!this.props.isSmall),
                             type: "smoothedLine",
                             labelPosition:["bottom", "top"],
-                            thickness: 2,
+                            thickness: (this.props.isSmall) ? 1 : 2,
                             isBig: (!this.props.isSmall)
                         }}
                         templ={this.props.templ}
