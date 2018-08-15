@@ -8,7 +8,7 @@ const styles = theme => ({
         margin: 7,
     },
     preloaderStyles: {
-        background: '#2f4050ed',
+        background: '#1f272d',
         position: "fixed",
         bottom: 15,
         left: 15,
