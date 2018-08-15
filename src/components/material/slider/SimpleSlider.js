@@ -40,7 +40,7 @@ const styles = {
         position: "absolute",
         top: "73%",
         zIndex: 1,
-        backgroundColor: "#b4b4b4",
+        backgroundColor: "#727CF5",
         width: 2,
         height: 7,
     },
@@ -140,6 +140,8 @@ class SimpleSlider extends React.Component {
         const { classes } = this.props;
         const { value } = this.state;
 
+        // вставить значение стратегии для ползунка, когда оно будет в бэке
+
         return (
             <div className={classes.root}>
 
@@ -195,8 +197,8 @@ class SimpleSlider extends React.Component {
                     step={this.props.step}
                 />
 
-                <div className={classes.default_dot} style={{left: this.reposition(this.props.value)}}/>
-                <div className={classes.strat_dot} style={{left: this.reposition(this.props.baseValue)}}/>
+                <div className={classes.default_dot} style={{left: this.reposition(this.props.baseValue)}}/>
+                <div className={classes.strat_dot} style={{left: this.reposition(this.props.max)}}/>
 
 
                 <div className={"slider_min"}>{this.props.min}</div>
