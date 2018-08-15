@@ -28,9 +28,10 @@ store.subscribe(() => {
     if (change === "first_include") {
         let drivers = getState.data.drivers;
 
-
         for (let key in drivers) {
-            groups.push(key);
+            if(drivers.hasOwnProperty(key)) {
+                groups.push(key);
+            }
         }
     }
 });

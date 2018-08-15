@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/lab/Slider';
-
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -96,7 +95,7 @@ class SimpleSlider extends React.Component {
         this.setState({ open: true });
     };
 
-    handleClose = (value) => {
+    handleClose = () => {
         this.setState({ open: false, inputValue: "", inputError: false });
     };
 
@@ -121,7 +120,6 @@ class SimpleSlider extends React.Component {
 
     handleFieldChange = (event) =>{
         let value = event.target.value;
-
 
         if ((String(value)!=="") && ((+(value) < this.props.min) || (+(value) > this.props.max) || (!(Math.abs(+(value) % this.props.step) < 0.000000001)))){
             this.setState({ inputValue:value, inputError: true });
