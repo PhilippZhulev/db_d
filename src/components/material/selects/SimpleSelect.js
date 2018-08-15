@@ -21,33 +21,16 @@ const styles = theme => ({
     }
 });
 
-let groups = [];
-
-store.subscribe(() => {
-
-    if (change === "first_include") {
-        let drivers = getState.data.drivers;
-
-        for (let key in drivers) {
-            if(drivers.hasOwnProperty(key)) {
-                groups.push(key);
-            }
-        }
-    }
-});
-
-const items = groups;
-
 class SimpleSelect extends React.Component {
   state = {
     age: '',
     name: 'hai',
-    selected: groups[0]
+    selected: this.props.groups[0]
   };
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
-    this.setState({ selected: items[event.target.value] });
+    this.setState({ selected: this.props.groups[event.target.value] });
 
     store.dispatch({
       type: 'CHANGE_DRIVER_ROUTER',
@@ -77,7 +60,7 @@ class SimpleSelect extends React.Component {
                 >
                     <MenuItem disabled value="">{this.state.selected}</MenuItem>
                     {
-                        items.map((item,i) => {
+                        this.props.groups.map((item,i) => {
                             if(this.state.selected !== item) {
                                 return <MenuItem key={i} value={i}>{item}</MenuItem>
                             }

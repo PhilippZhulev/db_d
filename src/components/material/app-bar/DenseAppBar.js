@@ -50,7 +50,7 @@ function DenseAppBar(props) {
           <Typography variant="title" className={"header_title"} color="inherit">
             Драйверы бизнес-плана
           </Typography>
-          <Select templ={props.templ}  classes={{select: "super_select", root: "root_select", selectMenu: "i_select"}}/>
+          <Select templ={props.templ}  classes={{select: "super_select", root: "root_select", selectMenu: "i_select"}} groups={props.groups}/>
           <SettingsMenu/>
         </Toolbar>
       </AppBar>

@@ -33,34 +33,37 @@ class Drivers extends Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {routerValue: this.props.routerValue, all_drivers:drivers};
     }
 
     addDrivers = (target) => {
-
-        return this.state.all_drivers[target].map((value, index) => {
-            return (
-                <Slider
-                    key={value.id}
-                    driverId={value.id}
-                    driverInd={index}
-                    labelText={value.name}
-                    min={+(value.min)}
-                    max={+(value.max)}
-                    value={+(value.value)}
-                    step={+(value.step)}
-                    baseValue={+(value.baseValue)}
-                />
-            )
+        return this.props.data.drivers.map((value, index) => {
+            if(value.group === target) {
+                console.log(value.id);
+                return (
+                    <Slider
+                        key={value.id}
+                        driverId={value.id}
+                        driverInd={index}
+                        labelText={value.name}
+                        min={+(value.min)}
+                        max={+(value.max)}
+                        value={+(value.value)}
+                        step={+(value.step)}
+                        baseValue={+(value.baseValue)}
+                    />
+                )
+            } else{
+                return (
+                    <div key={value.id} />
+                )
+            }
         })
     };
 
     route = (val) => {
+        curr_group = this.props.groups[val];
 
-        curr_group = groups[val];
-
-        return groups[val];
+        return this.props.groups[val];
     };
 
     render() {
