@@ -38,11 +38,15 @@ initIENewEvent(reactUpdate, "React.update");
 var obj = {};
 
 //Функция Action для обновления данных после загрузки их с сервера
-function updateState(action, func) {
+function updateState(action, func, event) {
     obj.glob.Settings.actionType = action[0];
     obj.glob.Settings.actionContent = action[1];
 
-    obj.glob.that_c.firePropertiesChangedAndEvent(["SettingsTP"], "tech1");
+    if(typeof event === "undefined") {
+        event = "tech1";
+    }
+
+    obj.glob.that_c.firePropertiesChangedAndEvent(["SettingsTP"], event);
     document.addEventListener("React.update", func);
 }
 

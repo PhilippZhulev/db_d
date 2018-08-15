@@ -98,6 +98,17 @@ class App extends Component {
         });
     };
 
+    onControlBtnChange = (val, ev) => {
+        this.setState({preloader:  true});
+
+        if(val === "default_values") {
+            window.updateState([val, val], () => {
+                this.setState({data:  window.obj.dummyData, preloader:  false});
+            }, ev);
+        }
+
+    };
+
     render() {
         return (
             <MuiThemeProvider theme={this.myTheme}>
@@ -127,10 +138,12 @@ class App extends Component {
                             <Btn
                                 customClass="btn_save"
                                 text="Сохранить"
+                                onClick={() => {this.onControlBtnChange("save_values", "tech2")}}
                             />
                             <Btn
                                 customClass="btn_default"
                                 text="Сбросить"
+                                onClick={() => {this.onControlBtnChange("default_values","tech3")}}
                             />
                         </div>
                     </div>
