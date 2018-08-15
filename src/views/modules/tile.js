@@ -64,7 +64,7 @@ class Tile extends Component {
                             grId:"line",
                             titles:["Стратегия 2020", "Базовая версия", "Моделирование"],
                             geometry: {width:"88%", height:"90%"},
-                            colors: ["#f8ac59","#727CF5","#1ab394"],
+                            colors: ["#f8ac59","#1ab394","#727CF5"],
                             legend: (!this.props.isSmall),
                             type: "smoothedLine",
                             labelPosition:["bottom", "top"],
