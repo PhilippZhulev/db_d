@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/lab/Slider';
-import DisabledSlider from '@material-ui/lab/Slider';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
