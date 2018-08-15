@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Slider from "../../components/material/slider/SimpleSlider";
 
-let curr_group = "";
-
 class Drivers extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     addDrivers = (target) => {
+
         return this.props.data.drivers.map((value, index) => {
             if(value.group === target) {
                 return (
@@ -23,15 +26,13 @@ class Drivers extends Component {
                 )
             } else{
                 return (
-                    <div key={value.id} />
+                    <div key={index} />
                 )
             }
         })
     };
 
     route = (val) => {
-        curr_group = this.props.groups[val];
-
         return this.props.groups[val];
     };
 
