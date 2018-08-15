@@ -149,7 +149,7 @@ class SimpleSlider extends React.Component {
                 <Dialog
                     open={this.state.open}
                     onClose={this.handleClose}
-                    onEscapeKeyDown={function () {
+                    OnEnter={() => { 
                         return false
                     }}
                     aria-labelledby="form-dialog-title"
