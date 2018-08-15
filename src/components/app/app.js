@@ -106,7 +106,7 @@ class App extends Component {
 
         if(val === "default_values") {
             window.updateState([val, val], () => {
-                this.setState({data:  window.obj.dummyData, preloader:  false});
+                this.setState({data:  window.obj.dummyData, groups:  Model.getGroups(window.obj.dummyData.drivers), preloader:  false});
             }, ev);
         }else if(val === "save_values") {
             window.updateState([val, val], () => {

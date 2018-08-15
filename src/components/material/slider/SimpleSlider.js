@@ -141,7 +141,6 @@ class SimpleSlider extends React.Component {
         const { value } = this.state;
 
         // вставить значение стратегии для ползунка, когда оно будет в бэке
-
         return (
             <div className={classes.root}>
 

@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
 import Slider from "../../components/material/slider/SimpleSlider";
-import store, {getState, change} from "../../reduser";
 
-let drivers = {},
-    groups = [],
-    curr_group = "";
+let curr_group = "";
 
 class Drivers extends Component {
-
-    constructor(props) {
-        super(props);
-    }
 
     addDrivers = (target) => {
         return this.props.data.drivers.map((value, index) => {
             if(value.group === target) {
-                console.log(value.id);
                 return (
                     <Slider
                         key={value.id}
