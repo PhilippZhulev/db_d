@@ -6,27 +6,40 @@ let drivers = {},
     groups = [],
     curr_group = "";
 
+store.subscribe(() => {
+
+    if(change === "first_include") {
+        drivers = getState.data.drivers;
+
+        for (let key in drivers){
+            if(drivers.hasOwnProperty(key)) {
+                groups.push(key);
+            }
+        }
+    }
+
+    if (change === "driver") {
+
+        drivers[curr_group][getState.value.ind].value = "" + getState.value.val;
+
+        store.dispatch({
+            type: 'CHANGE_ALL_DRIVERS',
+            payload: getState.value
+        })
+    }
+});
+
 class Drivers extends Component {
 
     constructor(props) {
         super(props);
 
-        store.subscribe(() => {
-            if (change === "driver") {
-                drivers[curr_group][getState.value.ind].value = "" + getState.value.val;
-                store.dispatch({
-                    type: 'CHANGE_ALL_DRIVERS',
-                    payload: getState.value
-                })
-            }
-        });
+        this.state = {routerValue: this.props.routerValue, all_drivers:drivers};
     }
 
     addDrivers = (target) => {
 
-        drivers = this.props.data.drivers;
-
-        return drivers[target].map((value, index) => {
+        return this.state.all_drivers[target].map((value, index) => {
             return (
                 <Slider
                     key={value.id}
@@ -45,12 +58,6 @@ class Drivers extends Component {
 
     route = (val) => {
 
-        for (let key in drivers){
-            if(drivers.hasOwnProperty(key)) {
-                groups.push(key);
-            }
-        }
-
         curr_group = groups[val];
 
         return groups[val];
@@ -59,7 +66,7 @@ class Drivers extends Component {
     render() {
         return (
             <div className={"slider_wrapper"}>
-                {this.addDrivers(this.route(this.props.routerValue))} 
+                {this.addDrivers(this.route(this.state.routerValue))}
             </div>
         );
     }
