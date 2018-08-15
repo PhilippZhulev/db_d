@@ -34,12 +34,12 @@ function Model() {
         const page = p;
         const lastCat = data[page][func].length;
         const mainVal = data[page][func][lastCat-1]["model"];
-        const smallVal = "("+((+(data[page][func][lastCat-1]["model"])-(+(data[page][func][lastCat-1]["base"])))/(+(data[page][func][lastCat-1]["base"]))*100).toFixed(2)+"%)";
+        const smallVal = "("+((+(data[page][func][lastCat-1]["model"])-(+(data[page][func][lastCat-1]["base"])))/(+(data[page][func][lastCat-1]["base"]))*100).toFixed(1)+"%)";
         let mainValAll = "";
         let smallValAll = "";
         if ((page !== "OPEX") && (page !== "ALL")){
             mainValAll = data["ALL"][func][lastCat-1]["model"];
-            smallValAll = "("+((+(data["ALL"][func][lastCat-1]["model"])-(+(data["ALL"][func][lastCat-1]["base"])))/(+(data["ALL"][func][lastCat-1]["base"]))*100).toFixed(2)+"%)";
+            smallValAll = "("+((+(data["ALL"][func][lastCat-1]["model"])-(+(data["ALL"][func][lastCat-1]["base"])))/(+(data["ALL"][func][lastCat-1]["base"]))*100).toFixed(1)+"%)";
         }
 
         return {
