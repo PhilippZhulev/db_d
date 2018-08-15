@@ -149,16 +149,12 @@ class SimpleSlider extends React.Component {
                 <Dialog
                     open={this.state.open}
                     onClose={this.handleClose}
-                    OnEnter={() => { 
-                        return false
-                    }}
                     aria-labelledby="form-dialog-title"
                 >
                     <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
                     <DialogContent>
                         <DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>
                         <TextField
-                            autoFocus
                             margin="dense"
                             name="value"
                             label=""
