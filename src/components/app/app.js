@@ -34,7 +34,7 @@ class App extends Component {
         super(props);
 
         this.state = {
-            theme : whiteTheme,
+            theme : darkTheme,
             menu: " active",
             pos: "",
             category: 0,
@@ -52,9 +52,9 @@ class App extends Component {
             switch (change) {
                 case "template" :
                     if(getState.value === true) {
-                        this.setState({theme: whiteTheme});
-                    }else {
                         this.setState({theme: darkTheme});
+                    }else {
+                        this.setState({theme: whiteTheme});
                     }
                 break;
 
