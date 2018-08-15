@@ -100,13 +100,12 @@ class App extends Component {
 
     onControlBtnChange = (val, ev) => {
         this.setState({preloader:  true});
-
         if(val === "default_values") {
             window.updateState([val, val], () => {
                 this.setState({data:  window.obj.dummyData, preloader:  false});
+                console.log(window.obj.dummyData);
             }, ev);
         }
-
     };
 
     render() {
@@ -131,7 +130,7 @@ class App extends Component {
                     <div className={"app_menu_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.menu}}>
                         <div style={{height: "82%", margin:"0 -15px", overflowY: "hidden", overflowX: "visible"}}>
                             <ReactIScroll iScroll={iScroll} options={options}>
-                                <Drivers routerValue={this.state.category} />
+                                <Drivers data={this.state.data} routerValue={this.state.category} />
                             </ReactIScroll>
                         </div>
                         <div className="btns__panel">

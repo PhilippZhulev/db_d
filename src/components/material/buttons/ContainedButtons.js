@@ -15,7 +15,7 @@ const styles = theme => ({
 function ContainedButtons(props) {
   const { classes } = props;
   return (
-      <Button variant="outlined" color="secondary" className={classes.button + " " + props.customClass}>
+      <Button onClick={props.onClick} variant="outlined" color="secondary" className={classes.button + " " + props.customClass}>
           {props.text}
       </Button>
   );
