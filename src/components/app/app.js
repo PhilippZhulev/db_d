@@ -99,11 +99,16 @@ class App extends Component {
     };
 
     onControlBtnChange = (val, ev) => {
+
         this.setState({preloader:  true});
+
         if(val === "default_values") {
             window.updateState([val, val], () => {
                 this.setState({data:  window.obj.dummyData, preloader:  false});
-                console.log(window.obj.dummyData);
+            }, ev);
+        }else if(val === "save_values") {
+            window.updateState([val, val], () => {
+                this.setState({preloader:  false});
             }, ev);
         }
     };

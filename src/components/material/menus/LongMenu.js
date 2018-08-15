@@ -12,8 +12,6 @@ const options = [
     {title:'Альтернативная цветовая схема',val: "checkedC"}
 ];
 
-const ITEM_HEIGHT = 48;
-
 class LongMenu extends React.Component {
   state = {
     checkedA: false,
@@ -38,11 +36,7 @@ class LongMenu extends React.Component {
       if(a === 'checkedC') {
           let temp;
 
-          if(this.state.temp === false) {
-              temp = true;
-          }else {
-              temp = false;
-          }
+          temp = this.state.temp === false;
 
           this.setState({ temp: temp });
 
