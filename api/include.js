@@ -8,7 +8,8 @@ function Reactor() {
         obj.changeData = JSON.parse(obj.glob.Settings.initial_data);
         obj.dummyData = {
             data: JSON.parse(obj.glob.Settings.data),
-            drivers: JSON.parse(obj.glob.Settings.drivers)
+            drivers: JSON.parse(obj.glob.Settings.drivers),
+            table: obj.glob.Settings.table
         };
 
         //После парсинга JSON запускаем событие reactRun (Только если payload = START тоесть только при первой загрузке)

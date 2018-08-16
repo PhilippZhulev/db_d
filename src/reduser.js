@@ -33,6 +33,11 @@ function reduser (state = null, action) {
             value: action.payload,
             change: "driver"
         };
+        case "DEFAULT_DRIVER":
+            return {...state,
+                value: action.payload,
+                change: "default_drivers"
+            };
         case "CHANGE_ALL_DRIVERS":
             return {...state,
                 value: action.payload,
@@ -42,6 +47,16 @@ function reduser (state = null, action) {
             return {...state,
                 states: action.payload,
                 change: "drivers_router"
+            };
+        case "SCROLL_STOP":
+            return {...state,
+                states: action.payload,
+                change: "scroll_stop"
+            };
+        case "SCROLL_START":
+            return {...state,
+                states: action.payload,
+                change: "scroll_start"
             };
         default:
             return state

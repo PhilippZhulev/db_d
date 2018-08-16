@@ -17,17 +17,7 @@ import Drivers from "../../views/modules/drivers";
 import store, {getState, change} from "../../reduser";
 import Preloader from "../preloader";
 
-const options = {
-    mouseWheel: false,
-    scrollbars: false,
-    freeScroll: true,
-    scrollX: false,
-    scrollY: true,
-    invertWheelDirection: true,
-    momentum: true,
-    click: true,
-    preventDefault: true
-};
+
 
 class App extends Component {
     constructor(props) {
@@ -41,13 +31,16 @@ class App extends Component {
             keyBindings: true,
             data: window.obj.dummyData,
             preloader: false,
-            groups: Model.getGroups(window.obj.dummyData.drivers)
+            groups: Model.getGroups(window.obj.dummyData.drivers),
+            scroll: true
         };
 
         this.myTheme = createMuiTheme({
             palette: this.state.theme
         });
 
+        console.log("Это логи блеать ===>");
+        console.log(window.obj.dummyData);
 
         store.subscribe(() => {
             switch (change) {
@@ -83,6 +76,14 @@ class App extends Component {
                     });
                 break;
 
+                case "scroll_start" :
+                    this.setState({scroll: false});
+                break;
+
+                case "scroll_stop" :
+                    this.setState({scroll: true});
+                break;
+
                 case "drivers_router" :
                     this.setState({category: getState.states.value});
                 break;
@@ -90,6 +91,7 @@ class App extends Component {
                 default :
                     return null;
             }
+            console.log(this.state.scroll);
         });
 
         let groups = Model.main(this.state.data.drivers);
@@ -104,13 +106,31 @@ class App extends Component {
 
         this.setState({preloader:  true});
 
+        let load = false;
+
         if(val === "default_values") {
-            window.updateState([val, val], () => {
-                this.setState({data:  window.obj.dummyData, groups:  Model.getGroups(window.obj.dummyData.drivers), preloader:  false});
+            return window.updateState([val, val], () => {
+                if(load === false) {
+                    this.setState({
+                        data:  window.obj.dummyData,
+                        groups:  Model.getGroups(window.obj.dummyData.drivers),
+                        preloader:  false
+                    });
+
+                    store.dispatch({
+                        type: 'DEFAULT_DRIVER',
+                        payload: "default"
+                    });
+
+                    load = true;
+                }
             }, ev);
         }else if(val === "save_values") {
-            window.updateState([val, val], () => {
-                this.setState({preloader:  false});
+            return window.updateState([val, val], () => {
+                if(load === false) {
+                    this.setState({preloader:  false});
+                    load = true;
+                }
             }, ev);
         }
     };
@@ -136,7 +156,20 @@ class App extends Component {
                     <Preloader bool={this.state.preloader} />
                     <div className={"app_menu_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.menu}}>
                         <div style={{height: "82%", margin:"0 -15px", overflowY: "hidden", overflowX: "visible"}}>
-                            <ReactIScroll iScroll={iScroll} options={options}>
+                            <ReactIScroll iScroll={iScroll} options={{
+                                mouseWheel: false,
+                                scrollbars: false,
+                                freeScroll: true,
+                                scrollX: false,
+                                scrollY: true,
+                                invertWheelDirection: true,
+                                momentum: true,
+                                click: true,
+                                preventDefault: true,
+                                disableMouse: this.state.scroll,
+                                disablePointer: this.state.scroll,
+                                disableTouch: this.state.scroll
+                            }}>
                                 <Drivers data={this.state.data} routerValue={this.state.category} groups={this.state.groups} />
                             </ReactIScroll>
                         </div>

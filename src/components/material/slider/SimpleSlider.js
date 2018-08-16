@@ -10,7 +10,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import store from '../../../reduser';
+import store, {change} from '../../../reduser';
+
 
 const styles = {
     root: {
@@ -60,18 +61,23 @@ class SimpleSlider extends React.Component {
 
         this.state = {
             value: this.props.value,
-            open: false,//от диалога
+            open: false,
             random: "slider_thumb" + String(Math.random()).split(".")[1],
             inputError: false,
             inputValue: ""
         };
+
+        store.subscribe(() => {
+            if(change === "default_drivers") {
+                this.handleChange({}, this.props.value)
+            }
+        });
     }
 
-    reposition=(val)=>{
-        const min = (this.props.min) ? this.props.min : 0;
-        const max = (this.props.max) ? this.props.max : 100;
-
-        const magic_margin = 0.3; // подобранный коэффициент для центрирования "риски"
+    reposition = (val) => {
+        const min = (this.props.min) ? this.props.min : 0,
+              max = (this.props.max) ? this.props.max : 100,
+              magic_margin = 0.3; // подобранный коэффициент для центрирования "риски"
 
         let correctVal = val;
 
@@ -83,7 +89,7 @@ class SimpleSlider extends React.Component {
             correctVal = max;
         }
 
-        return String(((correctVal - min)/(max - min)*100 - magic_margin)+"%")
+        return String(((correctVal - min) / (max - min) * 100 - magic_margin)+"%")
     };
 
     handleChange = (event, value) => {
@@ -98,12 +104,22 @@ class SimpleSlider extends React.Component {
         this.setState({ open: false, inputValue: "", inputError: false });
     };
 
+    handleDragStart = () =>{
+        store.dispatch({
+            type: 'SCROLL_STOP',
+            payload: "default"
+        });
+    };
+
     handleDragEnd = () =>{
         const obj_1 = {};
         obj_1.ind = this.props.driverInd;
         obj_1.id = this.props.driverId;
         obj_1.val = this.state.value;
-
+        store.dispatch({
+            type: 'SCROLL_START',
+            payload: "default"
+        });
         store.dispatch({
             type: 'CHANGE_DRIVER',
             payload: obj_1
@@ -193,6 +209,7 @@ class SimpleSlider extends React.Component {
                     max={this.props.max}
                     onChange={this.handleChange}
                     onDragEnd={this.handleDragEnd}
+                    onDragStart={this.handleDragStart}
                     step={this.props.step}
                 />
 

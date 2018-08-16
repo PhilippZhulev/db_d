@@ -147,8 +147,6 @@ function Model() {
                 groups.push(arr[i].group);
             }
         }
-        console.log("Groups arr is:");
-        console.log(groups);
 
         return groups
     }

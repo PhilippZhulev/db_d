@@ -20,7 +20,7 @@ const styles = theme => ({
         color: "#fff",
         display: "block",
         float: "right",
-        margin: "16px 10px 16px 10px"
+        margin: "17px 10px 16px 10px"
     }
 });
 
