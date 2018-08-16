@@ -41,7 +41,7 @@ class App extends Component {
         });
 
         console.log("Это логи блеать ===>");
-        console.log(window.obj.dummyData);
+        console.log(this.state.table);
 
         store.subscribe(() => {
             switch (change) {
