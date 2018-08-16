@@ -33,11 +33,13 @@ const styles = theme => ({
 
 class ScrollableTabsButtonAuto extends React.Component {
   state = {
-    value: 0,
+    value: Number(localStorage['dumpTab']) || 0,
   };
 
   handleChange = (event, value) => {
     this.setState({ value });
+
+    localStorage['thisTab'] = value;
   };
 
   render() {

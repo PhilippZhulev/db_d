@@ -6,20 +6,25 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import store from '../../../reduser';
+import Checkbox from '@material-ui/core/Checkbox';
+import Star from '@material-ui/icons/Star';
+import StarBorder from '@material-ui/icons/StarBorder';
 
 const options = [
     {title:'Панель драйверов слева',val: "checkedA"},
-    {title:'Альтернативная цветовая схема',val: "checkedC"}
+    {title:'Альтернативная цветовая схема',val: "checkedC"},
 ];
+
+console.log((localStorage['templ'] === "on"));
 
 class LongMenu extends React.Component {
   state = {
-    checkedA: false,
-    checkedB: false,
-    checkedC: false,
+    checkedA: (localStorage['menuPos'] === "left"),
+    checkedB: ((localStorage['dumpTab'] || 0) === (localStorage['thisTab']  || 1)),
+    checkedC: (localStorage['templ'] === "on"),
     anchorEl: null,
-    temp: true,
-    sliderPos: "right"
+    temp: localStorage['templ'] || "on",
+    sliderPos: localStorage['menuPos'] || "right"
   };
 
   handleClick = event => {
@@ -36,14 +41,32 @@ class LongMenu extends React.Component {
       if(a === 'checkedC') {
           let temp;
 
-          temp = this.state.temp === false;
+          if(this.state.temp === "off") {
+              temp = "on"
+          }else {
+              temp = "off"
+          }
 
           this.setState({ temp: temp });
+
+          if(localStorage['templ'] === "on") {
+              localStorage['templ'] = "off";
+          }else {
+              localStorage['templ'] = "on";
+          }
 
           store.dispatch({
               type: 'CHANGE_TEMPLATE',
               payload: temp
-          })
+          });
+      }
+
+      if(a === 'checkedB') {
+            if(localStorage['dumpTab'] !== localStorage['thisTab']) {
+                localStorage['dumpTab'] = localStorage['thisTab']
+            }else {
+                localStorage['dumpTab'] = null
+            }
       }
 
       if(a === 'checkedA') {
@@ -60,7 +83,9 @@ class LongMenu extends React.Component {
           store.dispatch({
               type: 'CHANGE_SLIDERS_POS',
               payload: pos
-          })
+          });
+
+          localStorage['menuPos'] = pos;
       }
   };
 
@@ -95,6 +120,14 @@ class LongMenu extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
+          <MenuItem>
+            <FormControlLabel
+                control={
+                    <Checkbox checked={this.triggerChange("checkedB")} onChange={(e) => this.chngeList("checkedB", e, "checkedB")} icon={<StarBorder />} checkedIcon={<Star />} value="checkedB" />
+                }
+                label={"Запомнить вкладки"}
+            />
+          </MenuItem>
           {options.map(option => (
             <MenuItem key={option.title} selected={option.title === 'Pyxis'}>
                 <FormControlLabel

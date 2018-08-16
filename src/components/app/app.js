@@ -24,16 +24,16 @@ class App extends Component {
         super(props);
 
         this.state = {
-            theme : darkTheme,
+            theme : (localStorage['templ'] === "on") ? whiteTheme : darkTheme || "on",
             menu: " active",
-            pos: "",
+            pos: localStorage['menuPosApp'] || "",
             category: 0,
             keyBindings: true,
             data: window.obj.dummyData,
             preloader: false,
             groups: Model.getGroups(window.obj.dummyData.drivers),
             scroll: true,
-            table: Model.parseTable(),
+            table: Model.parseTable(window.obj.dummyData.table),
         };
 
         this.myTheme = createMuiTheme({
@@ -46,7 +46,7 @@ class App extends Component {
         store.subscribe(() => {
             switch (change) {
                 case "template" :
-                    if(getState.value === true) {
+                    if(getState.value === "off") {
                         this.setState({theme: darkTheme});
                     }else {
                         this.setState({theme: whiteTheme});
@@ -54,7 +54,7 @@ class App extends Component {
                 break;
 
                 case "menu" :
-                    if(getState.value === true) {
+                    if(getState.value === "on") {
                         this.setState({menu: " active"});
                     }else {
                         this.setState({menu: ""});
@@ -63,15 +63,16 @@ class App extends Component {
 
                 case "slidersPos" :
                     if(getState.value === "left") {
+                        localStorage['menuPosApp'] = " alternative";
                         this.setState({pos: " alternative"});
                     }else {
+                        localStorage['menuPosApp'] = "";
                         this.setState({pos: ""});
                     }
                 break;
 
                 case "driver_result" :
                     this.setState({preloader:  true});
-                    console.log("data will be loaded");
                     window.updateState(["return_driver_to_lumira", String(getState.value.id+","+getState.value.val)], () => {
                         this.setState({data:  window.obj.dummyData, preloader:  false, groups: Model.getGroups(window.obj.dummyData.drivers)});
                     });
@@ -92,7 +93,6 @@ class App extends Component {
                 default :
                     return null;
             }
-            console.log(this.state.scroll);
         });
 
         let groups = Model.main(this.state.data.drivers);
