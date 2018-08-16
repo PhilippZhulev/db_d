@@ -33,6 +33,7 @@ class App extends Component {
             preloader: false,
             groups: Model.getGroups(window.obj.dummyData.drivers),
             scroll: true
+            table: Model.parseTable(),
         };
 
         this.myTheme = createMuiTheme({
