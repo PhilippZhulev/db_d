@@ -32,7 +32,7 @@ class App extends Component {
             data: window.obj.dummyData,
             preloader: false,
             groups: Model.getGroups(window.obj.dummyData.drivers),
-            scroll: true
+            scroll: true,
             table: Model.parseTable(),
         };
 
