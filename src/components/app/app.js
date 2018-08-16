@@ -41,7 +41,8 @@ class App extends Component {
             keyBindings: true,
             data: window.obj.dummyData,
             preloader: false,
-            groups: Model.getGroups(window.obj.dummyData.drivers)
+            groups: Model.getGroups(window.obj.dummyData.drivers),
+            table: Model.parseTable(),
         };
 
         this.myTheme = createMuiTheme({
