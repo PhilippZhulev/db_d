@@ -13,7 +13,7 @@ class Tile extends Component {
         let values = [],
             tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data);
 
-        if(!(this.props.page==="ALL"||this.props.page==="OPEX")){
+        if(!(this.props.page==="ALL"||this.props.page==="OPEX"||this.props.page==="RB")){
             color = this.props.templ.primary.textValueNormal;
             values.push(<div key={1} className={"vLine"+postfix} />);
             values.push(
@@ -67,7 +67,7 @@ class Tile extends Component {
                             colors: (this.props.isSmall) ? ["#1ab394","#727CF5"] : ["#f8ac59","#1ab394","#727CF5"],
                             legend: (!this.props.isSmall),
                             type: "smoothedLine",
-                            labelPosition:["bottom", "top"],
+                            labelPosition:(!this.props.isSmall) ? ["top", "top"] : ["bottom", "top"],
                             thickness: (this.props.isSmall) ? 1 : 2,
                             isBig: (!this.props.isSmall)
                         }}
