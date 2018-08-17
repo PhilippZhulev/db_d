@@ -25,12 +25,13 @@ class SimpleSelect extends React.Component {
   state = {
     age: '',
     name: 'hai',
-    selected: this.props.groups[0]
+    selected: localStorage['dumpDriversTab'] || this.props.groups[0]
   };
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
     this.setState({ selected: this.props.groups[event.target.value] });
+    localStorage['thisDriversTab'] = this.props.groups[event.target.value];
 
     store.dispatch({
       type: 'CHANGE_DRIVER_ROUTER',

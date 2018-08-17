@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Slider from "../../components/material/slider/SimpleSlider";
+import store from "../../reduser";
 
 class Drivers extends Component {
 
@@ -33,7 +34,13 @@ class Drivers extends Component {
     };
 
     route = (val) => {
-        return this.props.groups[val];
+
+        store.dispatch({
+            type: 'CHANGE_TAB',
+            payload: val
+        });
+
+        return localStorage['thisDriversTab'] || this.props.groups[val];
     };
 
     render() {

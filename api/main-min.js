@@ -30,9 +30,11 @@ function initIENewEvent(event, eventName) {
 //Создаем события для старта и обновления React
 var reactRun = createNewEvent("React.run");
 var reactUpdate = createNewEvent("React.update");
+var reactError = createNewEvent("React.error");
 
 initIENewEvent(reactRun, "React.run");
 initIENewEvent(reactUpdate, "React.update");
+initIENewEvent(reactError, "React.error");
 
 //Создаем глобальный обект для управления данными
 var obj = {};

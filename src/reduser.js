@@ -58,6 +58,11 @@ function reduser (state = null, action) {
                 states: action.payload,
                 change: "scroll_start"
             };
+        case "CHANGE_TAB":
+            return {...state,
+                states: action.payload,
+                change: "change_tab"
+            };
         default:
             return state
     }

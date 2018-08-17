@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import Select from '../selects/SimpleSelect1';
+import store from "../../../reduser";
 
 function TabContainer(props) {
   return (
@@ -40,6 +40,11 @@ class ScrollableTabsButtonAuto extends React.Component {
     this.setState({ value });
 
     localStorage['thisTab'] = value;
+
+      store.dispatch({
+          type: 'CHANGE_TAB',
+          payload: value
+      });
   };
 
   render() {

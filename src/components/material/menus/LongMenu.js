@@ -5,10 +5,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import SettingsIcon from '@material-ui/icons/Settings';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
-import store from '../../../reduser';
+import store, {change, getState} from '../../../reduser';
 import Checkbox from '@material-ui/core/Checkbox';
 import Star from '@material-ui/icons/Star';
 import StarBorder from '@material-ui/icons/StarBorder';
+
 
 const options = [
     {title:'Панель драйверов слева',val: "checkedA"},
@@ -18,6 +19,22 @@ const options = [
 console.log((localStorage['templ'] === "on"));
 
 class LongMenu extends React.Component {
+  constructor(props) {
+      super(props);
+
+      store.subscribe(() => {
+          switch (change) {
+              case "change_tab" :
+                  if ((localStorage['dumpTab'] !== localStorage['thisTab']) || (localStorage['dumpDriversTab'] !== localStorage['thisDriversTab'])) {
+                      this.setState({checkedB: false});
+                  }else {
+                      this.setState({checkedB: true});
+                  }
+                  break;
+          }
+      });
+  }
+
   state = {
     checkedA: (localStorage['menuPos'] === "left"),
     checkedB: ((localStorage['dumpTab'] || 0) === (localStorage['thisTab']  || 1)),
@@ -62,10 +79,12 @@ class LongMenu extends React.Component {
       }
 
       if(a === 'checkedB') {
-            if(localStorage['dumpTab'] !== localStorage['thisTab']) {
-                localStorage['dumpTab'] = localStorage['thisTab']
+            if(localStorage['dumpTab'] !== localStorage['thisTab'] || localStorage['thisDriversTab'] !== localStorage['dumpDriversTab']) {
+                localStorage['dumpTab'] = localStorage['thisTab'];
+                localStorage['dumpDriversTab'] = localStorage['thisDriversTab'];
             }else {
-                localStorage['dumpTab'] = null
+                localStorage['dumpTab'] = null;
+                localStorage['dumpDriversTab'] = null;
             }
       }
 
@@ -125,7 +144,7 @@ class LongMenu extends React.Component {
                 control={
                     <Checkbox checked={this.triggerChange("checkedB")} onChange={(e) => this.chngeList("checkedB", e, "checkedB")} icon={<StarBorder />} checkedIcon={<Star />} value="checkedB" />
                 }
-                label={"Запомнить вкладки"}
+                label={"Запомнить расположение"}
             />
           </MenuItem>
           {options.map(option => (
