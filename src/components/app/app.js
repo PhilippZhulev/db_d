@@ -17,8 +17,6 @@ import Drivers from "../../views/modules/drivers";
 import store, {getState, change} from "../../reduser";
 import Preloader from "../preloader";
 
-
-
 class App extends Component {
     constructor(props) {
         super(props);
@@ -34,6 +32,7 @@ class App extends Component {
             groups: Model.getGroups(window.obj.dummyData.drivers),
             scroll: true,
             table: Model.parseTable(window.obj.dummyData.table),
+            changePage: false
         };
 
         this.myTheme = createMuiTheme({
@@ -136,6 +135,7 @@ class App extends Component {
         }
     };
 
+
     render() {
         return (
             <MuiThemeProvider theme={this.myTheme}>
@@ -154,10 +154,10 @@ class App extends Component {
                               ]
                           }}
                     />
-                    <Preloader bool={this.state.preloader} />
+                        <Preloader bool={this.state.preloader} />
                     <div className={"app_menu_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.menu}}>
                         <div style={{height: "82%", margin:"0 -15px", overflowY: "hidden", overflowX: "visible"}}>
-                            <ReactIScroll iScroll={iScroll} options={{
+          r                  <ReactIScroll iScroll={iScroll} options={{
                                 mouseWheel: false,
                                 scrollbars: false,
                                 freeScroll: true,
