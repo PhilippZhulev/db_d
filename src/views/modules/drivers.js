@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Slider from "../../components/material/slider/SimpleSlider";
 import store from "../../reduser";
-import Fade from "@material-ui/core/Fade";
 
 class Drivers extends Component {
 
@@ -46,11 +45,9 @@ class Drivers extends Component {
 
     render() {
         return (
-            <Fade in={true} timeout={{enter: 300, exit:300}}>
-                <div className={"slider_wrapper"}>
-                        {this.addDrivers(this.route(this.props.routerValue))}
-                </div>
-            </Fade>
+            <div className={"slider_wrapper"}>
+                {this.addDrivers(this.route(this.props.routerValue))}
+            </div>
         );
     }
 }
