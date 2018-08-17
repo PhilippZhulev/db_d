@@ -152,7 +152,7 @@ class App extends Component {
                                   <Cib fluxData={this.state.data} templ={this.state.theme}/>,
                                   <Kb fluxData={this.state.data} templ={this.state.theme}/>,
                                   <Rb fluxData={this.state.data} templ={this.state.theme}/>,
-                                  <TablePage fluxData={this.state.table} templ={this.state.theme} />
+                                  <TablePage fluxData={this.state.table} templ={this.state.theme} table={this.state.table}/>
                               ]
                           }}
                     />

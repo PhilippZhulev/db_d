@@ -127,12 +127,16 @@ header.tabs_bar
     box-shadow none
     background #fff
 button.tabs_item
-    min-width 155px
+    min-width 126px
     color rgb(117, 117, 117)
     font-weight 400
     text-transform: capitalize
     > span:first-child
         border-right: 1px solid  #b4b4b4
+div.flex_panel
+    button:last-child
+        span:first-child
+            border 0px!important
 div.tabs_container > div
     height calc(100% - 120px)
 .tiles_container
@@ -332,4 +336,16 @@ div.tabs_container
 .hspace
     width 156px
 .slider_wrapper
-    padding: 0 20px 60px 20px 
+    padding: 0 20px 60px 20px
+.table
+    display: block
+.column
+    display: flex
+.row
+    border 2px solid white
+    color white
+    width 50px
+    height 20px
+    font-size 10px
+    text-align center
+    margin 2px

@@ -214,7 +214,7 @@ function Model() {
 
         // console.log(arr);
 
-        let table = [];
+        let table = {data:[], CIR:CIR, COR:COR, CAGR:CAGR, NIM:NIM};
         for (let i = 0; i < CIR.length; i++){
             for (let j = 0; j < CAGR.length; j++){
                 let cell = {};
@@ -223,7 +223,7 @@ function Model() {
                 cell.CIR = CIR[i];
                 cell.COR = COR[i];
                 cell.value = arr[i][j];
-                table.push(cell);
+                table.data.push(cell);
             }
         }
         console.log(table);
