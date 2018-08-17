@@ -10,6 +10,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Cib from '../../views/kpi-cib';
 import Kb from '../../views/kpi-kb';
 import Rb from '../../views/kpi-rb';
+import TablePage from '../../views/tablepage';
 import Model from '../../models/model.js';
 import {whiteTheme, darkTheme} from '../../template.js';
 
@@ -144,13 +145,14 @@ class App extends Component {
                     <Tabs
                           templ={this.state.theme}
                           settings={{
-                              items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ"],
+                              items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ","Таблица"],
                               pages: [
                                   <Home fluxData={this.state.data} templ={this.state.theme} />,
                                   <Opex fluxData={this.state.data} templ={this.state.theme} />,
                                   <Cib fluxData={this.state.data} templ={this.state.theme}/>,
                                   <Kb fluxData={this.state.data} templ={this.state.theme}/>,
-                                  <Rb fluxData={this.state.data} templ={this.state.theme}/>
+                                  <Rb fluxData={this.state.data} templ={this.state.theme}/>,
+                                  <TablePage fluxData={this.state.table} templ={this.state.theme} />
                               ]
                           }}
                     />
