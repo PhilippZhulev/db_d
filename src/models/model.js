@@ -152,7 +152,6 @@ function Model() {
     };
 
     this.parseTable = function(data) {
-        // console.log("incoming table data:");
         const strArr = data.split("|");
         let newStr = "";
         for (let i=0;i<strArr.length;i++){
@@ -163,7 +162,7 @@ function Model() {
         }
         let arr = newStr.split("$_$");
         for (let i=0;i<arr.length;i++){
-            arr[i]=arr[i].split("-=$=-");
+            arr[i] = arr[i].split("-=$=-");
             arr[i].shift();
             arr[i].pop();
         }
@@ -221,7 +220,7 @@ function Model() {
                 table.push(cell);
             }
         }
-        // console.log(table);
+        console.log(table);
         return table
     }
 }

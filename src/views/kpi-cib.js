@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Tile from './modules/tile';
+import Fade from "@material-ui/core/Fade";
 
 class Cib extends Component {
 
@@ -33,9 +34,11 @@ class Cib extends Component {
 
     render() {
         return (
+            <Fade in={true} timeout={{enter: 300, exit:300}}>
             <div className="tiles_container">
                 {this.tiles(this.state)}
             </div>
+            </Fade>
         )
     }
 }

@@ -1,0 +1,391 @@
+{
+  "ALL": {
+    "PI": [
+      {
+        "category": "2018",
+        "strategy": "825.4",
+        "base": "769.6",
+        "model": "769.6"
+      },
+      {
+        "category": "2019",
+        "strategy": "922",
+        "base": "849.5",
+        "model": "849.5"
+      },
+      {
+        "category": "2020",
+        "strategy": "1000.8",
+        "base": "960.3",
+        "model": "960.3"
+      },
+      {
+        "category": "2021",
+        "strategy": "0",
+        "base": "1064.6",
+        "model": "1064.6"
+      }
+    ],
+    "INC": [
+      {
+        "category": "2018",
+        "base": "1924.9",
+        "model": "1924.9"
+      },
+      {
+        "category": "2019",
+        "base": "2037.5",
+        "model": "2037.5"
+      },
+      {
+        "category": "2020",
+        "base": "2178.8",
+        "model": "2178.8"
+      },
+      {
+        "category": "2021",
+        "base": "2342.3",
+        "model": "2342.3"
+      }
+    ],
+    "OPEX": [
+      {
+        "category": "2018",
+        "base": "-665.3",
+        "model": "-665.3"
+      },
+      {
+        "category": "2019",
+        "base": "-713.6",
+        "model": "-713.6"
+      },
+      {
+        "category": "2020",
+        "base": "-716",
+        "model": "-716"
+      },
+      {
+        "category": "2021",
+        "base": "-746.9",
+        "model": "-746.9"
+      }
+    ],
+    "CIR": [
+      {
+        "category": "2018",
+        "base": "34.6",
+        "model": "34.6"
+      },
+      {
+        "category": "2019",
+        "base": "35",
+        "model": "35"
+      },
+      {
+        "category": "2020",
+        "base": "32.9",
+        "model": "32.9"
+      },
+      {
+        "category": "2021",
+        "base": "31.9",
+        "model": "31.9"
+      }
+    ],
+    "KOM": [
+      {
+        "category": "2018",
+        "base": "20.1",
+        "model": "20.1"
+      },
+      {
+        "category": "2019",
+        "base": "19.7",
+        "model": "19.7"
+      },
+      {
+        "category": "2020",
+        "base": "19.7",
+        "model": "19.7"
+      },
+      {
+        "category": "2021",
+        "base": "19.8",
+        "model": "19.8"
+      }
+    ],
+    "COR": [
+      {
+        "category": "2018",
+        "base": "1.4",
+        "model": "1.4"
+      },
+      {
+        "category": "2019",
+        "base": "1.2",
+        "model": "1.2"
+      },
+      {
+        "category": "2020",
+        "base": "1",
+        "model": "1"
+      },
+      {
+        "category": "2021",
+        "base": "1",
+        "model": "1"
+      }
+    ],
+    "CHIS": [
+      {
+        "category": "2018",
+        "base": "248",
+        "model": "248"
+      },
+      {
+        "category": "2019",
+        "base": "243",
+        "model": "243"
+      },
+      {
+        "category": "2020",
+        "base": "234.6",
+        "model": "234.6"
+      },
+      {
+        "category": "2021",
+        "base": "231",
+        "model": "231"
+      }
+    ]
+  },
+  "CIB": {
+    "PI": [
+      undefined
+    ],
+    "INC": [
+      undefined
+    ],
+    "OPEX": [
+      undefined
+    ],
+    "CIR": [
+      undefined
+    ],
+    "KOM": [
+      undefined
+    ],
+    "COR": [
+      undefined
+    ],
+    "CHIS": [
+      undefined
+    ]
+  },
+  "CB": {
+    "PI": [
+      undefined
+    ],
+    "INC": [
+      undefined
+    ],
+    "OPEX": [
+      undefined
+    ],
+    "CIR": [
+      undefined
+    ],
+    "KOM": [
+      undefined
+    ],
+    "COR": [
+      undefined
+    ],
+    "CHIS": [
+      undefined
+    ]
+  },
+  "RB": {
+    "PI": [
+      undefined
+    ],
+    "INC": [
+      undefined
+    ],
+    "OPEX": [
+      undefined
+    ],
+    "CIR": [
+      undefined
+    ],
+    "KOM": [
+      undefined
+    ],
+    "COR": [
+      undefined
+    ],
+    "CHIS": [
+      undefined
+    ]
+  },
+  "OPEX": {
+    "OPEX_op": [
+      {
+        "category": "2018",
+        "strategy": "701.1",
+        "base": "661.9",
+        "model": "661.9"
+      },
+      {
+        "category": "2019",
+        "strategy": "696.5",
+        "base": "606.3",
+        "model": "606.3"
+      },
+      {
+        "category": "2020",
+        "strategy": "695",
+        "base": "601.4",
+        "model": "601.4"
+      },
+      {
+        "category": "2021",
+        "strategy": "0",
+        "base": "601.4",
+        "model": "601.4"
+      }
+    ],
+    "PERS_op": [
+      {
+        "category": "2018",
+        "base": "346.7",
+        "model": "346.7"
+      },
+      {
+        "category": "2019",
+        "base": "349.9",
+        "model": "349.9"
+      },
+      {
+        "category": "2020",
+        "base": "340.9",
+        "model": "340.9"
+      },
+      {
+        "category": "2021",
+        "base": "340.9",
+        "model": "340.9"
+      }
+    ],
+    "IT_op": [
+      {
+        "category": "2018",
+        "base": "67.1",
+        "model": "67.1"
+      },
+      {
+        "category": "2019",
+        "base": "72.1",
+        "model": "72.1"
+      },
+      {
+        "category": "2020",
+        "base": "82.3",
+        "model": "82.3"
+      },
+      {
+        "category": "2021",
+        "base": "82.3",
+        "model": "82.3"
+      }
+    ],
+    "NEDV_op": [
+      {
+        "category": "2018",
+        "base": "58.9",
+        "model": "58.9"
+      },
+      {
+        "category": "2019",
+        "base": "60.9",
+        "model": "60.9"
+      },
+      {
+        "category": "2020",
+        "base": "61.7",
+        "model": "61.7"
+      },
+      {
+        "category": "2021",
+        "base": "61.7",
+        "model": "61.7"
+      }
+    ],
+    "BIS_op": [
+      {
+        "category": "2018",
+        "base": "32.2",
+        "model": "32.2"
+      },
+      {
+        "category": "2019",
+        "base": "35",
+        "model": "35"
+      },
+      {
+        "category": "2020",
+        "base": "33",
+        "model": "33"
+      },
+      {
+        "category": "2021",
+        "base": "33",
+        "model": "33"
+      }
+    ],
+    "MAR_op": [
+      {
+        "category": "2018",
+        "base": "7.6",
+        "model": "7.6"
+      },
+      {
+        "category": "2019",
+        "base": "9",
+        "model": "9"
+      },
+      {
+        "category": "2020",
+        "base": "9.4",
+        "model": "9.4"
+      },
+      {
+        "category": "2021",
+        "base": "9.4",
+        "model": "9.4"
+      }
+    ],
+    "PROC_op": [
+      {
+        "category": "2018",
+        "base": "149.4",
+        "model": "149.4"
+      },
+      {
+        "category": "2019",
+        "base": "79.4",
+        "model": "79.4"
+      },
+      {
+        "category": "2020",
+        "base": "74.1",
+        "model": "74.1"
+      },
+      {
+        "category": "2021",
+        "base": "74.1",
+        "model": "74.1"
+      }
+    ]
+  }
+}
