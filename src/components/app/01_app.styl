@@ -227,17 +227,18 @@ header.tabs_bar.vertical
         display flex
         height: 35px
 .btns__panel
-    bottom 66px
+    bottom: 73px
     width calc(100% - 30px)
     position absolute
     > button
         width: 45%
         margin: auto 5px auto 5px
-        padding: 10px
+        padding: 8px
         text-align center
         text-transform: capitalize
         span
             text-align center
+            font-weight 400
             width: 100%
             display block
 div.flex_panel
@@ -349,3 +350,6 @@ div.tabs_container
     font-size 10px
     text-align center
     margin 2px
+button.tabs_item[aria-selected=true]
+    color: #fff!important;
+    font-weight: 400!important;

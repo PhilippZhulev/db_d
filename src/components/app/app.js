@@ -54,7 +54,7 @@ class App extends Component {
                 break;
 
                 case "menu" :
-                    if(getState.value === "right") {
+                    if(this.state.menu === "") {
                         this.setState({menu: " active"});
                     }else {
                         this.setState({menu: ""});
