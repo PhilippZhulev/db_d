@@ -86,7 +86,7 @@ function Model() {
                 mera: "%",
             },
             KOM:{
-                title: "Комиссии / OPEX",
+                title: "ROE",
                 mera: "%",
             },
             COR:{
