@@ -194,14 +194,18 @@ function Model() {
         }
         // console.log(NIM);
         let CIR = [];
+        let oldCIR = [];
         let COR = [];
         for (let i=3;i<arr.length;i++){
-            let cirVal = (arr[i].length === arr[2].length) ? arr[i][0] : CIR[CIR.length-1];
+            let cirVal = (arr[i].length === arr[2].length) ? arr[i][0] : undefined;
             let corVal = (arr[i].length === arr[2].length) ? arr[i][1] : arr[i][0];
             if (arr[i].length === arr[2].length){
                 arr[i].shift();
             }
             arr[i].shift();
+            if (cirVal !== undefined){
+                oldCIR.push(cirVal);
+            }
             CIR.push(cirVal);
             COR.push(corVal);
         }
@@ -214,7 +218,7 @@ function Model() {
 
         // console.log(arr);
 
-        let table = {data:[], CIR:CIR, COR:COR, CAGR:CAGR, NIM:NIM};
+        let table = {data:[], CIR:oldCIR, COR:COR, CAGR:CAGR, NIM:oldNIM};
         for (let i = 0; i < CIR.length; i++){
             for (let j = 0; j < CAGR.length; j++){
                 let cell = {};
