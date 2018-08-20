@@ -6,6 +6,10 @@ class TablePage extends Component {
     constructor(props) {
         super(props);
 
+        const vlines = [],
+            hlines = [];
+
+
         this.state = {
             data: this.props.fluxData,
             funcs: ["PI","INC","OPEX","CIR","KOM","COR","CHIS"],
@@ -22,7 +26,11 @@ class TablePage extends Component {
             for (let j=0; j<this.state.table.CAGR.length;j++){
                 // console.log(this.state.table.data[i*this.state.table.CAGR.length+j]);
                 // console.log(i*this.state.table.CAGR.length+j);
-                column.push(<div className={"row"} key={i*this.state.table.CAGR.length+j}>{this.state.table.data[i*this.state.table.CAGR.length+j].value}</div>)
+                let stl = {};
+                if ((i===5)&&(j===5)){
+                    stl = {color:"#727CF5", fontSize:"27px"};
+                }
+                column.push(<div className={"row"} style={stl} key={i*this.state.table.CAGR.length+j}>{this.state.table.data[i*this.state.table.CAGR.length+j].value}</div>)
             }
             tableFill.push(<div className={"column"} key={i}>{column}</div>)
         }
@@ -54,14 +62,21 @@ class TablePage extends Component {
 
 
         return table
-    }
+    };
+
+    lineConstructor = (str) => {
+        let arr = this.state.table[str].map((value,index)=>{
+            return <div className={"item"} key={index} style={(str === "NIM") ? {left: ""+(83+index*226)+"px"} : {top: ""+(41+index*136)+"px"}}/>
+        });
+        return arr
+    };
 
     render() {
         return (
             <Fade in={true} timeout={{enter: 300, exit:300}}>
                 <div className={"table_wrapper"}>
-                    <div className="hlineTable" />
-                    <div className="vlineTable" />
+                    <div className="hlinesTable">{this.lineConstructor("NIM")}</div>
+                    <div className="vlinesTable">{this.lineConstructor("CIR")}</div>
                     <div className={"table"}>{this.tableConstructor()}</div>
                 </div>
             </Fade>
