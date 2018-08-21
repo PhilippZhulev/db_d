@@ -216,7 +216,7 @@ function Model() {
 
         // console.log(arr);
 
-        let table = {data:[], CIR:oldCIR, COR:COR, CAGR:CAGR, NIM:oldNIM};
+        let table = {data:[], CIR:CIR, oldCIR:oldCIR, COR:COR, CAGR:CAGR,NIM:NIM, oldNIM:oldNIM};
         for (let i = 0; i < CIR.length; i++){
             for (let j = 0; j < CAGR.length; j++){
                 let cell = {};

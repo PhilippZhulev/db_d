@@ -24,6 +24,7 @@ class MultiLine extends Component {
                 "sequencedAnimation": false,
                 "startDuration": 0,
                 "color": this.props.templ.primary.graphText,
+                "thousandsSeparator": "",
                 "fontSize": 12,
                 "categoryAxis": {
                     "labelOffset": -10,
