@@ -53,6 +53,7 @@ class MultiLine extends Component {
                         "gridColor": "#E5E5E5",
                         "labelsEnabled": false,
                         "title": "",
+                        "minMaxMultiplier": 1.1,
                         "titleColor": "#E5E5E5"
                     }
                 ],
@@ -76,7 +77,7 @@ class MultiLine extends Component {
                     "color": this.props.templ.primary.graphText,
                     "id": "AmGraph-"+i,
                     "fontSize": 12,
-                    //"showAllValueLabels": true,
+                    "showAllValueLabels": true,
                     "labelText": ((this.props.options.colors[i] !== "#1ab394")||(!this.props.options.isBig)) ? "[[value]]" : "",
                     "lineThickness": this.props.options.thickness,
                     "title": "graph "+i,
