@@ -128,7 +128,7 @@ class LongMenu extends React.Component {
           aria-owns={anchorEl ? 'long-menu' : null}
           aria-haspopup="true"
           className="settings"
-          onClick={this.handleClick}
+          onTouchStart={this.handleClick}
           color="inherit"
         >
         <SettingsIcon />
