@@ -86,8 +86,8 @@ class TablePage extends Component {
                             table.push(<div className={row}>{second_header}</div>);
 }
                         if(j===0){
-                            row.push(<div className={"left_header first"} key={-2}>{this.state.table.CIR[i]}</div>);
-                            row.push(<div className={"left_header second"} key={-1}>{this.state.table.COR[i]}</div>);
+                            row.push(<div className={"left_header first"} key={1}>{this.state.table.CIR[i]}</div>);
+                            row.push(<div className={"left_header second"} key={0}>{this.state.table.COR[i]}</div>);
                         }
                         if ((i===5)&&(j===5)){
                             stl = {color:"#727CF5", fontSize:"27px"};

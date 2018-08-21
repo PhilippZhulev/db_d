@@ -156,6 +156,8 @@ class SimpleSlider extends React.Component {
         const { classes } = this.props;
         const { value } = this.state;
 
+        const flag = ((+(this.props.min) === 0) && (+(this.props.max) === 1) && (+(this.props.step) === 1));
+
         // вставить значение стратегии для ползунка, когда оно будет в бэке
         return (
             <div className={classes.root}>
@@ -192,7 +194,7 @@ class SimpleSlider extends React.Component {
 
                 <Typography onClick={this.handleClickOpen} className="label_1">{this.props.labelText}</Typography>
                 <style>
-                    {"." + this.state.random + ":before { content: '"+ this.state.value.toFixed(1) +"'}"}
+                    {(flag) ? "" : "." + this.state.random + ":before { content: '"+ this.state.value.toFixed(1) +"'}"}
                 </style>
                 <Slider
                     classes={{
@@ -217,8 +219,8 @@ class SimpleSlider extends React.Component {
                 <div className={classes.strat_dot} style={{left: this.reposition(this.props.max)}}/>
 
 
-                <div className={"slider_min"}>{this.props.min}</div>
-                <div className={"slider_max"}>{this.props.max}</div>
+                <div className={"slider_min"}>{(flag) ? "нет" : this.props.min}</div>
+                <div className={"slider_max"}>{(flag) ? "да" : this.props.max}</div>
             </div>
         );
     }
