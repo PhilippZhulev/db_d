@@ -75,7 +75,7 @@ class TablePage extends Component {
     render() {
         return (
             <Fade in={true} timeout={{enter: 300, exit:300}}>
-                <div className={"table"} style={{color: this.props.templ.primary.textValueMain}}>{this.tableConstructor()}</div>
+                <div className={"table"} style={{color: this.props.templ.primary.textValueMain,   position: "relative", width: "100%",   height: "96%"}}>{this.tableConstructor()}</div>
             </Fade>
         )
     }
