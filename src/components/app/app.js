@@ -147,7 +147,7 @@ class App extends Component {
                     <Tabs
                           templ={this.state.theme}
                           settings={{
-                              items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ","Таблица"],
+                              items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ","Матрица"],
                               pages: [
                                   <Home fluxData={this.state.data} templ={this.state.theme} />,
                                   <Opex fluxData={this.state.data} templ={this.state.theme} />,

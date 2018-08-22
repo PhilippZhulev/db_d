@@ -22,6 +22,7 @@ class MultiLine extends Component {
                 "sequencedAnimation": false,
                 "startDuration": 0,
                 "color": this.props.templ.primary.graphText,
+                "thousandsSeparator": "",
                 "fontSize": 12,
                 "categoryAxis": {
                     "labelOffset": -10,
@@ -50,6 +51,7 @@ class MultiLine extends Component {
                         "gridColor": "#E5E5E5",
                         "labelsEnabled": false,
                         "title": "",
+                        "minMaxMultiplier": 1.3,
                         "titleColor": "#E5E5E5"
                     }
                 ],
