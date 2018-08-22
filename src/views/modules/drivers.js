@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Slider from "../../components/material/slider/SimpleSlider";
 import store from "../../reduser";
+import SwitchesGroup from "../../components/material/radio/SimpleButtons";
 
 class Drivers extends Component {
 
@@ -10,6 +11,7 @@ class Drivers extends Component {
                 <div className="radioPanel">
                     <h3 style={{color: "#fff"}}>Тут огурчики!</h3>
 
+                    <SwitchesGroup />
                 </div>
             )
         } else {
