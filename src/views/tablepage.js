@@ -54,9 +54,9 @@ class TablePage extends Component {
                     row.push(<div className={"left_header second column"} key={Math.random()} style={((i < this.state.table.CIR.length - 1)&&(this.state.table.CIR[i] !== this.state.table.CIR[i + 1])) ? obj1 : right_line}>{this.state.table.COR[i]}</div>);
                 }
                 if ((i===5)&&(j===5)){
-                    stl = {color:"#727CF5", fontSize:"27px", backgroundColor:this.props.templ.primary.textValueMain};
+                    stl = {color:"#727CF5", fontSize:"27px", backgroundColor:this.props.templ.primary.tableSelection};
                 } else if (((i<=5)&&(j===5))||((j<=5)&&(i===5))){
-                    stl = {backgroundColor:this.props.templ.primary.textValueNormal};
+                    stl = {backgroundColor:this.props.templ.primary.tableSelection};
                 }
                 if ((i < this.state.table.CIR.length - 1)&&(this.state.table.CIR[i] !== this.state.table.CIR[i + 1])){
                     stl = Object.assign(stl, bottom_line);
