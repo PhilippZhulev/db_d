@@ -203,8 +203,10 @@ function Model() {
             arr[i].shift();
             if (cirVal !== undefined){
                 oldCIR.push(cirVal);
+                CIR.push(cirVal);
+            } else{
+                CIR.push(CIR[CIR.length-1]);
             }
-            CIR.push(cirVal);
             COR.push(corVal);
         }
         // console.log(CIR);

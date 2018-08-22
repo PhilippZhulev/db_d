@@ -53,7 +53,7 @@ class MultiLine extends Component {
                         "gridColor": "#E5E5E5",
                         "labelsEnabled": false,
                         "title": "",
-                        "minMaxMultiplier": 1.1,
+                        "minMaxMultiplier": 1.3,
                         "titleColor": "#E5E5E5"
                     }
                 ],
