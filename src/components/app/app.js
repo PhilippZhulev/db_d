@@ -34,7 +34,7 @@ class App extends Component {
             scroll: true,
             table: Model.parseTable(window.obj.dummyData.table),
             changePage: false,
-            tables: localStorage["dumpTab"] || 0
+            index: localStorage["dumpTab"] || 0
         };
 
         this.myTheme = createMuiTheme({
@@ -89,7 +89,7 @@ class App extends Component {
                 break;
 
                 case "change_tab" :
-                    this.setState({tables: getState.states});
+                    this.setState({index: getState.states});
                 break;
 
                 default :
@@ -143,7 +143,11 @@ class App extends Component {
         return (
             <MuiThemeProvider theme={this.myTheme}>
                 <div className={"app_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.tiles}}>
-                    <Header templ={this.state.theme} data={this.state.data} groups={this.state.groups}/>
+                    <Header
+                        templ={this.state.theme}
+                        data={this.state.data}
+                        groups={this.state.groups}
+                    />
                     <Tabs
                           templ={this.state.theme}
                           settings={{
@@ -158,7 +162,7 @@ class App extends Component {
                               ]
                           }}
                     />
-                        <Preloader bool={this.state.preloader} />
+                    <Preloader bool={this.state.preloader} />
                     <div className={"app_menu_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.menu}}>
                         <div style={{height: "82%", margin:"0 -15px", overflowY: "hidden", overflowX: "visible"}}>
                            <ReactIScroll iScroll={iScroll} options={{
@@ -175,7 +179,7 @@ class App extends Component {
                                 disablePointer: this.state.scroll,
                                 disableTouch: this.state.scroll
                             }}>
-                                <Drivers table={this.state.tables} data={this.state.data} routerValue={this.state.category} groups={this.state.groups} />
+                                <Drivers table={this.state.index} data={this.state.data} routerValue={this.state.category} groups={this.state.groups} />
                             </ReactIScroll>
                         </div>
                         <div className="btns__panel">

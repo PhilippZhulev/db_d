@@ -29,6 +29,16 @@ class SimpleSelect extends React.Component {
               }else {
                   this.setState({seletDisable: false})
               }
+
+              if(getState.states === 2) {
+                  let ev = {
+                    target : {
+                        value: 2
+                    }
+                  };
+                  this.handleChange(ev);
+              }else {
+              }
           }
       });
   }
