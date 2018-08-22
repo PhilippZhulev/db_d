@@ -63,7 +63,6 @@ class ScrollableTabsButtonAuto extends React.Component {
           <Tabs
             value={value}
             onChange={this.handleChange}
-            indicatorColor="transparent"
             textColor="primary"
             classes={{flexContainer: "flex_panel",indicator: classes.indicator}}
             scrollButtons="off"

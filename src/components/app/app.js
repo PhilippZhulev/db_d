@@ -33,7 +33,8 @@ class App extends Component {
             groups: Model.getGroups(window.obj.dummyData.drivers),
             scroll: true,
             table: Model.parseTable(window.obj.dummyData.table),
-            changePage: false
+            changePage: false,
+            tables: localStorage["dumpTab"] || 0
         };
 
         this.myTheme = createMuiTheme({
@@ -88,6 +89,10 @@ class App extends Component {
 
                 case "drivers_router" :
                     this.setState({category: getState.states.value});
+                break;
+
+                case "change_tab" :
+                    this.setState({tables: getState.states});
                 break;
 
                 default :
@@ -173,7 +178,7 @@ class App extends Component {
                                 disablePointer: this.state.scroll,
                                 disableTouch: this.state.scroll
                             }}>
-                                <Drivers data={this.state.data} routerValue={this.state.category} groups={this.state.groups} />
+                                <Drivers table={this.state.tables} data={this.state.data} routerValue={this.state.category} groups={this.state.groups} />
                             </ReactIScroll>
                         </div>
                         <div className="btns__panel">

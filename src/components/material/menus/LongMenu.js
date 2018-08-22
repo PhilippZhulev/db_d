@@ -16,21 +16,18 @@ const options = [
     {title:'Альтернативная цветовая схема',val: "checkedC"},
 ];
 
-console.log((localStorage['templ'] === "on"));
 
 class LongMenu extends React.Component {
   constructor(props) {
       super(props);
 
       store.subscribe(() => {
-          switch (change) {
-              case "change_tab" :
-                  if ((localStorage['dumpTab'] !== localStorage['thisTab']) || (localStorage['dumpDriversTab'] !== localStorage['thisDriversTab'])) {
-                      this.setState({checkedB: false});
-                  }else {
-                      this.setState({checkedB: true});
-                  }
-                  break;
+          if(change === "change_tab" || change === "change_tab_drivers") {
+              if ((localStorage['dumpTab'] !== localStorage['thisTab']) || (localStorage['dumpDriversTab'] !== localStorage['thisDriversTab'])) {
+                  this.setState({checkedB: false});
+              }else {
+                  this.setState({checkedB: true});
+              }
           }
       });
   }

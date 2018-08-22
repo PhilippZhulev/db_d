@@ -63,6 +63,11 @@ function reduser (state = null, action) {
                 states: action.payload,
                 change: "change_tab"
             };
+        case "CHANGE_TAB_DRIVERS":
+            return {...state,
+                states: action.payload,
+                change: "change_tab_drivers"
+            };
         default:
             return state
     }

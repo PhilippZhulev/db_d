@@ -22,10 +22,27 @@ const styles = theme => ({
 });
 
 class SimpleSelect extends React.Component {
+  constructor(props) {
+      super(props);
+
+      store.subscribe(() => {
+          switch (change) {
+              case "change_tab" :
+                  if(getState.states === 5) {
+                      this.setState({seletDisable: true})
+                  }else {
+                      this.setState({seletDisable: false})
+                  }
+                  break;
+          }
+      });
+  }
+
   state = {
     age: '',
     name: 'hai',
-    selected: localStorage['dumpDriversTab'] || this.props.groups[0]
+    selected: localStorage['dumpDriversTab'] || this.props.groups[0],
+    seletDisable: (localStorage["dumpTab"] === 5)
   };
 
   handleChange = event => {
@@ -46,7 +63,7 @@ class SimpleSelect extends React.Component {
     const { classes } = this.props;
 
     return (
-        <form className={classes.root + " morda_select"} autoComplete="off">
+        <form className={classes.root + " morda_select" + ((this.state.seletDisable === true) ? " disabled" : "")} autoComplete="off">
             <style>
                 {"div.i_select {background: " + this.props.templ.primary.header + "!important}"}
             </style>
