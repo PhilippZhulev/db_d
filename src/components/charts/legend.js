@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component} from 'react';
 
 import injectSheet from 'react-jss';
 
@@ -40,17 +40,14 @@ const styles = {
         bottom: 43
     }
 }
-//@injectSheet(styles)
+
 class Legend extends Component {
-    constructor(props){
-        super(props);
-    }
+
     render() {
         function makeSvg(color) {return `<svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    id="svg8"
    version="1.1"
@@ -97,7 +94,7 @@ class Legend extends Component {
 </svg>
       `};
 
-        const {classes, children} = this.props;
+        const {classes} = this.props;
         const legendItems = this.props.options.colors.map((color,index)=>
             <div key={index} className={classes.legend_item}>
                 <span className = {classes.legend_text}>

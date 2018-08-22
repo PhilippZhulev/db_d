@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider from "../../components/material/slider/SimpleSlider";
-import store, {change, getState} from "../../reduser";
+import store from "../../reduser";
 
 class Drivers extends Component {
 

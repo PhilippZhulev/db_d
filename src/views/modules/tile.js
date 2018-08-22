@@ -5,9 +5,6 @@ import Model from '../../models/model.js';
 const tilesBind = Model.tilesBind();
 
 class Tile extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     setValue = (postfix, subscribtion, color) => {
         let values = [],

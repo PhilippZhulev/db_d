@@ -15,9 +15,6 @@ const styles = theme => ({
     formControl: {
         margin: theme.spacing.unit,
         minWidth: 120,
-    },
-    selectEmpty: {
-        marginTop: theme.spacing.unit * 2,
     }
 });
 
@@ -26,14 +23,12 @@ class SimpleSelect extends React.Component {
       super(props);
 
       store.subscribe(() => {
-          switch (change) {
-              case "change_tab" :
-                  if(getState.states === 5) {
-                      this.setState({seletDisable: true})
-                  }else {
-                      this.setState({seletDisable: false})
-                  }
-                  break;
+          if(change === "change_tab") {
+              if(getState.states === 5) {
+                  this.setState({seletDisable: true})
+              }else {
+                  this.setState({seletDisable: false})
+              }
           }
       });
   }
@@ -59,6 +54,12 @@ class SimpleSelect extends React.Component {
     });
   };
 
+  getMenuItem = (item, i) => {
+      if(this.state.selected !== item) {
+          return <MenuItem key={i} value={i}>{item}</MenuItem>
+      }
+  };
+
   render() {
     const { classes } = this.props;
 
@@ -72,18 +73,12 @@ class SimpleSelect extends React.Component {
                     value={this.state.age}
                     onChange={this.handleChange}
                     displayEmpty
-                    classes={this.props.classes}
+                    classes={{root: "root_select", selectMenu: "i_select"}}
                     className="sup_select"
                     name="driver_router"
                 >
                     <MenuItem disabled value="">{this.state.selected}</MenuItem>
-                    {
-                        this.props.groups.map((item,i) => {
-                            if(this.state.selected !== item) {
-                                return <MenuItem key={i} value={i}>{item}</MenuItem>
-                            }
-                        })
-                    }
+                    {this.props.groups.map((item,i) => this.getMenuItem(item, i))}
                 </Select>
             </FormControl>
 

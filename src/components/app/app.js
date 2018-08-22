@@ -41,9 +41,6 @@ class App extends Component {
             palette: this.state.theme
         });
 
-        console.log("Это логи блеать ===>");
-        console.log(this.state.table);
-
         store.subscribe(() => {
             switch (change) {
                 case "template" :

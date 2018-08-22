@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import SettingsIcon from '@material-ui/icons/Settings';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
-import store, {change, getState} from '../../../reduser';
+import store, {change} from '../../../reduser';
 import Checkbox from '@material-ui/core/Checkbox';
 import Star from '@material-ui/icons/Star';
 import StarBorder from '@material-ui/icons/StarBorder';

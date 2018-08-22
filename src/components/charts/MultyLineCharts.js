@@ -11,8 +11,6 @@ import Model from '../../models/model.js';
 class MultiLine extends Component {
     chartSettings = (out) => {
 
-        console.log(this.props.options.labelPosition);
-
         let amchartsSettings =
             {
 
