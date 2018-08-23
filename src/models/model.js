@@ -151,6 +151,17 @@ function Model() {
         return groups
     };
 
+    this.getCategory = function(arr) {
+        let category = [];
+        for ( let i = 0; i < arr.length; i++){
+            if(!category.includes(arr[i].category)){
+                category.push(arr[i].category);
+            }
+        }
+
+        return category
+    };
+
     this.parseTable = function(incStr) {
         let str = incStr;
         if (str === undefined){

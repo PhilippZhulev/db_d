@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Slider from "../../components/material/slider/SimpleSlider";
-import store from "../../reduser";
+import store, {change, getState} from "../../reduser";
+
+
 
 class Drivers extends Component {
 
     addDrivers = (target) => {
-        if(this.props.table === 5) {
+        if(this.props.index === 5) {
             return (
                 <div className="radioPanel">
                     <h3 style={{color: "#fff"}}>Тут огурчики!</h3>
@@ -13,7 +15,16 @@ class Drivers extends Component {
             )
         } else {
             return this.props.data.drivers.map((value, index) => {
-                if (value.group === target) {
+
+                let type = value.category;
+
+                if(this.props.groupsType === "category") {
+                    type = value.category
+                }else {
+                    type = value.group
+                }
+
+                if (type === target) {
                     return (
                         <Slider
                             key={value.id}
@@ -24,7 +35,7 @@ class Drivers extends Component {
                             max={+(value.max)}
                             value={+(value.value)}
                             step={+(value.step)}
-                            baseValue={+(value.baseValue)}
+                            baseValue={+(value.value)}
                         />
                     )
                 } else {
@@ -36,20 +47,31 @@ class Drivers extends Component {
         }
     };
 
-    route = (val) => {
+    route = (val, staticVal) => {
+
+        let type,
+            dataType;
+
+        if(this.props.groupsType === "category") {
+            type = this.props.categorys[val];
+            dataType = val;
+        }else {
+            type = this.props.groups[staticVal];
+            dataType = staticVal;
+        }
 
         store.dispatch({
             type: 'CHANGE_TAB_DRIVERS',
-            payload: val
+            payload: dataType
         });
 
-        return localStorage['thisDriversTab'] || this.props.groups[val];
+        return type;
     };
 
     render() {
         return (
             <div className={"slider_wrapper"}>
-                {this.addDrivers(this.route(this.props.routerValue))}
+                {this.addDrivers(this.route(this.props.routerValue, this.props.staticRouterValue))}
             </div>
         );
     }

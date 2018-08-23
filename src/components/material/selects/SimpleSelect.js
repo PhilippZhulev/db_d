@@ -24,10 +24,20 @@ class SimpleSelect extends React.Component {
 
       store.subscribe(() => {
           if(change === "change_tab") {
-              if(getState.states === 5) {
-                  this.setState({seletDisable: true})
-              }else {
-                  this.setState({seletDisable: false})
+              switch (getState.states) {
+                  case 0: this.driverActive("driver_router", this.props.categorys.indexOf(this.state.selected)); this.setState({seletDisable: false}); break;
+
+                  case 1: this.driverActive("driver_router", this.props.categorys.indexOf(this.state.selected)); this.setState({seletDisable: false}); break;
+
+                  case 2: this.driverActive("driver_router_group", 3, 3); this.setState({seletDisable: true}); break;
+
+                  case 3: this.driverActive("driver_router_group", 4, 4); this.setState({seletDisable: true}); break;
+
+                  case 4: this.driverActive("driver_router_group", 2, 2); this.setState({seletDisable: true}); break;
+
+                  case 5: this.setState({seletDisable: true}); break;
+
+                  default: this.setState({seletDisable: true});
               }
           }
       });
@@ -36,22 +46,35 @@ class SimpleSelect extends React.Component {
   state = {
     age: '',
     name: 'hai',
-    selected: localStorage['dumpDriversTab'] || this.props.groups[0],
-    seletDisable: (localStorage["dumpTab"] === 5)
+    type: "category",
+    selected: this.props.categorys[0],
+    seletDisable: (localStorage["dumpTab"] === 5 || localStorage["dumpTab"] === 0  || localStorage["dumpTab"] === 1)
+  };
+
+  driverActive = (name, val, stat) => {
+
+    let value = val;
+
+    if(typeof stat === "undefined") {
+        this.setState({[name]: val});
+        this.setState({selected: this.props.categorys[val]});
+        localStorage['thisDriversTab'] = this.props.categorys[val];
+    }else {
+        localStorage['thisDriversTab'] = this.props.groups[val];
+        value = stat;
+    }
+
+    store.dispatch({
+        type: 'CHANGE_DRIVER_ROUTER',
+        payload: {
+            name: name,
+            value: value
+        }
+    });
   };
 
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-    this.setState({ selected: this.props.groups[event.target.value] });
-    localStorage['thisDriversTab'] = this.props.groups[event.target.value];
-
-    store.dispatch({
-      type: 'CHANGE_DRIVER_ROUTER',
-      payload: {
-          name: event.target.name,
-          value: event.target.value
-      }
-    });
+    this.driverActive(event.target.name, event.target.value);
   };
 
   getMenuItem = (item, i) => {
@@ -78,7 +101,7 @@ class SimpleSelect extends React.Component {
                     name="driver_router"
                 >
                     <MenuItem disabled value="">{this.state.selected}</MenuItem>
-                    {this.props.groups.map((item,i) => this.getMenuItem(item, i))}
+                    {this.props.categorys.map((item,i) => this.getMenuItem(item, i))}
                 </Select>
             </FormControl>
 

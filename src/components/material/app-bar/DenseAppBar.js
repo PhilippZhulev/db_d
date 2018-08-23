@@ -42,6 +42,8 @@ function changeMenu(value) {
 function DenseAppBar(props) {
   const { classes } = props;
 
+  console.log(props);
+
   return (
     <div className={classes.root}>
       <AppBar className="header" style={{background: props.templ.primary.header}} position="static">
@@ -55,6 +57,7 @@ function DenseAppBar(props) {
           <Select
               templ={props.templ}
               groups={props.groups}
+              categorys={props.categorys}
           />
           <SettingsMenu/>
         </Toolbar>

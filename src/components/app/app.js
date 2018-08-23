@@ -27,10 +27,13 @@ class App extends Component {
             menu: " active",
             pos: localStorage['menuPosApp'] || "",
             category: 0,
+            categoryStatic: 0,
             keyBindings: true,
             data: window.obj.dummyData,
             preloader: false,
+            groupsType: "category",
             groups: Model.getGroups(window.obj.dummyData.drivers),
+            categorys: Model.getCategory(window.obj.dummyData.drivers),
             scroll: true,
             table: Model.parseTable(window.obj.dummyData.table),
             changePage: false,
@@ -72,7 +75,11 @@ class App extends Component {
                 case "driver_result" :
                     this.setState({preloader:  true});
                     window.updateState(["return_driver_to_lumira", String(getState.value.id+","+getState.value.val)], () => {
-                        this.setState({data:  window.obj.dummyData, preloader:  false, groups: Model.getGroups(window.obj.dummyData.drivers)});
+                        if(this.state.groupsType !== "groups") {
+                            this.setState({data:  window.obj.dummyData, preloader:  false, categorys: Model.getCategory(window.obj.dummyData.drivers)});
+                        }else {
+                            this.setState({data:  window.obj.dummyData, preloader:  false, groups: Model.getGroups(window.obj.dummyData.drivers)});
+                        }
                     });
                 break;
 
@@ -85,7 +92,13 @@ class App extends Component {
                 break;
 
                 case "drivers_router" :
-                    this.setState({category: getState.states.value});
+                    if(getState.states.name !== "driver_router_group") {
+                        this.setState({category: getState.states.value, groupsType: "category"});
+                    }else {
+                        this.setState({categoryStatic: getState.states.value, groupsType: "groups"});
+                    }
+
+                    console.log(this.state.groupsType);
                 break;
 
                 case "change_tab" :
@@ -143,7 +156,7 @@ class App extends Component {
         return (
             <MuiThemeProvider theme={this.myTheme}>
                 <div className={"app_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.tiles}}>
-                    <Header templ={this.state.theme} data={this.state.data} groups={this.state.groups}/>
+                    <Header templ={this.state.theme} data={this.state.data} groups={this.state.groups}  categorys={this.state.categorys}/>
                     <Tabs
                           templ={this.state.theme}
                           settings={{
@@ -175,7 +188,15 @@ class App extends Component {
                                 disablePointer: this.state.scroll,
                                 disableTouch: this.state.scroll
                             }}>
-                                <Drivers table={this.state.tables} data={this.state.data} routerValue={this.state.category} groups={this.state.groups} />
+                                <Drivers
+                                    index={this.state.tables}
+                                    data={this.state.data}
+                                    routerValue={this.state.category}
+                                    staticRouterValue={this.state.categoryStatic}
+                                    groups={this.state.groups}
+                                    categorys={this.state.categorys}
+                                    groupsType={this.state.groupsType}
+                                />
                             </ReactIScroll>
                         </div>
                         <div className="btns__panel">
