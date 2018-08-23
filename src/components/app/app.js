@@ -153,32 +153,51 @@ class App extends Component {
 
 
     render() {
-        console.log(this.state);
+        let bar = null;
 
-        let bar = 0;
         if(this.state.tables === 5){
             console.log("apply!");
-            bar = (<Drivers table={this.state.tables} data={this.state.data} routerValue={this.state.category} groups={this.state.groups} tab={this.state.tables} />);
+            bar = (
+                <Drivers
+                    index={this.state.tables}
+                    data={this.state.data}
+                    routerValue={this.state.category}
+                    staticRouterValue={this.state.categoryStatic}
+                    groups={this.state.groups}
+                    categorys={this.state.categorys}
+                    groupsType={this.state.groupsType}
+                    tab={this.state.tables}
+                />
+            );
         } else{
-            bar = (<ReactIScroll iScroll={iScroll} options={{
-                mouseWheel: false,
-                scrollbars: false,
-                freeScroll: true,
-                scrollX: false,
-                scrollY: true,
-                invertWheelDirection: true,
-                momentum: true,
-                click: true,
-                preventDefault: true,
-                disableMouse: this.state.scroll,
-                disablePointer: this.state.scroll,
-                disableTouch: this.state.scroll
-            }}>
-                <Drivers table={this.state.tables} data={this.state.data} routerValue={this.state.category} groups={this.state.groups} tab={this.state.tables} />
-            </ReactIScroll>);
+            bar = (
+                <ReactIScroll iScroll={iScroll} options={{
+                    mouseWheel: false,
+                    scrollbars: false,
+                    freeScroll: true,
+                    scrollX: false,
+                    scrollY: true,
+                    invertWheelDirection: true,
+                    momentum: true,
+                    click: true,
+                    preventDefault: true,
+                    disableMouse: this.state.scroll,
+                    disablePointer: this.state.scroll,
+                    disableTouch: this.state.scroll
+                }}>
+                    <Drivers
+                        index={this.state.tables}
+                        data={this.state.data}
+                        routerValue={this.state.category}
+                        staticRouterValue={this.state.categoryStatic}
+                        groups={this.state.groups}
+                        categorys={this.state.categorys}
+                        groupsType={this.state.groupsType}
+                        tab={this.state.tables}
+                    />
+                </ReactIScroll>
+            );
         }
-        console.log(bar);
-
 
         return (
             <MuiThemeProvider theme={this.myTheme}>
@@ -201,30 +220,6 @@ class App extends Component {
                         <Preloader bool={this.state.preloader} />
                     <div className={"app_menu_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.menu}}>
                         <div style={{height: "82%", margin:"0 -15px", overflowY: "hidden", overflowX: "visible"}}>
-                           <ReactIScroll iScroll={iScroll} options={{
-                                mouseWheel: false,
-                                scrollbars: false,
-                                freeScroll: true,
-                                scrollX: false,
-                                scrollY: true,
-                                invertWheelDirection: true,
-                                momentum: true,
-                                click: true,
-                                preventDefault: true,
-                                disableMouse: this.state.scroll,
-                                disablePointer: this.state.scroll,
-                                disableTouch: this.state.scroll
-                            }}>
-                                <Drivers
-                                    index={this.state.tables}
-                                    data={this.state.data}
-                                    routerValue={this.state.category}
-                                    staticRouterValue={this.state.categoryStatic}
-                                    groups={this.state.groups}
-                                    categorys={this.state.categorys}
-                                    groupsType={this.state.groupsType}
-                                />
-                            </ReactIScroll>
                             {bar}
                         </div>
                         <div className="btns__panel">

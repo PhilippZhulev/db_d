@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
@@ -27,12 +26,6 @@ let styles = theme => ({
 });
 
 class RadioButtonsGroup extends React.Component {
-    // state = {
-    //    CIR: "0",
-    //     COR: "0",
-    //     CAGR: "0",
-    //     NIM: "0"
-    // };
 
     constructor(props){
         super(props);
@@ -46,11 +39,7 @@ class RadioButtonsGroup extends React.Component {
 
     handleChangeNIM = event => {
         this.setState({ NIM: event.target.value });
-        //this.state.NIM = event.target.value;
-        console.log("Clicked radio");
-        console.log(this.state);
-        console.log("value:");
-        console.log(event.target.value);
+
         store.dispatch({
             type: "CHANGE_TABLE_SELECT",
             payload: {CIR: this.state.CIR, COR: this.state.COR, CAGR: this.state.CAGR, NIM: event.target.value}
@@ -58,10 +47,6 @@ class RadioButtonsGroup extends React.Component {
     };
     handleChangeCIR = event => {
         this.setState({ CIR: event.target.value });
-        console.log("Clicked radio");
-        console.log(this.state);
-        console.log("value:");
-        console.log(event.target.value);
         store.dispatch({
             type: "CHANGE_TABLE_SELECT",
             payload: {CIR: event.target.value, COR: this.state.COR, CAGR: this.state.CAGR, NIM: this.state.NIM}
@@ -69,10 +54,6 @@ class RadioButtonsGroup extends React.Component {
     };
     handleChangeCAGR = event => {
         this.setState({ CAGR: event.target.value });
-        console.log("Clicked radio");
-        console.log(this.state);
-        console.log("value:");
-        console.log(event.target.value);
         store.dispatch({
             type: "CHANGE_TABLE_SELECT",
             payload: {CIR: this.state.CIR, COR: this.state.COR, CAGR: event.target.value, NIM: this.state.NIM}
@@ -80,10 +61,6 @@ class RadioButtonsGroup extends React.Component {
     };
     handleChangeCOR = event => {
         this.setState({ COR: event.target.value });
-        console.log("Clicked radio");
-        console.log(this.state);
-        console.log("value:");
-        console.log(event.target.value);
         store.dispatch({
             type: "CHANGE_TABLE_SELECT",
             payload: {CIR: this.state.CIR, COR: event.target.value, CAGR: this.state.CAGR, NIM: this.state.NIM}

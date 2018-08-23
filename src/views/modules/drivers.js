@@ -6,7 +6,6 @@ import RadioButtonsGroup from "../../components/material/radio/SimpleButtons";
 class Drivers extends Component {
 
     addDrivers = (target) => {
-
         if(this.props.index === 5) {
             return (
                 <div className="radioPanel">
@@ -72,9 +71,7 @@ class Drivers extends Component {
     render() {
         if (this.props.tab === 5){
             return (
-
                 this.addDrivers(this.route(this.props.routerValue))
-
             );
         } else {
             return (
