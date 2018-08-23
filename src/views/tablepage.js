@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import Fade from "@material-ui/core/Fade";
+import Switch from '@material-ui/core/Switch';
+import store, {getState, change} from "../reduser";
+
 
 class TablePage extends Component {
+
+    handleChange = () => {
+        this.setState({gilad: !(this.state.gilad)});
+    };
 
     constructor(props) {
         super(props);
@@ -10,8 +17,20 @@ class TablePage extends Component {
             data: this.props.fluxData,
             funcs: ["PI","INC","OPEX","CIR","KOM","COR","CHIS"],
             templ: this.props.templ,
-            table: this.props.table
+            table: this.props.table,
+            opts: {
+                CIR: "32%",
+                COR: "1,5%",
+                CAGR: "13,0%",
+                NIM: "4,5%"
+            }
         };
+
+        store.subscribe(() => {
+            if(change === "change_table_select") {
+               this.setState({opts:getState.states});
+            }
+        });
     }
 
     tableConstructor = () => {
@@ -28,6 +47,7 @@ class TablePage extends Component {
 
             for (let j=0; j<this.state.table.CAGR.length;j++){
                 let stl = {};
+                let scale = "";
                 if ((i===0)&&(j===0)){
                     let first_header = 0;
                     let second_header = 0;
@@ -53,9 +73,16 @@ class TablePage extends Component {
                     row.push(<div className={"left_header first column"} key={Math.random()} style={((i < this.state.table.CIR.length - 1)&&(this.state.table.CIR[i] !== this.state.table.CIR[i + 1])) ? Object.assign(color,bottom_line) : color}>{this.state.table.CIR[i]}</div>);
                     row.push(<div className={"left_header second column"} key={Math.random()} style={((i < this.state.table.CIR.length - 1)&&(this.state.table.CIR[i] !== this.state.table.CIR[i + 1])) ? obj1 : right_line}>{this.state.table.COR[i]}</div>);
                 }
-                if ((i===5)&&(j===5)){
-                    stl = {color:"#727CF5", fontSize:"27px", backgroundColor:this.props.templ.primary.tableSelection};
-                } else if (((i<=5)&&(j===5))||((j<=5)&&(i===5))){
+                if ((this.state.table.data[i*this.state.table.CAGR.length+j].NIM === this.state.opts.NIM)&&(this.state.table.data[i*this.state.table.CAGR.length+j].CIR === this.state.opts.CIR)&&(this.state.table.data[i*this.state.table.CAGR.length+j].COR === this.state.opts.COR)&&(this.state.table.data[i*this.state.table.CAGR.length+j].CAGR === this.state.opts.CAGR)) {
+                    stl = {
+                        color: ((this.state.opts.NIM === "4,5%")&&(this.state.opts.CAGR === "13,0%")&&(this.state.opts.CIR === "32%")&&(this.state.opts.COR === "1,5%")) ? "#1ab394" : "#727CF5",
+                        backgroundColor: this.props.templ.primary.tableSelection,
+                    };
+                    scale = "selVal";
+                    console.log(this.state.opts);
+
+                // } else if (((this.state.table.data[i*this.state.table.CAGR.length+j].NIM === this.state.opts.NIM)&&(this.state.table.data[i*this.state.table.CAGR.length+j].CIR === this.state.opts.CIR))||((this.state.table.data[i*this.state.table.CAGR.length+j].COR === this.state.opts.COR)&&(this.state.table.data[i*this.state.table.CAGR.length+j].CAGR === this.state.opts.CAGR))){
+                } else if (((this.state.table.data[i*this.state.table.CAGR.length+j].NIM === this.state.opts.NIM)&&(this.state.table.data[i*this.state.table.CAGR.length+j].CAGR === this.state.opts.CAGR))||((this.state.table.data[i*this.state.table.CAGR.length+j].COR === this.state.opts.COR)&&(this.state.table.data[i*this.state.table.CAGR.length+j].CIR === this.state.opts.CIR))){
                     stl = {backgroundColor:this.props.templ.primary.tableSelection};
                 }
                 if ((i < this.state.table.CIR.length - 1)&&(this.state.table.CIR[i] !== this.state.table.CIR[i + 1])){
@@ -64,7 +91,9 @@ class TablePage extends Component {
                 if ((j < this.state.table.NIM.length - 1)&&(this.state.table.NIM[j] !== this.state.table.NIM[j + 1])){
                     stl = Object.assign(stl, right_line);
                 }
-                row.push(<div className={"column"} style={stl} key={i*this.state.table.CAGR.length+j}>{this.state.table.data[i*this.state.table.CAGR.length+j].value}</div>)
+                row.push(<div className={"column"} style={stl} key={i*this.state.table.CAGR.length+j}>
+                    <div className={scale}>{this.state.table.data[i*this.state.table.CAGR.length+j].value}</div>
+                </div>)
             }
             table.push(<div className={"row"} key={i}>{row}</div>)
         }

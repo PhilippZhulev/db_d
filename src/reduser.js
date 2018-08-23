@@ -54,6 +54,7 @@ function reduser (state = null, action) {
                 change: "scroll_stop"
             };
         case "SCROLL_START":
+            console.log("scroll start");
             return {...state,
                 states: action.payload,
                 change: "scroll_start"
@@ -67,6 +68,12 @@ function reduser (state = null, action) {
             return {...state,
                 states: action.payload,
                 change: "change_tab_drivers"
+            };
+        case "CHANGE_TABLE_SELECT":
+            console.log(action.payload);
+            return {...state,
+                states: action.payload,
+                change: "change_table_select"
             };
         default:
             return state

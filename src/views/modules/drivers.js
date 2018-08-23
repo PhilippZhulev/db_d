@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
 import Slider from "../../components/material/slider/SimpleSlider";
 import store from "../../reduser";
-import SwitchesGroup from "../../components/material/radio/SimpleButtons";
+import RadioButtonsGroup from "../../components/material/radio/SimpleButtons";
 
 class Drivers extends Component {
 
     addDrivers = (target) => {
         if(this.props.table === 5) {
+            // store.dispatch({
+            //     type: 'SCROLL_START',
+            //     payload: "default"
+            // });
             return (
                 <div className="radioPanel">
-                    <h3 style={{color: "#fff"}}>Тут огурчики!</h3>
-
-                    <SwitchesGroup />
+                    <div className={"radioTitle"} style={{color: "#fff"}}>Матрица эластичности</div>
+                    <RadioButtonsGroup />
                 </div>
             )
         } else {
             return this.props.data.drivers.map((value, index) => {
                 if (value.group === target) {
+                    // store.dispatch({
+                    //     type: 'SCROLL_STOP',
+                    //     payload: "default"
+                    // });
                     return (
                         <Slider
                             key={value.id}
@@ -31,6 +38,10 @@ class Drivers extends Component {
                         />
                     )
                 } else {
+                    // store.dispatch({
+                    //     type: 'SCROLL_START',
+                    //     payload: "default"
+                    // });
                     return (
                         <div key={index}/>
                     )
@@ -50,11 +61,20 @@ class Drivers extends Component {
     };
 
     render() {
-        return (
-            <div className={"slider_wrapper"}>
-                {this.addDrivers(this.route(this.props.routerValue))}
-            </div>
-        );
+        if (this.props.tab === 5){
+            console.log("HF<JNFQ!!!!");
+            return (
+
+                this.addDrivers(this.route(this.props.routerValue))
+
+            );
+        } else {
+            return (
+                <div className={"slider_wrapper"}>
+                    {this.addDrivers(this.route(this.props.routerValue))}
+                </div>
+            );
+        }
     }
 }
 
