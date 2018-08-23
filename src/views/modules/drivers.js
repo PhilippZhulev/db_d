@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import Slider from "../../components/material/slider/SimpleSlider";
-import store, {change, getState} from "../../reduser";
-
-
+import store from "../../reduser";
+import RadioButtonsGroup from "../../components/material/radio/SimpleButtons";
 
 class Drivers extends Component {
 
     addDrivers = (target) => {
+
         if(this.props.index === 5) {
             return (
                 <div className="radioPanel">
-                    <h3 style={{color: "#fff"}}>Тут огурчики!</h3>
+                    <div className={"radioTitle"} style={{color: "#fff"}}>Матрица эластичности</div>
+                    <RadioButtonsGroup />
                 </div>
             )
         } else {
@@ -69,11 +70,19 @@ class Drivers extends Component {
     };
 
     render() {
-        return (
-            <div className={"slider_wrapper"}>
-                {this.addDrivers(this.route(this.props.routerValue, this.props.staticRouterValue))}
-            </div>
-        );
+        if (this.props.tab === 5){
+            return (
+
+                this.addDrivers(this.route(this.props.routerValue))
+
+            );
+        } else {
+            return (
+                <div className={"slider_wrapper"}>
+                    {this.addDrivers(this.route(this.props.routerValue, this.props.staticRouterValue))}
+                </div>
+            );
+        }
     }
 }
 

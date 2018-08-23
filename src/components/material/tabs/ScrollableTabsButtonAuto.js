@@ -45,6 +45,18 @@ class ScrollableTabsButtonAuto extends React.Component {
           type: 'CHANGE_TAB',
           payload: value
       });
+      console.log("tab click! "+value);
+      if (value === 5){
+        store.dispatch({
+            type: 'SCROLL_STOP',
+            payload: "default"
+        });
+      } else{
+          store.dispatch({
+              type: 'SCROLL_START',
+              payload: "default"
+          });
+      }
   };
 
   render() {

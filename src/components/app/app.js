@@ -153,6 +153,33 @@ class App extends Component {
 
 
     render() {
+        console.log(this.state);
+
+        let bar = 0;
+        if(this.state.tables === 5){
+            console.log("apply!");
+            bar = (<Drivers table={this.state.tables} data={this.state.data} routerValue={this.state.category} groups={this.state.groups} tab={this.state.tables} />);
+        } else{
+            bar = (<ReactIScroll iScroll={iScroll} options={{
+                mouseWheel: false,
+                scrollbars: false,
+                freeScroll: true,
+                scrollX: false,
+                scrollY: true,
+                invertWheelDirection: true,
+                momentum: true,
+                click: true,
+                preventDefault: true,
+                disableMouse: this.state.scroll,
+                disablePointer: this.state.scroll,
+                disableTouch: this.state.scroll
+            }}>
+                <Drivers table={this.state.tables} data={this.state.data} routerValue={this.state.category} groups={this.state.groups} tab={this.state.tables} />
+            </ReactIScroll>);
+        }
+        console.log(bar);
+
+
         return (
             <MuiThemeProvider theme={this.myTheme}>
                 <div className={"app_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.tiles}}>
@@ -198,6 +225,7 @@ class App extends Component {
                                     groupsType={this.state.groupsType}
                                 />
                             </ReactIScroll>
+                            {bar}
                         </div>
                         <div className="btns__panel">
                             <Btn
