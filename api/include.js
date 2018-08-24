@@ -16,10 +16,13 @@ function Reactor() {
             };
 
         } catch (err) {
-
+            console.error(err);
             document.dispatchEvent(reactError);
 
         }
+
+        console.log("ДАТА ПЕРВОПРОХОДЕЦ ОСНОВАТЕЛЬ:");
+        console.log(obj.dummyData);
 
         //После парсинга JSON запускаем событие reactRun (Только если payload = START тоесть только при первой загрузке)
         if(obj.changeData.payload === "START") {

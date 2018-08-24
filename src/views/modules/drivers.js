@@ -1,22 +1,37 @@
 import React, { Component } from 'react';
 import Slider from "../../components/material/slider/SimpleSlider";
 import store from "../../reduser";
+import RadioButtonsGroup from "../../components/material/radio/SimpleButtons";
 
 class Drivers extends Component {
 
     addDrivers = (target) => {
-        if(this.props.table === 5) {
+        if(this.props.index === 5) {
             return (
                 <div className="radioPanel">
-                    <h3 style={{color: "#fff"}}>Тут огурчики!</h3>
+                    <div className={"radioTitle"} style={{color: "#fff"}}>Матрица эластичности</div>
+                    <RadioButtonsGroup
+                        table={this.props.table}
+                    />
                 </div>
             )
         } else {
             return this.props.data.drivers.map((value, index) => {
-                if (value.group === target) {
+
+                let type = value.category;
+
+                if(this.props.groupsType === "category") {
+                    type = value.category
+                }else {
+                    type = value.group
+                }
+
+                if (type === target) {
+                    //console.log(value.id);
                     return (
                         <Slider
-                            key={value.id}
+                            key={this.props.index*10000+value.id}
+                            //key={Math.random()}
                             driverId={value.id}
                             driverInd={index}
                             labelText={value.name}
@@ -24,7 +39,7 @@ class Drivers extends Component {
                             max={+(value.max)}
                             value={+(value.value)}
                             step={+(value.step)}
-                            baseValue={+(value.baseValue)}
+                            baseValue={+(value.value)}
                         />
                     )
                 } else {
@@ -36,22 +51,39 @@ class Drivers extends Component {
         }
     };
 
-    route = (val) => {
+    route = (val, staticVal) => {
+
+        let type,
+            dataType;
+
+        if(this.props.groupsType === "category") {
+            type = this.props.categorys[val];
+            dataType = val;
+        }else {
+            type = this.props.groups[staticVal];
+            dataType = staticVal;
+        }
 
         store.dispatch({
             type: 'CHANGE_TAB_DRIVERS',
-            payload: val
+            payload: dataType
         });
 
-        return localStorage['thisDriversTab'] || this.props.groups[val];
+        return type;
     };
 
     render() {
-        return (
-            <div className={"slider_wrapper"}>
-                {this.addDrivers(this.route(this.props.routerValue))}
-            </div>
-        );
+        if (this.props.tab === 5){
+            return (
+                this.addDrivers(this.route(this.props.routerValue))
+            );
+        } else {
+            return (
+                <div className={"slider_wrapper"}>
+                    {this.addDrivers(this.route(this.props.routerValue, this.props.staticRouterValue))}
+                </div>
+            );
+        }
     }
 }
 

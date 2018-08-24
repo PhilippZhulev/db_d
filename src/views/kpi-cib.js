@@ -35,9 +35,9 @@ class Cib extends Component {
     render() {
         return (
             <Fade in={true} timeout={{enter: 300, exit:300}}>
-            <div className="tiles_container">
-                {this.tiles(this.state)}
-            </div>
+                <div className="tiles_container">
+                    {this.tiles(this.state)}
+                </div>
             </Fade>
         )
     }
