@@ -16,7 +16,7 @@ function Reactor() {
             };
 
         } catch (err) {
-
+            console.error(err);
             document.dispatchEvent(reactError);
 
         }
