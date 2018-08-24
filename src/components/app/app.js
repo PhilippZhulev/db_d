@@ -44,6 +44,9 @@ class App extends Component {
             palette: this.state.theme
         });
 
+        console.log("ДАТА ВСЕОТЕЦ:");
+        console.log(window.obj.dummyData);
+
         store.subscribe(() => {
             switch (change) {
                 case "template" :
@@ -75,6 +78,16 @@ class App extends Component {
                 case "driver_result" :
                     this.setState({preloader:  true});
                     window.updateState(["return_driver_to_lumira", String(getState.value.id+","+getState.value.val)], () => {
+
+                        console.log("ДРАЙВЕРКИ");
+                        console.log(String(getState.value.id));
+                        console.log(getState.value.val);
+
+                        window.obj.dummyData.drivers[getState.value.id].value = getState.value.val;
+
+                        console.log("НОВЫЙ DATA");
+                        console.log(window.obj.dummyData);
+
                         if(this.state.groupsType !== "groups") {
                             this.setState({data:  window.obj.dummyData, preloader:  false, categorys: Model.getCategory(window.obj.dummyData.drivers)});
                         }else {
@@ -97,8 +110,6 @@ class App extends Component {
                     }else {
                         this.setState({categoryStatic: getState.states.value, groupsType: "groups"});
                     }
-
-                    console.log(this.state.groupsType);
                 break;
 
                 case "change_tab" :
