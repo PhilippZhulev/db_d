@@ -27,9 +27,11 @@ class Drivers extends Component {
                 }
 
                 if (type === target) {
+                    //console.log(value.id);
                     return (
                         <Slider
-                            key={value.id}
+                            key={this.props.index*10000+value.id}
+                            //key={Math.random()}
                             driverId={value.id}
                             driverInd={index}
                             labelText={value.name}
