@@ -178,6 +178,7 @@ class App extends Component {
                     categorys={this.state.categorys}
                     groupsType={this.state.groupsType}
                     tab={this.state.tables}
+                    table={this.state.table}
                 />
             );
         } else{

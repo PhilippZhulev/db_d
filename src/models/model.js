@@ -191,9 +191,13 @@ function Model() {
             oldNIM.push(arr[0][i]);
         }
         let CAGR = [];
+        let oldCAGR = [];
 
         for (let i = 1;i < arr[1].length; i++){
             CAGR.push(arr[1][i]);
+            if (!oldCAGR.includes(arr[1][i])){
+                oldCAGR.push(arr[1][i]);
+            }
         }
 
         let NIM = [];
@@ -206,6 +210,7 @@ function Model() {
         let CIR = [];
         let oldCIR = [];
         let COR = [];
+        let oldCOR = [];
         for (let i=3;i<arr.length;i++){
             let cirVal = (arr[i].length === arr[2].length) ? arr[i][0] : undefined;
             let corVal = (arr[i].length === arr[2].length) ? arr[i][1] : arr[i][0];
@@ -220,6 +225,9 @@ function Model() {
                 CIR.push(CIR[CIR.length-1]);
             }
             COR.push(corVal);
+            if (!oldCOR.includes(corVal)){
+                oldCOR.push(corVal);
+            }
         }
 
         arr.shift();
@@ -227,7 +235,23 @@ function Model() {
         arr.shift();
 
 
-        let table = {data:[], CIR:CIR, oldCIR:oldCIR, COR:COR, CAGR:CAGR,NIM:NIM, oldNIM:oldNIM};
+        let table = {
+            data:[],
+            CIR:CIR,
+            oldCIR:oldCIR,
+            COR:COR,
+            oldCOR:oldCOR,
+            CAGR:CAGR,
+            oldCAGR:oldCAGR,
+            NIM:NIM,
+            oldNIM:oldNIM,
+            defaultSel:{
+                CIR: String(oldCIR.indexOf("32%")),
+                COR: String(oldCOR.indexOf("1,5%")),
+                CAGR: String(oldCAGR.indexOf("13,0%")),
+                NIM: String(oldNIM.indexOf("4,5%"))
+            }
+        };
         for (let i = 0; i < CIR.length; i++){
             for (let j = 0; j < CAGR.length; j++){
                 let cell = {};
@@ -239,6 +263,10 @@ function Model() {
                 table.data.push(cell);
             }
         }
+        console.log("oldCOR:");
+        console.log(oldCOR);
+        console.log("oldCAGR:");
+        console.log(oldCAGR);
         return table
     }
 }

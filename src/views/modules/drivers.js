@@ -10,7 +10,9 @@ class Drivers extends Component {
             return (
                 <div className="radioPanel">
                     <div className={"radioTitle"} style={{color: "#fff"}}>Матрица эластичности</div>
-                    <RadioButtonsGroup />
+                    <RadioButtonsGroup
+                        table={this.props.table}
+                    />
                 </div>
             )
         } else {
