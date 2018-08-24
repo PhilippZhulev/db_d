@@ -89,9 +89,9 @@ class App extends Component {
                         console.log(window.obj.dummyData);
 
                         if(this.state.groupsType !== "groups") {
-                            this.setState({data:  window.obj.dummyData, preloader:  false, categorys: Model.getCategory(window.obj.dummyData.drivers)});
+                            this.setState({data:  window.obj.dummyData, preloader:  false});//, categorys: Model.getCategory(window.obj.dummyData.drivers)});
                         }else {
-                            this.setState({data:  window.obj.dummyData, preloader:  false, groups: Model.getGroups(window.obj.dummyData.drivers)});
+                            this.setState({data:  window.obj.dummyData, preloader:  false});//, groups: Model.getGroups(window.obj.dummyData.drivers)});
                         }
                     });
                 break;
@@ -178,6 +178,7 @@ class App extends Component {
                     categorys={this.state.categorys}
                     groupsType={this.state.groupsType}
                     tab={this.state.tables}
+                    table={this.state.table}
                 />
             );
         } else{

@@ -6,7 +6,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import store, {change} from '../../../reduser';
+import store, {getState, change} from '../../../reduser';
 
 let styles = theme => ({
     root: {
@@ -30,11 +30,23 @@ class RadioButtonsGroup extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            CIR: "32%",
-            COR: "1,5%",
-            CAGR: "13,0%",
-            NIM: "4,5%"
+            CIR: this.props.table.defaultSel.CIR,
+            COR: this.props.table.defaultSel.COR,
+            CAGR: this.props.table.defaultSel.CAGR,
+            NIM: this.props.table.defaultSel.NIM,
         };
+        store.subscribe(() => {
+            if(change === "buttons_reassign") {
+                this.setState(
+                    {
+                        CIR: getState.states.CIR,
+                        COR: getState.states.COR,
+                        CAGR: getState.states.CAGR,
+                        NIM: getState.states.NIM,
+                    }
+                );
+            }
+        });
     };
 
     handleChangeNIM = event => {
@@ -82,9 +94,19 @@ class RadioButtonsGroup extends React.Component {
                         value={this.state.NIM}
                         onChange={this.handleChangeNIM}
                     >
-                        <FormControlLabel className={classes.label} value="4,25%" control={<Radio className={classes.radio}/>} label="4,25%" />
-                        <FormControlLabel className={classes.label} value="4,5%" control={<Radio className={classes.radio}/>} label="4,5%" />
-                        <FormControlLabel className={classes.label} value="4,75%" control={<Radio className={classes.radio}/>} label="4,75%" />
+                        {this.props.table.oldNIM.map(
+                            (value,index)=>{
+                                return(
+                                    <FormControlLabel
+                                        className={classes.label}
+                                        key={index}
+                                        value={String(index)}
+                                        control={<Radio className={classes.radio}/>}
+                                        label={value}
+                                    />
+                                )
+                            }
+                            )}
                     </RadioGroup>
                 </FormControl>
                 <FormControl component="fieldset" className={classes.formControl}>
@@ -96,10 +118,19 @@ class RadioButtonsGroup extends React.Component {
                         value={this.state.CAGR}
                         onChange={this.handleChangeCAGR}
                     >
-                        <FormControlLabel className={classes.label} value="12,0%" control={<Radio className={classes.radio}/>} label="12,0%" />
-                        <FormControlLabel className={classes.label} value="13,0%" control={<Radio className={classes.radio}/>} label="13,0%" />
-                        <FormControlLabel className={classes.label} value="10,2%" control={<Radio className={classes.radio}/>} label="10,2%" />
-                        <FormControlLabel className={classes.label} value="16,0%" control={<Radio className={classes.radio}/>} label="16,0%" />
+                        {this.props.table.oldCAGR.map(
+                            (value,index)=>{
+                                return(
+                                    <FormControlLabel
+                                        className={classes.label}
+                                        key={index}
+                                        value={String(index)}
+                                        control={<Radio className={classes.radio}/>}
+                                        label={value}
+                                    />
+                                )
+                            }
+                        )}
                     </RadioGroup>
                 </FormControl>
                 </div>
@@ -113,10 +144,19 @@ class RadioButtonsGroup extends React.Component {
                         value={this.state.CIR}
                         onChange={this.handleChangeCIR}
                     >
-                        <FormControlLabel className={classes.label} value="31%" control={<Radio className={classes.radio}/>} label="31%" />
-                        <FormControlLabel className={classes.label} value="32%" control={<Radio className={classes.radio}/>} label="32%" />
-                        <FormControlLabel className={classes.label} value="33%" control={<Radio className={classes.radio}/>} label="33%" />
-                        <FormControlLabel className={classes.label} value="34%" control={<Radio className={classes.radio}/>} label="34%" />
+                        {this.props.table.oldCIR.map(
+                            (value,index)=>{
+                                return(
+                                    <FormControlLabel
+                                        className={classes.label}
+                                        key={index}
+                                        value={String(index)}
+                                        control={<Radio className={classes.radio}/>}
+                                        label={value}
+                                    />
+                                )
+                            }
+                        )}
                     </RadioGroup>
                 </FormControl>
                 <FormControl component="fieldset" className={classes.formControl}>
@@ -128,11 +168,19 @@ class RadioButtonsGroup extends React.Component {
                         value={this.state.COR}
                         onChange={this.handleChangeCOR}
                     >
-                        <FormControlLabel className={classes.label} value="1,9%" control={<Radio className={classes.radio}/>} label="1,9%" />
-                        <FormControlLabel className={classes.label} value="1,7%" control={<Radio className={classes.radio}/>} label="1,7%" />
-                        <FormControlLabel className={classes.label} value="1,5%" control={<Radio className={classes.radio}/>} label="1,5%" />
-                        <FormControlLabel className={classes.label} value="1,0%" control={<Radio className={classes.radio}/>} label="1,0%" />
-                        <FormControlLabel className={classes.label} value="1,2%" control={<Radio className={classes.radio}/>} label="1,2%" />
+                        {this.props.table.oldCOR.map(
+                            (value,index)=>{
+                                return(
+                                    <FormControlLabel
+                                        className={classes.label}
+                                        key={index}
+                                        value={String(index)}
+                                        control={<Radio className={classes.radio}/>}
+                                        label={value}
+                                    />
+                                )
+                            }
+                        )}
                     </RadioGroup>
                 </FormControl>
                 </div>

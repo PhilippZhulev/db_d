@@ -10,7 +10,9 @@ class Drivers extends Component {
             return (
                 <div className="radioPanel">
                     <div className={"radioTitle"} style={{color: "#fff"}}>Матрица эластичности</div>
-                    <RadioButtonsGroup />
+                    <RadioButtonsGroup
+                        table={this.props.table}
+                    />
                 </div>
             )
         } else {
@@ -25,9 +27,11 @@ class Drivers extends Component {
                 }
 
                 if (type === target) {
+                    //console.log(value.id);
                     return (
                         <Slider
-                            key={value.id}
+                            key={this.props.index*10000+value.id}
+                            //key={Math.random()}
                             driverId={value.id}
                             driverInd={index}
                             labelText={value.name}

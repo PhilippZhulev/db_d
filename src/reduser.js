@@ -70,10 +70,14 @@ function reduser (state = null, action) {
                 change: "change_tab_drivers"
             };
         case "CHANGE_TABLE_SELECT":
-            console.log(action.payload);
             return {...state,
                 states: action.payload,
                 change: "change_table_select"
+            };
+        case "BUTTONS_REASSIGN":
+            return {...state,
+                states: action.payload,
+                change: "buttons_reassign"
             };
         default:
             return state
