@@ -76,9 +76,9 @@ class App extends Component {
                     this.setState({preloader:  true});
                     window.updateState(["return_driver_to_lumira", String(getState.value.id+","+getState.value.val)], () => {
                         if(this.state.groupsType !== "groups") {
-                            this.setState({data:  window.obj.dummyData, preloader:  false, categorys: Model.getCategory(window.obj.dummyData.drivers)});
+                            this.setState({data:  window.obj.dummyData, preloader:  false});//, categorys: Model.getCategory(window.obj.dummyData.drivers)});
                         }else {
-                            this.setState({data:  window.obj.dummyData, preloader:  false, groups: Model.getGroups(window.obj.dummyData.drivers)});
+                            this.setState({data:  window.obj.dummyData, preloader:  false});//, groups: Model.getGroups(window.obj.dummyData.drivers)});
                         }
                     });
                 break;
