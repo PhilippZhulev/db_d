@@ -6,7 +6,7 @@ import RadioButtonsGroup from "../../components/material/radio/SimpleButtons";
 class Drivers extends Component {
 
     addDrivers = (target) => {
-        if(localStorage["thisTab"] === "5" || this.props.index === 5) {
+        if(this.props.index === 5) {
             return (
                 <div className="radioPanel">
                     <div className={"radioTitle"} style={{color: "#fff"}}>Матрица эластичности</div>
@@ -56,19 +56,10 @@ class Drivers extends Component {
             dataType;
 
         if(this.props.groupsType === "category") {
-            if(val === 0) {
-                type = localStorage["dumpDriversTab"] || this.props.categorys[val];
-            }else {
-                type = this.props.categorys[val];
-            }
+            type = this.props.categorys[val];
             dataType = val;
         }else {
-            if(staticVal === 0) {
-                type = localStorage["dumpDriversTab"] || this.props.groups[staticVal];
-            }else {
-                type = this.props.groups[staticVal];
-            }
-
+            type = this.props.groups[staticVal];
             dataType = staticVal;
         }
 

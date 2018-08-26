@@ -40,10 +40,6 @@ class App extends Component {
             tables: localStorage["dumpTab"] || 0
         };
 
-        if(localStorage["dumpDriversTab"] === "CIB" || localStorage["dumpDriversTab"] === "РБ" || localStorage["dumpDriversTab"] === "КБ") {
-            this.state.groupsType = "groups";
-        }
-
         this.myTheme = createMuiTheme({
             palette: this.state.theme
         });
@@ -175,7 +171,7 @@ class App extends Component {
     render() {
         let bar = null;
 
-        if(localStorage["thisTab"] === "5" || this.state.tables === 5){
+        if(this.state.tables === 5){
             bar = (
                 <Drivers
                     index={this.state.tables}
