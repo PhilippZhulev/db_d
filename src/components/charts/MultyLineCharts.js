@@ -91,8 +91,8 @@ class MultiLine extends Component {
         let b = amchartsSettings.graphs[1];
         let c = amchartsSettings.graphs[2];
         amchartsSettings.graphs[0] = a;
-        amchartsSettings.graphs[1] = b;
-        amchartsSettings.graphs[2] = c;
+        amchartsSettings.graphs[1] = c;
+        amchartsSettings.graphs[2] = b;
         console.log("-------------");
         console.log(amchartsSettings);
         console.log("-------------");
