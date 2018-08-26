@@ -47,7 +47,7 @@ class SimpleSelect extends React.Component {
     age: '',
     name: 'hai',
     type: "category",
-    selected: this.props.categorys[0],
+    selected: localStorage["dumpDriversTab"] || this.props.categorys[0],
     seletDisable: (localStorage["dumpTab"] === 5 || localStorage["dumpTab"] === 0  || localStorage["dumpTab"] === 1)
   };
 
