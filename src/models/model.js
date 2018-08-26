@@ -94,7 +94,7 @@ function Model() {
                 mera: "%",
             },
             CHIS:{
-                title: "Численность ПАО",
+                title: "Численность",
                 mera: "тыс.чел.",
             },
             OPEX_op:{
