@@ -167,7 +167,6 @@ class App extends Component {
         let bar = null;
 
         if(this.state.tables === 5){
-            console.log("apply!");
             bar = (
                 <Drivers
                     index={this.state.tables}
