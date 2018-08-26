@@ -6,7 +6,7 @@ import RadioButtonsGroup from "../../components/material/radio/SimpleButtons";
 class Drivers extends Component {
 
     addDrivers = (target) => {
-        if(this.props.index === 5) {
+        if(localStorage["thisTab"] === "5" || this.props.index === 5) {
             return (
                 <div className="radioPanel">
                     <div className={"radioTitle"} style={{color: "#fff"}}>Матрица эластичности</div>
@@ -52,10 +52,12 @@ class Drivers extends Component {
 
     route = (val, staticVal) => {
 
+        if(localStorage["dumpDriversTab"] === "undefined") {
+            localStorage.removeItem('dumpDriversTab');
+        }
+
         let type,
             dataType;
-
-        console.log(this.props.groupsType);
 
         if(this.props.groupsType === "category") {
             if(val === 0) {

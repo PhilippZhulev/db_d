@@ -40,6 +40,13 @@ class App extends Component {
             tables: localStorage["dumpTab"] || 0
         };
 
+        localStorage["thisTab"] = localStorage["dumpTab"];
+
+
+        if(localStorage["dumpDriversTab"] === "CIB" || localStorage["dumpDriversTab"] === "РБ" || localStorage["dumpDriversTab"] === "КБ") {
+            this.state.groupsType = "groups";
+        }
+
         this.myTheme = createMuiTheme({
             palette: this.state.theme
         });
@@ -83,7 +90,12 @@ class App extends Component {
                         console.log(String(getState.value.id));
                         console.log(getState.value.val);
 
-                        window.obj.dummyData.drivers[getState.value.id].value = getState.value.val;
+                        for (let i = 0; i < window.obj.dummyData.drivers.length; i++){
+                            if (window.obj.dummyData.drivers[i].id === getState.value.id){
+                                window.obj.dummyData.drivers[i].value = getState.value.val;
+                                break
+                            }
+                        }
 
                         console.log("НОВЫЙ DATA");
                         console.log(window.obj.dummyData);
@@ -166,7 +178,7 @@ class App extends Component {
     render() {
         let bar = null;
 
-        if(this.state.tables === 5){
+        if(localStorage["thisTab"] === "5" || this.state.tables === 5){
             bar = (
                 <Drivers
                     index={this.state.tables}
