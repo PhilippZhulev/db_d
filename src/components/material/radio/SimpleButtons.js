@@ -86,7 +86,7 @@ class RadioButtonsGroup extends React.Component {
             <div className={classes.root}>
                 <div className={"group"}>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend" style={{color: "white"}}>NIM</FormLabel>
+                    <FormLabel component="legend" style={{color: "white",textDecorationLine: "underline"}}>NIM</FormLabel>
                     <RadioGroup
                         aria-label="Gender"
                         name="gender1"
@@ -110,7 +110,7 @@ class RadioButtonsGroup extends React.Component {
                     </RadioGroup>
                 </FormControl>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend" style={{color: "white"}}>CAGR</FormLabel>
+                    <FormLabel component="legend" style={{color: "white",textDecorationLine: "underline"}}>CAGR</FormLabel>
                     <RadioGroup
                         aria-label="Gender"
                         name="gender1"
@@ -136,7 +136,7 @@ class RadioButtonsGroup extends React.Component {
                 </div>
                 <div className={"group"}>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend" style={{color: "white"}}>CIR</FormLabel>
+                    <FormLabel component="legend" style={{color: "white",textDecorationLine: "underline"}}>CIR</FormLabel>
                     <RadioGroup
                         aria-label="Gender"
                         name="gender1"
@@ -160,7 +160,7 @@ class RadioButtonsGroup extends React.Component {
                     </RadioGroup>
                 </FormControl>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend" style={{color: "white"}}>COR</FormLabel>
+                    <FormLabel component="legend" style={{color: "white",textDecorationLine: "underline"}}>COR</FormLabel>
                     <RadioGroup
                         aria-label="Gender"
                         name="gender1"
