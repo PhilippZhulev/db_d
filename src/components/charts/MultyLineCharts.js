@@ -88,6 +88,16 @@ class MultiLine extends Component {
 
             );
         }
+        //меняем графики местами
+        console.log("------");
+        //let a = amchartsSettings.graphs[0];
+        let b = amchartsSettings.graphs[1];
+        let c = amchartsSettings.graphs[2];
+        amchartsSettings.graphs[0] = b;
+        amchartsSettings.graphs[1] = c;
+        //amchartsSettings.graphs[2] = a;
+
+
 
         amchartsSettings.dataProvider = Model.chartReInitZero(this.props.data);
 
