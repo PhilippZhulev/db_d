@@ -120,7 +120,7 @@ class TablePage extends Component {
                     scale = "selVal";
                 }
                 row.push(<div className={"column"} style={stl} key={i*this.state.table.CAGR.length+j}>
-                    <div className={scale} onTouchStart={() => this.handleTouch(i,j)}>{this.state.table.data[i*this.state.table.CAGR.length+j].value}</div>
+                    <div className={scale} onClick={() => this.handleTouch(i,j)}>{this.state.table.data[i*this.state.table.CAGR.length+j].value}</div>
                 </div>)
             }
             table.push(<div className={"row"} key={i}>{row}</div>)

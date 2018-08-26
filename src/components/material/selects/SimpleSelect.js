@@ -31,9 +31,9 @@ class SimpleSelect extends React.Component {
 
                   case 2: this.driverActive("driver_router_group", 3, 3); this.setState({seletDisable: true}); break;
 
-                  case 3: this.driverActive("driver_router_group", 4, 4); this.setState({seletDisable: true}); break;
+                  case 3: this.driverActive("driver_router_group", 2, 2); this.setState({seletDisable: true}); break;
 
-                  case 4: this.driverActive("driver_router_group", 2, 2); this.setState({seletDisable: true}); break;
+                  case 4: this.driverActive("driver_router_group", 1, 1); this.setState({seletDisable: true}); break;
 
                   case 5: this.setState({seletDisable: true}); break;
 
@@ -78,7 +78,7 @@ class SimpleSelect extends React.Component {
   };
 
   getMenuItem = (item, i) => {
-      if(this.state.selected !== item) {
+      if(this.state.selected !== item && item !== "Не присвоено") {
           return <MenuItem key={i} value={i}>{item}</MenuItem>
       }
   };
