@@ -22,7 +22,9 @@ class SimpleSelect extends React.Component {
   constructor(props) {
       super(props);
 
+
       store.subscribe(() => {
+
           if(change === "change_tab") {
               switch (getState.states) {
                   case 0: this.driverActive("driver_router", this.props.categorys.indexOf(this.state.selected)); this.setState({seletDisable: false}); break;

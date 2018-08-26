@@ -38,7 +38,7 @@ class Drivers extends Component {
                             max={+(value.max)}
                             value={+(value.value)}
                             step={+(value.step)}
-                            baseValue={+(value.value)}
+                            baseValue={+(value.baseValue)}
                         />
                     )
                 } else {
@@ -51,10 +51,6 @@ class Drivers extends Component {
     };
 
     route = (val, staticVal) => {
-
-        if(localStorage["dumpDriversTab"] === "undefined") {
-            localStorage.removeItem('dumpDriversTab');
-        }
 
         let type,
             dataType;
