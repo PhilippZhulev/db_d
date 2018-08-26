@@ -34,7 +34,7 @@ class App extends Component {
             groupsType: "category",
             groups: Model.getGroups(window.obj.dummyData.drivers),
             categorys: Model.getCategory(window.obj.dummyData.drivers),
-            scroll: true,
+            scroll: false,
             table: Model.parseTable(window.obj.dummyData.table),
             changePage: false,
             tables: localStorage["dumpTab"] || 0
