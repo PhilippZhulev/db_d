@@ -55,11 +55,22 @@ class Drivers extends Component {
         let type,
             dataType;
 
+        console.log(this.props.groupsType);
+
         if(this.props.groupsType === "category") {
-            type = this.props.categorys[val];
+            if(val === 0) {
+                type = localStorage["dumpDriversTab"] || this.props.categorys[val];
+            }else {
+                type = this.props.categorys[val];
+            }
             dataType = val;
         }else {
-            type = this.props.groups[staticVal];
+            if(staticVal === 0) {
+                type = localStorage["dumpDriversTab"] || this.props.groups[staticVal];
+            }else {
+                type = this.props.groups[staticVal];
+            }
+
             dataType = staticVal;
         }
 

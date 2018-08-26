@@ -80,7 +80,7 @@ class LongMenu extends React.Component {
                 localStorage['dumpTab'] = localStorage['thisTab'];
                 localStorage['dumpDriversTab'] = localStorage['thisDriversTab'];
             }else {
-                localStorage['dumpTab'] = null;
+                localStorage.removeItem('dumpTab');
                 localStorage['dumpDriversTab'] = "Персонал";
             }
       }
