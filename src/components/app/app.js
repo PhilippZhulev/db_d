@@ -40,9 +40,6 @@ class App extends Component {
             tables: localStorage["dumpTab"] || 0
         };
 
-        localStorage["thisTab"] = localStorage["dumpTab"];
-
-
         if(localStorage["dumpDriversTab"] === "CIB" || localStorage["dumpDriversTab"] === "РБ" || localStorage["dumpDriversTab"] === "КБ") {
             this.state.groupsType = "groups";
         }
@@ -91,7 +88,7 @@ class App extends Component {
                         console.log(getState.value.val);
 
                         for (let i = 0; i < window.obj.dummyData.drivers.length; i++){
-                            if (window.obj.dummyData.drivers[i].id === getState.value.id){
+                            if (window.obj.dummyData.drivers[i].id === getState.value.id) {
                                 window.obj.dummyData.drivers[i].value = getState.value.val;
                                 break
                             }

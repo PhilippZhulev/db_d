@@ -81,7 +81,7 @@ class LongMenu extends React.Component {
                 localStorage['dumpDriversTab'] = localStorage['thisDriversTab'];
             }else {
                 localStorage.removeItem('dumpTab');
-                localStorage.removeItem('dumpDriversTab');
+                localStorage['dumpDriversTab'] = "Персонал";
             }
       }
 
@@ -136,14 +136,14 @@ class LongMenu extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          <MenuItem>
-            <FormControlLabel
-                control={
-                    <Checkbox checked={this.triggerChange("checkedB")} onChange={(e) => this.chngeList("checkedB", e, "checkedB")} icon={<StarBorder />} checkedIcon={<Star />} value="checkedB" />
-                }
-                label={"Запомнить расположение"}
-            />
-          </MenuItem>
+          {/*<MenuItem>*/}
+            {/*<FormControlLabel*/}
+                {/*control={*/}
+                    {/*<Checkbox checked={this.triggerChange("checkedB")} onChange={(e) => this.chngeList("checkedB", e, "checkedB")} icon={<StarBorder />} checkedIcon={<Star />} value="checkedB" />*/}
+                {/*}*/}
+                {/*label={"Запомнить расположение"}*/}
+            {/*/>*/}
+          {/*</MenuItem>*/}
           {options.map(option => (
             <MenuItem key={option.title} selected={option.title === 'Pyxis'}>
                 <FormControlLabel
