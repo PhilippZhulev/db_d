@@ -84,22 +84,19 @@ class MultiLine extends Component {
                     "labelPosition": this.props.options.labelPosition[i],
                     "visibleInLegend": false
                 }
-
-
             );
+
         }
-        //меняем графики местами
-        console.log("------");
-        //let a = amchartsSettings.graphs[0];
-        let b = amchartsSettings.graphs[1];
-        let c = amchartsSettings.graphs[2];
-        amchartsSettings.graphs[0] = b;
-        amchartsSettings.graphs[1] = c;
-        //amchartsSettings.graphs[2] = a;
-
-
-
-        amchartsSettings.dataProvider = Model.chartReInitZero(this.props.data);
+        let a = amchartsSettings.graphs[1];
+        let b = amchartsSettings.graphs[2];
+        amchartsSettings.graphs.shift();
+        amchartsSettings.graphs.shift();
+        amchartsSettings.graphs.push(b);
+        amchartsSettings.graphs.push(a);
+        console.log("-------------");
+        console.log(amchartsSettings);
+        console.log("-------------");
+       amchartsSettings.dataProvider = Model.chartReInitZero(this.props.data);
 
         out.push(
             <AmCharts.React
