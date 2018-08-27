@@ -35,7 +35,7 @@ const darkTheme = {
         tilesText: "#fff",
         menu: "#1f272d",
         header: "#1f272d",
-        textValueMain: "#a1abb8",
+        textValueMain: "#FFFFFF",//"#a1abb8",
         textValueNormal: "#6d7b87",
         tableSelection: "rgba(117, 117, 117, 0.5)",
         graphText: "#6d7b87",

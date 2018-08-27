@@ -131,17 +131,37 @@ function Model() {
     this.chartsGraphs = function (graphs, data) {
         for (let key in this.chartReInitZero(data)[0]){
             if(this.chartReInitZero(data)[0].hasOwnProperty(key)) {
-                if (key !== "category") {
-                    if (key === "model"){
-                        graphs.push("base");
-                    }else
-                    if (key === "base"){
-                        graphs.push("model");
-                    }else
-                    if (key === "strategy"){
+                switch (key) {
+                    case "strategy" :
                         graphs.push("strategy");
-                    }
+                        break;
+
+                    case "base" :
+                        graphs.push("model");
+                        break;
+
+                    case "model" :
+                        graphs.push("base");
+                        break;
+                   // default: ;
                 }
+
+
+                // if (key !== "category") {
+                //     if (key === "model"){
+                //         graphs.push("base");
+                //     }else
+                //     if (key === "base"){
+                //         graphs.push("model");
+                //     }else
+                //     if (key === "strategy"){
+                //         graphs.push("strategy");
+                //     }
+                // }
+
+
+
+
             }
         }
 
@@ -271,10 +291,10 @@ function Model() {
                 table.data.push(cell);
             }
         }
-        console.log("oldCOR:");
-        console.log(oldCOR);
-        console.log("oldCAGR:");
-        console.log(oldCAGR);
+        // console.log("oldCOR:");
+        // console.log(oldCOR);
+        // console.log("oldCAGR:");
+        // console.log(oldCAGR);
         return table
     }
 }
