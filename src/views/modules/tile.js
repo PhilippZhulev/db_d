@@ -10,23 +10,6 @@ class Tile extends Component {
         let values = [],
             tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data);
 
-        if(this.props.page!=="RB"){
-
-        if(!(this.props.page==="ALL"||this.props.page==="OPEX"||this.props.page==="CB")){
-            color = this.props.templ.primary.textValueNormal;
-            values.push(<div key={1} className={"vLine"+postfix} />);
-            values.push(
-                <div key={2} className={"tile_item__value"+postfix+" value_flex"} style={{color: this.props.templ.primary.textValueMain}}>
-                    <div>
-                        {tileCalc.mainValAll}
-                    </div>
-                    <div>
-                        <span className="subscribe" style={{color: this.props.templ.primary.textValueNormal}}>{"Группа"}</span>
-                        <span style={{color: this.props.templ.primary.textValueNormal}}>{tileCalc.smallValAll}</span>
-                    </div>
-                </div>
-            );
-        }
         values.unshift(
             <div key={0} className={"tile_item__value"+postfix+" value_flex"} style={{color: this.props.templ.primary.textValueMain}}>
                 <div>
@@ -42,9 +25,7 @@ class Tile extends Component {
         );
 
         return values
-        } else{
-            return <div className={"no_value_div"} />
-        }
+
     };
 
     render(){
@@ -69,7 +50,7 @@ class Tile extends Component {
                             colors: (this.props.isSmall) ? ["#727CF5","#1ab394"] : ["#f8ac59","#727CF5","#1ab394"],
                             legend: (!this.props.isSmall),
                             type: "smoothedLine",
-                            labelPosition:(!this.props.isSmall) ? ["top", "top"] : ["bottom", "top"],
+                            labelPosition:(this.props.isSmall) ? ["top","bottom"] : ["top","top", "bottom"],
                             thickness: (this.props.isSmall) ? 1 : 2,
                             isBig: (!this.props.isSmall)
                         }}
