@@ -39,12 +39,6 @@ class ScrollableTabsButtonAuto extends React.Component {
   handleChange = (event, value) => {
     this.setState({ value });
 
-<<<<<<< HEAD
-    //localStorage['thisTab'] = value;
-=======
-      localStorage['thisTab'] = value;
->>>>>>> Zhulev
-
       store.dispatch({
           type: 'CHANGE_TAB',
           payload: value
