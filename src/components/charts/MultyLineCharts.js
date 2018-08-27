@@ -72,7 +72,7 @@ class MultiLine extends Component {
                     "bulletSize": 3,
                     "bulletBorderThickness": 0,
                     "showBalloon": false,
-                    "color": this.props.templ.primary.graphText,
+                    "color": this.props.options.colors[i],//this.props.templ.primary.graphText,
                     "id": "AmGraph-"+i,
                     "fontSize": 12,
                     "showAllValueLabels": true,
