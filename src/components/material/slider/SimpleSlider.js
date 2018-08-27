@@ -69,7 +69,7 @@ class SimpleSlider extends React.Component {
 
         store.subscribe(() => {
             if(change === "default_drivers") {
-                this.handleChange({}, this.props.value)
+                this.handleChange({}, this.props.baseValue)
             }
         });
     }

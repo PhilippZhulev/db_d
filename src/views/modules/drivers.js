@@ -26,12 +26,11 @@ class Drivers extends Component {
                     type = value.group
                 }
 
-                if (type === target) {
+                if (type === target && target !== "Не присвоено") {
                     //console.log(value.id);
                     return (
                         <Slider
                             key={this.props.index*10000+value.id}
-                            //key={Math.random()}
                             driverId={value.id}
                             driverInd={index}
                             labelText={value.name}
@@ -39,7 +38,7 @@ class Drivers extends Component {
                             max={+(value.max)}
                             value={+(value.value)}
                             step={+(value.step)}
-                            baseValue={+(value.value)}
+                            baseValue={+(value.baseValue)}
                         />
                     )
                 } else {

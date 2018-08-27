@@ -7,25 +7,25 @@
           "category": "2019",
           "strategy": "2553",
           "base": "2726",
-          "model": "2553"
+          "model": "2726"
         },
         {
           "category": "2020",
           "strategy": "2750",
           "base": "2996",
-          "model": "2750"
+          "model": "2996"
         },
         {
           "category": "2021",
           "strategy": "2981",
           "base": "3129",
-          "model": "2982"
+          "model": "3129"
         },
         {
           "category": "2022",
-          "strategy": "3360",
-          "base": "0",
-          "model": "1488"
+          "strategy": "0",
+          "base": "1488",
+          "model": "1700"
         }
       ],
       "INC": [

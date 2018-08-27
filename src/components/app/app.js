@@ -34,7 +34,7 @@ class App extends Component {
             groupsType: "category",
             groups: Model.getGroups(window.obj.dummyData.drivers),
             categorys: Model.getCategory(window.obj.dummyData.drivers),
-            scroll: true,
+            scroll: false,
             table: Model.parseTable(window.obj.dummyData.table),
             changePage: false,
             tables: localStorage["dumpTab"] || 0
@@ -83,7 +83,12 @@ class App extends Component {
                         console.log(String(getState.value.id));
                         console.log(getState.value.val);
 
-                        window.obj.dummyData.drivers[getState.value.id].value = getState.value.val;
+                        for (let i = 0; i < window.obj.dummyData.drivers.length; i++){
+                            if (window.obj.dummyData.drivers[i].id === getState.value.id) {
+                                window.obj.dummyData.drivers[i].value = getState.value.val;
+                                break
+                            }
+                        }
 
                         console.log("НОВЫЙ DATA");
                         console.log(window.obj.dummyData);
@@ -167,7 +172,6 @@ class App extends Component {
         let bar = null;
 
         if(this.state.tables === 5){
-            console.log("apply!");
             bar = (
                 <Drivers
                     index={this.state.tables}
