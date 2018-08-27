@@ -132,7 +132,15 @@ function Model() {
         for (let key in this.chartReInitZero(data)[0]){
             if(this.chartReInitZero(data)[0].hasOwnProperty(key)) {
                 if (key !== "category") {
-                    graphs.push(key);
+                    if (key === "model"){
+                        graphs.push("base");
+                    }else
+                    if (key === "base"){
+                        graphs.push("model");
+                    }else
+                    if (key === "strategy"){
+                        graphs.push("strategy");
+                    }
                 }
             }
         }

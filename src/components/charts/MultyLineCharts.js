@@ -88,20 +88,6 @@ class MultiLine extends Component {
 
         }
 
-// try
-//         {
-//             amchartsSettings.graphs[1].valueField = "model";
-//             amchartsSettings.graphs[1].bulletBorderColor = "#727CF5";
-//             amchartsSettings.graphs[1].bulletColor = "#727CF5";
-//             amchartsSettings.graphs[2].valueField = "base";
-//             amchartsSettings.graphs[2].bulletBorderColor = "#1ab394";
-//             amchartsSettings.graphs[2].bulletColor = "#1ab394";
-//         }catch (e) {
-//
-// }
-//         console.log("-------------");
-//         console.log(amchartsSettings);
-//         console.log("-------------");
        amchartsSettings.dataProvider = Model.chartReInitZero(this.props.data);
 
         out.push(
