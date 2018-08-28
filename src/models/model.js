@@ -77,9 +77,13 @@ function Model() {
                 title: "Чистая прибыль",
                 mera: "млрд. руб.",
             },
-            INC:{
+            TIER:{
                 title: "Tier 1, МСФО",
                 mera: "%",
+            },
+            INC:{
+                title: "Чистые опер. доходы",
+                mera: "млрд. руб.",
             },
             OPEX:{
                 title: "OPEX",
