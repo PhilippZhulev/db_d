@@ -60,10 +60,10 @@ function Model() {
                     if (data[i][key] === "0") {
                         data[i][key] = "No data";
                     }
-                    if ((key !== "category")&&(data[i][key].split(".").length === 1)){
-                        data[i][key] = [data[i][key],"0"].join(".");
-                        //console.log(data[i][key]);
-                    }
+                    // if ((key !== "category")&&(data[i][key].split(".").length === 1)){
+                    //     data[i][key] = [data[i][key],"0"].join(".");
+                    //     //console.log(data[i][key]);
+                    // }
                 }
             }
         }
