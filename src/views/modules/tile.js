@@ -12,7 +12,7 @@ class Tile extends Component {
 
         let zeroedVal = null;
 
-        if (((this.props.func === "OPEX")&&(this.props.page !== "ALL"))(this.props.func === "TIER") || (this.props.func === "COR")) {
+        if (((this.props.func === "OPEX")&&(this.props.page === "ALL"))||(this.props.func === "TIER") || (this.props.func === "COR")) {
             zeroedVal = tileCalc.mainVal.split(".");
             if ((zeroedVal.length > 1) && (zeroedVal[1].length < 2)) {
                 zeroedVal[1] = zeroedVal[1] + "0";
