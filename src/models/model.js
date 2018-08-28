@@ -143,25 +143,7 @@ function Model() {
                     case "model" :
                         graphs.push("base");
                         break;
-                   // default: ;
                 }
-
-
-                // if (key !== "category") {
-                //     if (key === "model"){
-                //         graphs.push("base");
-                //     }else
-                //     if (key === "base"){
-                //         graphs.push("model");
-                //     }else
-                //     if (key === "strategy"){
-                //         graphs.push("strategy");
-                //     }
-                // }
-
-
-
-
             }
         }
 
