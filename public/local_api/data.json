@@ -54,6 +54,32 @@
           "model": "7349"
         }
       ],
+      "TIER": [
+        {
+          "category": "2019",
+          "strategy": "6165",
+          "base": "6476",
+          "model": "6165"
+        },
+        {
+          "category": "2020",
+          "strategy": "6469",
+          "base": "6925",
+          "model": "6469"
+        },
+        {
+          "category": "2021",
+          "strategy": "6799",
+          "base": "7235",
+          "model": "6799"
+        },
+        {
+          "category": "2022",
+          "strategy": "7349",
+          "base": "0",
+          "model": "7349"
+        }
+      ],
       "OPEX": [
         {
           "category": "2019",
@@ -107,6 +133,32 @@
         }
       ],
       "KOM": [
+        {
+          "category": "2019",
+          "strategy": "779.1",
+          "base": "802.5",
+          "model": "779.1"
+        },
+        {
+          "category": "2020",
+          "strategy": "813.8",
+          "base": "917.5",
+          "model": "813.8"
+        },
+        {
+          "category": "2021",
+          "strategy": "884.7",
+          "base": "1044.5",
+          "model": "884.7"
+        },
+        {
+          "category": "2022",
+          "strategy": "930.3",
+          "base": "0",
+          "model": "930.5"
+        }
+      ],
+      "ROE": [
         {
           "category": "2019",
           "strategy": "779.1",

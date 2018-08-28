@@ -30,7 +30,6 @@ class MultiLine extends Component {
             {
 
                 "type": "serial",
-                "precision":prec,
                 "fontFamily": "'Open Sans', sans-serif",
                 "categoryField": "category",
                 "zoomOutButtonRollOverAlpha": 0,
@@ -93,7 +92,7 @@ class MultiLine extends Component {
                     "fontSize": 12,
                     "showAllValueLabels": true,
                     "labelText": "[[value]]",
-                    "precision": 1,
+                    "precision": prec,
                     "lineThickness": this.props.options.thickness,
                     "title": "graph "+i,
                     "valueField": Model.chartsGraphs([], this.props.data)[i],

@@ -22,6 +22,7 @@ function Reactor() {
         }
 
         console.log("ДАТА ПЕРВОПРОХОДЕЦ ОСНОВАТЕЛЬ:");
+        //console.log(JSON.stringify(obj.glob.Settings.data));
         console.log(obj.dummyData);
 
         //После парсинга JSON запускаем событие reactRun (Только если payload = START тоесть только при первой загрузке)

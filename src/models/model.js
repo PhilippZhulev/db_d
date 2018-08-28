@@ -79,6 +79,10 @@ function Model() {
                 title: "Чистая прибыль",
                 mera: "млрд. руб.",
             },
+            TIER:{
+                title: "Tier 1, МСФО",
+                mera: "%",
+            },
             INC:{
                 title: "Чистые опер. доходы",
                 mera: "млрд. руб.",
@@ -91,8 +95,12 @@ function Model() {
                 title: "CIR",
                 mera: "%",
             },
-            KOM:{
+            ROE:{
                 title: "ROE",
+                mera: "%",
+            },
+            KOM:{
+                title: "Комиссии/OPEX",
                 mera: "%",
             },
             COR:{
@@ -264,9 +272,9 @@ function Model() {
             oldNIM:oldNIM,
             defaultSel:{
                 CIR: String(oldCIR.indexOf("31%")),
-                COR: String(oldCOR.indexOf("1,0%")),
-                CAGR: String(oldCAGR.indexOf("10,2%")),
-                NIM: String(oldNIM.indexOf("4,75%"))
+                COR: String(oldCOR.indexOf("1.0%")),
+                CAGR: String(oldCAGR.indexOf("10.2%")),
+                NIM: String(oldNIM.indexOf("4.75%"))
             }
         };
         for (let i = 0; i < CIR.length; i++){
