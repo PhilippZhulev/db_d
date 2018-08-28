@@ -77,6 +77,7 @@ class MultiLine extends Component {
                     "fontSize": 12,
                     "showAllValueLabels": true,
                     "labelText": "[[value]]",
+                    "precision": 1,
                     "lineThickness": this.props.options.thickness,
                     "title": "graph "+i,
                     "valueField": Model.chartsGraphs([], this.props.data)[i],
