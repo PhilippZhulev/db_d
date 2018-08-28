@@ -15,7 +15,7 @@ class MultiLine extends Component {
             {
 
                 "type": "serial",
-                "precision":"1",
+                "precision":(this.props.func === "COR" || this.props.func === "INC")? "2" : "1",
                 "fontFamily": "'Open Sans', sans-serif",
                 "categoryField": "category",
                 "zoomOutButtonRollOverAlpha": 0,
