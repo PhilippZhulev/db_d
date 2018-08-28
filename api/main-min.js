@@ -7,7 +7,10 @@ for(let i = 0; i < link.length;i++) {
 //Отключить дотошный скролл на ipad
 document.querySelector('body').addEventListener('touchmove', function(e) {
     e.preventDefault();
-});
+}, { passive: false });
+// document.querySelector('body').addEventListener('touchmove', function(e) {
+//     e.preventDefault();
+// });
 
 //Функция кроссбраузерных генерации кастомных событий
 function createNewEvent(eventName) {

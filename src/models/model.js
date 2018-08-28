@@ -62,7 +62,7 @@ function Model() {
                     }
                     if ((key !== "category")&&(data[i][key].split(".").length === 1)){
                         data[i][key] = [data[i][key],"0"].join(".");
-                        console.log(data[i][key]);
+                        //console.log(data[i][key]);
                     }
                 }
             }
@@ -260,10 +260,10 @@ function Model() {
             NIM:NIM,
             oldNIM:oldNIM,
             defaultSel:{
-                CIR: String(oldCIR.indexOf("32%")),
-                COR: String(oldCOR.indexOf("1,5%")),
-                CAGR: String(oldCAGR.indexOf("13,0%")),
-                NIM: String(oldNIM.indexOf("4,5%"))
+                CIR: String(oldCIR.indexOf("31%")),
+                COR: String(oldCOR.indexOf("1,0%")),
+                CAGR: String(oldCAGR.indexOf("10,2%")),
+                NIM: String(oldNIM.indexOf("4,75%"))
             }
         };
         for (let i = 0; i < CIR.length; i++){
