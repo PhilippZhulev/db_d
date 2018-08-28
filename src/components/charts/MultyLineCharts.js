@@ -15,6 +15,7 @@ class MultiLine extends Component {
             {
 
                 "type": "serial",
+                "precision":"1",
                 "fontFamily": "'Open Sans', sans-serif",
                 "categoryField": "category",
                 "zoomOutButtonRollOverAlpha": 0,
