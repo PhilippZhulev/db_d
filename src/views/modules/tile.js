@@ -10,10 +10,38 @@ class Tile extends Component {
         let values = [],
             tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data);
 
+        let zeroedVal = null;
+
+        if ((this.props.func === "TIER") || (this.props.func === "COR")) {
+            zeroedVal = tileCalc.mainVal.split(".");
+            if ((zeroedVal.length > 1) && (zeroedVal[1].length < 2)) {
+                zeroedVal[1] = zeroedVal[1] + "0";
+                zeroedVal = zeroedVal.join(".");
+            } else if (zeroedVal.length === 1) {
+                zeroedVal = [tileCalc.mainVal, "00"].join(".");
+            } else if ((zeroedVal.length > 1) && (zeroedVal[1].length > 2)) {
+                zeroedVal[1] = zeroedVal[1].substr(0, 2);
+                zeroedVal = zeroedVal.join(".");
+            } else{
+                zeroedVal = null;
+            }
+        } else if((this.props.func === "OPEX")||(this.props.func === "CHIS")){
+            let zeroedVal = null;
+        } else{
+            zeroedVal = tileCalc.mainVal.split(".");
+            if (zeroedVal.length === 1){
+                zeroedVal = [tileCalc.mainVal,"0"].join(".");
+            } else{
+                zeroedVal = tileCalc.mainVal;
+            }
+        }
+
+
+
         values.unshift(
             <div key={0} className={"tile_item__value"+postfix+" value_flex"} style={{color: this.props.templ.primary.textValueMain}}>
                 <div>
-                    {tileCalc.mainVal}
+                    {(zeroedVal === null) ? tileCalc.mainVal : zeroedVal}
                 </div>
                 <div>
                     <span className="subscribe" style={{color: color}}>{(this.props.addSubscr !== undefined ? this.props.addSubscr : "1")}</span>
