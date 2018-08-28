@@ -30,7 +30,7 @@ class MultiLine extends Component {
             {
 
                 "type": "serial",
-                "precision":(this.props.func === "COR" || this.props.func === "TIER") ? "2" : "1",
+                "precision":prec,
                 "fontFamily": "'Open Sans', sans-serif",
                 "categoryField": "category",
                 "zoomOutButtonRollOverAlpha": 0,
