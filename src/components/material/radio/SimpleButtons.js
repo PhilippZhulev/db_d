@@ -19,7 +19,9 @@ let styles = theme => ({
     },
     group: {
         margin: `${theme.spacing.unit}px 0`,
-        color: "white"
+        color: "white",
+        display: "-webkit-box",
+        webkitBoxOrient: "vertical"
     },
     radio: {color: "white"},
     label: {color: "white", "& span:last-child": {color:"white"}}
