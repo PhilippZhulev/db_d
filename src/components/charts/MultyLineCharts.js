@@ -15,10 +15,14 @@ class MultiLine extends Component {
 
         switch(this.props.func) {
             case "COR":
+                prec = 2;
+                break;
             case "TIER":
                 prec = 2;
                 break;
             case "OPEX":
+                prec = -1;
+                break;
             case "CHIS":
                 prec = -1;
                 break;

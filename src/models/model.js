@@ -73,8 +73,6 @@ function Model() {
 
     this.tilesBind = ()=> {
         return {
-            TIER: {},
-                title: ""
             PI: {
                 title: "Чистая прибыль",
                 mera: "млрд. руб.",
