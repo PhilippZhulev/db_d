@@ -19,7 +19,7 @@ class Tile extends Component {
                 zeroedVal = zeroedVal.join(".");
             } else if (zeroedVal.length === 1) {
                 zeroedVal = [tileCalc.mainVal, "00"].join(".");
-            } else if (((this.props.func === "OPEX")&&(this.props.page === "ALL"))||(zeroedVal.length > 1) && (zeroedVal[1].length > 2)) {
+            } else if ((zeroedVal.length > 1) && (zeroedVal[1].length > 2)) {
                 zeroedVal[1] = zeroedVal[1].substr(0, 2);
                 zeroedVal = zeroedVal.join(".");
             } else{
