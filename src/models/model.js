@@ -78,8 +78,8 @@ function Model() {
                 mera: "млрд. руб.",
             },
             INC:{
-                title: "Чистые опер. доходы",
-                mera: "млрд. руб.",
+                title: "Tier 1, МСФО",
+                mera: "%",
             },
             OPEX:{
                 title: "OPEX",
@@ -89,8 +89,12 @@ function Model() {
                 title: "CIR",
                 mera: "%",
             },
-            KOM:{
+            ROE:{
                 title: "ROE",
+                mera: "%",
+            },
+            KOM:{
+                title: "Комиссии/OPEX",
                 mera: "%",
             },
             COR:{
