@@ -55,6 +55,7 @@ class Tile extends Component {
                             isBig: (!this.props.isSmall)
                         }}
                         templ={this.props.templ}
+                        func={this.props.func}
                         page={this.props.page}
                         grId={this.props.grId}
                         data={this.props.data[this.props.page][this.props.func]}

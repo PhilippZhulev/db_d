@@ -11,11 +11,26 @@ import Model from '../../models/model.js';
 class MultiLine extends Component {
     chartSettings = (out) => {
 
+        let prec = 1;
+
+        switch(this.props.func) {
+            case "COR":
+            case "TIER":
+                prec = 2;
+                break;
+            case "OPEX":
+            case "CHIS":
+                prec = -1;
+                break;
+            default:
+                prec = 1;
+        }
+
         let amchartsSettings =
             {
 
                 "type": "serial",
-                "precision":"1",
+                "precision":(this.props.func === "COR" || this.props.func === "TIER") ? "2" : "1",
                 "fontFamily": "'Open Sans', sans-serif",
                 "categoryField": "category",
                 "zoomOutButtonRollOverAlpha": 0,
