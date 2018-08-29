@@ -222,7 +222,7 @@ class App extends Component {
                     <Tabs
                           templ={this.state.theme}
                           settings={{
-                              items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ","Матрица"],
+                              items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ","Чувствит-ть"],
                               pages: [
                                   <Home fluxData={this.state.data} templ={this.state.theme} />,
                                   <Opex fluxData={this.state.data} templ={this.state.theme} />,
@@ -246,7 +246,7 @@ class App extends Component {
                             />
                             <Btn
                                 customClass="btn_default"
-                                text="Сбросить"
+                                text="Базовая версия"
                                 onClick={() => {this.onControlBtnChange("default_values","tech3")}}
                             />
                         </div>
