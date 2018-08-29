@@ -86,7 +86,7 @@ class TablePage extends Component {
                     second_header = this.state.table.CAGR.map((value,index)=>{
                         return(<div className={"top_header second column"} key={index+2} style={((index < this.state.table.NIM.length - 1)&&(this.state.table.NIM[index] !== this.state.table.NIM[index + 1])) ? Object.assign({color:this.props.templ.primary.textValueMain}, obj1) : Object.assign({color:this.props.templ.primary.textValueMain}, bottom_line)}>{value}</div>)
                     });
-                    second_header.unshift(<div className={"top_header second hidden column"} key={Math.random()} style={Object.assign({color: this.props.templ.primary.textValueMain, lineHeight:"99%", fontSize:"0.875rem"}, obj1)}>CAGR<br/>COR</div>);
+                    second_header.unshift(<div className={"top_header second hidden column"} key={Math.random()} style={Object.assign({color: this.props.templ.primary.textValueMain, lineHeight:"99%", fontSize:"0.875rem"}, obj1)}>CAGR ЧКД<br/>COR</div>);
                     second_header.unshift(<div className={"top_header second hidden column"} key={Math.random()} style={Object.assign({color: this.props.templ.primary.textValueMain},bottom_line)}>CIR</div>);
 
                     table.push(<div key={Math.random()} className={"row"}>{second_header}</div>);
