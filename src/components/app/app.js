@@ -241,7 +241,7 @@ class App extends Component {
                         <div className="btns__panel">
                             <Btn
                                 customClass="btn_save"
-                                text="Сохранить"
+                                text="Сохранить модель"
                                 onClick={() => {this.onControlBtnChange("save_values", "tech2")}}
                             />
                             <Btn
