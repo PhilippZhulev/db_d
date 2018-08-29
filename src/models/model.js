@@ -272,9 +272,9 @@ function Model() {
             NIM:NIM,
             oldNIM:oldNIM,
             defaultSel:{
-                CIR: String(oldCIR.indexOf("31%")),
-                COR: String(oldCOR.indexOf("1.0%")),
-                CAGR: String(oldCAGR.indexOf("13.0%")),
+                CIR: String(oldCIR.indexOf("33%")),
+                COR: String(oldCOR.indexOf("1.2%")),
+                CAGR: String(oldCAGR.indexOf("14.1%")),
                 NIM: String(oldNIM.indexOf("5.2%"))
             }
         };
