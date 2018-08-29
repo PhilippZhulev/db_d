@@ -115,7 +115,7 @@ class Opex extends Component {
             <Fade in={true} timeout={{enter: 300, exit:300}}>
 
                 <div className="tiles_container" style={{position: "relative"}}>
-                    <div className={"buttons_container"} style={{position: "absolute", zIndex: 999, right:"0px", top:"-21px", width:"250px", height:"70px"}}>
+                    <div className={"buttons_container"} style={{position: "absolute", zIndex: 999, right:"0px", top:"-20px", width:"250px", height:"70px"}}>
                         {this.buttons(this.state)}
                     </div>
                     {this.tiles(this.state)}
