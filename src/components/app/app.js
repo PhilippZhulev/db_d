@@ -86,17 +86,14 @@ class App extends Component {
                           value: getState.value.val
                         });
 
-                        let j = 0;
 
-                        while(j < dataDump.length) {
-                          for (let i = 0; i < window.obj.dummyData.drivers.length; i++){
-                            if (window.obj.dummyData.drivers[i].id === dataDump[j].id) {
-                              window.obj.dummyData.drivers[i].value = String(dataDump[j].value);
-                              console.log(window.obj.dummyData.drivers[i].value);
-                            }
+                        for (let i = 0; i < window.obj.dummyData.drivers.length; i++){
+                          if (window.obj.dummyData.drivers[i].id === getState.value.id) {
+                            window.obj.dummyData.drivers[i].value = getState.value.val;
+                            break
                           }
-                          j++;
                         }
+
 
                         if(this.state.groupsType !== "groups") {
                             this.setState({data:  window.obj.dummyData, preloader:  false});//, categorys: Model.getCategory(window.obj.dummyData.drivers)});
