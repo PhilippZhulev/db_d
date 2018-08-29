@@ -86,24 +86,17 @@ class App extends Component {
                           value: getState.value.val
                         });
 
+                        let j = 0;
 
-                        console.log("ДРАЙВЕРКИ");
-                        console.log(String(getState.value.id));
-                        console.log(getState.value.val);
-
-                        for (let i = 0; i < window.obj.dummyData.drivers.length; i++){
-                            let j = 0;
-
-                            while(j < dataDump.length)  {
-                                if (window.obj.dummyData.drivers[i].id === dataDump[j].id) {
-                                    window.obj.dummyData.drivers[i].value = dataDump[j].value;
-                                }
-                                j++;
+                        while(j < dataDump.length) {
+                          for (let i = 0; i < window.obj.dummyData.drivers.length; i++){
+                            if (window.obj.dummyData.drivers[i].id === dataDump[j].id) {
+                              window.obj.dummyData.drivers[i].value = String(dataDump[j].value);
+                              console.log(window.obj.dummyData.drivers[i].value);
                             }
+                          }
+                          j++;
                         }
-
-                        console.log("НОВЫЙ DATA");
-                        console.log(window.obj.dummyData);
 
                         if(this.state.groupsType !== "groups") {
                             this.setState({data:  window.obj.dummyData, preloader:  false});//, categorys: Model.getCategory(window.obj.dummyData.drivers)});
@@ -234,7 +227,7 @@ class App extends Component {
                     <Tabs
                           templ={this.state.theme}
                           settings={{
-                              items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ","Матрица эл-ти"],
+                              items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ","Матрица"],
                               pages: [
                                   <Home fluxData={this.state.data} templ={this.state.theme} />,
                                   <Opex fluxData={this.state.data} templ={this.state.theme} />,
