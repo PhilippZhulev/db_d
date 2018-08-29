@@ -8,7 +8,7 @@ class Tile extends Component {
 
     setValue = (postfix, subscribtion, color) => {
         let values = [],
-            tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data);
+            tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data, this.props.date);
 
         let zeroedVal = null;
 

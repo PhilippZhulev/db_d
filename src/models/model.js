@@ -29,17 +29,17 @@ function Model() {
         return groups;
     };
 
-    this.tileCalc = (f, p, data) => {
+    this.tileCalc = (f, p, data, date) => {
         const func = f;
         const page = p;
         const lastCat = data[page][func].length;
-        const mainVal = data[page][func][lastCat-1]["model"];
-        const smallVal = "("+((+(data[page][func][lastCat-1]["model"])-(+(data[page][func][lastCat-1]["base"])))/(+(data[page][func][lastCat-1]["base"]))*100).toFixed(1)+"%)";
+        const mainVal = data[page][func][1 + +(date)]["model"];
+        const smallVal = "("+((+(data[page][func][1 + +(date)]["model"])-(+(data[page][func][1 + +(date)]["base"])))/(+(data[page][func][1 + +(date)]["base"]))*100).toFixed(1)+"%)";
         let mainValAll = "";
         let smallValAll = "";
         if ((page !== "OPEX") && (page !== "ALL")){
-            mainValAll = data["ALL"][func][lastCat-1]["model"];
-            smallValAll = "("+((+(data["ALL"][func][lastCat-1]["model"])-(+(data["ALL"][func][lastCat-1]["base"])))/(+(data["ALL"][func][lastCat-1]["base"]))*100).toFixed(1)+"%)";
+            mainValAll = data["ALL"][func][1 + +(date)]["model"];
+            smallValAll = "("+((+(data["ALL"][func][1 + +(date)]["model"])-(+(data["ALL"][func][1 + +(date)]["base"])))/(+(data["ALL"][func][1 + +(date)]["base"]))*100).toFixed(1)+"%)";
         }
 
         return {
