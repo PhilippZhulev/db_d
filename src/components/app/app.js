@@ -18,6 +18,8 @@ import Drivers from "../../views/modules/drivers";
 import store, {getState, change} from "../../reduser";
 import Preloader from "../preloader";
 
+let dataDump =[];
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -79,14 +81,24 @@ class App extends Component {
                     this.setState({preloader:  true});
                     window.updateState(["return_driver_to_lumira", String(getState.value.id+","+getState.value.val)], () => {
 
+                        dataDump.push({
+                          id: getState.value.id,
+                          value: getState.value.val
+                        });
+
+
                         console.log("ДРАЙВЕРКИ");
                         console.log(String(getState.value.id));
                         console.log(getState.value.val);
 
                         for (let i = 0; i < window.obj.dummyData.drivers.length; i++){
-                            if (window.obj.dummyData.drivers[i].id === getState.value.id) {
-                                window.obj.dummyData.drivers[i].value = getState.value.val;
-                                break
+                            let j = 0;
+
+                            while(j < dataDump.length)  {
+                                if (window.obj.dummyData.drivers[i].id === dataDump[j].id) {
+                                    window.obj.dummyData.drivers[i].value = dataDump[j].value;
+                                }
+                                j++;
                             }
                         }
 
