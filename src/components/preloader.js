@@ -32,7 +32,7 @@ function Preloader (props)  {
         return (
             <div className={classes.preloaderStyles}>
                 <CircularProgress className={classes.progress} color="secondary" size={36} />
-                <span className={classes.preloaderText}>Обновление данных...</span>
+                <span className={classes.preloaderText}>Обновление данных ...</span>
             </div>
         );
     }else {
