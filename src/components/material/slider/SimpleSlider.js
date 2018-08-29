@@ -39,7 +39,7 @@ const styles = {
     },
     default_dot: {
         position: "absolute",
-        top: "73%",
+        top: "53%",
         zIndex: 1,
         backgroundColor: "#1ab394",
         width: 2,
@@ -47,7 +47,7 @@ const styles = {
     },
     strat_dot: {
         position: "absolute",
-        top: "73%",
+        top: "53%",
         zIndex: 1,
         backgroundColor: "#f8ac59",
         width: 2,
@@ -196,6 +196,7 @@ class SimpleSlider extends React.Component {
                 <style>
                     {(flag) ? "" : "." + this.state.random + ":before { content: '"+ this.state.value.toFixed(1) +"'}"}
                 </style>
+                <div className={"dot_wrapper"} style={{position: "relative"}}>
                 <Slider
                     classes={{
                         trackBefore: "slider_beffore",
@@ -221,6 +222,7 @@ class SimpleSlider extends React.Component {
 
                 <div className={"slider_min"}>{(flag) ? "нет" : this.props.min}</div>
                 <div className={"slider_max"}>{(flag) ? "да" : this.props.max}</div>
+                </div>
             </div>
         );
     }

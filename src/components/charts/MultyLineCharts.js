@@ -11,6 +11,29 @@ import Model from '../../models/model.js';
 class MultiLine extends Component {
     chartSettings = (out) => {
 
+        let prec = 1;
+
+        switch(this.props.func) {
+            case "COR":
+                prec = 2;
+                break;
+            case "TIER":
+                prec = 2;
+                break;
+            case "OPEX":
+                prec = -1;
+                break;
+            case "CHIS":
+                if (this.props.page === "ALL"){
+                    prec = -1;
+                } else {
+                    prec = 1;
+                }
+                break;
+            default:
+                prec = 1;
+        }
+
         let amchartsSettings =
             {
 
@@ -72,11 +95,12 @@ class MultiLine extends Component {
                     "bulletSize": 3,
                     "bulletBorderThickness": 0,
                     "showBalloon": false,
-                    "color": this.props.templ.primary.graphText,
+                    "color": this.props.options.colors[i],
                     "id": "AmGraph-"+i,
                     "fontSize": 12,
                     "showAllValueLabels": true,
-                    "labelText": ((this.props.options.colors[i] !== "#1ab394")||(!this.props.options.isBig)) ? "[[value]]" : "",
+                    "labelText": "[[value]]",
+                    "precision": prec,
                     "lineThickness": this.props.options.thickness,
                     "title": "graph "+i,
                     "valueField": Model.chartsGraphs([], this.props.data)[i],
@@ -87,15 +111,7 @@ class MultiLine extends Component {
             );
 
         }
-        let a = amchartsSettings.graphs[0];
-        let b = amchartsSettings.graphs[1];
-        let c = amchartsSettings.graphs[2];
-        amchartsSettings.graphs[0] = a;
-        amchartsSettings.graphs[1] = b;
-        amchartsSettings.graphs[2] = c;
-        console.log("-------------");
-        console.log(amchartsSettings);
-        console.log("-------------");
+
        amchartsSettings.dataProvider = Model.chartReInitZero(this.props.data);
 
         out.push(

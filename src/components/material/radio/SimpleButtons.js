@@ -19,7 +19,9 @@ let styles = theme => ({
     },
     group: {
         margin: `${theme.spacing.unit}px 0`,
-        color: "white"
+        color: "white",
+        display: "-webkit-box",
+        webkitBoxOrient: "vertical"
     },
     radio: {color: "white"},
     label: {color: "white", "& span:last-child": {color:"white"}}
@@ -110,7 +112,7 @@ class RadioButtonsGroup extends React.Component {
                     </RadioGroup>
                 </FormControl>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend" style={{color: "white",textDecoration: "underline"}}>CAGR</FormLabel>
+                    <FormLabel component="legend" style={{color: "white",textDecoration: "underline"}}>ЧКД</FormLabel>
                     <RadioGroup
                         aria-label="Gender"
                         name="gender1"

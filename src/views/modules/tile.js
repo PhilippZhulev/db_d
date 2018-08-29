@@ -10,27 +10,38 @@ class Tile extends Component {
         let values = [],
             tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data);
 
-        if(this.props.page!=="RB"){
+        let zeroedVal = null;
 
-        if(!(this.props.page==="ALL"||this.props.page==="OPEX"||this.props.page==="CB")){
-            color = this.props.templ.primary.textValueNormal;
-            values.push(<div key={1} className={"vLine"+postfix} />);
-            values.push(
-                <div key={2} className={"tile_item__value"+postfix+" value_flex"} style={{color: this.props.templ.primary.textValueMain}}>
-                    <div>
-                        {tileCalc.mainValAll}
-                    </div>
-                    <div>
-                        <span className="subscribe" style={{color: this.props.templ.primary.textValueNormal}}>{"Группа"}</span>
-                        <span style={{color: this.props.templ.primary.textValueNormal}}>{tileCalc.smallValAll}</span>
-                    </div>
-                </div>
-            );
+        if ((this.props.func === "TIER") || (this.props.func === "COR")) {
+            zeroedVal = tileCalc.mainVal.split(".");
+            if ((zeroedVal.length > 1) && (zeroedVal[1].length < 2)) {
+                zeroedVal[1] = zeroedVal[1] + "0";
+                zeroedVal = zeroedVal.join(".");
+            } else if (zeroedVal.length === 1) {
+                zeroedVal = [tileCalc.mainVal, "00"].join(".");
+            } else if ((zeroedVal.length > 1) && (zeroedVal[1].length > 2)) {
+                zeroedVal[1] = zeroedVal[1].substr(0, 2);
+                zeroedVal = zeroedVal.join(".");
+            } else{
+                zeroedVal = null;
+            }
+        } else if(((this.props.func === "OPEX")&&(this.props.page === "ALL"))||((this.props.func === "CHIS")&&(this.props.page === "ALL"))){
+            let zeroedVal = null;
+        } else{
+            zeroedVal = tileCalc.mainVal.split(".");
+            if (zeroedVal.length === 1){
+                zeroedVal = [tileCalc.mainVal,"0"].join(".");
+            } else{
+                zeroedVal = tileCalc.mainVal;
+            }
         }
+
+
+
         values.unshift(
             <div key={0} className={"tile_item__value"+postfix+" value_flex"} style={{color: this.props.templ.primary.textValueMain}}>
                 <div>
-                    {tileCalc.mainVal}
+                    {(zeroedVal === null) ? tileCalc.mainVal : zeroedVal}
                 </div>
                 <div>
                     <span className="subscribe" style={{color: color}}>{(this.props.addSubscr !== undefined ? this.props.addSubscr : "1")}</span>
@@ -42,9 +53,7 @@ class Tile extends Component {
         );
 
         return values
-        } else{
-            return <div className={"no_value_div"} />
-        }
+
     };
 
     render(){
@@ -64,16 +73,17 @@ class Tile extends Component {
                     <MultiLine
                         options={{
                             grId:"line",
-                            titles:["Стратегия 2020", "Базовая версия", "Моделирование"],
+                            titles:["Стратегия 2020", "Моделирование", "Базовая версия"],
                             geometry: {width:"88%", height:"90%"},
                             colors: (this.props.isSmall) ? ["#727CF5","#1ab394"] : ["#f8ac59","#727CF5","#1ab394"],
                             legend: (!this.props.isSmall),
                             type: "smoothedLine",
-                            labelPosition:(!this.props.isSmall) ? ["top", "top"] : ["bottom", "top"],
+                            labelPosition:(this.props.isSmall) ? ["top","bottom"] : ["top","top", "bottom"],
                             thickness: (this.props.isSmall) ? 1 : 2,
                             isBig: (!this.props.isSmall)
                         }}
                         templ={this.props.templ}
+                        func={this.props.func}
                         page={this.props.page}
                         grId={this.props.grId}
                         data={this.props.data[this.props.page][this.props.func]}
