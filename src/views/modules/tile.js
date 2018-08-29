@@ -25,7 +25,7 @@ class Tile extends Component {
             } else{
                 zeroedVal = null;
             }
-        } else if(((this.props.func === "OPEX")&&(this.props.page === "ALL"))||(this.props.func === "CHIS")){
+        } else if(((this.props.func === "OPEX")&&(this.props.page === "ALL"))||((this.props.func === "CHIS")&&(this.props.page === "ALL"))){
             let zeroedVal = null;
         } else{
             zeroedVal = tileCalc.mainVal.split(".");

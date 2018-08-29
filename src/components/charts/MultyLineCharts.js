@@ -24,7 +24,11 @@ class MultiLine extends Component {
                 prec = -1;
                 break;
             case "CHIS":
-                prec = -1;
+                if (this.props.page === "ALL"){
+                    prec = -1;
+                } else {
+                    prec = 1;
+                }
                 break;
             default:
                 prec = 1;
