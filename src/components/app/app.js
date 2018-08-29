@@ -171,7 +171,7 @@ class App extends Component {
             bar = (
                 <Drivers
                     index={this.state.tables}
-                    data={this.state.driversDump}
+                    data={this.state.data}
                     routerValue={this.state.category}
                     staticRouterValue={this.state.categoryStatic}
                     groups={this.state.groups}
