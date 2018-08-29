@@ -18,7 +18,6 @@ import Drivers from "../../views/modules/drivers";
 import store, {getState, change} from "../../reduser";
 import Preloader from "../preloader";
 
-let dataDump =[];
 
 class App extends Component {
     constructor(props) {
@@ -39,15 +38,15 @@ class App extends Component {
             scroll: false,
             table: Model.parseTable(window.obj.dummyData.table),
             changePage: false,
-            tables: localStorage["dumpTab"] || 0
+            tables: localStorage["dumpTab"] || 0,
+            driversDump: window.obj.dummyData.drivers
         };
+
+        this.driversDump = window.obj.dummyData.drivers;
 
         this.myTheme = createMuiTheme({
             palette: this.state.theme
         });
-
-        console.log("ДАТА ВСЕОТЕЦ:");
-        console.log(window.obj.dummyData);
 
         store.subscribe(() => {
             switch (change) {
@@ -81,24 +80,19 @@ class App extends Component {
                     this.setState({preloader:  true});
                     window.updateState(["return_driver_to_lumira", String(getState.value.id+","+getState.value.val)], () => {
 
-                        dataDump.push({
-                          id: getState.value.id,
-                          value: getState.value.val
-                        });
 
-
-                        for (let i = 0; i < window.obj.dummyData.drivers.length; i++){
-                          if (window.obj.dummyData.drivers[i].id === getState.value.id) {
-                            window.obj.dummyData.drivers[i].value = getState.value.val;
+                        for (let i = 0; i < this.driversDump.length; i++){
+                          if (this.driversDump[i].id === getState.value.id) {
+                            this.driversDump[i].value = getState.value.val;
                             break
                           }
                         }
 
 
                         if(this.state.groupsType !== "groups") {
-                            this.setState({data:  window.obj.dummyData, preloader:  false});//, categorys: Model.getCategory(window.obj.dummyData.drivers)});
+                            this.setState({data:  window.obj.dummyData, driversDump : this.driversDump,  preloader:  false});//, categorys: Model.getCategory(window.obj.dummyData.drivers)});
                         }else {
-                            this.setState({data:  window.obj.dummyData, preloader:  false});//, groups: Model.getGroups(window.obj.dummyData.drivers)});
+                            this.setState({data:  window.obj.dummyData, driversDump : this.driversDump,  preloader:  false});//, groups: Model.getGroups(window.obj.dummyData.drivers)});
                         }
                     });
                 break;
@@ -177,7 +171,7 @@ class App extends Component {
             bar = (
                 <Drivers
                     index={this.state.tables}
-                    data={this.state.data}
+                    data={this.state.driversDump}
                     routerValue={this.state.category}
                     staticRouterValue={this.state.categoryStatic}
                     groups={this.state.groups}
