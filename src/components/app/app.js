@@ -37,7 +37,8 @@ class App extends Component {
             scroll: false,
             table: Model.parseTable(window.obj.dummyData.table),
             changePage: false,
-            tables: localStorage["dumpTab"] || 0
+            tables: localStorage["dumpTab"] || 0,
+            date: "2"
         };
 
         this.myTheme = createMuiTheme({
@@ -107,6 +108,10 @@ class App extends Component {
 
                 case "scroll_stop" :
                     this.setState({scroll: true});
+                break;
+
+                case "change_date" :
+                    this.setState({date: getState.states});
                 break;
 
                 case "drivers_router" :
@@ -224,11 +229,11 @@ class App extends Component {
                           settings={{
                               items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ","Чувствит-ть"],
                               pages: [
-                                  <Home fluxData={this.state.data} templ={this.state.theme} />,
-                                  <Opex fluxData={this.state.data} templ={this.state.theme} />,
-                                  <Cib fluxData={this.state.data} templ={this.state.theme}/>,
-                                  <Kb fluxData={this.state.data} templ={this.state.theme}/>,
-                                  <Rb fluxData={this.state.data} templ={this.state.theme}/>,
+                                  <Home fluxData={this.state.data} templ={this.state.theme} date={this.state.date}/>,
+                                  <Opex fluxData={this.state.data} templ={this.state.theme} date={this.state.date}/>,
+                                  <Cib fluxData={this.state.data} templ={this.state.theme} date={this.state.date}/>,
+                                  <Kb fluxData={this.state.data} templ={this.state.theme} date={this.state.date}/>,
+                                  <Rb fluxData={this.state.data} templ={this.state.theme} date={this.state.date}/>,
                                   <TablePage fluxData={this.state.table} templ={this.state.theme} table={this.state.table}/>
                               ]
                           }}
