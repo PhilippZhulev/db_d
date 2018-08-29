@@ -2,6 +2,31 @@ import React, { Component } from 'react';
 import Tile from './modules/tile';
 import Fade from "@material-ui/core/Fade";
 
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+
+let styles = theme => ({
+    root: {
+        display: 'flex',
+    },
+    formControl: {
+        margin: theme.spacing.unit * 3,
+        color: "white",
+        height: "166px"
+    },
+    group: {
+        margin: `${theme.spacing.unit}px 0`,
+        color: "white",
+        display: "-webkit-box",
+        webkitBoxOrient: "vertical"
+    },
+    radio: {color: "white"},
+    label: {color: "white", "& span:last-child": {color:"white"}}
+});
+
 class Home extends Component {
 
     constructor(props) {
@@ -10,7 +35,8 @@ class Home extends Component {
         this.state = {
             data: this.props.fluxData,
             funcs: ["PI","TIER","OPEX","CIR","ROE","COR","CHIS"],
-            templ: this.props.templ
+            templ: this.props.templ,
+            date: 2
         };
     }
 
@@ -29,6 +55,44 @@ class Home extends Component {
                 />
             )
         });
+    };
+
+    changeDate = () => {
+
+    };
+
+    buttons = () => {
+        const { classes } = this.props;
+        const years = ["2019", "2020", "2021"];
+        return (
+        <div className={classes.root}>
+            <div className={"group"}>
+                <FormControl component="fieldset" className={classes.formControl}>
+                    <FormLabel component="legend" style={{color: "white",textDecoration: "underline"}}>Укажите год</FormLabel>
+                    <RadioGroup
+                        aria-label="Gender"
+                        name="gender1"
+                        className={classes.group}
+                        value={this.state.date}
+                        onChange={this.handleChangeDate}
+                    >
+                        {years.map(
+                            (value,index)=>{
+                                return(
+                                    <FormControlLabel
+                                        className={classes.label}
+                                        key={index}
+                                        value={index}
+                                        control={<Radio className={classes.radio}/>}
+                                        label={value}
+                                    />
+                                )
+                            }
+                        )}
+                    </RadioGroup>
+                </FormControl>
+            </div>
+        </div>)
     };
 
     render() {
