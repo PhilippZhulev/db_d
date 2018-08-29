@@ -10,7 +10,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import store from "../reduser";
+import store, {getState, change} from "../reduser";
 
 let styles = theme => ({
     root: {
@@ -45,7 +45,7 @@ class Home extends Component {
             data: this.props.fluxData,
             funcs: ["PI","TIER","OPEX","CIR","ROE","COR","CHIS"],
             templ: this.props.templ,
-            date: "2"
+            date: this.props.date
         };
     }
 
@@ -69,6 +69,10 @@ class Home extends Component {
 
     handleChangeDate = event => {
         this.setState({ date: event.target.value });
+        store.dispatch({
+            type: "CHANGE_DATE",
+            payload: event.target.value
+        });
     };
 
     buttons = () => {
@@ -111,7 +115,7 @@ class Home extends Component {
             <Fade in={true} timeout={{enter: 300, exit:300}}>
 
                     <div className="tiles_container" style={{position: "relative"}}>
-                        <div className={"buttons_container"} style={{position: "absolute", zIndex: 999, right:"0px", top:"-46px", width:"250px", height:"70px"}}>
+                        <div className={"buttons_container"} style={{position: "absolute", zIndex: 999, right:"0px", top:"-21px", width:"250px", height:"70px"}}>
                             {this.buttons(this.state)}
                         </div>
                         {this.tiles(this.state)}
