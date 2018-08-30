@@ -180,7 +180,7 @@ class SimpleSlider extends React.Component {
             dr60:["Нет","c 2020","c 2021"],
             dr82:["MUST","Желательный","AS IS","Прочие +"],
             dr83:["500","750","1000","1250","1500"],
-            dr31:["55.4$%","55.5%","55.6%(баз)","55.7%","55.8%"],
+            dr31:["55.4%","55.5%","55.6%(баз)","55.7%","55.8%"],
             dr32:["127(-10%)","134(-5%)","141(баз)","148(+5%)","155(+10%)"],
             dr33:["49(-10%)","51(-5%)","54(баз)","57(+5%)","60(+10%)"],
             dr36:["45%","55%","60% (без изм.)","65%","70%"],
@@ -236,7 +236,7 @@ class SimpleSlider extends React.Component {
 
 
                     {/*<Typography onClick={this.handleClickOpen} className="label_1">{this.props.labelText}</Typography>*/}
-                    <Typography onClick={this.handleClickOpen} className="label_1">{this.props.labelText}</Typography>
+                    <Typography className="label_1">{this.props.labelText}</Typography>
                     <style>
                         {(flag) ? "" : "." + this.state.random + ":before { content: '" + specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1] + "'}"}
                     </style>
