@@ -36,7 +36,7 @@ let styles = theme => ({
         //display: "inline",
         webkitBoxOrient: "vertical"
     },
-    radio: {color: 0},//this.props.templ.primary.textValueNormal},
+    radio: {color: "red"},//this.props.templ.primary.textValueNormal},
     //label: {color: this.props.templ.primary.textValueNormal, "& span:last-child": {color:this.props.templ.primary.textValueNormal}}
     //label: {color: "red", "& span:last-child": {color:"red"}}
 });
@@ -99,10 +99,10 @@ class Home extends Component {
                                     return(
                                         <FormControlLabel
                                             className={classes.label}
-                                            classes={{label:"radioChecked"}}
+                                            classes={{label: "radioChecked"}}
                                             key={index}
                                             value={String(index)}
-                                            control={<Radio className={classes.radio} classes={{root: "radioRoot",colorPrimary:"radioChecked",colorSecondary:"radioChecked", checked: "radioChecked"}}/>}
+                                            control={<Radio className={classes.radio} classes={{root: classes.root,colorPrimary:"radioChecked",colorSecondary:"radioChecked", checked: "radioChecked"}}/>}
                                             label={value}
                                         />
                                     )
@@ -122,7 +122,7 @@ class Home extends Component {
                 <div className="tiles_container" style={{position: "relative"}}>
                     <div className={"buttons_container"} style={{position: "absolute", zIndex: 999, right:"0px", top:"-20px", width:"250px", height:"70px"}}>
                         <style>
-                            {".radioChecked {color: " + this.props.templ.primary.textValueNormal +"!important};.radioRoot {display: 'flex',color: " + this.props.templ.primary.textValueNormal +"!important}"}
+                            {".radioChecked {color: " + this.props.templ.primary.textValueMain +"!important}"}
                         </style>
                         {this.buttons(this.state)}
                     </div>
