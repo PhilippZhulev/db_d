@@ -20,7 +20,7 @@ let styles = theme => ({
         color: "white",
         height: "166px",
         width: "100px",
-        marginTop: "30px",
+        marginTop: "26px",
         marginBottom: "35px"
     },
     group: {
@@ -98,7 +98,7 @@ class RadioButtonsGroup extends React.Component {
             <div className={classes.root}>
                 <div className={"group"}>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend" style={{color: "white"}}><span style={{textDecoration: "underline"}}>NIM</span> <span style={{color:"#6d7b87"}}>%</span></FormLabel>
+                    <FormLabel component="legend" style={{color: "white"}}><span style={{textDecoration: "underline"}}>NIM</span><span style={{color:"#6d7b87"}}>, %</span></FormLabel>
                     <RadioGroup
                         aria-label="Gender"
                         name="gender1"
@@ -122,7 +122,7 @@ class RadioButtonsGroup extends React.Component {
                     </RadioGroup>
                 </FormControl>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend" style={{color: "white"}}><span style={{textDecoration: "underline"}}>ЧКД CAGR</span> <span style={{color:"#6d7b87"}}>%</span></FormLabel>
+                    <FormLabel component="legend" style={{color: "white"}}><span style={{textDecoration: "underline"}}>ЧКД CAGR</span><span style={{color:"#6d7b87"}}>, %</span></FormLabel>
                     <RadioGroup
                         aria-label="Gender"
                         name="gender1"
@@ -148,7 +148,7 @@ class RadioButtonsGroup extends React.Component {
                 </div>
                 <div className={"group"}>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend" style={{color: "white"}}><span style={{textDecoration: "underline"}}>CIR</span> <span style={{color:"#6d7b87"}}>%</span></FormLabel>
+                    <FormLabel component="legend" style={{color: "white"}}><span style={{textDecoration: "underline"}}>CIR</span><span style={{color:"#6d7b87"}}>, %</span></FormLabel>
                     <RadioGroup
                         aria-label="Gender"
                         name="gender1"
@@ -172,7 +172,7 @@ class RadioButtonsGroup extends React.Component {
                     </RadioGroup>
                 </FormControl>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend" style={{color: "white"}}><span style={{textDecoration: "underline"}}>COR</span> <span style={{color:"#6d7b87"}}>%</span></FormLabel>
+                    <FormLabel component="legend" style={{color: "white"}}><span style={{textDecoration: "underline"}}>COR</span><span style={{color:"#6d7b87"}}>, %</span></FormLabel>
                     <RadioGroup
                         aria-label="Gender"
                         name="gender1"

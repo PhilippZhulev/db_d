@@ -15,6 +15,9 @@ import store, {getState, change} from "../reduser";
 let styles = theme => ({
     root: {
         display: 'flex',
+        '&$checked': {
+            color: 0
+        },
     },
     formControl: {
         //margin: theme.spacing.unit * 3,
@@ -32,8 +35,9 @@ let styles = theme => ({
         //display: "inline",
         webkitBoxOrient: "vertical"
     },
-    radio: {color: "white"},
-    label: {color: "white", "& span:last-child": {color:"white"}}
+    radio: {color: "red"},//this.props.templ.primary.textValueNormal},
+    //label: {color: this.props.templ.primary.textValueNormal, "& span:last-child": {color:this.props.templ.primary.textValueNormal}}
+    //label: {color: "red", "& span:last-child": {color:"red"}}
 });
 
 class Cib extends Component {
@@ -95,9 +99,10 @@ class Cib extends Component {
                                     return(
                                         <FormControlLabel
                                             className={classes.label}
+                                            classes={{label: "radioChecked"}}
                                             key={index}
                                             value={String(index)}
-                                            control={<Radio className={classes.radio}/>}
+                                            control={<Radio className={classes.radio} classes={{root: classes.root,colorPrimary:"radioChecked",colorSecondary:"radioChecked", checked: "radioChecked"}}/>}
                                             label={value}
                                         />
                                     )
@@ -116,6 +121,9 @@ class Cib extends Component {
             <Fade in={true} timeout={{enter: 300, exit:300}}>
 
                 <div className="tiles_container" style={{position: "relative"}}>
+                    <style>
+                        {".radioChecked {color: " + this.props.templ.primary.textValueNormal +"!important}"}
+                    </style>
                     <div className={"buttons_container"} style={{position: "absolute", zIndex: 999, right:"0px", top:"-20px", width:"250px", height:"70px"}}>
                         {this.buttons(this.state)}
                     </div>
