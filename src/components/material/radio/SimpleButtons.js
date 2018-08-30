@@ -20,7 +20,7 @@ let styles = theme => ({
         color: "white",
         height: "166px",
         width: "100px",
-        marginTop: "30px",
+        marginTop: "26px",
         marginBottom: "35px"
     },
     group: {
