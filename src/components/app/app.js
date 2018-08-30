@@ -18,7 +18,6 @@ import Drivers from "../../views/modules/drivers";
 import store, {getState, change} from "../../reduser";
 import Preloader from "../preloader";
 
-
 class App extends Component {
     constructor(props) {
         super(props);
@@ -39,14 +38,15 @@ class App extends Component {
             table: Model.parseTable(window.obj.dummyData.table),
             changePage: false,
             tables: localStorage["dumpTab"] || 0,
-            driversDump: window.obj.dummyData.drivers
+            date: "1"
         };
-
-        this.driversDump = window.obj.dummyData.drivers;
 
         this.myTheme = createMuiTheme({
             palette: this.state.theme
         });
+
+        console.log("ДАТА ВСЕОТЕЦ:");
+        console.log(window.obj.dummyData);
 
         store.subscribe(() => {
             switch (change) {
@@ -80,19 +80,24 @@ class App extends Component {
                     this.setState({preloader:  true});
                     window.updateState(["return_driver_to_lumira", String(getState.value.id+","+getState.value.val)], () => {
 
+                        console.log("ДРАЙВЕРКИ");
+                        console.log(String(getState.value.id));
+                        console.log(getState.value.val);
 
-                        for (let i = 0; i < this.driversDump.length; i++){
-                          if (this.driversDump[i].id === getState.value.id) {
-                            this.driversDump[i].value = getState.value.val;
-                            break
-                          }
+                        for (let i = 0; i < window.obj.dummyData.drivers.length; i++){
+                            if (window.obj.dummyData.drivers[i].id === getState.value.id) {
+                                window.obj.dummyData.drivers[i].value = getState.value.val;
+                                break
+                            }
                         }
 
+                        console.log("НОВЫЙ DATA");
+                        console.log(window.obj.dummyData);
 
                         if(this.state.groupsType !== "groups") {
-                            this.setState({data:  window.obj.dummyData, driversDump : this.driversDump,  preloader:  false});//, categorys: Model.getCategory(window.obj.dummyData.drivers)});
+                            this.setState({data:  window.obj.dummyData, preloader:  false});//, categorys: Model.getCategory(window.obj.dummyData.drivers)});
                         }else {
-                            this.setState({data:  window.obj.dummyData, driversDump : this.driversDump,  preloader:  false});//, groups: Model.getGroups(window.obj.dummyData.drivers)});
+                            this.setState({data:  window.obj.dummyData, preloader:  false});//, groups: Model.getGroups(window.obj.dummyData.drivers)});
                         }
                     });
                 break;
@@ -103,6 +108,10 @@ class App extends Component {
 
                 case "scroll_stop" :
                     this.setState({scroll: true});
+                break;
+
+                case "change_date" :
+                    this.setState({date: getState.states});
                 break;
 
                 case "drivers_router" :
@@ -171,7 +180,7 @@ class App extends Component {
             bar = (
                 <Drivers
                     index={this.state.tables}
-                    data={this.state.driversDump}
+                    data={this.state.data}
                     routerValue={this.state.category}
                     staticRouterValue={this.state.categoryStatic}
                     groups={this.state.groups}
@@ -199,9 +208,8 @@ class App extends Component {
                 }}>
                     <Drivers
                         index={this.state.tables}
-                        data={this.state.driversDump}
+                        data={this.state.data}
                         routerValue={this.state.category}
-                        templ={this.state.theme}
                         staticRouterValue={this.state.categoryStatic}
                         groups={this.state.groups}
                         categorys={this.state.categorys}
@@ -219,13 +227,13 @@ class App extends Component {
                     <Tabs
                           templ={this.state.theme}
                           settings={{
-                              items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ","Матрица"],
+                              items: ["KPI - Группа", "OPEX - Группа","CIB","КБ","РБ","Чувствит-ть"],
                               pages: [
-                                  <Home fluxData={this.state.data} templ={this.state.theme} />,
-                                  <Opex fluxData={this.state.data} templ={this.state.theme} />,
-                                  <Cib fluxData={this.state.data} templ={this.state.theme}/>,
-                                  <Kb fluxData={this.state.data} templ={this.state.theme}/>,
-                                  <Rb fluxData={this.state.data} templ={this.state.theme}/>,
+                                  <Home fluxData={this.state.data} templ={this.state.theme} date={this.state.date}/>,
+                                  <Opex fluxData={this.state.data} templ={this.state.theme} date={this.state.date}/>,
+                                  <Cib fluxData={this.state.data} templ={this.state.theme} date={this.state.date}/>,
+                                  <Kb fluxData={this.state.data} templ={this.state.theme} date={this.state.date}/>,
+                                  <Rb fluxData={this.state.data} templ={this.state.theme} date={this.state.date}/>,
                                   <TablePage fluxData={this.state.table} templ={this.state.theme} table={this.state.table}/>
                               ]
                           }}
@@ -238,12 +246,12 @@ class App extends Component {
                         <div className="btns__panel">
                             <Btn
                                 customClass="btn_save"
-                                text="Сохранить"
+                                text="Сохранить модель"
                                 onClick={() => {this.onControlBtnChange("save_values", "tech2")}}
                             />
                             <Btn
                                 customClass="btn_default"
-                                text="Сбросить"
+                                text="Базовая версия"
                                 onClick={() => {this.onControlBtnChange("default_values","tech3")}}
                             />
                         </div>
