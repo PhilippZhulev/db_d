@@ -120,7 +120,7 @@ class Cib extends Component {
         return (
             <Fade in={true} timeout={{enter: 300, exit:300}}>
 
-                <div className="tiles_container" style={{position: "relative"}}>\
+                <div className="tiles_container" style={{position: "relative"}}>
                     <style>
                         {".radioChecked {color: " + this.props.templ.primary.textValueNormal +"!important}"}
                     </style>
