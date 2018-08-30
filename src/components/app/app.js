@@ -201,6 +201,7 @@ class App extends Component {
                         index={this.state.tables}
                         data={this.state.driversDump}
                         routerValue={this.state.category}
+                        templ={this.state.theme}
                         staticRouterValue={this.state.categoryStatic}
                         groups={this.state.groups}
                         categorys={this.state.categorys}
