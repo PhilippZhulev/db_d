@@ -240,7 +240,7 @@ class App extends Component {
                     />
                         <Preloader bool={this.state.preloader} />
                     <div className={"app_menu_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.menu}}>
-                        <div style={{height: "82%", margin:"0 -15px", overflowY: "hidden", overflowX: "visible"}}>
+                        <div style={{height: "81%", margin:"0 -15px", overflowY: "hidden", overflowX: "visible"}}>
                             {bar}
                         </div>
                         <div className="btns__panel">
