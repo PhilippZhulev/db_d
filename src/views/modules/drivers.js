@@ -16,7 +16,7 @@ class Drivers extends Component {
                 </div>
             )
         } else {
-            return this.props.data.drivers.map((value, index) => {
+            return this.props.data.map((value, index) => {
 
                 let type = value.category;
 

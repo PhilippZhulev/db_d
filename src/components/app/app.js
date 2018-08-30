@@ -39,7 +39,7 @@ class App extends Component {
             table: Model.parseTable(window.obj.dummyData.table),
             changePage: false,
             tables: localStorage["dumpTab"] || 0,
-            driversDump: window.obj.dummyData.drivers 
+            driversDump: window.obj.dummyData.drivers
         };
 
         this.driversDump = window.obj.dummyData.drivers;
@@ -171,7 +171,7 @@ class App extends Component {
             bar = (
                 <Drivers
                     index={this.state.tables}
-                    data={this.state.data}
+                    data={this.state.driversDump}
                     routerValue={this.state.category}
                     staticRouterValue={this.state.categoryStatic}
                     groups={this.state.groups}
@@ -199,7 +199,7 @@ class App extends Component {
                 }}>
                     <Drivers
                         index={this.state.tables}
-                        data={this.state.data}
+                        data={this.state.driversDump}
                         routerValue={this.state.category}
                         staticRouterValue={this.state.categoryStatic}
                         groups={this.state.groups}
