@@ -235,6 +235,7 @@ class SimpleSlider extends React.Component {
                     </Dialog>
 
 
+                    {/*<Typography onClick={this.handleClickOpen} className="label_1">{this.props.labelText}</Typography>*/}
                     <Typography onClick={this.handleClickOpen} className="label_1">{this.props.labelText}</Typography>
                     <style>
                         {(flag) ? "" : "." + this.state.random + ":before { content: '" + specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1] + "'}"}
@@ -280,8 +281,8 @@ class SimpleSlider extends React.Component {
                     >
                         <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
                         <DialogContent>
-                            <DialogContentText>{this.props.description}</DialogContentText>
-                            {/*<DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>*/}
+                            {/*<DialogContentText>{this.props.description}</DialogContentText>*/}
+                            <DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>
                             <TextField
                                 margin="dense"
                                 name="value"
