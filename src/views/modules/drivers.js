@@ -16,7 +16,7 @@ class Drivers extends Component {
                 </div>
             )
         } else {
-            return this.props.data.drivers.map((value, index) => {
+            return this.props.data.map((value, index) => {
 
                 let type = value.category;
 
@@ -39,6 +39,7 @@ class Drivers extends Component {
                             value={+(value.value)}
                             step={+(value.step)}
                             baseValue={+(value.baseValue)}
+                            load={this.props.load}
                         />
                     )
                 } else {

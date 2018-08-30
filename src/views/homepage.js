@@ -39,6 +39,7 @@ let styles = theme => ({
     radio: {color: "red"},//this.props.templ.primary.textValueNormal},
     //label: {color: this.props.templ.primary.textValueNormal, "& span:last-child": {color:this.props.templ.primary.textValueNormal}}
     //label: {color: "red", "& span:last-child": {color:"red"}}
+
 });
 
 class Home extends Component {

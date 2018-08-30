@@ -207,6 +207,7 @@ class SimpleSlider extends React.Component {
                     }}
                     className={classes.enabled}
                     value={value}
+                    disabled={this.props.load !== false}
                     aria-labelledby="label"
                     min={this.props.min}
                     max={this.props.max}
