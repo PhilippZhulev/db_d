@@ -40,6 +40,8 @@ class Drivers extends Component {
                             step={+(value.step)}
                             baseValue={+(value.baseValue)}
                             load={this.props.load}
+                            type={value.type}
+                            description={value.description}
                         />
                     )
                 } else {

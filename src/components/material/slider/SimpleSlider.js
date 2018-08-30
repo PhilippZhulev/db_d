@@ -156,7 +156,9 @@ class SimpleSlider extends React.Component {
         const { classes } = this.props;
         const { value } = this.state;
 
-        const flag = ((+(this.props.min) === 1) && (+(this.props.max) === 2) && (+(this.props.step) === 1));
+        // const flag = ((+(this.props.min) === 1) && (+(this.props.max) === 2) && (+(this.props.step) === 1));
+
+        const flag = Boolean(this.props.type);
 
         // вставить значение стратегии для ползунка, когда оно будет в бэке
         return (
@@ -169,6 +171,7 @@ class SimpleSlider extends React.Component {
                 >
                     <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
                     <DialogContent>
+                        <DialogContentText>{this.props.description}</DialogContentText>
                         <DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>
                         <TextField
                             margin="dense"
