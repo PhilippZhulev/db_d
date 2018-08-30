@@ -12,7 +12,34 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import store, {getState, change} from "../reduser";
 
-let styles = null;
+
+let styles = theme => ({
+  root: {
+    display: 'flex',
+    '&$checked': {
+      color: 0
+    },
+  },
+  formControl: {
+    //margin: theme.spacing.unit * 3,
+    color: "white",
+    height: "70px",
+    width: "250px"
+  },
+  group_wrapper: {
+
+  },
+  group: {
+    margin: `${theme.spacing.unit}px 0`,
+    color: "white",
+    display: "-webkit-box",
+    //display: "inline",
+    webkitBoxOrient: "vertical"
+  },
+  radio: {color: "red"},//this.props.templ.primary.textValueNormal},
+  //label: {color: this.props.templ.primary.textValueNormal, "& span:last-child": {color:this.props.templ.primary.textValueNormal}}
+  label: {color: "red", "& span:last-child": {color:"red"}}
+});
 
 class Home extends Component {
 
@@ -25,37 +52,6 @@ class Home extends Component {
             templ: this.props.templ,
             date: this.props.date
         };
-        console.log("styles.root");
-        console.log(styles);
-
-        styles = theme => ({
-            root: {
-                display: 'flex',
-                '&$checked': {
-                    color: this.props.templ.primary.textValueMain//this.props.templ.primary.textValueNormal+"!important",
-                },
-            },
-            formControl: {
-                //margin: theme.spacing.unit * 3,
-                color: "white",
-                height: "70px",
-                width: "250px"
-            },
-            group_wrapper: {
-
-            },
-            group: {
-                margin: `${theme.spacing.unit}px 0`,
-                color: "white",
-                display: "-webkit-box",
-                //display: "inline",
-                webkitBoxOrient: "vertical"
-            },
-            checked:{},
-            radio: {color: "red"},//this.props.templ.primary.textValueNormal},
-            //label: {color: this.props.templ.primary.textValueNormal, "& span:last-child": {color:this.props.templ.primary.textValueNormal}}
-            label: {color: "red", "& span:last-child": {color:"red"}}
-        });
     }
 
     tiles = () => {
@@ -105,7 +101,7 @@ class Home extends Component {
                                         className={classes.label}
                                         key={index}
                                         value={String(index)}
-                                        control={<Radio className={classes.radio} classes={{root: classes.root, checked: classes.checked}}/>}
+                                        control={<Radio className={classes.radio} classes={{root: classes.root, checked: "radioChecked"}}/>}
                                         label={value}
                                     />
                                 )
@@ -122,9 +118,11 @@ class Home extends Component {
 
         return (
             <Fade in={true} timeout={{enter: 300, exit:300}}>
-
                     <div className="tiles_container" style={{position: "relative"}}>
                         <div className={"buttons_container"} style={{position: "absolute", zIndex: 999, right:"0px", top:"-20px", width:"250px", height:"70px"}}>
+                            <style>
+                                {".radioChecked {color: " + this.props.templ.primary.textValueMain +"!important}"}
+                            </style>
                             {this.buttons(this.state)}
                         </div>
                         {this.tiles(this.state)}
