@@ -38,8 +38,11 @@ class App extends Component {
             table: Model.parseTable(window.obj.dummyData.table),
             changePage: false,
             tables: localStorage["dumpTab"] || 0,
-            date: "1"
+            date: "1",
+            driverData: window.obj.dummyData.drivers
         };
+
+        this.driverLocalData = window.obj.dummyData.drivers;
 
         this.myTheme = createMuiTheme({
             palette: this.state.theme
@@ -84,9 +87,9 @@ class App extends Component {
                         console.log(String(getState.value.id));
                         console.log(getState.value.val);
 
-                        for (let i = 0; i < window.obj.dummyData.drivers.length; i++){
-                            if (window.obj.dummyData.drivers[i].id === getState.value.id) {
-                                window.obj.dummyData.drivers[i].value = getState.value.val;
+                        for (let i = 0; i < this.driverLocalData.length; i++){
+                            if (this.driverLocalData[i].id === getState.value.id) {
+                                this.driverLocalData[i].value = getState.value.val;
                                 break
                             }
                         }
@@ -95,9 +98,9 @@ class App extends Component {
                         console.log(window.obj.dummyData);
 
                         if(this.state.groupsType !== "groups") {
-                            this.setState({data:  window.obj.dummyData, preloader:  false});//, categorys: Model.getCategory(window.obj.dummyData.drivers)});
+                            this.setState({data:  window.obj.dummyData, driverData: this.driverLocalData, preloader:  false});
                         }else {
-                            this.setState({data:  window.obj.dummyData, preloader:  false});//, groups: Model.getGroups(window.obj.dummyData.drivers)});
+                            this.setState({data:  window.obj.dummyData, driverData: this.driverLocalData, preloader:  false});
                         }
                     });
                 break;
@@ -151,6 +154,7 @@ class App extends Component {
                     this.setState({
                         data:  window.obj.dummyData,
                         groups:  Model.getGroups(window.obj.dummyData.drivers),
+                        driverData: window.obj.dummyData.drivers,
                         preloader:  false
                     });
 
@@ -180,7 +184,7 @@ class App extends Component {
             bar = (
                 <Drivers
                     index={this.state.tables}
-                    data={this.state.data}
+                    data={this.state.driverData}
                     routerValue={this.state.category}
                     staticRouterValue={this.state.categoryStatic}
                     groups={this.state.groups}
@@ -188,6 +192,7 @@ class App extends Component {
                     groupsType={this.state.groupsType}
                     tab={this.state.tables}
                     table={this.state.table}
+                    load={this.state.preloader}
                 />
             );
         } else{
@@ -208,13 +213,14 @@ class App extends Component {
                 }}>
                     <Drivers
                         index={this.state.tables}
-                        data={this.state.data}
+                        data={this.state.driverData}
                         routerValue={this.state.category}
                         staticRouterValue={this.state.categoryStatic}
                         groups={this.state.groups}
                         categorys={this.state.categorys}
                         groupsType={this.state.groupsType}
                         tab={this.state.tables}
+                        load={this.state.preloader}
                     />
                 </ReactIScroll>
             );

@@ -15,7 +15,7 @@ import store, {getState, change} from "../reduser";
 
 let styles = theme => ({
     root: {
-        display: 'flex', 
+        display: 'flex',
         '&$checked': {
             color: 0
         },
