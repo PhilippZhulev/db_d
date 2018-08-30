@@ -38,11 +38,7 @@ class App extends Component {
             table: Model.parseTable(window.obj.dummyData.table),
             changePage: false,
             tables: localStorage["dumpTab"] || 0,
-<<<<<<< HEAD
-            date: "2"
-=======
             date: "1"
->>>>>>> Volchanskiy
         };
 
         this.myTheme = createMuiTheme({
