@@ -99,7 +99,7 @@ class TablePage extends Component {
                 //if ((this.elInd(i,j,"NIM") === +(this.state.opts.NIM))&&(this.elInd(i,j,"CIR") === +(this.state.opts.CIR))&&(this.elInd(i,j,"COR") === +(this.state.opts.COR))&&(this.elInd(i,j,"CAGR") === +(this.state.opts.CAGR))) {
                 if ((i === selVal.i)&&(j === selVal.j)) {
                     stl = {
-                        color: "#f8ac59",//"#4655f2",
+                        color: "#4655f2",//"#727CF5",
                         backgroundColor: this.props.templ.primary.tableSelection,
                     };
                     scale = "selVal";

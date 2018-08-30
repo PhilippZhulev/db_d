@@ -49,7 +49,7 @@ const styles = {
         position: "absolute",
         top: "53%",
         zIndex: 1,
-        backgroundColor: "#727CF5",//f8ac59
+        backgroundColor: "#f8ac59",
         width: 2,
         height: 7,
     }

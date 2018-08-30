@@ -79,11 +79,6 @@ function reduser (state = null, action) {
                 states: action.payload,
                 change: "buttons_reassign"
             };
-        case "CHANGE_DATE":
-            return {...state,
-                states: action.payload,
-                change: "change_date"
-            };
         default:
             return state
     }
