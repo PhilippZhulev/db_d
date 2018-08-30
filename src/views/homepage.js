@@ -122,7 +122,7 @@ class Home extends Component {
                 <div className="tiles_container" style={{position: "relative"}}>
                     <div className={"buttons_container"} style={{position: "absolute", zIndex: 999, right:"0px", top:"-20px", width:"250px", height:"70px"}}>
                         <style>
-                            {".radioChecked {color: " + this.props.templ.primary.textValueMain +"!important}"}
+                            {".radioChecked {color: " + this.props.templ.primary.textValueNormal +"!important}"}
                         </style>
                         {this.buttons(this.state)}
                     </div>
