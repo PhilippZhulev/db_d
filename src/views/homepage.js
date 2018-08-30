@@ -12,29 +12,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import store, {getState, change} from "../reduser";
 
-let styles = theme => ({
-    root: {
-        display: 'flex',
-    },
-    formControl: {
-        //margin: theme.spacing.unit * 3,
-        color: "white",
-        height: "70px",
-        width: "250px"
-    },
-    group_wrapper: {
-
-    },
-    group: {
-        margin: `${theme.spacing.unit}px 0`,
-        color: "white",
-        display: "-webkit-box",
-        //display: "inline",
-        webkitBoxOrient: "vertical"
-    },
-    radio: {color: "white"},
-    label: {color: "white", "& span:last-child": {color:"white"}}
-});
+let styles = null;
 
 class Home extends Component {
 
@@ -47,6 +25,37 @@ class Home extends Component {
             templ: this.props.templ,
             date: this.props.date
         };
+        console.log("styles.root");
+        console.log(styles);
+
+        styles = theme => ({
+            root: {
+                display: 'flex',
+                '&$checked': {
+                    color: this.props.templ.primary.textValueMain//this.props.templ.primary.textValueNormal+"!important",
+                },
+            },
+            formControl: {
+                //margin: theme.spacing.unit * 3,
+                color: "white",
+                height: "70px",
+                width: "250px"
+            },
+            group_wrapper: {
+
+            },
+            group: {
+                margin: `${theme.spacing.unit}px 0`,
+                color: "white",
+                display: "-webkit-box",
+                //display: "inline",
+                webkitBoxOrient: "vertical"
+            },
+            checked:{},
+            radio: {color: "red"},//this.props.templ.primary.textValueNormal},
+            //label: {color: this.props.templ.primary.textValueNormal, "& span:last-child": {color:this.props.templ.primary.textValueNormal}}
+            label: {color: "red", "& span:last-child": {color:"red"}}
+        });
     }
 
     tiles = () => {
@@ -96,7 +105,7 @@ class Home extends Component {
                                         className={classes.label}
                                         key={index}
                                         value={String(index)}
-                                        control={<Radio className={classes.radio}/>}
+                                        control={<Radio className={classes.radio} classes={{root: classes.root, checked: classes.checked}}/>}
                                         label={value}
                                     />
                                 )

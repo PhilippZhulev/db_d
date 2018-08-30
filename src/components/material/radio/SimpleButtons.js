@@ -11,11 +11,17 @@ import store, {getState, change} from '../../../reduser';
 let styles = theme => ({
     root: {
         display: 'flex',
+        '&$checked': {
+            color: "rgb(248, 172, 89)",
+        },
     },
     formControl: {
-        margin: theme.spacing.unit * 3,
+        // margin: theme.spacing.unit * 3,
         color: "white",
-        height: "166px"
+        height: "166px",
+        width: "100px",
+        marginTop: "30px",
+        marginBottom: "35px"
     },
     group: {
         margin: `${theme.spacing.unit}px 0`,
@@ -23,8 +29,12 @@ let styles = theme => ({
         display: "-webkit-box",
         webkitBoxOrient: "vertical"
     },
-    radio: {color: "white"},
-    label: {color: "white", "& span:last-child": {color:"white"}}
+    radio: {
+        color: "#6d7b87",
+    },
+    checked: {},
+    label: {color: "white", "& span:last-child": {color:"white"}},
+    labelBase: {color: "rgb(26, 179, 148)", "& span:last-child": {color:"rgb(26, 179, 148)"}}
 });
 
 class RadioButtonsGroup extends React.Component {
@@ -88,7 +98,7 @@ class RadioButtonsGroup extends React.Component {
             <div className={classes.root}>
                 <div className={"group"}>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend" style={{color: "white",textDecoration: "underline"}}>NIM</FormLabel>
+                    <FormLabel component="legend" style={{color: "white"}}><span style={{textDecoration: "underline"}}>NIM</span> <span style={{color:"#6d7b87"}}>%</span></FormLabel>
                     <RadioGroup
                         aria-label="Gender"
                         name="gender1"
@@ -100,11 +110,11 @@ class RadioButtonsGroup extends React.Component {
                             (value,index)=>{
                                 return(
                                     <FormControlLabel
-                                        className={classes.label}
+                                        className={(index === +(this.props.table.defaultSel.NIM)) ? classes.labelBase : classes.label}
                                         key={index}
                                         value={String(index)}
-                                        control={<Radio className={classes.radio}/>}
-                                        label={value}
+                                        control={<Radio className={classes.radio} classes={{root:classes.root, checked:classes.checked}}/>}
+                                        label={value.substring(0,value.length-1)}
                                     />
                                 )
                             }
@@ -112,7 +122,7 @@ class RadioButtonsGroup extends React.Component {
                     </RadioGroup>
                 </FormControl>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend" style={{color: "white",textDecoration: "underline"}}>ЧКД CAGR</FormLabel>
+                    <FormLabel component="legend" style={{color: "white"}}><span style={{textDecoration: "underline"}}>ЧКД CAGR</span> <span style={{color:"#6d7b87"}}>%</span></FormLabel>
                     <RadioGroup
                         aria-label="Gender"
                         name="gender1"
@@ -124,11 +134,11 @@ class RadioButtonsGroup extends React.Component {
                             (value,index)=>{
                                 return(
                                     <FormControlLabel
-                                        className={classes.label}
+                                        className={(index === +(this.props.table.defaultSel.CAGR)) ? classes.labelBase : classes.label}
                                         key={index}
                                         value={String(index)}
-                                        control={<Radio className={classes.radio}/>}
-                                        label={value}
+                                        control={<Radio className={classes.radio} classes={{root:classes.root, checked:classes.checked}}/>}
+                                        label={value.substring(0,value.length-1)}
                                     />
                                 )
                             }
@@ -138,7 +148,7 @@ class RadioButtonsGroup extends React.Component {
                 </div>
                 <div className={"group"}>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend" style={{color: "white",textDecoration: "underline"}}>CIR</FormLabel>
+                    <FormLabel component="legend" style={{color: "white"}}><span style={{textDecoration: "underline"}}>CIR</span> <span style={{color:"#6d7b87"}}>%</span></FormLabel>
                     <RadioGroup
                         aria-label="Gender"
                         name="gender1"
@@ -150,11 +160,11 @@ class RadioButtonsGroup extends React.Component {
                             (value,index)=>{
                                 return(
                                     <FormControlLabel
-                                        className={classes.label}
+                                        className={(index === +(this.props.table.defaultSel.CIR)) ? classes.labelBase : classes.label}
                                         key={index}
                                         value={String(index)}
-                                        control={<Radio className={classes.radio}/>}
-                                        label={value}
+                                        control={<Radio className={classes.radio} classes={{root:classes.root, checked:classes.checked}}/>}
+                                        label={value.substring(0,value.length-1)}
                                     />
                                 )
                             }
@@ -162,7 +172,7 @@ class RadioButtonsGroup extends React.Component {
                     </RadioGroup>
                 </FormControl>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend" style={{color: "white",textDecoration: "underline"}}>COR</FormLabel>
+                    <FormLabel component="legend" style={{color: "white"}}><span style={{textDecoration: "underline"}}>COR</span> <span style={{color:"#6d7b87"}}>%</span></FormLabel>
                     <RadioGroup
                         aria-label="Gender"
                         name="gender1"
@@ -174,11 +184,11 @@ class RadioButtonsGroup extends React.Component {
                             (value,index)=>{
                                 return(
                                     <FormControlLabel
-                                        className={classes.label}
+                                        className={(index === +(this.props.table.defaultSel.COR)) ? classes.labelBase : classes.label}
                                         key={index}
                                         value={String(index)}
-                                        control={<Radio className={classes.radio}/>}
-                                        label={value}
+                                        control={<Radio className={classes.radio} classes={{root:classes.root, checked:classes.checked}}/>}
+                                        label={value.substring(0,value.length-1)}
                                     />
                                 )
                             }
