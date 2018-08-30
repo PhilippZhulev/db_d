@@ -14,7 +14,8 @@ const whiteTheme = {
         selectColor: "#2f4050",
         indicatorColor: "#fff",
         separatorColor: "#757575",
-        selected: "#293846"
+        selected: "#293846",
+        textValuePerc: "#000000"
     },
     secondary: {
         light: '#6effe8',
@@ -42,7 +43,8 @@ const darkTheme = {
         selectColor: "#fff",
         indicatorColor: "#29353e",
         separatorColor: "#757575",
-        selected: "#fff"
+        selected: "#fff",
+        textValuePerc: "#ffffff"
     },
     secondary: {
         light: '#6effe8',

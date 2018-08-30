@@ -45,7 +45,7 @@ class Tile extends Component {
                 </div>
                 <div>
                     <span className="subscribe" style={{color: color}}>{(this.props.addSubscr !== undefined ? this.props.addSubscr : "1")}</span>
-                    <span style={{color: this.props.templ.primary.textValueNormal}}>
+                    <span style={{color:(tileCalc.smallVal === "(0.0%)") ? this.props.templ.primary.textValueNormal : this.props.templ.primary.textValuePerc}}>
                         {tileCalc.smallVal}
                     </span>
                 </div>
