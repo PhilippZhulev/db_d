@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Tile from './modules/tile';
 import Fade from "@material-ui/core/Fade";
 
-<<<<<<< HEAD
-=======
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
@@ -43,7 +41,6 @@ let styles = theme => ({
     //label: {color: "red", "& span:last-child": {color:"red"}}
 });
 
->>>>>>> Volchanskiy
 class Home extends Component {
 
     constructor(props) {
@@ -52,12 +49,8 @@ class Home extends Component {
         this.state = {
             data: this.props.fluxData,
             funcs: ["PI","TIER","OPEX","CIR","ROE","COR","CHIS"],
-<<<<<<< HEAD
-            templ: this.props.templ
-=======
             templ: this.props.templ,
             date: this.props.date
->>>>>>> Volchanskiy
         };
     }
 
@@ -73,19 +66,6 @@ class Home extends Component {
                     func={value}
                     templ = {this.props.templ}
                     data = {this.props.fluxData.data}
-<<<<<<< HEAD
-                />
-            )
-        });
-    };
-
-    render() {
-        return (
-            <Fade in={true} timeout={{enter: 300, exit:300}}>
-                <div className="tiles_container">
-                    {this.tiles(this.state)}
-                </div>
-=======
                     date = {this.state.date}
                 />
             )
@@ -149,18 +129,13 @@ class Home extends Component {
                     {this.tiles(this.state)}
                 </div>
 
->>>>>>> Volchanskiy
             </Fade>
         )
     }
 }
 
-<<<<<<< HEAD
-export default Home;
-=======
 Home.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Home);
->>>>>>> Volchanskiy
