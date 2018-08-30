@@ -39,7 +39,7 @@ class App extends Component {
             table: Model.parseTable(window.obj.dummyData.table),
             changePage: false,
             tables: localStorage["dumpTab"] || 0,
-            driversDump: window.obj.dummyData.drivers
+            driversDump: window.obj.dummyData.drivers 
         };
 
         this.driversDump = window.obj.dummyData.drivers;
