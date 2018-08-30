@@ -156,79 +156,190 @@ class SimpleSlider extends React.Component {
         const { classes } = this.props;
         const { value } = this.state;
 
-        // const flag = ((+(this.props.min) === 1) && (+(this.props.max) === 2) && (+(this.props.step) === 1));
+         const flag = ((+(this.props.min) === 1) && (+(this.props.max) === 2) && (+(this.props.step) === 1));
 
-        const flag = Boolean(this.props.type);
+         //const specialDrivers = [2,14,27,52,53,60,82,83];
+        const specialDrivers = [31,32,33,36,40,42,44,48,51,71,72,84,85];
+         // const specialDriversData = {
+         //     dr2:["55","57","59","61","63","65"],
+         //     dr14:["3 года", "5 лет"],
+         //     dr27:["4.75%","4.85%","5.14%","5.2%","5.25%"],
+         //     dr52:["Базовый", "1.325","1.65","1.975","2."],
+         //     dr53:["Своевременно","Задержка 1 год"],
+         //     dr60:["Нет", "Вывод с 2020", "Вывод с 2021"],
+         //     dr82:["MUST","Желательный","AS IS","Прочие +"],
+         //     dr83:["500","750","1000","1250","1500"]
+         // };
+
+        const specialDriversData = {
+            dr2:["55","57","59","61","63","65"],
+            dr14:["3 года", "5 лет"],
+            dr27:["4.75%","4.85%","5.14%","5.2%","5.25%"],
+            dr52:["Базовый", "1.325","1.65","1.975","2."],
+            dr53:["Своевр-но","Задерж. 1 г."],
+            dr60:["Нет","c 2020","c 2021"],
+            dr82:["MUST","Желательный","AS IS","Прочие +"],
+            dr83:["500","750","1000","1250","1500"],
+            dr31:["55.4%","55.5%","55.6%(баз)","55.7%","55.8%"],
+            dr32:["127(-10%)","134(-5%)","141(баз)","148(+5%)","155(+10%)"],
+            dr33:["49(-10%)","51(-5%)","54(баз)","57(+5%)","60(+10%)"],
+            dr36:["45%","55%","60% (без изм.)","65%","70%"],
+            dr40:["100%","107%","113% (без изм.)","119%","130%"],
+            dr42:["8.0%","8.6%","9.2% (без изм.)","9.8%","10.4%"],
+            dr44:["без изм.","+0.5%","+1.0%","+1.5%","+2.0%"],
+            dr48:["0%","2%","4%","6%","8%"],
+            dr51:["7.83%","8.3%","8.8%","9.3%","10%"],
+            dr71:["0%","4%","8% (без изм.)","12%","16%"],
+            dr72:["36%","37%","38% (без изм.)","40%","45%"],
+            dr84:["-10%","-5%","Базовая версия","5%","10%"],
+            dr85:["-10%","-5%","Базовая версия","5%","10%"]
+        };
+
+        //const flag = Boolean(this.props.type);
 
         // вставить значение стратегии для ползунка, когда оно будет в бэке
-        return (
-            <div className={classes.root}>
+        if (specialDrivers.indexOf(+(this.props.driverId)) !== -1) {
+            console.log("О нет, у этого драйвера аутизм!");
+            console.log(this.props.driverId);
+            return (
+                <div className={classes.root}>
 
-                <Dialog
-                    open={this.state.open}
-                    onClose={this.handleClose}
-                    aria-labelledby="form-dialog-title"
-                >
-                    <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>{this.props.description}</DialogContentText>
-                        <DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>
-                        <TextField
-                            margin="dense"
-                            name="value"
-                            label=""
-                            type="number"
-                            fullWidth
-                            inputProps={{ min: this.props.min, max: this.props.max, step: this.props.step}}
-                            onChange={this.handleFieldChange}
-                            error={this.state.inputError}
+                    <Dialog
+                        open={this.state.open}
+                        onClose={this.handleClose}
+                        aria-labelledby="form-dialog-title"
+                    >
+                        <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText>{this.props.description}</DialogContentText>
+                            {/*<DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>*/}
+                            <TextField
+                                margin="dense"
+                                name="value"
+                                label=""
+                                type="number"
+                                fullWidth
+                                inputProps={{min: this.props.min, max: this.props.max, step: this.props.step}}
+                                onChange={this.handleFieldChange}
+                                error={this.state.inputError}
+                            />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={this.handleClose} color="primary">
+                                Отмена
+                            </Button>
+                            <Button onClick={this.handleApply} color="primary">
+                                Применить
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
+
+
+                    {/*<Typography onClick={this.handleClickOpen} className="label_1">{this.props.labelText}</Typography>*/}
+                    <Typography className="label_1">{this.props.labelText}</Typography>
+                    <style>
+                        {(flag) ? "" : "." + this.state.random + ":before { content: '" + specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1] + "'}"}
+                    </style>
+                    <div className={"dot_wrapper"} style={{position: "relative"}}>
+                        <Slider
+                            classes={{
+                                trackBefore: "slider_beffore",
+                                trackAfter: "slider_after",
+                                thumb: "slider_thumb " + this.state.random,
+                                root: "slider_root",
+                                activated: "active_slider"
+                            }}
+                            className={classes.enabled}
+                            value={value}
+                            disabled={this.props.load !== false}
+                            aria-labelledby="label"
+                            min={this.props.min}
+                            max={this.props.max}
+                            onChange={this.handleChange}
+                            onDragEnd={this.handleDragEnd}
+                            onDragStart={this.handleDragStart}
+                            step={this.props.step}
                         />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">
-                            Отмена
-                        </Button>
-                        <Button onClick={this.handleApply} color="primary">
-                            Применить
-                        </Button>
-                    </DialogActions>
-                </Dialog>
+
+                        <div className={classes.default_dot} style={{left: this.reposition(this.props.baseValue)}}/>
+                        {/*<div className={classes.strat_dot} style={{left: this.reposition(this.props.max)}}/>*/}
 
 
-                <Typography onClick={this.handleClickOpen} className="label_1">{this.props.labelText}</Typography>
-                <style>
-                    {(flag) ? "" : "." + this.state.random + ":before { content: '"+ this.state.value.toFixed(1) +"'}"}
-                </style>
-                <div className={"dot_wrapper"} style={{position: "relative"}}>
-                <Slider
-                    classes={{
-                        trackBefore: "slider_beffore",
-                        trackAfter: "slider_after",
-                        thumb: "slider_thumb " + this.state.random,
-                        root: "slider_root",
-                        activated: "active_slider"
-                    }}
-                    className={classes.enabled}
-                    value={value}
-                    disabled={this.props.load !== false}
-                    aria-labelledby="label"
-                    min={this.props.min}
-                    max={this.props.max}
-                    onChange={this.handleChange}
-                    onDragEnd={this.handleDragEnd}
-                    onDragStart={this.handleDragStart}
-                    step={this.props.step}
-                />
-
-                <div className={classes.default_dot} style={{left: this.reposition(this.props.baseValue)}}/>
-                {/*<div className={classes.strat_dot} style={{left: this.reposition(this.props.max)}}/>*/}
-
-
-                <div className={"slider_min"}>{(flag) ? "нет" : this.props.min}</div>
-                <div className={"slider_max"}>{(flag) ? "да" : this.props.max}</div>
+                        <div className={"slider_min"}>{specialDriversData["dr"+this.props.driverId][+(this.props.min)-1]}</div>
+                        <div className={"slider_max"}>{specialDriversData["dr"+this.props.driverId][+(this.props.max)-1]}</div>
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        } else{
+            return (
+                <div className={classes.root}>
+
+                    <Dialog
+                        open={this.state.open}
+                        onClose={this.handleClose}
+                        aria-labelledby="form-dialog-title"
+                    >
+                        <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
+                        <DialogContent>
+                            {/*<DialogContentText>{this.props.description}</DialogContentText>*/}
+                            <DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>
+                            <TextField
+                                margin="dense"
+                                name="value"
+                                label=""
+                                type="number"
+                                fullWidth
+                                inputProps={{min: this.props.min, max: this.props.max, step: this.props.step}}
+                                onChange={this.handleFieldChange}
+                                error={this.state.inputError}
+                            />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={this.handleClose} color="primary">
+                                Отмена
+                            </Button>
+                            <Button onClick={this.handleApply} color="primary">
+                                Применить
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
+
+
+                    <Typography onClick={this.handleClickOpen} className="label_1">{this.props.labelText}</Typography>
+                    <style>
+                        {(flag) ? "" : "." + this.state.random + ":before { content: '" + this.state.value.toFixed(1) + "'}"}
+                    </style>
+                    <div className={"dot_wrapper"} style={{position: "relative"}}>
+                        <Slider
+                            classes={{
+                                trackBefore: "slider_beffore",
+                                trackAfter: "slider_after",
+                                thumb: "slider_thumb " + this.state.random,
+                                root: "slider_root",
+                                activated: "active_slider"
+                            }}
+                            className={classes.enabled}
+                            value={value}
+                            disabled={this.props.load !== false}
+                            aria-labelledby="label"
+                            min={this.props.min}
+                            max={this.props.max}
+                            onChange={this.handleChange}
+                            onDragEnd={this.handleDragEnd}
+                            onDragStart={this.handleDragStart}
+                            step={this.props.step}
+                        />
+
+                        <div className={classes.default_dot} style={{left: this.reposition(this.props.baseValue)}}/>
+                        {/*<div className={classes.strat_dot} style={{left: this.reposition(this.props.max)}}/>*/}
+
+
+                        <div className={"slider_min"}>{(flag) ? "нет" : this.props.min}</div>
+                        <div className={"slider_max"}>{(flag) ? "да" : this.props.max}</div>
+                    </div>
+                </div>
+            );
+        }
     }
 }
 
