@@ -206,4 +206,4 @@ RadioButtonsGroup.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(RadioButtonsGroup);export default withStyles(styles)(RadioButtonsGroup);
+export default withStyles(styles)(RadioButtonsGroup);
