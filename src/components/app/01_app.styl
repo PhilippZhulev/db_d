@@ -30,7 +30,7 @@ html
 body
     font-weight: 300
     &:before
-        content "Получение данных..."
+        content "Получение данных ..."
         display block
         position absolute
         width 250px
@@ -130,7 +130,7 @@ button.tabs_item
     min-width 126px
     color rgb(117, 117, 117)
     font-weight 400
-    text-transform: capitalize
+    text-transform: none
     > span:first-child
         border-right: 1px solid  #b4b4b4
 div.flex_panel
@@ -150,7 +150,7 @@ div.tabs_container > div
         height 30%
         box-sizing border-box
         > div
-            background #fff
+            //background #fff
             width 100%
             height 100%
             box-sizing: border-box
@@ -205,6 +205,9 @@ header.tabs_bar.vertical
     font-weight: 300
     color #757575//#757575
     margin-top 15px
+    z-index 999
+    div
+        line-height
 
     &.value_flex
         display flex
@@ -219,7 +222,7 @@ header.tabs_bar.vertical
     top: 70px
     font-weight: 400
 .tile_item__value_small
-    font-size: 16px
+    font-size: 26px//16
     font-weight: 300
     color: #757575//#757575
     margin-top: 5px
@@ -232,10 +235,11 @@ header.tabs_bar.vertical
     position absolute
     > button
         width: 45%
+        min-height: 56px;
         margin: auto 5px auto 5px
         padding: 8px
         text-align center
-        text-transform: capitalize
+        text-transform: none
         span
             text-align center
             font-weight 400
@@ -283,14 +287,14 @@ div.root_select_1
     padding-left 5px
     display block
 .tile_item__value > div:last-child
-    margin-top -13px
+    margin-top -12px
     float left
 .tile_item__value_small > div > span
-    font-size 14px
+    font-size 16px//14
     padding-left 5px
     display block
 .tile_item__value_small > div:last-child
-    margin-top -19px
+    margin-top -17px
     float left
 .subscribe_big
     font-size: 12px !important;
@@ -339,7 +343,7 @@ button.tabs_item[aria-selected=true]
 .hspace
     width 156px
 .slider_wrapper
-    padding: 0 20px 60px 20px
+    padding: 0 30px 60px 30px
 .table > div {
     width: 100%;
     height: 4.545454545454545%;
@@ -372,7 +376,4 @@ button.tabs_item[aria-selected=true]
     font-size: 0.875rem;
 }
 .group
-    margin-right 10px
-    margin-left 25px
-.buttons_container > div
-    background-color rgba(0,0,0,0)!important
+    margin-right -19px
