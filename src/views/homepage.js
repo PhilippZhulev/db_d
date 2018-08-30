@@ -12,7 +12,34 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import store, {getState, change} from "../reduser";
 
-let styles = null;
+
+let styles = theme => ({
+    root: {
+        display: 'flex',
+        '&$checked': {
+            color: 0
+        },
+    },
+    formControl: {
+        //margin: theme.spacing.unit * 3,
+        color: "white",
+        height: "70px",
+        width: "250px"
+    },
+    group_wrapper: {
+
+    },
+    group: {
+        margin: `${theme.spacing.unit}px 0`,
+        color: "white",
+        display: "-webkit-box",
+        //display: "inline",
+        webkitBoxOrient: "vertical"
+    },
+    radio: {color: 0},//this.props.templ.primary.textValueNormal},
+    //label: {color: this.props.templ.primary.textValueNormal, "& span:last-child": {color:this.props.templ.primary.textValueNormal}}
+    //label: {color: "red", "& span:last-child": {color:"red"}}
+});
 
 class Home extends Component {
 
@@ -25,37 +52,6 @@ class Home extends Component {
             templ: this.props.templ,
             date: this.props.date
         };
-        console.log("styles.root");
-        console.log(styles);
-
-        styles = theme => ({
-            root: {
-                display: 'flex',
-                '&$checked': {
-                    color: this.props.templ.primary.textValueMain//this.props.templ.primary.textValueNormal+"!important",
-                },
-            },
-            formControl: {
-                //margin: theme.spacing.unit * 3,
-                color: "white",
-                height: "70px",
-                width: "250px"
-            },
-            group_wrapper: {
-
-            },
-            group: {
-                margin: `${theme.spacing.unit}px 0`,
-                color: "white",
-                display: "-webkit-box",
-                //display: "inline",
-                webkitBoxOrient: "vertical"
-            },
-            checked:{},
-            radio: {color: "red"},//this.props.templ.primary.textValueNormal},
-            //label: {color: this.props.templ.primary.textValueNormal, "& span:last-child": {color:this.props.templ.primary.textValueNormal}}
-            label: {color: "red", "& span:last-child": {color:"red"}}
-        });
     }
 
     tiles = () => {
@@ -88,117 +84,58 @@ class Home extends Component {
         const { classes } = this.props;
         const years = ["2019", "2020", "2021"];
         return (
-        <div className={classes.root}>
-            <div className={classes.group_wrapper}>
-                <FormControl component="fieldset" className={classes.formControl}>
-                    <RadioGroup
-                        aria-label="Gender"
-                        name="gender1"
-                        className={classes.group}
-                        value={this.state.date}
-                        onChange={this.handleChangeDate}
-                    >
-                        {years.map(
-                            (value,index)=>{
-                                return(
-                                    <FormControlLabel
-                                        className={classes.label}
-                                        key={index}
-                                        value={String(index)}
-                                        control={<Radio className={classes.radio} classes={{root: classes.root, checked: classes.checked}}/>}
-                                        label={value}
-                                    />
-                                )
-                            }
-                        )}
-                    </RadioGroup>
-                </FormControl>
-            </div>
-        </div>)
+            <div className={classes.root}>
+                <div className={classes.group_wrapper}>
+                    <FormControl component="fieldset" className={classes.formControl}>
+                        <RadioGroup
+                            aria-label="Gender"
+                            name="gender1"
+                            className={classes.group}
+                            value={this.state.date}
+                            onChange={this.handleChangeDate}
+                        >
+                            {years.map(
+                                (value,index)=>{
+                                    return(
+                                        <FormControlLabel
+                                            className={classes.label}
+                                            classes={{label:"radioChecked"}}
+                                            key={index}
+                                            value={String(index)}
+                                            control={<Radio className={classes.radio} classes={{root: "radioRoot",colorPrimary:"radioChecked",colorSecondary:"radioChecked", checked: "radioChecked"}}/>}
+                                            label={value}
+                                        />
+                                    )
+                                }
+                            )}
+                        </RadioGroup>
+                    </FormControl>
+                </div>
+            </div>)
     };
-  }
 
-  tiles = () => {
-    return this.state.funcs.map((value,index)=>{
-      const isSmall = (index !== 0);
-      return (
-        <Tile
-          key = {index}
-          tileNum = {index + 1}
-          page = "ALL"
-          isSmall = {isSmall}
-          func={value}
-          templ = {this.props.templ}
-          data = {this.props.fluxData.data}
-          date = {this.state.date}
-        />
-      )
-    });
-  };
+    render() {
+        const { classes } = this.props;
 
-  handleChangeDate = event => {
-    this.setState({ date: event.target.value });
-    store.dispatch({
-      type: "CHANGE_DATE",
-      payload: event.target.value
-    });
-  };
+        return (
+            <Fade in={true} timeout={{enter: 300, exit:300}}>
+                <div className="tiles_container" style={{position: "relative"}}>
+                    <div className={"buttons_container"} style={{position: "absolute", zIndex: 999, right:"0px", top:"-20px", width:"250px", height:"70px"}}>
+                        <style>
+                            {".radioChecked {color: " + this.props.templ.primary.textValueNormal +"!important};.radioRoot {display: 'flex',color: " + this.props.templ.primary.textValueNormal +"!important}"}
+                        </style>
+                        {this.buttons(this.state)}
+                    </div>
+                    {this.tiles(this.state)}
+                </div>
 
-  buttons = () => {
-    const { classes } = this.props;
-    const years = ["2019", "2020", "2021"];
-    return (
-      <div className={classes.root}>
-        <div className={classes.group_wrapper}>
-          <FormControl component="fieldset" className={classes.formControl}>
-            <RadioGroup
-              aria-label="Gender"
-              name="gender1"
-              className={classes.group}
-              value={this.state.date}
-              onChange={this.handleChangeDate}
-            >
-              {years.map(
-                (value,index)=>{
-                  return(
-                    <FormControlLabel
-                      className={classes.label}
-                      key={index}
-                      value={String(index)}
-                      control={<Radio className={classes.radio} classes={{root: classes.root, checked: "radioChecked"}}/>}
-                      label={value}
-                    />
-                  )
-                }
-              )}
-            </RadioGroup>
-          </FormControl>
-        </div>
-      </div>)
-  };
-
-  render() {
-    const { classes } = this.props;
-
-    return (
-      <Fade in={true} timeout={{enter: 300, exit:300}}>
-        <div className="tiles_container" style={{position: "relative"}}>
-          <div className={"buttons_container"} style={{position: "absolute", zIndex: 999, right:"0px", top:"-20px", width:"250px", height:"70px"}}>
-            <style>
-              {".radioChecked {color: " + this.props.templ.primary.textValueMain +"!important}"}
-            </style>
-            {this.buttons(this.state)}
-          </div>
-          {this.tiles(this.state)}
-        </div>
-
-      </Fade>
-    )
-  }
+            </Fade>
+        )
+    }
 }
 
 Home.propTypes = {
-  classes: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Home);
