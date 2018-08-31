@@ -9,7 +9,7 @@ class Drivers extends Component {
         if(this.props.index === 5) {
             return (
                 <div className="radioPanel">
-                    <div className={"radioTitle"} style={{color: "#fff"}}>Матрица чувствительности<br/><br/>Прибыль Группы в 2020 году<span style={{color: "#6d7b87"}}>, млрд. руб</span></div>
+                    <div className={"radioTitle"} style={{color: "#fff"}}>Матрица чувствительности<br/><br/>Прибыль Группы в 2020 году, млрд. руб</div>
                     <RadioButtonsGroup
                         table={this.props.table}
                     />
