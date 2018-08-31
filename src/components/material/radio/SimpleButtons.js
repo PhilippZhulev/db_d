@@ -11,6 +11,7 @@ import store, {getState, change} from '../../../reduser';
 let styles = theme => ({
     root: {
         display: 'flex',
+        height: "40px",
         '&$checked': {
             color: "rgb(248, 172, 89)",
         },
@@ -21,7 +22,7 @@ let styles = theme => ({
         height: "166px",
         width: "100px",
         marginTop: "26px",
-        marginBottom: "35px"
+        marginBottom: "21px"
     },
     group: {
         margin: `${theme.spacing.unit}px 0`,
@@ -98,30 +99,6 @@ class RadioButtonsGroup extends React.Component {
             <div className={classes.root}>
                 <div className={"group"}>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend" style={{color: "white"}}><span style={{textDecoration: "underline"}}>NIM</span><span style={{color:"#6d7b87"}}>, %</span></FormLabel>
-                    <RadioGroup
-                        aria-label="Gender"
-                        name="gender1"
-                        className={classes.group}
-                        value={this.state.NIM}
-                        onChange={this.handleChangeNIM}
-                    >
-                        {this.props.table.oldNIM.map(
-                            (value,index)=>{
-                                return(
-                                    <FormControlLabel
-                                        className={(index === +(this.props.table.defaultSel.NIM)) ? classes.labelBase : classes.label}
-                                        key={index}
-                                        value={String(index)}
-                                        control={<Radio className={classes.radio} classes={{root:classes.root, checked:classes.checked}}/>}
-                                        label={value.substring(0,value.length-1)}
-                                    />
-                                )
-                            }
-                            )}
-                    </RadioGroup>
-                </FormControl>
-                <FormControl component="fieldset" className={classes.formControl}>
                     <FormLabel component="legend" style={{color: "white"}}><span style={{textDecoration: "underline"}}>ЧКД CAGR</span><span style={{color:"#6d7b87"}}>, %</span></FormLabel>
                     <RadioGroup
                         aria-label="Gender"
@@ -135,6 +112,30 @@ class RadioButtonsGroup extends React.Component {
                                 return(
                                     <FormControlLabel
                                         className={(index === +(this.props.table.defaultSel.CAGR)) ? classes.labelBase : classes.label}
+                                        key={index}
+                                        value={String(index)}
+                                        control={<Radio className={classes.radio} classes={{root:classes.root, checked:classes.checked}}/>}
+                                        label={value.substring(0,value.length-1)}
+                                    />
+                                )
+                            }
+                        )}
+                    </RadioGroup>
+                </FormControl>
+                <FormControl component="fieldset" className={classes.formControl}>
+                    <FormLabel component="legend" style={{color: "white"}}><span style={{textDecoration: "underline"}}>NIM</span><span style={{color:"#6d7b87"}}>, %</span></FormLabel>
+                    <RadioGroup
+                        aria-label="Gender"
+                        name="gender1"
+                        className={classes.group}
+                        value={this.state.NIM}
+                        onChange={this.handleChangeNIM}
+                    >
+                        {this.props.table.oldNIM.map(
+                            (value,index)=>{
+                                return(
+                                    <FormControlLabel
+                                        className={(index === +(this.props.table.defaultSel.NIM)) ? classes.labelBase : classes.label}
                                         key={index}
                                         value={String(index)}
                                         control={<Radio className={classes.radio} classes={{root:classes.root, checked:classes.checked}}/>}

@@ -159,7 +159,7 @@ class SimpleSlider extends React.Component {
          const flag = ((+(this.props.min) === 1) && (+(this.props.max) === 2) && (+(this.props.step) === 1));
 
          //const specialDrivers = [2,14,27,52,53,60,82,83];
-        const specialDrivers = [31,32,33,36,40,42,44,48,51,71,72,84,85];
+        const specialDrivers = [2,14,27,52,53,60,82,83,31,32,33,36,40,42,44,48,51,71,72,84,85];
          // const specialDriversData = {
          //     dr2:["55","57","59","61","63","65"],
          //     dr14:["3 года", "5 лет"],
@@ -198,8 +198,11 @@ class SimpleSlider extends React.Component {
         //const flag = Boolean(this.props.type);
 
         // вставить значение стратегии для ползунка, когда оно будет в бэке
+
+        console.log(this.props.driverId);
+
         if (specialDrivers.indexOf(+(this.props.driverId)) !== -1) {
-            console.log("О нет, у этого драйвера аутизм!");
+            console.log("О нет, этот драйвер с особенностями!");
             console.log(this.props.driverId);
             return (
                 <div className={classes.root}>
@@ -238,7 +241,7 @@ class SimpleSlider extends React.Component {
                     {/*<Typography onClick={this.handleClickOpen} className="label_1">{this.props.labelText}</Typography>*/}
                     <Typography className="label_1">{this.props.labelText}</Typography>
                     <style>
-                        {(flag) ? "" : "." + this.state.random + ":before { content: '" + specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1] + "'}"}
+                        {"." + this.state.random + ":before { content: '" + specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1] + "'}"}
                     </style>
                     <div className={"dot_wrapper"} style={{position: "relative"}}>
                         <Slider
