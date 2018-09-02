@@ -215,8 +215,8 @@ class SimpleSlider extends React.Component {
         console.log(this.props.driverId);
 
         if (specialDrivers.indexOf(+(this.props.driverId)) !== -1) {
-            console.log("О нет, этот драйвер с особенностями!");
-            console.log(this.props.driverId);
+            // console.log("Драйвер с опцияеми");
+            // console.log(this.props.driverId);
             return (
                 <div className={classes.root}>
 
@@ -297,25 +297,28 @@ class SimpleSlider extends React.Component {
                     >
                         <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
                         <DialogContent>
-                            {/*<DialogContentText>{this.props.description}</DialogContentText>*/}
-                            <DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>
-                            <TextField
-                                margin="dense"
-                                name="value"
-                                label=""
-                                type="number"
-                                fullWidth
-                                inputProps={{min: this.props.min, max: this.props.max, step: this.props.step}}
-                                onChange={this.handleFieldChange}
-                                error={this.state.inputError}
-                            />
+                            <DialogContentText>{this.props.description}</DialogContentText>
+                            {/*<DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>*/}
+                            {/*<TextField*/}
+                                {/*margin="dense"*/}
+                                {/*name="value"*/}
+                                {/*label=""*/}
+                                {/*type="number"*/}
+                                {/*fullWidth*/}
+                                {/*inputProps={{min: this.props.min, max: this.props.max, step: this.props.step}}*/}
+                                {/*onChange={this.handleFieldChange}*/}
+                                {/*error={this.state.inputError}*/}
+                            {/*/>*/}
                         </DialogContent>
                         <DialogActions>
+                            {/*<Button onClick={this.handleClose} color="primary">*/}
+                                {/*Отмена*/}
+                            {/*</Button>*/}
+                            {/*<Button onClick={this.handleApply} color="primary">*/}
+                                {/*Применить*/}
+                            {/*</Button>*/}
                             <Button onClick={this.handleClose} color="primary">
-                                Отмена
-                            </Button>
-                            <Button onClick={this.handleApply} color="primary">
-                                Применить
+                                Ясно, понятно
                             </Button>
                         </DialogActions>
                     </Dialog>

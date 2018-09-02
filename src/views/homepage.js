@@ -49,7 +49,7 @@ class Home extends Component {
 
         this.state = {
             data: this.props.fluxData,
-            funcs: ["PI","TIER","OPEX","CIR","ROE","COR","CHIS"],
+            funcs: ["PI","EPS","OPEX","CIR","ROE","COR","CHIS"],
             templ: this.props.templ,
             date: this.props.date
         };

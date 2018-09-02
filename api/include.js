@@ -12,7 +12,8 @@ function Reactor() {
             obj.dummyData = {
                 data: JSON.parse(obj.glob.Settings.data),
                 drivers: JSON.parse(obj.glob.Settings.drivers),
-                table: obj.glob.Settings.table
+                table: obj.glob.Settings.table,
+                bookmark: JSON.parse(obj.glob.Settings.bookmark)
             };
 
         } catch (err) {

@@ -39,7 +39,8 @@ class App extends Component {
             changePage: false,
             tables: localStorage["dumpTab"] || 0,
             date: "1",
-            driverData: window.obj.dummyData.drivers
+            driverData: window.obj.dummyData.drivers,
+            bookmark: window.obj.dummyData.bookmark
         };
 
         this.driverLocalData = window.obj.dummyData.drivers;

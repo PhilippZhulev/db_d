@@ -17,7 +17,7 @@ class MultiLine extends Component {
             case "COR":
                 prec = 2;
                 break;
-            case "TIER":
+            case "EPS":
                 prec = 2;
                 break;
             case "OPEX":

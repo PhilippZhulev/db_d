@@ -77,8 +77,8 @@ function Model() {
                 title: "Чистая прибыль",
                 mera: "млрд. руб.",
             },
-            TIER:{
-                title: "Tier 1, МСФО",
+            EPS:{
+                title: "EPS",
                 mera: "%",
             },
             INC:{
