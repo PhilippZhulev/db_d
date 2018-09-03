@@ -7,47 +7,37 @@ const tilesBind = Model.tilesBind();
 class Tile extends Component {
 
     setValue = (postfix, subscribtion, color) => {
-        // let values = [],
-        //     tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data, this.props.date, tilesBind[this.props.func].mera);
-        //
-        // let zeroedVal = null;
-        // let zeroedSmallVal = null;
-        //
-        // if ((this.props.func === "EPS") || (this.props.func === "COR")) {
-        //     zeroedVal = tileCalc.mainVal.split(".");
-        //     if ((zeroedVal.length > 1) && (zeroedVal[1].length < 2)) {
-        //         zeroedVal[1] = zeroedVal[1] + "0";
-        //         zeroedVal = zeroedVal.join(".");
-        //     } else if (zeroedVal.length === 1) {
-        //         zeroedVal = [tileCalc.mainVal, "00"].join(".");
-        //     } else if ((zeroedVal.length > 1) && (zeroedVal[1].length > 2)) {
-        //         zeroedVal[1] = zeroedVal[1].substr(0, 2);
-        //         zeroedVal = zeroedVal.join(".");
-        //     } else{
-        //         zeroedVal = null;
-        //     }
-        // } else if(((this.props.func === "OPEX")&&(this.props.page === "ALL"))||((this.props.func === "CHIS")&&(this.props.page === "ALL"))){
-        //     let zeroedVal = null;
-        // } else{
-        //     zeroedVal = tileCalc.mainVal.split(".");
-        //     if (zeroedVal.length === 1){
-        //         zeroedVal = [tileCalc.mainVal,"0"].join(".");
-        //     } else{
-        //         zeroedVal = tileCalc.mainVal;
-        //     }
-        // }
+        let values = [],
+            tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data, this.props.date, tilesBind[this.props.func].mera);
 
-        let values = [];
-        let prec = null;
+        let zeroedVal = null;
+        let zeroedSmallVal = null;
+
         if ((this.props.func === "EPS") || (this.props.func === "COR")) {
-            prec = 2;
+            zeroedVal = tileCalc.mainVal.split(".");
+            if ((zeroedVal.length > 1) && (zeroedVal[1].length < 2)) {
+                zeroedVal[1] = zeroedVal[1] + "0";
+                zeroedVal = zeroedVal.join(".");
+            } else if (zeroedVal.length === 1) {
+                zeroedVal = [tileCalc.mainVal, "00"].join(".");
+            } else if ((zeroedVal.length > 1) && (zeroedVal[1].length > 2)) {
+                zeroedVal[1] = zeroedVal[1].substr(0, 2);
+                zeroedVal = zeroedVal.join(".");
+            } else{
+                zeroedVal = null;
+            }
         } else if(((this.props.func === "OPEX")&&(this.props.page === "ALL"))||((this.props.func === "CHIS")&&(this.props.page === "ALL"))){
-            prec = 0;
-        }else{
-            prec = 1;
+            let zeroedVal = null;
+        } else{
+            zeroedVal = tileCalc.mainVal.split(".");
+            if (zeroedVal.length === 1){
+                zeroedVal = [tileCalc.mainVal,"0"].join(".");
+            } else{
+                zeroedVal = tileCalc.mainVal;
+            }
         }
 
-        let tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data, this.props.date, tilesBind[this.props.func].mera, prec);
+
 
         values.unshift(
             <div key={0} className={"tile_item__value"+postfix+" value_flex"} style={{color: this.props.templ.primary.textValueMain}}>
