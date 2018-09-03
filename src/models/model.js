@@ -29,26 +29,44 @@ function Model() {
         return groups;
     };
 
-    this.tileCalc = (f, p, data, date) => {
+    this.tileCalc = (f, p, data, date, mera) => {
         const func = f;
         const page = p;
         const lastCat = data[page][func].length;
         const mainVal = data[page][func][1 + +(date)]["model"];
-        const smallVal = "(" + ((+(data[page][func][1 + +(date)]["model"]) - (+(data[page][func][1 + +(date)]["base"]))) / (+(data[page][func][1 + +(date)]["base"])) * 100).toFixed(1) + "%)";
-        let mainValAll = "";
-        let smallValAll = "";
-        if ((page !== "OPEX") && (page !== "ALL")) {
-            mainValAll = data["ALL"][func][1 + +(date)]["model"];
-            smallValAll = "(" + ((+(data["ALL"][func][1 + +(date)]["model"]) - (+(data["ALL"][func][1 + +(date)]["base"]))) / (+(data["ALL"][func][1 + +(date)]["base"])) * 100).toFixed(1) + "%)";
-        }
+        if (mera === "%") {
+            const smallVal = "(" + ((+(data[page][func][1 + +(date)]["model"]) - (+(data[page][func][1 + +(date)]["base"]))) / (+(data[page][func][1 + +(date)]["base"])) * 100).toFixed(1) + "%)";
+            let mainValAll = "";
+            let smallValAll = "";
+            if ((page !== "OPEX") && (page !== "ALL")) {
+                mainValAll = data["ALL"][func][1 + +(date)]["model"];
+                smallValAll = "(" + ((+(data["ALL"][func][1 + +(date)]["model"]) - (+(data["ALL"][func][1 + +(date)]["base"]))) / (+(data["ALL"][func][1 + +(date)]["base"])) * 100).toFixed(1) + "%)";
+            }
 
-        return {
-            smallVal: smallVal,
-            mainVal: mainVal,
-            mainValAll: mainValAll,
-            smallValAll: smallValAll,
-            data: data
-        };
+            return {
+                smallVal: smallVal,
+                mainVal: mainVal,
+                mainValAll: mainValAll,
+                smallValAll: smallValAll,
+                data: data
+            };
+        } else{
+            const smallVal = "(" + (+(data[page][func][1 + +(date)]["model"]) - (+(data[page][func][1 + +(date)]["base"]))).toFixed(1) + ")";
+            let mainValAll = "";
+            let smallValAll = "";
+            if ((page !== "OPEX") && (page !== "ALL")) {
+                mainValAll = data["ALL"][func][1 + +(date)]["model"];
+                smallValAll = "(" + (+(data["ALL"][func][1 + +(date)]["model"]) - (+(data["ALL"][func][1 + +(date)]["base"]))).toFixed(1) + ")";
+            }
+
+            return {
+                smallVal: smallVal,
+                mainVal: mainVal,
+                mainValAll: mainValAll,
+                smallValAll: smallValAll,
+                data: data
+            };
+        }
     };
 
     this.chartReInitZero = function (propsData) {

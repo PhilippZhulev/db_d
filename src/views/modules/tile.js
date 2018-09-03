@@ -8,7 +8,7 @@ class Tile extends Component {
 
     setValue = (postfix, subscribtion, color) => {
         let values = [],
-            tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data, this.props.date);
+            tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data, this.props.date, tilesBind[this.props.func].mera);
 
         let zeroedVal = null;
 
@@ -45,7 +45,7 @@ class Tile extends Component {
                 </div>
                 <div>
                     <span className="subscribe" style={{color: color}}>{(this.props.addSubscr !== undefined ? this.props.addSubscr : "1")}</span>
-                    <span style={{color:(tileCalc.smallVal === "(0.0%)" || tileCalc.smallVal === "(NaN%)") ? this.props.templ.primary.textValueNormal : this.props.templ.primary.textValuePerc}}>
+                    <span style={{color:(tileCalc.smallVal === "(0.0%)" || tileCalc.smallVal === "(NaN%)" || tileCalc.smallVal === "(NaN)" || tileCalc.smallVal === "(0.0)") ? this.props.templ.primary.textValueNormal : this.props.templ.primary.textValuePerc}}>
                         {tileCalc.smallVal}
                     </span>
                 </div>
