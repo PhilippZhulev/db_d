@@ -47,7 +47,7 @@ class Tile extends Component {
             prec = 1;
         }
 
-        console.log(prec);
+        //console.log(prec);
 
         let tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data, this.props.date, tilesBind[this.props.func].mera, prec);
 

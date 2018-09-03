@@ -192,7 +192,7 @@ class SimpleSlider extends React.Component {
 
         // вставить значение стратегии для ползунка, когда оно будет в бэке
 
-        console.log(this.props.driverId);
+        //console.log(this.props.driverId);
 
         if (specialDrivers.indexOf(+(this.props.driverId)) !== -1) {
             // console.log("Драйвер с опцияеми");
