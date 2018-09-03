@@ -318,7 +318,7 @@ class SimpleSlider extends React.Component {
                                 {/*Применить*/}
                             {/*</Button>*/}
                             <Button onClick={this.handleClose} color="primary">
-                                Ясно, понятно
+                                Ок
                             </Button>
                         </DialogActions>
                     </Dialog>
