@@ -6,6 +6,8 @@ const tilesBind = Model.tilesBind();
 
 class Tile extends Component {
 
+    prec = 0;
+
     setValue = (postfix, subscribtion, color) => {
         // let values = [],
         //     tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data, this.props.date, tilesBind[this.props.func].mera);
@@ -46,6 +48,8 @@ class Tile extends Component {
         }else{
             prec = 1;
         }
+
+        this.prec = prec;
 
         //console.log(prec);
 
@@ -102,6 +106,7 @@ class Tile extends Component {
                         page={this.props.page}
                         grId={this.props.grId}
                         data={this.props.data[this.props.page][this.props.func]}
+                        prec={this.prec}
                     />
                 </div>
             </div>

@@ -67,11 +67,11 @@ function Model() {
             strVal = strVal.join(".");
             valArr[i] = strVal;
             if (i<=1){
-                if(mera === "%"){
-                    valArr[i] = "("+valArr[i]+"%)";
-                } else{
+                // if(mera === "%"){
+                //     valArr[i] = "("+valArr[i]+"%)";
+                // } else{
                     valArr[i] = "("+valArr[i]+")";
-                }
+                // }
             }
             if (prec === 0){
                 valArr[i] = valArr[i].replace(".","");

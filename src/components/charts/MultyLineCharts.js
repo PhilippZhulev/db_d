@@ -11,28 +11,28 @@ import Model from '../../models/model.js';
 class MultiLine extends Component {
     chartSettings = (out) => {
 
-        let prec = 1;
-
-        switch(this.props.func) {
-            case "COR":
-                prec = 2;
-                break;
-            case "EPS":
-                prec = 2;
-                break;
-            case "OPEX":
-                prec = -1;
-                break;
-            case "CHIS":
-                if (this.props.page === "ALL"){
-                    prec = -1;
-                } else {
-                    prec = 1;
-                }
-                break;
-            default:
-                prec = 1;
-        }
+        // let prec = 1;
+        //
+        // switch(this.props.func) {
+        //     case "COR":
+        //         prec = 2;
+        //         break;
+        //     case "EPS":
+        //         prec = 2;
+        //         break;
+        //     case "OPEX":
+        //         prec = -1;
+        //         break;
+        //     case "CHIS":
+        //         if (this.props.page === "ALL"){
+        //             prec = -1;
+        //         } else {
+        //             prec = 1;
+        //         }
+        //         break;
+        //     default:
+        //         prec = 1;
+        // }
 
         let amchartsSettings =
             {
@@ -100,7 +100,7 @@ class MultiLine extends Component {
                     "fontSize": 12,
                     "showAllValueLabels": true,
                     "labelText": "[[value]]",
-                    "precision": prec,
+                    "precision": this.props.prec,
                     "lineThickness": this.props.options.thickness,
                     "title": "graph "+i,
                     "valueField": Model.chartsGraphs([], this.props.data)[i],
