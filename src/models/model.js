@@ -33,28 +33,35 @@ function Model() {
         const func = f;
         const page = p;
         const lastCat = data[page][func].length;
-        let mainVal = data[page][func][1 + +(date)]["model"];
-        let mainValAll  = data["ALL"][func][1 + +(date)]["model"];
-        let smallValAll = null,
-            smallVal = null;
+        let mainVal = +(data[page][func][1 + +(date)]["model"]);
+        let mainValAll  = 0.0;
+        let smallValAll = 0.0,
+            smallVal = 0.0;
         if (mera === "%") {
             smallVal = ((+(data[page][func][1 + +(date)]["model"]) - (+(data[page][func][1 + +(date)]["base"]))) / (+(data[page][func][1 + +(date)]["base"])) * 100);
             if ((page !== "OPEX") && (page !== "ALL")) {
                 smallValAll = ((+(data["ALL"][func][1 + +(date)]["model"]) - (+(data["ALL"][func][1 + +(date)]["base"]))) / (+(data["ALL"][func][1 + +(date)]["base"])) * 100);
+                mainValAll  = +(data["ALL"][func][1 + +(date)]["model"]);
             }
         } else{
             smallVal = (+(data[page][func][1 + +(date)]["model"]) - (+(data[page][func][1 + +(date)]["base"])));
             if ((page !== "OPEX") && (page !== "ALL")) {
                 smallValAll = (+(data["ALL"][func][1 + +(date)]["model"]) - (+(data["ALL"][func][1 + +(date)]["base"])));
+                mainValAll  = +(data["ALL"][func][1 + +(date)]["model"]);
             }
         }
-
         let valArr = [smallVal,smallValAll,mainValAll,mainVal];
-
+        console.log(valArr);
         for (let i = 0; i < valArr.length; i++){
+            console.log(i);
             valArr[i] = valArr[i].toFixed(prec);
             let strVal = String(valArr[i]).split(".");
-            while(strVal[1] < prec){
+            if (strVal.length === 1){
+                strVal = [String(valArr[i]),""];
+            }
+            console.log("Splitted value!");
+            console.log(strVal);
+            while(strVal[1].length < prec){
                 strVal[1] = strVal[1]+"0";
             }
             strVal = strVal.join(".");
@@ -67,6 +74,9 @@ function Model() {
                 }
             }
         }
+
+        console.log("Tile "+f+" ready!");
+        console.log(valArr);
 
         return {
             smallVal: valArr[0],

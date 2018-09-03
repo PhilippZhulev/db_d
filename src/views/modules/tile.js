@@ -38,7 +38,7 @@ class Tile extends Component {
         // }
 
         let values = [];
-        let prec = null;
+        let prec = 1;
         if ((this.props.func === "EPS") || (this.props.func === "COR")) {
             prec = 2;
         } else if(((this.props.func === "OPEX")&&(this.props.page === "ALL"))||((this.props.func === "CHIS")&&(this.props.page === "ALL"))){
@@ -47,12 +47,15 @@ class Tile extends Component {
             prec = 1;
         }
 
+        console.log(prec);
+
         let tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data, this.props.date, tilesBind[this.props.func].mera, prec);
 
         values.unshift(
             <div key={0} className={"tile_item__value"+postfix+" value_flex"} style={{color: this.props.templ.primary.textValueMain}}>
                 <div>
-                    {(zeroedVal === null) ? tileCalc.mainVal : zeroedVal}
+                    {/*{(zeroedVal === null) ? tileCalc.mainVal : zeroedVal}*/}
+                    {tileCalc.mainVal}
                 </div>
                 <div>
                     <span className="subscribe" style={{color: color}}>{(this.props.addSubscr !== undefined ? this.props.addSubscr : "1")}</span>
