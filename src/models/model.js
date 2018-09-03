@@ -37,30 +37,30 @@ function Model() {
         let mainValAll  = 0.0;
         let smallValAll = 0.0,
             smallVal = 0.0;
-        if (mera === "%") {
-            smallVal = ((+(data[page][func][1 + +(date)]["model"]) - (+(data[page][func][1 + +(date)]["base"]))) / (+(data[page][func][1 + +(date)]["base"])) * 100);
-            if ((page !== "OPEX") && (page !== "ALL")) {
-                smallValAll = ((+(data["ALL"][func][1 + +(date)]["model"]) - (+(data["ALL"][func][1 + +(date)]["base"]))) / (+(data["ALL"][func][1 + +(date)]["base"])) * 100);
-                mainValAll  = +(data["ALL"][func][1 + +(date)]["model"]);
-            }
-        } else{
+        // if (mera === "%") {
+        //     smallVal = ((+(data[page][func][1 + +(date)]["model"]) - (+(data[page][func][1 + +(date)]["base"]))) / (+(data[page][func][1 + +(date)]["base"])) * 100);
+        //     if ((page !== "OPEX") && (page !== "ALL")) {
+        //         smallValAll = ((+(data["ALL"][func][1 + +(date)]["model"]) - (+(data["ALL"][func][1 + +(date)]["base"]))) / (+(data["ALL"][func][1 + +(date)]["base"])) * 100);
+        //         mainValAll  = +(data["ALL"][func][1 + +(date)]["model"]);
+        //     }
+        // } else{
             smallVal = (+(data[page][func][1 + +(date)]["model"]) - (+(data[page][func][1 + +(date)]["base"])));
             if ((page !== "OPEX") && (page !== "ALL")) {
                 smallValAll = (+(data["ALL"][func][1 + +(date)]["model"]) - (+(data["ALL"][func][1 + +(date)]["base"])));
                 mainValAll  = +(data["ALL"][func][1 + +(date)]["model"]);
             }
-        }
+        //}
         let valArr = [smallVal,smallValAll,mainValAll,mainVal];
-        console.log(valArr);
+        // console.log(valArr);
         for (let i = 0; i < valArr.length; i++){
-            console.log(i);
+            // console.log(i);
             valArr[i] = valArr[i].toFixed(prec);
             let strVal = String(valArr[i]).split(".");
             if (strVal.length === 1){
                 strVal = [String(valArr[i]),""];
             }
-            console.log("Splitted value!");
-            console.log(strVal);
+            // console.log("Splitted value!");
+            // console.log(strVal);
             while(strVal[1].length < prec){
                 strVal[1] = strVal[1]+"0";
             }
@@ -73,10 +73,13 @@ function Model() {
                     valArr[i] = "("+valArr[i]+")";
                 }
             }
+            if (prec === 0){
+                valArr[i] = valArr[i].replace(".","");
+            }
         }
 
-        console.log("Tile "+f+" ready!");
-        console.log(valArr);
+        // console.log("Tile "+f+" ready!");
+        // console.log(valArr);
 
         return {
             smallVal: valArr[0],
