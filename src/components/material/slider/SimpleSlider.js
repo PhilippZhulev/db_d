@@ -160,6 +160,7 @@ class SimpleSlider extends React.Component {
 
 
         const specialDrivers = [2,14,27,28,29,32,36,40,42,44,48,52,53,55,60,71,72,82,83,84,86,87,88,90];
+        
         const specialDriversData = {
             dr2:["55","57(баз)","59","61","63","65"],
             dr14:["3 года", "5 лет"],
