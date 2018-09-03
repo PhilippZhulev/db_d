@@ -12,6 +12,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import store, {change} from '../../../reduser';
 
+import Model from '../../../models/model';
 
 const styles = {
     root: {
@@ -215,8 +216,8 @@ class SimpleSlider extends React.Component {
         console.log(this.props.driverId);
 
         if (specialDrivers.indexOf(+(this.props.driverId)) !== -1) {
-            // console.log("Драйвер с опцияеми");
-            // console.log(this.props.driverId);
+            console.log("Драйвер с опцияеми");
+            console.log(("." + this.state.random + ":before { content: '" + "content"+"', margin-"+((value < 0.5) ? "left" : "right")+":"+(((value!==0.5)&&(6 > 5)) ? "5" : "0")+"px}"));
             return (
                 <div className={classes.root}>
 
@@ -227,7 +228,7 @@ class SimpleSlider extends React.Component {
                     >
                         <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
                         <DialogContent>
-                            <DialogContentText>{this.props.description}</DialogContentText>
+                            <DialogContentText>{/*Model.changeDescription(*/this.props.description/*)*/}</DialogContentText>
                             {/*<DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>*/}
                             <TextField
                                 margin="dense"
@@ -254,7 +255,7 @@ class SimpleSlider extends React.Component {
                     {/*<Typography onClick={this.handleClickOpen} className="label_1">{this.props.labelText}</Typography>*/}
                     <Typography className="label_1">{this.props.labelText}</Typography>
                     <style>
-                        {"." + this.state.random + ":before { content: '" + specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1] + "'}"}
+                        {"." + this.state.random + ":before { content: '" + specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1] + "', margin-"+(value < 0.5) ? "left" : "right"+":"+((value!==0.5)&&(specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1].length > 5)) ? "5" : "0"+"px}"}
                     </style>
                     <div className={"dot_wrapper"} style={{position: "relative"}}>
                         <Slider
@@ -297,7 +298,7 @@ class SimpleSlider extends React.Component {
                     >
                         <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
                         <DialogContent>
-                            <DialogContentText>{this.props.description}</DialogContentText>
+                            <DialogContentText>{/*Model.changeDescription(*/this.props.description/*)*/}</DialogContentText>
                             {/*<DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>*/}
                             {/*<TextField*/}
                                 {/*margin="dense"*/}
