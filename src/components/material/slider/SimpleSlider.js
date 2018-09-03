@@ -237,7 +237,7 @@ class SimpleSlider extends React.Component {
                     >
                         <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
                         <DialogContent>
-                            <DialogContentText>{/*Model.changeDescription(this.props.description)*/}</DialogContentText>
+                            <DialogContentText>{Model.changeDescription(this.props.description)}</DialogContentText>
                             {/*<DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>*/}
                             {/*<TextField*/}
                             {/*margin="dense"*/}
@@ -311,7 +311,7 @@ class SimpleSlider extends React.Component {
                     >
                         <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
                         <DialogContent>
-                            <DialogContentText>{/*Model.changeDescription(this.props.description)*/}</DialogContentText>
+                            <DialogContentText>{Model.changeDescription(this.props.description)}</DialogContentText>
                             {/*<DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>*/}
                             {/*<TextField*/}
                                 {/*margin="dense"*/}
