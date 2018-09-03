@@ -312,6 +312,13 @@ function Model() {
         // console.log("oldCAGR:");
         // console.log(oldCAGR);
         return table
+    };
+    this.changeDescription = function(str){
+        let res = str;
+        while(res.indexOf("#") !== -1){
+            res = res.replace("#","");
+        }
+        return res;
     }
 }
 

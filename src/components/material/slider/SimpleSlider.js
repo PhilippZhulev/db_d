@@ -11,6 +11,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import store, {change} from '../../../reduser';
+import Model from '../../../models/model';
 
 
 const styles = {
@@ -199,6 +200,36 @@ class SimpleSlider extends React.Component {
             return (
                 <div className={classes.root}>
 
+                    {/*<Dialog*/}
+                        {/*open={this.state.open}*/}
+                        {/*onClose={this.handleClose}*/}
+                        {/*aria-labelledby="form-dialog-title"*/}
+                    {/*>*/}
+                        {/*<DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>*/}
+                        {/*<DialogContent>*/}
+                            {/*<DialogContentText>{Model.changeDescription(this.props.description)}</DialogContentText>*/}
+                            {/*/!*<DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>*!/*/}
+                            {/*<TextField*/}
+                                {/*margin="dense"*/}
+                                {/*name="value"*/}
+                                {/*label=""*/}
+                                {/*type="number"*/}
+                                {/*fullWidth*/}
+                                {/*inputProps={{min: this.props.min, max: this.props.max, step: this.props.step}}*/}
+                                {/*onChange={this.handleFieldChange}*/}
+                                {/*error={this.state.inputError}*/}
+                            {/*/>*/}
+                        {/*</DialogContent>*/}
+                        {/*<DialogActions>*/}
+                            {/*<Button onClick={this.handleClose} color="primary">*/}
+                                {/*Отмена*/}
+                            {/*</Button>*/}
+                            {/*<Button onClick={this.handleApply} color="primary">*/}
+                                {/*Применить*/}
+                            {/*</Button>*/}
+                        {/*</DialogActions>*/}
+                    {/*</Dialog>*/}
+
                     <Dialog
                         open={this.state.open}
                         onClose={this.handleClose}
@@ -206,32 +237,35 @@ class SimpleSlider extends React.Component {
                     >
                         <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
                         <DialogContent>
-                            <DialogContentText>{this.props.description}</DialogContentText>
+                            <DialogContentText>{Model.changeDescription(this.props.description)}</DialogContentText>
                             {/*<DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>*/}
-                            <TextField
-                                margin="dense"
-                                name="value"
-                                label=""
-                                type="number"
-                                fullWidth
-                                inputProps={{min: this.props.min, max: this.props.max, step: this.props.step}}
-                                onChange={this.handleFieldChange}
-                                error={this.state.inputError}
-                            />
+                            {/*<TextField*/}
+                            {/*margin="dense"*/}
+                            {/*name="value"*/}
+                            {/*label=""*/}
+                            {/*type="number"*/}
+                            {/*fullWidth*/}
+                            {/*inputProps={{min: this.props.min, max: this.props.max, step: this.props.step}}*/}
+                            {/*onChange={this.handleFieldChange}*/}
+                            {/*error={this.state.inputError}*/}
+                            {/*/>*/}
                         </DialogContent>
                         <DialogActions>
+                            {/*<Button onClick={this.handleClose} color="primary">*/}
+                            {/*Отмена*/}
+                            {/*</Button>*/}
+                            {/*<Button onClick={this.handleApply} color="primary">*/}
+                            {/*Применить*/}
+                            {/*</Button>*/}
                             <Button onClick={this.handleClose} color="primary">
-                                Отмена
-                            </Button>
-                            <Button onClick={this.handleApply} color="primary">
-                                Применить
+                                Ок
                             </Button>
                         </DialogActions>
                     </Dialog>
 
 
                     {/*<Typography onClick={this.handleClickOpen} className="label_1">{this.props.labelText}</Typography>*/}
-                    <Typography className="label_1">{this.props.labelText}</Typography>
+                    <Typography className="label_1" onClick={this.handleClickOpen}>{this.props.labelText}</Typography>
                     <style>
                         {/*"." + this.state.random + ":before { content: '" + specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1] + "', margin-"+(value < 0.5) ? "left" : "right"+":"+((value!==0.5)&&(specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1].length > 5)) ? "5" : "0"+"px}"*/}
                         {"." + this.state.random + ":before { content: '" + specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1] + "' }"}
@@ -277,7 +311,7 @@ class SimpleSlider extends React.Component {
                     >
                         <DialogTitle id="form-dialog-title">{this.props.labelText}</DialogTitle>
                         <DialogContent>
-                            <DialogContentText>{this.props.description}</DialogContentText>
+                            <DialogContentText>{Model.changeDescription(this.props.description)}</DialogContentText>
                             {/*<DialogContentText>Введите значение драйвера от {this.props.min} до {this.props.max}.</DialogContentText>*/}
                             {/*<TextField*/}
                                 {/*margin="dense"*/}

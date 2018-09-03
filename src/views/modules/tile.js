@@ -11,6 +11,7 @@ class Tile extends Component {
             tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data, this.props.date, tilesBind[this.props.func].mera);
 
         let zeroedVal = null;
+        let zeroedSmallVal = null;
 
         if ((this.props.func === "EPS") || (this.props.func === "COR")) {
             zeroedVal = tileCalc.mainVal.split(".");
