@@ -79,7 +79,7 @@ function Model() {
             },
             EPS: {
                 title: "EPS",
-                mera: "%",
+                mera: "руб.",
             },
             INC: {
                 title: "Чистые опер. доходы",
@@ -262,20 +262,20 @@ function Model() {
 
 
         let table = {
-            data: [],
-            CIR: CIR,
-            oldCIR: oldCIR,
-            COR: COR,
-            oldCOR: oldCOR,
-            CAGR: CAGR,
-            oldCAGR: oldCAGR,
-            NIM: NIM,
-            oldNIM: oldNIM,
-            defaultSel: {
-                CIR: String(oldCIR.indexOf("33%")),
-                COR: String(oldCOR.indexOf("1.2%")),
-                CAGR: String(oldCAGR.indexOf("14.1%")),
-                NIM: String(oldNIM.indexOf("5.2%"))
+            data:[],
+            CIR:CIR,
+            oldCIR:oldCIR,
+            COR:COR,
+            oldCOR:oldCOR,
+            CAGR:CAGR,
+            oldCAGR:oldCAGR,
+            NIM:NIM,
+            oldNIM:oldNIM,
+            defaultSel:{
+                CIR: String(oldCIR.indexOf("32%")),
+                COR: String(oldCOR.indexOf("1.4%")),
+                CAGR: String(oldCAGR.indexOf("15.0%")),
+                NIM: String(oldNIM.indexOf("5.3%"))
             }
         };
         for (let i = 0; i < CIR.length; i++) {
@@ -308,4 +308,3 @@ function Model() {
 }
 
 export default new Model();
-
