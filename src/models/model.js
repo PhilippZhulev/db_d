@@ -79,7 +79,7 @@ function Model() {
             },
             EPS:{
                 title: "EPS",
-                mera: "%",
+                mera: "руб.",
             },
             INC:{
                 title: "Чистые опер. доходы",
