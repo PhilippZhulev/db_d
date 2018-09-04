@@ -38,7 +38,6 @@ class Tile extends Component {
         //         zeroedVal = tileCalc.mainVal;
         //     }
         // }
-
         let values = [];
         let prec = 1;
         if ((this.props.func === "EPS") || (this.props.func === "COR")) {
@@ -48,8 +47,14 @@ class Tile extends Component {
         }else{
             prec = 1;
         }
-
         this.prec = prec;
+
+        let graphcolor = ["#f8ac59","#1ab394"];
+        if(((this.props.func === "CIR")&&(this.props.page === "ALL"))||((this.props.func === "CHIS")&&(this.props.page === "ALL"))){
+             graphcolor = ["#727CF5","#f8ac59","#1ab394"]
+        }
+        this.graphcolor = graphcolor;
+
 
         //console.log(prec);
 
@@ -94,7 +99,7 @@ class Tile extends Component {
                             titles:["Стратегия 2020", "Моделирование", "Базовая версия"],
                             geometry: {width:"88%", height:"90%"},
                             //colors: (this.props.isSmall) ? ["#727CF5","#1ab394"] : ["#f8ac59","#727CF5","#1ab394"],
-                            colors: (this.props.isSmall) ? ["#f8ac59","#1ab394"] : ["#727CF5","#f8ac59","#1ab394"],
+                            colors: (this.props.isSmall) ? this.graphcolor : ["#727CF5","#f8ac59","#1ab394"],
                             legend: (!this.props.isSmall),
                             type: "smoothedLine",
                             labelPosition:(this.props.isSmall) ? ["top","bottom"] : ["top","top", "bottom"],
