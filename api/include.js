@@ -7,6 +7,8 @@ function Reactor() {
         //Получаем и парсим JSON
         obj.changeData = JSON.parse(obj.glob.Settings.initial_data);
 
+        console.log(obj.glob.Settings.driver_options);
+
         try {
 
             obj.dummyData = {

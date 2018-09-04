@@ -42,6 +42,7 @@ class Drivers extends Component {
                             load={this.props.load}
                             type={value.type}
                             description={value.description}
+                            driverOptionsArr={this.props.driverOptionsArr}
                         />
                     )
                 } else {

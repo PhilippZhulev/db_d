@@ -974,11 +974,589 @@
       ]
     }
   },
+  "driver_options": [
+    {
+      "driver": "1",
+      "option": "1",
+      "text": "Нет"
+    },
+    {
+      "driver": "1",
+      "option": "2",
+      "text": "Да"
+    },
+    {
+      "driver": "2",
+      "option": "1",
+      "text": "55"
+    },
+    {
+      "driver": "2",
+      "option": "2",
+      "text": "57"
+    },
+    {
+      "driver": "2",
+      "option": "3",
+      "text": "59"
+    },
+    {
+      "driver": "2",
+      "option": "4",
+      "text": "61"
+    },
+    {
+      "driver": "2",
+      "option": "5",
+      "text": "63"
+    },
+    {
+      "driver": "2",
+      "option": "6",
+      "text": "65"
+    },
+    {
+      "driver": "14",
+      "option": "1",
+      "text": "3"
+    },
+    {
+      "driver": "14",
+      "option": "2",
+      "text": "5"
+    },
+    {
+      "driver": "26",
+      "option": "1",
+      "text": "Нет"
+    },
+    {
+      "driver": "26",
+      "option": "2",
+      "text": "Да"
+    },
+    {
+      "driver": "27",
+      "option": "1",
+      "text": "4.88"
+    },
+    {
+      "driver": "27",
+      "option": "2",
+      "text": "4.98"
+    },
+    {
+      "driver": "27",
+      "option": "3",
+      "text": "5.08"
+    },
+    {
+      "driver": "27",
+      "option": "4",
+      "text": "5.18"
+    },
+    {
+      "driver": "27",
+      "option": "5",
+      "text": "5.28"
+    },
+    {
+      "driver": "28",
+      "option": "1",
+      "text": "13.0"
+    },
+    {
+      "driver": "28",
+      "option": "2",
+      "text": "15.0"
+    },
+    {
+      "driver": "28",
+      "option": "3",
+      "text": "17.0"
+    },
+    {
+      "driver": "28",
+      "option": "4",
+      "text": "19.0"
+    },
+    {
+      "driver": "28",
+      "option": "5",
+      "text": "21.0"
+    },
+    {
+      "driver": "29",
+      "option": "1",
+      "text": "40"
+    },
+    {
+      "driver": "29",
+      "option": "2",
+      "text": "45"
+    },
+    {
+      "driver": "29",
+      "option": "3",
+      "text": "50"
+    },
+    {
+      "driver": "29",
+      "option": "4",
+      "text": "55"
+    },
+    {
+      "driver": "29",
+      "option": "5",
+      "text": "60"
+    },
+    {
+      "driver": "32",
+      "option": "1",
+      "text": "127"
+    },
+    {
+      "driver": "32",
+      "option": "2",
+      "text": "134"
+    },
+    {
+      "driver": "32",
+      "option": "3",
+      "text": "141"
+    },
+    {
+      "driver": "32",
+      "option": "4",
+      "text": "148"
+    },
+    {
+      "driver": "32",
+      "option": "5",
+      "text": "155"
+    },
+    {
+      "driver": "35",
+      "option": "1",
+      "text": "Нет"
+    },
+    {
+      "driver": "35",
+      "option": "2",
+      "text": "Да"
+    },
+    {
+      "driver": "36",
+      "option": "1",
+      "text": "50"
+    },
+    {
+      "driver": "36",
+      "option": "2",
+      "text": "60"
+    },
+    {
+      "driver": "36",
+      "option": "3",
+      "text": "70"
+    },
+    {
+      "driver": "36",
+      "option": "4",
+      "text": "80"
+    },
+    {
+      "driver": "36",
+      "option": "5",
+      "text": "70"
+    },
+    {
+      "driver": "40",
+      "option": "1",
+      "text": "0.75 млн / 45%"
+    },
+    {
+      "driver": "40",
+      "option": "2",
+      "text": "1.00 млн / 45%"
+    },
+    {
+      "driver": "40",
+      "option": "3",
+      "text": "1.00 млн / 53%"
+    },
+    {
+      "driver": "40",
+      "option": "4",
+      "text": "1.12 млн / 53%"
+    },
+    {
+      "driver": "40",
+      "option": "5",
+      "text": "1.25 млн / 53%"
+    },
+    {
+      "driver": "42",
+      "option": "1",
+      "text": "8.0"
+    },
+    {
+      "driver": "42",
+      "option": "2",
+      "text": "8.6"
+    },
+    {
+      "driver": "42",
+      "option": "3",
+      "text": "9.2"
+    },
+    {
+      "driver": "42",
+      "option": "4",
+      "text": "9.8"
+    },
+    {
+      "driver": "42",
+      "option": "5",
+      "text": "10.4"
+    },
+    {
+      "driver": "44",
+      "option": "1",
+      "text": "3.0"
+    },
+    {
+      "driver": "44",
+      "option": "2",
+      "text": "3.5"
+    },
+    {
+      "driver": "44",
+      "option": "3",
+      "text": "4.0"
+    },
+    {
+      "driver": "44",
+      "option": "4",
+      "text": "4.5"
+    },
+    {
+      "driver": "44",
+      "option": "5",
+      "text": "5.0"
+    },
+    {
+      "driver": "46",
+      "option": "1",
+      "text": "Нет"
+    },
+    {
+      "driver": "46",
+      "option": "2",
+      "text": "Да"
+    },
+    {
+      "driver": "47",
+      "option": "1",
+      "text": "Нет"
+    },
+    {
+      "driver": "47",
+      "option": "2",
+      "text": "Да"
+    },
+    {
+      "driver": "48",
+      "option": "1",
+      "text": "14.50"
+    },
+    {
+      "driver": "48",
+      "option": "2",
+      "text": "15.25"
+    },
+    {
+      "driver": "48",
+      "option": "3",
+      "text": "16.00"
+    },
+    {
+      "driver": "48",
+      "option": "4",
+      "text": "16.75"
+    },
+    {
+      "driver": "48",
+      "option": "5",
+      "text": "17.50"
+    },
+    {
+      "driver": "53",
+      "option": "1",
+      "text": "1 кв. 2021г."
+    },
+    {
+      "driver": "53",
+      "option": "2",
+      "text": "2022г."
+    },
+    {
+      "driver": "54",
+      "option": "1",
+      "text": "Нет"
+    },
+    {
+      "driver": "54",
+      "option": "2",
+      "text": "Да"
+    },
+    {
+      "driver": "55",
+      "option": "1",
+      "text": "0"
+    },
+    {
+      "driver": "55",
+      "option": "2",
+      "text": "-1"
+    },
+    {
+      "driver": "55",
+      "option": "3",
+      "text": "-2"
+    },
+    {
+      "driver": "55",
+      "option": "4",
+      "text": "-3"
+    },
+    {
+      "driver": "55",
+      "option": "5",
+      "text": "-4"
+    },
+    {
+      "driver": "55",
+      "option": "6",
+      "text": "-5"
+    },
+    {
+      "driver": "71",
+      "option": "1",
+      "text": "0"
+    },
+    {
+      "driver": "71",
+      "option": "2",
+      "text": "4"
+    },
+    {
+      "driver": "71",
+      "option": "3",
+      "text": "8"
+    },
+    {
+      "driver": "71",
+      "option": "4",
+      "text": "12"
+    },
+    {
+      "driver": "71",
+      "option": "5",
+      "text": "16"
+    },
+    {
+      "driver": "75",
+      "option": "1",
+      "text": "Нет"
+    },
+    {
+      "driver": "75",
+      "option": "2",
+      "text": "Да"
+    },
+    {
+      "driver": "76",
+      "option": "1",
+      "text": "Нет"
+    },
+    {
+      "driver": "76",
+      "option": "2",
+      "text": "Да"
+    },
+    {
+      "driver": "82",
+      "option": "1",
+      "text": "MUST"
+    },
+    {
+      "driver": "82",
+      "option": "2",
+      "text": "Разв. бизнеса"
+    },
+    {
+      "driver": "82",
+      "option": "3",
+      "text": "AS IS"
+    },
+    {
+      "driver": "82",
+      "option": "4",
+      "text": "Прочие +"
+    },
+    {
+      "driver": "83",
+      "option": "1",
+      "text": "800"
+    },
+    {
+      "driver": "83",
+      "option": "2",
+      "text": "900"
+    },
+    {
+      "driver": "83",
+      "option": "3",
+      "text": "1000"
+    },
+    {
+      "driver": "83",
+      "option": "4",
+      "text": "1100"
+    },
+    {
+      "driver": "83",
+      "option": "5",
+      "text": "1200"
+    },
+    {
+      "driver": "84",
+      "option": "1",
+      "text": "-10"
+    },
+    {
+      "driver": "84",
+      "option": "2",
+      "text": "-5"
+    },
+    {
+      "driver": "84",
+      "option": "3",
+      "text": "Базовая версия"
+    },
+    {
+      "driver": "84",
+      "option": "4",
+      "text": "5"
+    },
+    {
+      "driver": "84",
+      "option": "5",
+      "text": "10"
+    },
+    {
+      "driver": "86",
+      "option": "1",
+      "text": "70% / 33%"
+    },
+    {
+      "driver": "86",
+      "option": "2",
+      "text": "60% / 33%"
+    },
+    {
+      "driver": "86",
+      "option": "3",
+      "text": "50% / 27%"
+    },
+    {
+      "driver": "86",
+      "option": "4",
+      "text": "50% / 33%"
+    },
+    {
+      "driver": "86",
+      "option": "5",
+      "text": "50% / 40%"
+    },
+    {
+      "driver": "87",
+      "option": "1",
+      "text": "201"
+    },
+    {
+      "driver": "87",
+      "option": "2",
+      "text": "271"
+    },
+    {
+      "driver": "87",
+      "option": "3",
+      "text": "341"
+    },
+    {
+      "driver": "88",
+      "option": "1",
+      "text": "381"
+    },
+    {
+      "driver": "88",
+      "option": "2",
+      "text": "461"
+    },
+    {
+      "driver": "88",
+      "option": "3",
+      "text": "541"
+    },
+    {
+      "driver": "89",
+      "option": "1",
+      "text": "Нет"
+    },
+    {
+      "driver": "89",
+      "option": "2",
+      "text": "Да"
+    },
+    {
+      "driver": "90",
+      "option": "1",
+      "text": "0.15"
+    },
+    {
+      "driver": "90",
+      "option": "2",
+      "text": "0.20"
+    },
+    {
+      "driver": "91",
+      "option": "1",
+      "text": "Нет"
+    },
+    {
+      "driver": "91",
+      "option": "2",
+      "text": "Да"
+    },
+    {
+      "driver": "92",
+      "option": "1",
+      "text": "Нет"
+    },
+    {
+      "driver": "92",
+      "option": "2",
+      "text": "Да"
+    }
+  ],
   "drivers": [
     {
       "group": "Персонал",
       "name": "Вы огурчик?",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "1",
       "step": "1",
       "baseValue": "10",
@@ -988,7 +1566,8 @@
     {
       "group": "Персонал",
       "name": "Индексация, %",
-      "description":"Бла бла бла","min": "5",
+      "description": "Бла бла бла",
+      "min": "5",
       "max": "15",
       "step": "1",
       "baseValue": "10",
@@ -998,7 +1577,8 @@
     {
       "group": "Персонал",
       "name": "Годовая премия, % от прибыли",
-      "description":"Бла бла бла","min": "1",
+      "description": "Бла бла бла",
+      "min": "1",
       "max": "10",
       "step": "0.5",
       "baseValue": "5.5",
@@ -1008,7 +1588,8 @@
     {
       "group": "Персонал",
       "name": "Перемещение ПЦП Москвы в регионы, %",
-      "description":"Бла бла бла","min": "20",
+      "description": "Бла бла бла",
+      "min": "20",
       "max": "40",
       "step": "0.5",
       "baseValue": "30",
@@ -1018,7 +1599,8 @@
     {
       "group": "Персонал",
       "name": "Перевод из ЦА в регионы, %",
-      "description":"Бла бла бла","min": "50",
+      "description": "Бла бла бла",
+      "min": "50",
       "max": "90",
       "step": "5",
       "baseValue": "70",
@@ -1028,7 +1610,8 @@
     {
       "group": "Персонал",
       "name": "Количество ТБ, ед.",
-      "description":"Бла бла бла","min": "60",
+      "description": "Бла бла бла",
+      "min": "60",
       "max": "90",
       "step": "0.5",
       "baseValue": "75",
@@ -1038,7 +1621,8 @@
     {
       "group": "Персонал",
       "name": "Заявки без участия андеррайтеров, %",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "3",
       "step": "0.5",
       "baseValue": "1.5",
@@ -1048,7 +1632,8 @@
     {
       "group": "Персонал",
       "name": "Расходы на обучение на 1 сотр., тыс.руб",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "0.3",
       "step": "0",
       "baseValue": "0.2",
@@ -1058,7 +1643,8 @@
     {
       "group": "Сервисы",
       "name": "Офисные площади на 1 сотруд., кв.м",
-      "description":"Бла бла бла","min": "4",
+      "description": "Бла бла бла",
+      "min": "4",
       "max": "5",
       "step": "0.5",
       "baseValue": "4.5",
@@ -1068,7 +1654,8 @@
     {
       "group": "Сервисы",
       "name": "Площадь офисных помещений, тыс. м2",
-      "description":"Бла бла бла","min": "-5",
+      "description": "Бла бла бла",
+      "min": "-5",
       "max": "-3",
       "step": "1",
       "baseValue": "-4",
@@ -1078,7 +1665,8 @@
     {
       "group": "Сервисы",
       "name": "Доля арендов. помещ., %",
-      "description":"Бла бла бла","min": "50",
+      "description": "Бла бла бла",
+      "min": "50",
       "max": "70",
       "step": "1",
       "baseValue": "60",
@@ -1088,7 +1676,8 @@
     {
       "group": "Сервисы",
       "name": "Бригады инкасс. из 2 человек, %",
-      "description":"Бла бла бла","min": "10",
+      "description": "Бла бла бла",
+      "min": "10",
       "max": "20",
       "step": "1",
       "baseValue": "15",
@@ -1098,7 +1687,8 @@
     {
       "group": "Сервисы",
       "name": "Доля RATM в УС, %",
-      "description":"Бла бла бла","min": "2",
+      "description": "Бла бла бла",
+      "min": "2",
       "max": "3",
       "step": "0.5",
       "baseValue": "2.5",
@@ -1108,7 +1698,8 @@
     {
       "group": "Сервисы",
       "name": "Доля наличных платежей в Банке, %",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "99",
       "step": "1",
       "baseValue": "49.5",
@@ -1118,7 +1709,8 @@
     {
       "group": "IT",
       "name": "Числ-ть опер. функции, чел.",
-      "description":"Бла бла бла","min": "1",
+      "description": "Бла бла бла",
+      "min": "1",
       "max": "5",
       "step": "0.5",
       "baseValue": "3",
@@ -1128,7 +1720,8 @@
     {
       "group": "IT",
       "name": "OPEX/CAPEX по IT, %",
-      "description":"Бла бла бла","min": "2",
+      "description": "Бла бла бла",
+      "min": "2",
       "max": "3",
       "step": "0.5",
       "baseValue": "2.5",
@@ -1138,7 +1731,8 @@
     {
       "group": "IT",
       "name": "Доработка legacy, млрд.руб.",
-      "description":"Бла бла бла","min": "1.5",
+      "description": "Бла бла бла",
+      "min": "1.5",
       "max": "2.5",
       "step": "0.5",
       "baseValue": "2",
@@ -1148,7 +1742,8 @@
     {
       "group": "IT",
       "name": "Инвестиции в платф., млрд.руб.",
-      "description":"Бла бла бла","min": "6.5",
+      "description": "Бла бла бла",
+      "min": "6.5",
       "max": "6.9",
       "step": "0.1",
       "baseValue": "6.7",
@@ -1158,7 +1753,8 @@
     {
       "group": "IT",
       "name": "Доля вендоров, %",
-      "description":"Бла бла бла","min": "-5",
+      "description": "Бла бла бла",
+      "min": "-5",
       "max": "-3",
       "step": "0.5",
       "baseValue": "-4",
@@ -1168,7 +1764,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Числ-ть функц. блоков, чел.",
-      "description":"Бла бла бла","min": "50",
+      "description": "Бла бла бла",
+      "min": "50",
       "max": "99",
       "step": "1",
       "baseValue": "74.5",
@@ -1178,7 +1775,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Устройства самообсл., ед.",
-      "description":"Бла бла бла","min": "35",
+      "description": "Бла бла бла",
+      "min": "35",
       "max": "45",
       "step": "1",
       "baseValue": "40",
@@ -1188,7 +1786,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Доля push-уведомлений, %",
-      "description":"Бла бла бла","min": "2",
+      "description": "Бла бла бла",
+      "min": "2",
       "max": "3",
       "step": "0.5",
       "baseValue": "2.5",
@@ -1198,7 +1797,8 @@
     {
       "group": "Прочие OPEX",
       "name": "\"Спасибо\", ставка начисл.",
-      "description":"Бла бла бла","min": "2",
+      "description": "Бла бла бла",
+      "min": "2",
       "max": "3",
       "step": "0.5",
       "baseValue": "2.5",
@@ -1208,7 +1808,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Маркетинг, % от прибыли",
-      "description":"Бла бла бла","min": "1.5",
+      "description": "Бла бла бла",
+      "min": "1.5",
       "max": "2.5",
       "step": "0.5",
       "baseValue": "2",
@@ -1218,7 +1819,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Благотворительн., % от прибыли",
-      "description":"Бла бла бла","min": "70",
+      "description": "Бла бла бла",
+      "min": "70",
       "max": "90",
       "step": "1",
       "baseValue": "80",
@@ -1228,7 +1830,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Выход из сервисных компаний, да/нет",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "1",
       "step": "0.5",
       "baseValue": "1",
@@ -1238,7 +1841,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Продажа СБЕ, да/нет",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "1",
       "step": "0.5",
       "baseValue": "1",
@@ -1248,7 +1852,8 @@
     {
       "group": "Доходы / Риски",
       "name": "Чистая процентная маржа, %",
-      "description":"Бла бла бла","min": "4.5",
+      "description": "Бла бла бла",
+      "min": "4.5",
       "max": "5.3",
       "step": "0.3",
       "baseValue": "4.9",
@@ -1258,7 +1863,8 @@
     {
       "group": "Доходы / Риски",
       "name": "Темп прироста ЧКД, %",
-      "description":"Бла бла бла","min": "7",
+      "description": "Бла бла бла",
+      "min": "7",
       "max": "15",
       "step": "1",
       "baseValue": "11",
@@ -1268,7 +1874,8 @@
     {
       "group": "Доходы / Риски",
       "name": "Выплата дивидендов, % от прибыли",
-      "description":"Бла бла бла","min": "50",
+      "description": "Бла бла бла",
+      "min": "50",
       "max": "99",
       "step": "1",
       "baseValue": "74.5",
@@ -1278,7 +1885,8 @@
     {
       "group": "Прочие OPEX",
       "name": "УП МП, штук (вал) в год",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "100",
       "step": "1",
       "baseValue": "50",
@@ -1288,7 +1896,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Сделки ипотечного кредитования, штук (вал) в год",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "100",
       "step": "1",
       "baseValue": "50",
@@ -1298,7 +1907,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Клиентопоток ФЛ по продажам к МП в онлайн, клиентов/год",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "100",
       "step": "1",
       "baseValue": "50",
@@ -1308,7 +1918,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Клиентопоток ФЛ по продажам к МП в онлайн, клиентов/год",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "100",
       "step": "1",
       "baseValue": "50",
@@ -1318,7 +1929,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Доля рынка эквайринга, %",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "100",
       "step": "1",
       "baseValue": "50",
@@ -1328,7 +1940,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Сокращение количества ВСП, ед.",
-      "description":"Бла бла бла","min": "150",
+      "description": "Бла бла бла",
+      "min": "150",
       "max": "343",
       "step": "1",
       "baseValue": "20",
@@ -1338,7 +1951,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Доля push-уведомлений, %",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "100",
       "step": "1",
       "baseValue": "50",
@@ -1348,7 +1962,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Угол наклона луны к марсу",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "100",
       "step": "1",
       "baseValue": "50",
@@ -1358,7 +1973,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Диаметр разброса кофейной гущи",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "100",
       "step": "1",
       "baseValue": "50",
@@ -1368,7 +1984,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Числ-ть адм. функции CIB, чел.",
-      "description":"Бла бла бла","min": "20",
+      "description": "Бла бла бла",
+      "min": "20",
       "max": "40",
       "step": "1",
       "baseValue": "30",
@@ -1378,7 +1995,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Числ-ть 5 крупн. десков, чел.",
-      "description":"Бла бла бла","min": "1",
+      "description": "Бла бла бла",
+      "min": "1",
       "max": "5",
       "step": "1",
       "baseValue": "3",
@@ -1388,7 +2006,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Рассмотр. кред. заявки CIB, дни",
-      "description":"Бла бла бла","min": "2",
+      "description": "Бла бла бла",
+      "min": "2",
       "max": "3",
       "step": "0.5",
       "baseValue": "2.5",
@@ -1398,7 +2017,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Стоимость риска (CIB), %",
-      "description":"Бла бла бла","min": "1.5",
+      "description": "Бла бла бла",
+      "min": "1.5",
       "max": "2.5",
       "step": "0.5",
       "baseValue": "2",
@@ -1408,7 +2028,8 @@
     {
       "group": "Прочие OPEX",
       "name": "К.Эффект КМ, %",
-      "description":"Бла бла бла","min": "100",
+      "description": "Бла бла бла",
+      "min": "100",
       "max": "105",
       "step": "0.5",
       "baseValue": "102.5",
@@ -1418,7 +2039,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Рост клиентов в год, %",
-      "description":"Бла бла бла","min": "2",
+      "description": "Бла бла бла",
+      "min": "2",
       "max": "20",
       "step": "1",
       "baseValue": "11",
@@ -1428,7 +2050,8 @@
     {
       "group": "Прочие OPEX",
       "name": "К.ЧОД, %",
-      "description":"Бла бла бла","min": "95",
+      "description": "Бла бла бла",
+      "min": "95",
       "max": "100",
       "step": "0.1",
       "baseValue": "97.5",
@@ -1438,7 +2061,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Самозанятые (да/нет)",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "1",
       "step": "1",
       "baseValue": "0.5",
@@ -1448,7 +2072,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Techsales и экосистемы (да/нет)",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "1",
       "step": "1",
       "baseValue": "0.5",
@@ -1458,7 +2083,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Влияние на глубину ^, %",
-      "description":"Бла бла бла","min": "5",
+      "description": "Бла бла бла",
+      "min": "5",
       "max": "15",
       "step": "1",
       "baseValue": "10",
@@ -1468,7 +2094,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Доля ММБ на 2021г, %",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "1",
       "step": "1",
       "baseValue": "0.5",
@@ -1478,7 +2105,8 @@
     {
       "group": "Прочие OPEX",
       "name": "Доля самозанятых на 2021г, %",
-      "description":"Бла бла бла","min": "0",
+      "description": "Бла бла бла",
+      "min": "0",
       "max": "1",
       "step": "1",
       "baseValue": "0.5",

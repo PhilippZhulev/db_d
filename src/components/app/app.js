@@ -22,6 +22,8 @@ class App extends Component {
     constructor(props) {
         super(props);
 
+        console.log(window.obj.dummyData);
+
         this.state = {
             theme : (localStorage['templ'] === "on") ? whiteTheme : darkTheme || "on",
             menu: " active",
@@ -41,7 +43,8 @@ class App extends Component {
             date: "1",
             driverData: window.obj.dummyData.drivers,
             driverOptionsData: window.obj.dummyData.driver_options,
-            bookmark: window.obj.dummyData.bookmark
+            bookmark: window.obj.dummyData.bookmark,
+            driverOptionsArr: Model.optionsReduser(window.obj.dummyData.driver_options)
         };
 
         this.driverLocalData = window.obj.dummyData.drivers;
@@ -223,6 +226,7 @@ class App extends Component {
                         groupsType={this.state.groupsType}
                         tab={this.state.tables}
                         load={this.state.preloader}
+                        driverOptionsArr={this.state.driverOptionsArr}
                     />
                 </ReactIScroll>
             );

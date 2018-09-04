@@ -21,7 +21,8 @@ function Reactor() {
 
         obj.dummyData = {
             data: jsonData.data,
-            drivers: jsonData.drivers
+            drivers: jsonData.drivers,
+            driver_options: jsonData.driver_options
         };
 
         //После парсинга JSON запускаем событие reactRun (Только если payload = START тоесть только при первой загрузке)

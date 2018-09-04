@@ -341,49 +341,54 @@ function Model() {
         }
         return res;
     };
-    this.optionsReduser = function(){
-        const in_arr = [
-            {
-                driver:"1",
-                option:"1",
-                text:"База"
-            },
-            {
-                driver:"1",
-                option:"2",
-                text:"Модель"
-            },
-            {
-                driver:"1",
-                option:"3",
-                text:"Стратегия"
-            },
-            {
-                driver:"2",
-                option:"1",
-                text:"-10%"
-            },
-            {
-                driver:"2",
-                option:"2",
-                text:"-5%"
-            },
-            {
-                driver:"2",
-                option:"3",
-                text:"0%"
-            },
-            {
-                driver:"2",
-                option:"4",
-                text:"5%"
-            },
-            {
-                driver:"2",
-                option:"5",
-                text:"10%"
-            }
-        ];
+
+    this.optionsReduser = function(obj){
+        // const in_arr = [
+        //     {
+        //         driver:"1",
+        //         option:"1",
+        //         text:"База"
+        //     },
+        //     {
+        //         driver:"1",
+        //         option:"2",
+        //         text:"Модель"
+        //     },
+        //     {
+        //         driver:"1",
+        //         option:"3",
+        //         text:"Стратегия"
+        //     },
+        //     {
+        //         driver:"2",
+        //         option:"1",
+        //         text:"-10%"
+        //     },
+        //     {
+        //         driver:"2",
+        //         option:"2",
+        //         text:"-5%"
+        //     },
+        //     {
+        //         driver:"2",
+        //         option:"3",
+        //         text:"0%"
+        //     },
+        //     {
+        //         driver:"2",
+        //         option:"4",
+        //         text:"5%"
+        //     },
+        //     {
+        //         driver:"2",
+        //         option:"5",
+        //         text:"10%"
+        //     }
+        // ];
+
+        // console.log(obj);
+
+        const in_arr = obj;
 
         let specialDrivers = [];
         let specialDriversData = {};
@@ -403,11 +408,11 @@ function Model() {
             }
         }
 
-        console.log("specialDrivers are:");
-        console.log(specialDrivers);
+        // console.log("specialDrivers are:");
+        // console.log(specialDrivers);
 
-        console.log("specialDriversData is:");
-        console.log(specialDriversData);
+        // console.log("specialDriversData is:");
+        // console.log(specialDriversData);
 
         return [specialDrivers, specialDriversData]
     }
