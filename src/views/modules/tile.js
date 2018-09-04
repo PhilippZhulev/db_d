@@ -84,6 +84,8 @@ class Tile extends Component {
         let subscribtion = "1";
         let color = "rgba(0,0,0,0)";
 
+        Model.optionsReduser();
+
         return(
             <div className={"tile_item_"+this.props.tileNum}>
                 <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>

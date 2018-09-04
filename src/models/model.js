@@ -340,6 +340,76 @@ function Model() {
             res = res.replace("#","");
         }
         return res;
+    };
+    this.optionsReduser = function(){
+        const in_arr = [
+            {
+                driver:"1",
+                option:"1",
+                text:"База"
+            },
+            {
+                driver:"1",
+                option:"2",
+                text:"Модель"
+            },
+            {
+                driver:"1",
+                option:"3",
+                text:"Стратегия"
+            },
+            {
+                driver:"2",
+                option:"1",
+                text:"-10%"
+            },
+            {
+                driver:"2",
+                option:"2",
+                text:"-5%"
+            },
+            {
+                driver:"2",
+                option:"3",
+                text:"0%"
+            },
+            {
+                driver:"2",
+                option:"4",
+                text:"5%"
+            },
+            {
+                driver:"2",
+                option:"5",
+                text:"10%"
+            }
+        ];
+
+        let specialDrivers = [];
+        let specialDriversData = {};
+
+        //let prevId = -1;
+
+
+        for(let i=0; i<in_arr.length;i++){
+            if (!specialDrivers.includes(+(in_arr[i].driver))){
+                specialDrivers.push(+(in_arr[i].driver));
+            }
+            if(!("dr"+in_arr[i].driver in specialDriversData)){
+                specialDriversData["dr"+ +(in_arr[i].driver)] = [];
+            }
+            if (specialDriversData["dr"+ +(in_arr[i].driver)][+(in_arr[i].option)-1] === undefined){
+                specialDriversData["dr"+ +(in_arr[i].driver)][+(in_arr[i].option)-1] = in_arr[i].text;
+            }
+        }
+
+        console.log("specialDrivers are:");
+        console.log(specialDrivers);
+
+        console.log("specialDriversData is:");
+        console.log(specialDriversData);
+
+        return [specialDrivers, specialDriversData]
     }
 }
 
