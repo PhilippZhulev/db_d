@@ -117,7 +117,7 @@ class MultiLine extends Component {
                     "color": this.props.options.colors[i],
                     "id": "AmGraph-"+i,
                     "fontSize": 12,
-                    "showAllValueLabels": true,
+                    "showAllValueLabels": (Model.chartsGraphs([], this.props.data)[i]==="strategy")? false: true,
                     "labelText": "[[value]]",
                     "precision": this.props.prec,
                     "lineThickness": this.props.options.thickness,
