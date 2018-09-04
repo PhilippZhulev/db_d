@@ -50,10 +50,13 @@ class Tile extends Component {
         this.prec = prec;
 
         let graphcolor = ["#f8ac59","#1ab394"];
+        let label = true;
         if(((this.props.func === "CIR")&&(this.props.page === "ALL"))||((this.props.func === "CHIS")&&(this.props.page === "ALL"))){
              graphcolor = ["#727CF5","#f8ac59","#1ab394"]
+             label = false;
         }
         this.graphcolor = graphcolor;
+        this.label = label;
 
 
         //console.log(prec);
@@ -105,6 +108,7 @@ class Tile extends Component {
                             legend: (!this.props.isSmall),
                             type: "smoothedLine",
                             labelPosition:(this.props.isSmall) ? ["top","bottom"] : ["top","top", "bottom"],
+                            label: this.label,
                             thickness: (this.props.isSmall) ? 1 : 2,
                             isBig: (!this.props.isSmall)
                         }}
