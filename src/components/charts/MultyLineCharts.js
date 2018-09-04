@@ -9,6 +9,25 @@ import Legend from './legend';
 import Model from '../../models/model.js';
 
 class MultiLine extends Component {
+
+    setLabelPosition = () => {
+        let metr = 0;
+        for(let i=1;i<this.props.data.length;i++){
+            let koeff = (+(this.props.data[i].model) >= +(this.props.data[i].base)) ? 1 : -1;
+            metr = metr + koeff;
+        }
+        return Model.chartsGraphs([], this.props.data).map((value, index)=>{
+            switch (value) {
+                case "strategy":
+                    return "top";
+                case "model":
+                    return (metr > 0) ? "top" : "bottom";
+                default:
+                    return (metr > 0) ? "bottom" : "top";
+            }
+        });
+    };
+
     chartSettings = (out) => {
 
         // let prec = 1;
@@ -105,7 +124,7 @@ class MultiLine extends Component {
                     "title": "graph "+i,
                     "valueField": Model.chartsGraphs([], this.props.data)[i],
                     "type": this.props.options.type,
-                    "labelPosition": this.props.options.labelPosition[i],
+                    "labelPosition": this.setLabelPosition()[i],//this.props.options.labelPosition[i],
                     "visibleInLegend": false
                 }
             );
