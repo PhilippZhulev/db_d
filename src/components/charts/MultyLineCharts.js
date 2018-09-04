@@ -106,7 +106,7 @@ class MultiLine extends Component {
         for (let i = 0; i < Model.chartsGraphs([], this.props.data).length; i++){
             amchartsSettings.graphs.push(
                 {
-                    "balloonText": "[[category]]: [[value]]%",
+                    "balloonText": "[[category]]: [[value]]",
                     "bullet": "round",
                     "bulletBorderAlpha": 0,
                     "bulletBorderColor": this.props.options.colors[i],
@@ -117,8 +117,8 @@ class MultiLine extends Component {
                     "color": this.props.options.colors[i],
                     "id": "AmGraph-"+i,
                     "fontSize": 12,
-                    "showAllValueLabels": (Model.chartsGraphs([], this.props.data)[i]==="strategy")? false: true,
-                    "labelText": "[[value]]",
+                    "showAllValueLabels": true,
+                    "labelText": ((Model.chartsGraphs([], this.props.data)[i]==="strategy")&&(!this.props.options.label))? "" : "[[value]]",
                     "precision": this.props.prec,
                     "lineThickness": this.props.options.thickness,
                     "title": "graph "+i,

@@ -12,6 +12,7 @@ function Reactor() {
             obj.dummyData = {
                 data: JSON.parse(obj.glob.Settings.data),
                 drivers: JSON.parse(obj.glob.Settings.drivers),
+                driver_options: JSON.parse(obj.glob.Settings.driver_options),
                 table: obj.glob.Settings.table,
                 bookmark: JSON.parse(obj.glob.Settings.bookmark)
             };
