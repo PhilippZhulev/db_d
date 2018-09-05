@@ -3,12 +3,21 @@ import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import SettingsIcon from '@material-ui/icons/Settings';
+import InfoIcon from '@material-ui/icons/Info';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import store, {change} from '../../../reduser';
 import Checkbox from '@material-ui/core/Checkbox';
 import Star from '@material-ui/icons/Star';
 import StarBorder from '@material-ui/icons/StarBorder';
+//******************************************************************
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Button from '@material-ui/core/Button';
+import Model from '../../../models/model';
 
 
 const options = [
@@ -38,7 +47,8 @@ class LongMenu extends React.Component {
     checkedC: (localStorage['templ'] === "on"),
     anchorEl: null,
     temp: localStorage['templ'] || "on",
-    sliderPos: localStorage['menuPos'] || "right"
+    sliderPos: localStorage['menuPos'] || "right",
+    dialogopen: false,
   };
 
   handleClick = event => {
@@ -48,6 +58,14 @@ class LongMenu extends React.Component {
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
+
+    handleDialogOpen = () => {
+        this.setState({ dialogopen: true });
+    };
+
+    handleDialogClose = () => {
+        this.setState({ dialogopen: false});
+    };
 
   chngeList = (a, e, name) => {
       this.setState({ [name]: e.target.checked });
@@ -120,16 +138,40 @@ class LongMenu extends React.Component {
 
     return (
       <div>
-        <IconButton
-          aria-label="More"
-          aria-owns={anchorEl ? 'long-menu' : null}
-          aria-haspopup="true"
-          className="settings"
-          onTouchStart={this.handleClick}
-          color="inherit"
-        >
+         <IconButton
+              aria-label="More"
+              aria-owns={anchorEl ? 'long-menu' : null}
+              aria-haspopup="true"
+              className="settings"
+              onTouchStart={this.handleClick}
+              color="inherit"
+          >
         <SettingsIcon />
         </IconButton>
+
+        <IconButton
+          onClick={this.handleDialogOpen}
+          className="info"
+          color="inherit"
+        >
+        <InfoIcon />
+        </IconButton>
+          <Dialog
+              open={this.state.dialogopen}
+              onClose={this.handleDialogClose}
+              aria-labelledby="form-dialog-title"
+          >
+              <DialogTitle id="form-dialog-title">Журнал изменений</DialogTitle>
+              <DialogContent>
+                  <DialogContentText>{window.obj.dummyData.bookmark}</DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                  <Button onClick={this.handleDialogClose} color="primary">
+                      Ок
+                  </Button>
+              </DialogActions>
+          </Dialog>
+
         <Menu
           id="long-menu"
           anchorEl={anchorEl}
