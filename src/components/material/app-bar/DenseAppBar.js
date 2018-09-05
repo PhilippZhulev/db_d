@@ -59,7 +59,7 @@ function DenseAppBar(props) {
               groups={props.groups}
               categorys={props.categorys}
           />
-          <SettingsMenu/>
+          <SettingsMenu bookmark={props.bookmark}/>
         </Toolbar>
       </AppBar>
     </div>

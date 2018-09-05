@@ -18,7 +18,10 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 import Model from '../../../models/model';
-
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
 
 const options = [
     {title:'Панель драйверов слева',val: "checkedA"},
@@ -133,9 +136,18 @@ class LongMenu extends React.Component {
       }
   };
 
+
+
   render() {
     const { anchorEl } = this.state;
 
+    const listitem = this.props.bookmark.map((title,index)=>
+        <div key={index}>
+        <ListItem>
+            <ListItemText primary="" secondary={this.props.bookmark[index]} />
+        </ListItem>
+        <Divider/>
+        </div>);
     return (
       <div>
          <IconButton
@@ -163,7 +175,9 @@ class LongMenu extends React.Component {
           >
               <DialogTitle id="form-dialog-title">Журнал изменений</DialogTitle>
               <DialogContent>
-                  <DialogContentText>{window.obj.dummyData.bookmark}</DialogContentText>
+                  <List>
+                      {listitem}
+                  </List>
               </DialogContent>
               <DialogActions>
                   <Button onClick={this.handleDialogClose} color="primary">

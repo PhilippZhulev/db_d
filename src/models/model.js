@@ -415,6 +415,18 @@ function Model() {
         // console.log(specialDriversData);
 
         return [specialDrivers, specialDriversData]
+    };
+
+    this.bookmarklist = function(obj){
+        // console.log(obj);
+        const in_arr = obj;
+        let list = [];
+        for(let i=0; i<in_arr.length;i++){
+                list.push(in_arr[i].title);
+            }
+         // console.log("list: ");
+         // console.log(list);
+        return list
     }
 }
 

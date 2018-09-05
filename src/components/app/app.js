@@ -43,7 +43,7 @@ class App extends Component {
             date: "1",
             driverData: window.obj.dummyData.drivers,
             driverOptionsData: window.obj.dummyData.driver_options,
-            bookmark: window.obj.dummyData.bookmark,
+            bookmark: Model.bookmarklist(window.obj.dummyData.bookmark),
             driverOptionsArr: Model.optionsReduser(window.obj.dummyData.driver_options)
         };
 
@@ -53,8 +53,8 @@ class App extends Component {
             palette: this.state.theme
         });
 
-        // console.log("ДАТА ВСЕОТЕЦ:");
-        // console.log(window.obj.dummyData);
+        // console.log("ДАТА:");
+        // console.log(this.state.bookmark);
 
         store.subscribe(() => {
             switch (change) {
@@ -230,7 +230,7 @@ class App extends Component {
         return (
             <MuiThemeProvider theme={this.myTheme}>
                 <div className={"app_output" + this.state.menu + this.state.pos} style={{background: this.state.theme.primary.tiles}}>
-                    <Header templ={this.state.theme} data={this.state.data} groups={this.state.groups}  categorys={this.state.categorys}/>
+                    <Header templ={this.state.theme} data={this.state.data} groups={this.state.groups} bookmark={this.state.bookmark}  categorys={this.state.categorys}/>
                     <Tabs
                           templ={this.state.theme}
                           settings={{
