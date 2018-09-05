@@ -22,7 +22,7 @@ class App extends Component {
     constructor(props) {
         super(props);
 
-        console.log(window.obj.dummyData);
+        //console.log(window.obj.dummyData);
 
         this.state = {
             theme : (localStorage['templ'] === "on") ? whiteTheme : darkTheme || "on",
@@ -53,8 +53,8 @@ class App extends Component {
             palette: this.state.theme
         });
 
-        console.log("ДАТА ВСЕОТЕЦ:");
-        console.log(window.obj.dummyData);
+        // console.log("ДАТА ВСЕОТЕЦ:");
+        // console.log(window.obj.dummyData);
 
         store.subscribe(() => {
             switch (change) {
