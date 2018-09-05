@@ -88,19 +88,12 @@ class App extends Component {
                     this.setState({preloader:  true});
                     window.updateState(["return_driver_to_lumira", String(getState.value.id+","+getState.value.val)], () => {
 
-                        console.log("ДРАЙВЕРКИ");
-                        console.log(String(getState.value.id));
-                        console.log(getState.value.val);
-
                         for (let i = 0; i < this.driverLocalData.length; i++){
                             if (this.driverLocalData[i].id === getState.value.id) {
                                 this.driverLocalData[i].value = getState.value.val;
                                 break
                             }
                         }
-
-                        console.log("НОВЫЙ DATA");
-                        console.log(window.obj.dummyData);
 
                         if(this.state.groupsType !== "groups") {
                             this.setState({data:  window.obj.dummyData, driverData: this.driverLocalData, preloader:  false});
@@ -162,6 +155,8 @@ class App extends Component {
                         driverData: window.obj.dummyData.drivers,
                         preloader:  false
                     });
+
+                    this.driverLocalData = window.obj.dummyData.drivers;
 
                     store.dispatch({
                         type: 'DEFAULT_DRIVER',
