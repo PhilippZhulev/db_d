@@ -16,7 +16,7 @@ const styles = theme => ({
         opacity: 0,
         position: "absolute",
         transform:"scale(0)",
-        background: "#29353e"
+        background: this.props.templ.tiles
     },
     close : {
         width: 40,
@@ -28,7 +28,7 @@ const styles = theme => ({
     closeIcon: {
         width: 40,
         height: 40,
-        fill: "#fff"
+        fill: this.props.templ.textValueMain
     }
 });
 
