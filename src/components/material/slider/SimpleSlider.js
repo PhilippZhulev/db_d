@@ -205,7 +205,7 @@ class SimpleSlider extends React.Component {
             // console.log("." + this.state.random + ":before { content: '" + specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1] + "'; margin-"+((value < 0.5) ? "left" : "right")+": \""+(((value!==0.5)&&(specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1].length > 5)) ? "5" : "0")+"px\"}");
             // console.log("." + this.state.random + ":before { content: '" + specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1] + "' }");
             let beforeDivStyle = "." + this.state.random + ":before { content: '" + specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1] + "'; ";
-            console.log(value);
+            // console.log(value);
             if (specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1].length > 5) {
                 if (value < this.props.min + 0.01) {
                     beforeDivStyle = beforeDivStyle + "margin-left: 20px }";
