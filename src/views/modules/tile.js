@@ -126,6 +126,7 @@ class Tile extends Component {
 
     closePopup = () => {
       this.setState({popup: false});
+        this.forceUpdate();
     };
 
     buttonsPopup = () => {

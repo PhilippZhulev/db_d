@@ -113,6 +113,7 @@ class App extends Component {
 
                 case "change_date" :
                     this.setState({date: getState.states});
+                    console.log("App received value:");
                     console.log(getState.states);
                 break;
 
