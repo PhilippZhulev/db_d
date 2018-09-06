@@ -97,7 +97,7 @@ class Legend extends Component {
         const {classes} = this.props;
         const legendItems = this.props.options.colors.map((color,index)=>
             <div key={index} className={classes.legend_item}>
-                <span className = {classes.legend_text}>
+                <span className = {classes.legend_text} style={{fontSize:(this.props.options.addFontSize === undefined) ? String(12)+"px" : String(12+this.props.options.addFontSize)+"px"}}>
 
                         <InlineSVG className={classes.legend_color} src={makeSvg(color)} />
                     {this.props.options.titles[index]}</span>

@@ -7,6 +7,7 @@ import FormControl from "@material-ui/core/FormControl";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
+import store from "../../reduser";
 
 const tilesBind = Model.tilesBind();
 
@@ -61,7 +62,16 @@ class Tile extends Component {
     prec = 0;
 
     state = {
-      popup: false
+      popup: false,
+        date: this.props.date
+    };
+
+    handleChangeDate = event => {
+        this.setState({ date: event.target.value });
+        store.dispatch({
+            type: "CHANGE_DATE",
+            payload: event.target.value
+        });
     };
 
     createPopup = (classes, subscribtion, color, postfix) => {
@@ -69,8 +79,8 @@ class Tile extends Component {
         return (
           <section style={{background: this.props.templ.primary.tiles}} className={classes.popup}>
               <div className={"popup_content_wrapper"}>
-                  <div className={classes.close}>
-                    <Close style={{fill: this.props.templ.primary.textValueMain}} onTouchStart={this.closePopup} className={classes.closeIcon} />
+                  <div className={classes.close} onClick={this.closePopup}>
+                    <Close style={{fill: this.props.templ.primary.textValueMain}} className={classes.closeIcon} />
                   </div>
                   <div className={"tile_item__title"+postfix} style={{color: this.props.templ.primary.textValueMain, fontSize: "32px"}}>
                       {tilesBind[this.props.func].title}<span style={{color: this.props.templ.primary.textValueNormal, fontSize: "28px"}}>{((tilesBind[this.props.func].mera === "") ? "" : ", ")+tilesBind[this.props.func].mera}</span>
@@ -78,7 +88,7 @@ class Tile extends Component {
                   <div className="values_wrapper main_tile">
                       {this.setValuePopup(postfix, subscribtion, color)}
                   </div>
-                  {this.buttonsPopup()}
+                  {/*this.buttonsPopup()*/}
                   <MultiLine
                       options={{
                           grId:"line",
@@ -91,7 +101,8 @@ class Tile extends Component {
                           labelPosition:["top","top", "bottom"],
                           label: this.label,
                           thickness: 2,
-                          isBig: true
+                          isBig: true,
+                          addFontSize: 2
                       }}
                       templ={this.props.templ}
                       func={this.props.func}
@@ -247,7 +258,7 @@ class Tile extends Component {
         const { classes } = this.props;
 
         return(
-            <div onClick={this.openPopup} className={"tile_item_"+this.props.tileNum}>
+            <div onTouchStart={this.openPopup} className={"tile_item_"+this.props.tileNum}>
                 <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>
                     <div className={"tile_item__title"+postfix} style={{color: this.props.templ.primary.textValueMain}}>
                         {tilesBind[this.props.func].title}<span style={{color: this.props.templ.primary.textValueNormal}}>{((tilesBind[this.props.func].mera === "") ? "" : ", ")+tilesBind[this.props.func].mera}</span>

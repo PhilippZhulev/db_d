@@ -67,7 +67,7 @@ class Home extends Component {
                     func={value}
                     templ = {this.props.templ}
                     data = {this.props.fluxData.data}
-                    date = {this.state.date}
+                    date = {this.props.date}
                 />
             )
         });

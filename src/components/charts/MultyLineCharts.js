@@ -65,10 +65,10 @@ class MultiLine extends Component {
                 "startDuration": 0,
                 "color": this.props.templ.primary.graphText,
                 "thousandsSeparator": "",
-                "fontSize": 12,
+                "fontSize": 12 + ((this.props.options.addFontSize === undefined) ? 0 : this.props.options.addFontSize),
                 "categoryAxis": {
                     "labelOffset": -10,
-                    "fontSize": 12,
+                    "fontSize": 12 + ((this.props.options.addFontSize === undefined) ? 0 : this.props.options.addFontSize),
                     "gridPosition": "start",
                     "axisColor": this.props.templ.primary.graphText,
                     "color": this.props.templ.primary.graphText,
@@ -94,7 +94,8 @@ class MultiLine extends Component {
                         "labelsEnabled": false,
                         "title": "",
                         "minMaxMultiplier": 1.4,
-                        "titleColor": "#E5E5E5"
+                        "titleColor": "#E5E5E5",
+                        "fontSize": 12 + ((this.props.options.addFontSize === undefined) ? 0 : this.props.options.addFontSize)
                     }
                 ],
                 "allLabels": [],
@@ -116,7 +117,7 @@ class MultiLine extends Component {
                     "showBalloon": false,
                     "color": this.props.options.colors[i],
                     "id": "AmGraph-"+i,
-                    "fontSize": 12,
+                    "fontSize": 12 + ((this.props.options.addFontSize === undefined) ? 0 : this.props.options.addFontSize),
                     "showAllValueLabels": true,
                     "labelText": "[[value]]",//((Model.chartsGraphs([], this.props.data)[i]==="strategy")&&(!this.props.options.label))? "" : "[[value]]", чтобы на малых тайлах на стратегии не отображались значения
                     "precision": this.props.prec,
@@ -143,7 +144,7 @@ class MultiLine extends Component {
         );
 
         if(this.props.options.legend){
-            out.push(<Legend key={1} templ={this.props.templ} options={this.props.options}/>);
+            out.push(<Legend key={1} templ={this.props.templ} options={this.props.options} />);
         }
 
         return out
