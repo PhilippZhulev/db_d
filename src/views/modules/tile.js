@@ -52,7 +52,7 @@ class Tile extends Component {
         let graphcolor = ["#f8ac59","#1ab394"];
         let label = true;
         if(((this.props.func === "CIR")&&(this.props.page === "ALL"))||((this.props.func === "CHIS")&&(this.props.page === "ALL"))){
-             graphcolor = ["#727CF5","#f8ac59","#1ab394"]
+             graphcolor = ["#727CF5","#f8ac59","#1ab394"];
              label = false;
         }
         this.graphcolor = graphcolor;

@@ -19,7 +19,7 @@ class MultiLine extends Component {
         return Model.chartsGraphs([], this.props.data).map((value, index)=>{
             switch (value) {
                 case "strategy":
-                    return "top";
+                    return (this.props.options.label) ? "top" : "bottom";
                 case "model":
                     return (metr > 0) ? "top" : "bottom";
                 default:
@@ -118,7 +118,7 @@ class MultiLine extends Component {
                     "id": "AmGraph-"+i,
                     "fontSize": 12,
                     "showAllValueLabels": true,
-                    "labelText": ((Model.chartsGraphs([], this.props.data)[i]==="strategy")&&(!this.props.options.label))? "" : "[[value]]",
+                    "labelText": "[[value]]",//((Model.chartsGraphs([], this.props.data)[i]==="strategy")&&(!this.props.options.label))? "" : "[[value]]", чтобы на малых тайлах на стратегии не отображались значения
                     "precision": this.props.prec,
                     "lineThickness": this.props.options.thickness,
                     "title": "graph "+i,
