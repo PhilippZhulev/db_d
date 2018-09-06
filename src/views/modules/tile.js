@@ -8,19 +8,21 @@ const tilesBind = Model.tilesBind();
 
 const styles = theme => ({
   popup : {
-    width: "calc(100% - 250px)",
-    height: "calc(100% - 50px)",
-    position: "fixed",
-    background: "#29353e",
-    zIndex: "9000",
-    top: 50,
-    left: 0
+    top: -67,
+    left: 0,
+    width: "100%",
+    height: "calc(100% + 70px)",
+    zIndex: 9000,
+    opacity: 0,
+    position: "absolute",
+    transform:"scale(0)",
+    background: "#29353e"
   },
   close : {
     width: 40,
     height: 40,
     position: "absolute",
-    right: 15,
+    right: 0,
     top: 15
   },
   closeIcon: {
@@ -43,21 +45,17 @@ class Tile extends Component {
         this.setState({popFade: {transform: "scale(1)", opacity: 1, transition: "all 300ms ease-in-out"}})
     };
 
-    componentWillMount = () => {
-        this.setState({popFade: {transform: "scale(0)", opacity: 0, transition: "all 300ms ease-in-out"}})
-    };
-
     createPopup = (classes) => {
       if(this.state.popup === true) {
         return (
           <section style={this.state.popFade} className={classes.popup}>
               <div className={classes.close}>
-                <Close onClick={this.closePopup} className={classes.closeIcon} />
+                <Close onTouchStart={this.closePopup} className={classes.closeIcon} />
               </div>
           </section>
         );
       }else {
-        return <section style={this.state.popFade} />
+         return <section/>
       }
     };
 
