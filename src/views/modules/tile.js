@@ -67,15 +67,15 @@ class Tile extends Component {
                       options={{
                           grId:"line",
                           titles:["Стратегия 2020", "Моделирование", "Базовая версия"],
-                          geometry: {width:"88%", height:"90%"},
+                          geometry: {width:"100%", height:"100%"},
                           //colors: (this.props.isSmall) ? ["#727CF5","#1ab394"] : ["#f8ac59","#727CF5","#1ab394"],
-                          colors: (this.props.isSmall) ? this.graphcolor : ["#727CF5","#f8ac59","#1ab394"],
-                          legend: (!this.props.isSmall),
+                          colors: ["#727CF5","#f8ac59","#1ab394"],
+                          legend: true,
                           type: "smoothedLine",
-                          labelPosition:(this.props.isSmall) ? ["top","bottom"] : ["top","top", "bottom"],
+                          labelPosition:["top","top", "bottom"],
                           label: this.label,
-                          thickness: (this.props.isSmall) ? 1 : 2,
-                          isBig: (!this.props.isSmall)
+                          thickness: 2,
+                          isBig: true
                       }}
                       templ={this.props.templ}
                       func={this.props.func}
@@ -166,14 +166,14 @@ class Tile extends Component {
         let tileCalc = Model.tileCalc(this.props.func, this.props.page, this.props.data, this.props.date, tilesBind[this.props.func].mera, prec);
 
         values.unshift(
-            <div key={0} className={"tile_item__value"+postfix+" value_flex"} style={{color: this.props.templ.primary.textValueMain, fontSize: "76px", lineHeight:"76px"}}>
+            <div key={0} className={"tile_item__value"+postfix+" value_flex"} style={{color: this.props.templ.primary.textValueMain, fontSize: "60px", lineHeight:"76px"}}>
                 <div>
                     {/*{(zeroedVal === null) ? tileCalc.mainVal : zeroedVal}*/}
                     {tileCalc.mainVal}
                 </div>
                 <div>
-                    <span className="subscribe" style={{color: color, lineHeight:"36px"}}>{(this.props.addSubscr !== undefined ? this.props.addSubscr : "1")}</span>
-                    <span style={{color:(tileCalc.smallVal === "(0.0%)" || tileCalc.smallVal === "(NaN%)" || tileCalc.smallVal === "(0%)" || tileCalc.smallVal === "(0.00%)" || tileCalc.smallVal === "(NaN)" || tileCalc.smallVal === "(0.0)" || tileCalc.smallVal === "(0)" || tileCalc.smallVal === "(0.00)") ? this.props.templ.primary.textValueNormal : this.props.templ.primary.textValuePerc, fontSize:"32px", lineHeight:"37px"}}>
+                    <span className="subscribe" style={{color: color, lineHeight:"35px"}}>{(this.props.addSubscr !== undefined ? this.props.addSubscr : "1")}</span>
+                    <span style={{color:(tileCalc.smallVal === "(0.0%)" || tileCalc.smallVal === "(NaN%)" || tileCalc.smallVal === "(0%)" || tileCalc.smallVal === "(0.00%)" || tileCalc.smallVal === "(NaN)" || tileCalc.smallVal === "(0.0)" || tileCalc.smallVal === "(0)" || tileCalc.smallVal === "(0.00)") ? this.props.templ.primary.textValueNormal : this.props.templ.primary.textValuePerc, fontSize:"30px", lineHeight:"32px"}}>
                         {tileCalc.smallVal}
                     </span>
                 </div>
