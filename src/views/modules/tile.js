@@ -13,22 +13,19 @@ const styles = theme => ({
         width: "100%",
         height: "calc(100% + 70px)",
         zIndex: 9000,
-        opacity: 0,
-        position: "absolute",
-        transform:"scale(0)",
-        background: this.props.templ.tiles
+        position: "absolute"
     },
     close : {
         width: 40,
         height: 40,
         position: "absolute",
         right: 0,
-        top: 15
+        top: 15,
+        zIndex: 9999
     },
     closeIcon: {
         width: 40,
         height: 40,
-        fill: this.props.templ.textValueMain
     }
 });
 
@@ -37,25 +34,16 @@ class Tile extends Component {
     prec = 0;
 
     state = {
-      popup: false,
-      popFade: { transform: "scale(0)", opacity: 0, transition: "all 300ms ease-in-out"}
-    };
-
-    componentDidMount = () => {
-        this.setState({popFade: {transform: "scale(1)", opacity: 1, transition: "all 300ms ease-in-out"}})
-    };
-
-    componentWillMount = () => {
-        this.setState({popFade: {transform: "scale(0)", opacity: 0, transition: "all 300ms ease-in-out"}})
+      popup: false
     };
 
     createPopup = (classes, subscribtion, color, postfix) => {
       if(this.state.popup === true) {
         return (
-          <section style={this.state.popFade} className={classes.popup}>
+          <section style={{background: this.props.templ.primary.tiles}} className={classes.popup}>
               <div className={"popup_content_wrapper"}>
                   <div className={classes.close}>
-                    <Close onClick={this.closePopup} className={classes.closeIcon} />
+                    <Close style={{fill: this.props.templ.primary.textValueMain}} onTouchStart={this.closePopup} className={classes.closeIcon} />
                   </div>
                   <div className={"tile_item__title"+postfix} style={{color: this.props.templ.primary.textValueMain, fontSize: "32px"}}>
                       {tilesBind[this.props.func].title}<span style={{color: this.props.templ.primary.textValueNormal, fontSize: "28px"}}>{((tilesBind[this.props.func].mera === "") ? "" : ", ")+tilesBind[this.props.func].mera}</span>
