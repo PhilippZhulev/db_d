@@ -48,7 +48,7 @@ const styles = theme => ({
 
     },
     group: {
-        margin: "70px -110px",
+        margin: "14px -37px",
         color: "white",
         display: "-webkit-box",
         //display: "inline",
