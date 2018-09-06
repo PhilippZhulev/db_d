@@ -3,6 +3,10 @@ import MultiLine from '../../components/charts/MultyLineCharts';
 import Model from '../../models/model.js';
 import {withStyles} from "@material-ui/core/styles";
 import Close from '@material-ui/icons/Close';
+import FormControl from "@material-ui/core/FormControl";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Radio from "@material-ui/core/Radio";
 
 const tilesBind = Model.tilesBind();
 
@@ -29,7 +33,29 @@ const styles = theme => ({
         width: 40,
         height: 40,
         fill: "#fff"
-    }
+    }, root: {
+        display: 'flex',
+        '&$checked': {
+            color: 0
+        },
+    },
+    formControl: {
+        //margin: theme.spacing.unit * 3,
+        color: "white",
+        height: "70px",
+        width: "250px"
+    },
+    group_wrapper: {
+
+    },
+    group: {
+        margin: `${theme.spacing.unit}px 0`,
+        color: "white",
+        display: "-webkit-box",
+        //display: "inline",
+        webkitBoxOrient: "vertical"
+    },
+    radio: {color: "red"}
 });
 
 class Tile extends Component {
@@ -63,6 +89,7 @@ class Tile extends Component {
                   <div className="values_wrapper main_tile">
                       {this.setValuePopup(postfix, subscribtion, color)}
                   </div>
+                  {this.buttonsPopup()}
                   <MultiLine
                       options={{
                           grId:"line",
@@ -98,6 +125,45 @@ class Tile extends Component {
 
     closePopup = () => {
       this.setState({popup: false});
+    };
+
+    buttonsPopup = () => {
+        const { classes } = this.props;
+        const years = ["2019", "2020", "2021"];
+        return (
+            <div className={"buttons_container"} style={{position: "absolute", zIndex: 999, right:"0px", top:"-20px", width:"250px", height:"70px"}}>
+                <style>
+                    {".radioChecked {color: " + this.props.templ.primary.textValueNormal +"!important}"}
+                </style>
+            <div className={classes.root}>
+                <div className={classes.group_wrapper}>
+                    <FormControl component="fieldset" className={classes.formControl}>
+                        <RadioGroup
+                            aria-label="Gender"
+                            name="gender1"
+                            className={classes.group}
+                            value={this.state.date}
+                            onChange={this.handleChangeDate}
+                        >
+                            {years.map(
+                                (value,index)=>{
+                                    return(
+                                        <FormControlLabel
+                                            className={classes.label}
+                                            classes={{label: "radioChecked"}}
+                                            key={index}
+                                            value={String(index)}
+                                            control={<Radio className={classes.radio} classes={{root: classes.root,colorPrimary:"radioChecked",colorSecondary:"radioChecked", checked: "radioChecked"}}/>}
+                                            label={value}
+                                        />
+                                    )
+                                }
+                            )}
+                        </RadioGroup>
+                    </FormControl>
+                </div>
+            </div>
+            </div>)
     };
 
     setValue = (postfix, subscribtion, color) => {
