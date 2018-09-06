@@ -92,7 +92,7 @@ constructor(props){
                 <Close style={{fill: this.props.templ.primary.textValueMain}} className={classes.closeIcon} />
               </div>
               <div className={"popup_content_wrapper"}>
-                  <div className={"tile_item__title"+postfix} style={{color: this.props.templ.primary.textValueMain, fontSize: "32px"}}>
+                  <div className={"tile_item__title"+postfix} style={{color: this.props.templ.primary.textValueMain, fontSize: "32px", fontWeight:"400"}}>
                       {tilesBind[this.props.func].title}<span style={{color: this.props.templ.primary.textValueNormal, fontSize: "28px"}}>{((tilesBind[this.props.func].mera === "") ? "" : ", ")+tilesBind[this.props.func].mera}</span>
                   </div>
                   <div className="values_wrapper main_tile">
