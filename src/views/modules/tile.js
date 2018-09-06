@@ -251,7 +251,7 @@ constructor(props){
                     {tileCalc.mainVal}
                 </div>
                 <div>
-                    <span className="subscribe" style={{color: color, lineHeight:"35px"}}>{(this.props.addSubscr !== undefined ? this.props.addSubscr : "1")}</span>
+                    <span className="subscribe" style={{color: color, lineHeight:"33px"}}>{(this.props.addSubscr !== undefined ? this.props.addSubscr : "1")}</span>
                     <span style={{color:(tileCalc.smallVal === "(0.0%)" || tileCalc.smallVal === "(NaN%)" || tileCalc.smallVal === "(0%)" || tileCalc.smallVal === "(0.00%)" || tileCalc.smallVal === "(NaN)" || tileCalc.smallVal === "(0.0)" || tileCalc.smallVal === "(0)" || tileCalc.smallVal === "(0.00)") ? this.props.templ.primary.textValueNormal : this.props.templ.primary.textValuePerc, fontSize:"30px", lineHeight:"32px"}}>
                         {tileCalc.smallVal}
                     </span>
