@@ -80,6 +80,7 @@ function reduser (state = null, action) {
                 change: "buttons_reassign"
             };
         case "CHANGE_DATE":
+            console.log(action.payload);
             return {...state,
                 states: action.payload,
                 change: "change_date"

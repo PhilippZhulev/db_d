@@ -72,6 +72,7 @@ class Tile extends Component {
             type: "CHANGE_DATE",
             payload: event.target.value
         });
+        console.log(event.target.value);
     };
 
     createPopup = (classes, subscribtion, color, postfix) => {
@@ -88,7 +89,7 @@ class Tile extends Component {
                   <div className="values_wrapper main_tile">
                       {this.setValuePopup(postfix, subscribtion, color)}
                   </div>
-                  {/*this.buttonsPopup()*/}
+                  {this.buttonsPopup(this.state)}
                   <MultiLine
                       options={{
                           grId:"line",

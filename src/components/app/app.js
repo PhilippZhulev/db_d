@@ -113,6 +113,7 @@ class App extends Component {
 
                 case "change_date" :
                     this.setState({date: getState.states});
+                    console.log(getState.states);
                 break;
 
                 case "drivers_router" :
