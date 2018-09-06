@@ -30,7 +30,6 @@ const styles = theme => ({
     closeIcon: {
         width: 40,
         height: 40,
-<<<<<<< HEAD
         fill: "#fff"
     }, root: {
         display: 'flex',
@@ -55,9 +54,6 @@ const styles = theme => ({
         webkitBoxOrient: "vertical"
     },
     radio: {color: "red"}
-=======
-    }
->>>>>>> Zhulev_Philipp_Alexandrovich
 });
 
 class Tile extends Component {
