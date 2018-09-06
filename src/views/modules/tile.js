@@ -72,6 +72,7 @@ constructor(props){
     store.subscribe(() => {
         this.setState({date: this.props.date});
     });
+
 };
 
     handleChangeDate = event => {
@@ -101,8 +102,9 @@ constructor(props){
                   <MultiLine
                       options={{
                           grId:"line",
-                          titles: ((this.props.isSmall)&&((this.props.func !== "CIR")||(this.props.func !== "CHIS"))) ? ["Моделирование", "Базовая версия"] : ["Стратегия 2020", "Моделирование", "Базовая версия"],
+                          //titles: ((this.props.isSmall)&&((this.props.page === "ALL")&&((this.props.func !== "CIR")||(this.props.func !== "CHIS")))) ? ["Моделирование", "Базовая версия"] : ["Стратегия 2020", "Моделирование", "Базовая версия"],
                           geometry: {width:"100%", height:"100%"},
+                          titles: ((!this.props.isSmall)||((this.props.page === "ALL")&&((this.props.func === "CIR")||(this.props.func === "CHIS")))) ? ["Стратегия 2020", "Моделирование", "Базовая версия"] : ["Моделирование", "Базовая версия"],
                           //colors: (this.props.isSmall) ? ["#727CF5","#1ab394"] : ["#f8ac59","#727CF5","#1ab394"],
                           colors: (this.props.isSmall) ? this.graphcolor : ["#727CF5","#f8ac59","#1ab394"],
                           legend: true,
