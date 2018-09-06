@@ -51,6 +51,10 @@ class Rb extends Component {
             templ: this.props.templ,
             date: this.props.date
         };
+
+        store.subscribe(() => {
+            this.setState({date: this.props.date});
+        });
     }
 
     tiles = () => {

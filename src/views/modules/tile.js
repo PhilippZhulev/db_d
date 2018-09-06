@@ -60,11 +60,19 @@ const styles = theme => ({
 class Tile extends Component {
 
     prec = 0;
+constructor(props){
 
-    state = {
-      popup: false,
+    super(props);
+
+    this.state = {
+        popup: false,
         date: this.props.date
     };
+
+    store.subscribe(() => {
+        this.setState({date: this.props.date});
+    });
+};
 
     handleChangeDate = event => {
         this.setState({ date: event.target.value });
@@ -93,10 +101,10 @@ class Tile extends Component {
                   <MultiLine
                       options={{
                           grId:"line",
-                          titles:["Стратегия 2020", "Моделирование", "Базовая версия"],
+                          titles: ((this.props.isSmall)&&((this.props.func !== "CIR")||(this.props.func !== "CHIS"))) ? ["Моделирование", "Базовая версия"] : ["Стратегия 2020", "Моделирование", "Базовая версия"],
                           geometry: {width:"100%", height:"100%"},
                           //colors: (this.props.isSmall) ? ["#727CF5","#1ab394"] : ["#f8ac59","#727CF5","#1ab394"],
-                          colors: ["#727CF5","#f8ac59","#1ab394"],
+                          colors: (this.props.isSmall) ? this.graphcolor : ["#727CF5","#f8ac59","#1ab394"],
                           legend: true,
                           type: "smoothedLine",
                           labelPosition:["top","top", "bottom"],
