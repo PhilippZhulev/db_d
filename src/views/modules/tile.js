@@ -79,10 +79,10 @@ class Tile extends Component {
       if(this.state.popup === true) {
         return (
           <section style={{background: this.props.templ.primary.tiles}} className={classes.popup}>
+              <div className={classes.close} onTouchStart={this.closePopup}>
+                <Close style={{fill: this.props.templ.primary.textValueMain}} className={classes.closeIcon} />
+              </div>
               <div className={"popup_content_wrapper"}>
-                  <div className={classes.close} onClick={this.closePopup}>
-                    <Close style={{fill: this.props.templ.primary.textValueMain}} className={classes.closeIcon} />
-                  </div>
                   <div className={"tile_item__title"+postfix} style={{color: this.props.templ.primary.textValueMain, fontSize: "32px"}}>
                       {tilesBind[this.props.func].title}<span style={{color: this.props.templ.primary.textValueNormal, fontSize: "28px"}}>{((tilesBind[this.props.func].mera === "") ? "" : ", ")+tilesBind[this.props.func].mera}</span>
                   </div>
@@ -259,8 +259,8 @@ class Tile extends Component {
         const { classes } = this.props;
 
         return(
-            <div onTouchStart={this.openPopup} className={"tile_item_"+this.props.tileNum}>
-                <div className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>
+            <div className={"tile_item_"+this.props.tileNum}>
+                <div onTouchStart={this.openPopup} className="tile_item__inner" style={{background: this.props.templ.primary.tiles}}>
                     <div className={"tile_item__title"+postfix} style={{color: this.props.templ.primary.textValueMain}}>
                         {tilesBind[this.props.func].title}<span style={{color: this.props.templ.primary.textValueNormal}}>{((tilesBind[this.props.func].mera === "") ? "" : ", ")+tilesBind[this.props.func].mera}</span>
                     </div>
