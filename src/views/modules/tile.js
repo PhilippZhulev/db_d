@@ -48,7 +48,7 @@ const styles = theme => ({
 
     },
     group: {
-        margin: "70px -110px",
+        margin: "14px -37px",
         color: "white",
         display: "-webkit-box",
         //display: "inline",
@@ -96,7 +96,7 @@ constructor(props){
                       {tilesBind[this.props.func].title}<span style={{color: this.props.templ.primary.textValueNormal, fontSize: "28px"}}>{((tilesBind[this.props.func].mera === "") ? "" : ", ")+tilesBind[this.props.func].mera}</span>
                   </div>
                   <div className="values_wrapper main_tile">
-                      {this.setValuePopup(postfix, subscribtion, color)}
+                      {this.setValuePopup(subscribtion, color)}
                   </div>
                   {this.buttonsPopup(this.state)}
                   <MultiLine
@@ -220,7 +220,8 @@ constructor(props){
 
     };
 
-    setValuePopup = (postfix, subscribtion, color) => {
+    setValuePopup = (subscribtion, color) => {
+        let postfix = "";
         let values = [];
         let prec = 1;
         if ((this.props.func === "EPS") || (this.props.func === "COR")) {
