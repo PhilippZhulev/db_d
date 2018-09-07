@@ -283,7 +283,8 @@ class SimpleSlider extends React.Component {
 
 
                     {/*<Typography onClick={this.handleClickOpen} className="label_1">{this.props.labelText}</Typography>*/}
-                    <Typography className="label_1" onClick={this.handleClickOpen}>{this.props.labelText}</Typography>
+                    {/*<Typography className="label_1" onClick={this.handleClickOpen}>{this.props.labelText}</Typography>*/}
+                    <Typography className="label_1">{this.props.labelText}</Typography>
                     <style>
                         {beforeDivStyle}
                         {/*"." + this.state.random + ":before { content: '" + specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1] + "'; margin-"+((value < 0.5) ? "left" : "right")+": "+(((value!==0.5)&&(specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1].length > 5)) ? "15" : "0")+"px}"*/}

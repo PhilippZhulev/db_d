@@ -172,6 +172,7 @@ class LongMenu extends React.Component {
               open={this.state.dialogopen}
               onClose={this.handleDialogClose}
               aria-labelledby="form-dialog-title"
+              classes={{paperWidthXs:"dialog",paperWidthLg:"dialog",paperWidthMd:"dialog",paperWidthSm:"dialog"}}
           >
               <DialogTitle id="form-dialog-title">Журнал изменений</DialogTitle>
               <DialogContent>

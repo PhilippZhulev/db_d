@@ -311,10 +311,10 @@ function Model() {
             NIM:NIM,
             oldNIM:oldNIM,
             defaultSel:{
-                CIR: String(oldCIR.indexOf("33%")),
+                CIR: String(oldCIR.indexOf("33.1%")),
                 COR: String(oldCOR.indexOf("1.3%")),
-                CAGR: String(oldCAGR.indexOf("15.0%")),
-                NIM: String(oldNIM.indexOf("5.3%"))
+                CAGR: String(oldCAGR.indexOf("16.0%")),
+                NIM: String(oldNIM.indexOf("5.2%"))
             }
         };
         for (let i = 0; i < CIR.length; i++){
