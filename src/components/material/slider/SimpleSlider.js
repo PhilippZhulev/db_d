@@ -208,9 +208,9 @@ class SimpleSlider extends React.Component {
             // console.log(value);
             if (specialDriversData["dr"+this.props.driverId][this.state.value.toFixed(1)-1].length > 5) {
                 if (value < this.props.min + 0.01) {
-                    beforeDivStyle = beforeDivStyle + "margin-left: 20px }";
+                    beforeDivStyle = beforeDivStyle + "margin-left: 40px }";
                 } else if (value > this.props.max - 0.01) {
-                    beforeDivStyle = beforeDivStyle + "margin-right: 20px }";
+                    beforeDivStyle = beforeDivStyle + "margin-right: 40px }";
                 } else {
                         beforeDivStyle = beforeDivStyle+" }";
                 }
